@@ -27,6 +27,7 @@
 #include "paymentserver.h"
 #include "walletmodel.h"
 #include "sibmodel.h"
+#include "offermodel.h"
 #endif
 #include "masternodeconfig.h"
 
@@ -261,6 +262,7 @@ private:
     PaymentServer* paymentServer;
     WalletModel *walletModel;
     SibModel *sibModel;
+    OfferModel *offerModel;
 #endif
     int returnValue;
     const PlatformStyle *platformStyle;
@@ -366,6 +368,7 @@ BitcoinApplication::BitcoinApplication(int &argc, char **argv):
     paymentServer(0),
     walletModel(0),
     sibModel(0),
+    offerModel(0),
 #endif
     returnValue(0)
 {
@@ -525,9 +528,11 @@ void BitcoinApplication::initializeResult(int retval)
         if(pwalletMain)
         {
             sibModel = new SibModel(psibDB);            
+            // offerModel = new OfferModel(pofferDB);
             walletModel = new WalletModel(platformStyle, pwalletMain, optionsModel);
             
             window->setSibModel(sibModel);
+            // window->setOfferModel(offerModel);
             window->addWallet(BitcoinGUI::DEFAULT_WALLET, walletModel);
             window->setCurrentWallet(BitcoinGUI::DEFAULT_WALLET);
 

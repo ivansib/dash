@@ -11,6 +11,7 @@
 class CScheduler;
 class CWallet;
 class CSibDB;
+class COfferDB;
 
 namespace boost
 {
@@ -18,6 +19,7 @@ class thread_group;
 } // namespace boost
 
 extern CSibDB* psibDB;
+extern COfferDB* pofferDB;
 
 void StartShutdown();
 void StartRestart();

@@ -16,6 +16,7 @@ QT_FORMS_UI = \
   qt/forms/editaddressdialog.ui \
   qt/forms/genandprintdialog.ui \
   qt/forms/goodsdialog.ui \
+  qt/forms/offerdialog.ui \
   qt/forms/helpmessagedialog.ui \
   qt/forms/intro.ui \
   qt/forms/modaloverlay.ui \
@@ -49,6 +50,7 @@ QT_MOC_CPP = \
   qt/moc_editaddressdialog.cpp \
   qt/moc_genandprintdialog.cpp \
   qt/moc_goodsdialog.cpp \
+  qt/moc_offerdialog.cpp \
   qt/moc_guiutil.cpp \
   qt/moc_intro.cpp \
   qt/moc_macdockiconhandler.cpp \
@@ -72,6 +74,7 @@ QT_MOC_CPP = \
   qt/moc_sendcoinsdialog.cpp \
   qt/moc_sendcoinsentry.cpp \
   qt/moc_sibmodel.cpp \
+  qt/moc_offermodel.cpp \
   qt/moc_signverifymessagedialog.cpp \
   qt/moc_splashscreen.cpp \
   qt/moc_trafficgraphwidget.cpp \
@@ -132,6 +135,7 @@ BITCOIN_QT_H = \
   qt/editaddressdialog.h \
   qt/genandprintdialog.h \
   qt/goodsdialog.h \
+  qt/offerdialog.h \
   qt/guiconstants.h \
   qt/guiutil.h \
   qt/intro.h \
@@ -159,6 +163,7 @@ BITCOIN_QT_H = \
   qt/sendcoinsdialog.h \
   qt/sendcoinsentry.h \
   qt/sibmodel.h \
+  qt/offermodel.h \
   qt/signverifymessagedialog.h \
   qt/splashscreen.h \
   qt/trafficgraphdata.h \
@@ -499,6 +504,7 @@ BITCOIN_QT_CPP += \
   qt/masternodelist.cpp \
   qt/genandprintdialog.cpp \
   qt/goodsdialog.cpp \
+  qt/offerdialog.cpp \
   qt/openuridialog.cpp \
   qt/overviewpage.cpp \
   qt/paymentrequestplus.cpp \
@@ -510,6 +516,7 @@ BITCOIN_QT_CPP += \
   qt/sendcoinsdialog.cpp \
   qt/sendcoinsentry.cpp \
   qt/sibmodel.cpp \
+  qt/offermodel.cpp \
   qt/signverifymessagedialog.cpp \
   qt/transactiondesc.cpp \
   qt/transactiondescdialog.cpp \

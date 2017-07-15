@@ -33,6 +33,7 @@ class HelpMessageDialog;
 class ModalOverlay;
 class MasternodeList;
 class SibModel;
+class OfferModel;
 
 class CWallet;
 
@@ -68,6 +69,7 @@ public:
         functionality.
     */
     void setSibModel(SibModel *sibModel);
+    void setOfferModel(OfferModel *offerModel);
     bool addWallet(const QString& name, WalletModel *walletModel);
     bool setCurrentWallet(const QString& name);
     void removeAllWallets();
@@ -85,6 +87,7 @@ protected:
 private:
     ClientModel *clientModel;
     SibModel *sibModel;
+    OfferModel *offerModel;
     WalletFrame *walletFrame;
 
     UnitDisplayStatusBarControl *unitDisplayControl;
@@ -109,6 +112,7 @@ private:
     QAction *verifyMessageAction;
     QAction *genAndPrintAddressesAction;
     QAction *goodsAction;
+    QAction *offerAction;
     QAction *loadFromPaperAction;
     QAction *aboutAction;
     QAction *receiveCoinsAction;
@@ -233,6 +237,8 @@ private Q_SLOTS:
     void gotoSendCoinsPage(QString addr = "");
     /** Switch to send coins page */
     void gotoGoodsPage();
+    /** Switch to send coins page */
+    void gotoOfferPage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");

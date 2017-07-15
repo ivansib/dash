@@ -17,11 +17,13 @@ class PlatformStyle;
 class ReceiveCoinsDialog;
 class SendCoinsDialog;
 class GoodsDialog;
+class OfferDialog;
 class SendCoinsRecipient;
 class TransactionView;
 class WalletModel;
 class AddressBookPage;
 class SibModel;
+class OfferModel;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -50,6 +52,7 @@ public:
     void setClientModel(ClientModel *clientModel);
     
     void setSibModel(SibModel *sibModel);
+    void setOfferModel(OfferModel *offerModel);
 
     /** Set the wallet model.
         The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
@@ -65,6 +68,7 @@ private:
     ClientModel *clientModel;
     WalletModel *walletModel;
     SibModel *sibModel;
+    OfferModel *offerModel;
 
     OverviewPage *overviewPage;
     QWidget *transactionsPage;
@@ -77,6 +81,7 @@ private:
     TransactionView *transactionView;
     
     GoodsDialog *goodsPage;
+    OfferDialog *offerPage;
 
     QProgressDialog *progressDialog;
     QLabel *transactionSum;
@@ -95,6 +100,8 @@ public Q_SLOTS:
     void gotoSendCoinsPage(QString addr = "");
     /** Switch to send coins page */
     void gotoGoodsPage();
+    /** Switch to offer page */
+    void gotoOfferPage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
