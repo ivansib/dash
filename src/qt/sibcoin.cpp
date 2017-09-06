@@ -22,6 +22,7 @@
 #include "splashscreen.h"
 #include "utilitydialog.h"
 #include "winshutdownmonitor.h"
+#include <sqlite/testdb.h>
 
 #ifdef ENABLE_WALLET
 #include "paymentserver.h"
@@ -708,6 +709,8 @@ int main(int argc, char *argv[])
     // QApplication::setApplicationName(networkStyle->getAppName()); // moved to NetworkStyle::NetworkStyle
     // Re-initialize translations after changing application name (language in network-specific settings can be different)
     initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator);
+
+    sqlite::TestDB db(GetDataDir(false));
 
 #ifdef ENABLE_WALLET
     /// 7a. parse masternode.conf

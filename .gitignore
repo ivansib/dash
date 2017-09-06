@@ -2,7 +2,8 @@
 *.sublime-workspace
 todo.txt
 reset-files.bash
-
+Makefile.am.user
+Makefile.am.user.*
 *.tar.gz
 
 *.exe

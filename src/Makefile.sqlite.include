@@ -1,0 +1,8 @@
+LIBS+=-lsqlite3
+
+LEVELDB_CPPFLAGS += -I$(srcdir)/sqlite/include
+
+leveldb_libleveldb_a_SOURCES=
+leveldb_libleveldb_a_SOURCES += sqlite/sqlite3pp/sqlite3pp.cpp
+leveldb_libleveldb_a_SOURCES += sqlite/sqlite3pp/sqlite3ppext.cpp
+leveldb_libleveldb_a_SOURCES += sqlite/sqlite3pptest/testdb.cpp
