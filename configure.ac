@@ -201,6 +201,9 @@ AC_ARG_ENABLE([werror],
     [enable_werror=no])
 
 AC_LANG_PUSH([C++])
+AX_CHECK_COMPILE_FLAG([-std=c++0x], [CXXFLAGS="$CXXFLAGS -std=c++0x"])
+AX_CHECK_COMPILE_FLAG([-fPIC], [CXXFLAGS="$CXXFLAGS -fPIC"])
+AX_CHECK_COMPILE_FLAG([-DBOOST_NO_CXX11_SCOPED_ENUMS], [CXXFLAGS="$CXXFLAGS -DBOOST_NO_CXX11_SCOPED_ENUMS"])
 AX_CHECK_COMPILE_FLAG([-Werror],[CXXFLAG_WERROR="-Werror"],[CXXFLAG_WERROR=""])
 
 if test "x$enable_debug" = xyes; then
@@ -263,6 +266,12 @@ AC_ARG_WITH([printsupport],
   [enable print support for Qt (default=yes)])],
   [enable_printsupport=$withval],
   [enable_printsupport=yes])
+
+AC_ARG_WITH([dex],
+  [AS_HELP_STRING([--with-dex],
+  [enable Decentralized EXchange (default=no)])],
+  [enable_dex=$withval],
+  [enable_dex=no])
 
 use_pkgconfig=yes
 case $host in
@@ -596,12 +605,16 @@ if test x$use_reduce_exports = xyes; then
 fi
 
 LEVELDB_CPPFLAGS=
+SQLITE_CPPFLAGS=
 LIBLEVELDB=
+LIBDEXDB=
 LIBMEMENV=
 AM_CONDITIONAL([EMBEDDED_LEVELDB],[true])
 AC_SUBST(LEVELDB_CPPFLAGS)
 AC_SUBST(LIBLEVELDB)
+AC_SUBST(LIBDEXDB)
 AC_SUBST(LIBMEMENV)
+AC_SUBST(SQLITE_CPPFLAGS)
 
 if test x$enable_wallet != xno; then
     dnl Check for libdb_cxx only if wallet enabled
@@ -1069,6 +1082,16 @@ else
   AC_MSG_RESULT(no)
 fi
 
+dnl enable DEX
+AC_MSG_CHECKING([if DEX should be enabled])
+if test x$enable_dex != xno; then
+  AC_MSG_RESULT(yes)
+  AC_CHECK_LIB([sqlite3],  [main],SQLITE_LIBS=-lsqlite3, AC_MSG_ERROR(sqlite3 missing))
+  AC_DEFINE_UNQUOTED([ENABLE_DEX],[1],[Define to 1 to enable dex functions])
+else
+  AC_MSG_RESULT(no)
+fi
+
 AM_CONDITIONAL([TARGET_DARWIN], [test x$TARGET_OS = xdarwin])
 AM_CONDITIONAL([BUILD_DARWIN], [test x$BUILD_OS = xdarwin])
 AM_CONDITIONAL([TARGET_WINDOWS], [test x$TARGET_OS = xwindows])
@@ -1082,6 +1105,7 @@ AM_CONDITIONAL([USE_LCOV],[test x$use_lcov = xyes])
 AM_CONDITIONAL([GLIBC_BACK_COMPAT],[test x$use_glibc_compat = xyes])
 AM_CONDITIONAL([HARDEN],[test x$use_hardening = xyes])
 AM_CONDITIONAL([ENABLE_PRINTSUPPORT],[test x$enable_printsupport = xyes])
+AM_CONDITIONAL([ENABLE_DEX],[test x$enable_dex = xyes])
 
 AC_DEFINE(CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MAJOR, [Major version])
 AC_DEFINE(CLIENT_VERSION_MINOR, _CLIENT_VERSION_MINOR, [Minor version])

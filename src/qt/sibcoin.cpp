@@ -22,7 +22,10 @@
 #include "splashscreen.h"
 #include "utilitydialog.h"
 #include "winshutdownmonitor.h"
-#include <sqlite/testdb.h>
+
+#ifdef ENABLE_DEX
+#include "sqlite/dexdb.h"
+#endif
 
 #ifdef ENABLE_WALLET
 #include "paymentserver.h"
@@ -710,7 +713,9 @@ int main(int argc, char *argv[])
     // Re-initialize translations after changing application name (language in network-specific settings can be different)
     initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator);
 
-    sqlite::TestDB db(GetDataDir(false));
+#ifdef ENABLE_DEX
+    sqlite::DexDB db(GetDataDir(false));
+#endif
 
 #ifdef ENABLE_WALLET
     /// 7a. parse masternode.conf

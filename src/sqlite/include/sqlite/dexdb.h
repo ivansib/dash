@@ -6,9 +6,9 @@
 
 namespace sqlite {
 
-class TestDB {
+class DexDB {
 public:
-    TestDB(const boost::filesystem::path &path);
+    DexDB(const boost::filesystem::path &path);
 
     void addCurrentTime();
 private:

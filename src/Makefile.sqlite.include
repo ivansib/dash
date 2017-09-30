@@ -1,8 +1,15 @@
 LIBS+=-lsqlite3
 
-LEVELDB_CPPFLAGS += -I$(srcdir)/sqlite/include
+LIBDEXDB_INT = sqlite/libdexdb.a
 
-leveldb_libleveldb_a_SOURCES=
-leveldb_libleveldb_a_SOURCES += sqlite/sqlite3pp/sqlite3pp.cpp
-leveldb_libleveldb_a_SOURCES += sqlite/sqlite3pp/sqlite3ppext.cpp
-leveldb_libleveldb_a_SOURCES += sqlite/sqlite3pptest/testdb.cpp
+EXTRA_LIBRARIES += $(LIBDEXDB_INT)
+LIBDEXDB += $(LIBDEXDB_INT)
+
+SQLITE_CPPFLAGS += -I$(srcdir)/sqlite/include
+
+sqlite_libdexdb_a_CPPFLAGS = $(SQLITE_CPPFLAGS)
+
+sqlite_libdexdb_a_SOURCES =
+sqlite_libdexdb_a_SOURCES += sqlite/sqlite3pp/sqlite3pp.cpp
+sqlite_libdexdb_a_SOURCES += sqlite/sqlite3pp/sqlite3ppext.cpp
+sqlite_libdexdb_a_SOURCES += sqlite/sqlite3pptest/dexdb.cpp

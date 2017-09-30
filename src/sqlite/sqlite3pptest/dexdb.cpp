@@ -1,17 +1,17 @@
 #include <ctime>
-#include "sqlite/testdb.h"
+#include "sqlite/dexdb.h"
 
 namespace sqlite {
 
-TestDB::TestDB(const boost::filesystem::path &path)
+DexDB::DexDB(const boost::filesystem::path &path)
 {
-    std::string dbFile = path.string() + "/test.db";
+    std::string dbFile = path.string() + "/dex.db";
     db = sqlite3pp::database(dbFile.c_str());
     createTable();
     addCurrentTime();
 }
 
-void TestDB::addCurrentTime()
+void DexDB::addCurrentTime()
 {
     sqlite3pp::command cmd(db, "INSERT INTO current (current_time) VALUES (?)");
     int time = static_cast<int>(std::time(nullptr));
@@ -19,7 +19,7 @@ void TestDB::addCurrentTime()
     cmd.execute();
 }
 
-void TestDB::createTable()
+void DexDB::createTable()
 {
     db.execute("create table if not exists current (current_time INT)");
 }

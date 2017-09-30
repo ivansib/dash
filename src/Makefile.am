@@ -22,7 +22,7 @@ endif
 BIP_CPPFLAGS = -I$(srcdir)/bip -msse2
 
 BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
-BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS) $(SQLITE_CPPFLAGS)
 
 BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
@@ -60,6 +60,8 @@ EXTRA_LIBRARIES += \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_WALLET) \
   $(LIBBITCOIN_ZMQ)
+
+EXTRA_LIBRARIES += sqlite/libdexdb.a
 
 lib_LTLIBRARIES = $(LIBBITCOINCONSENSUS)
 
@@ -472,6 +474,10 @@ sibcoind_LDADD = \
 
 sibcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
+if ENABLE_DEX
+sibcoind_LDADD += $(LIBDEXDB)
+endif
+
 # sibcoin-cli binary #
 sibcoin_cli_SOURCES = sibcoin-cli.cpp
 sibcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
@@ -613,4 +619,6 @@ if ENABLE_QT_TESTS
 include Makefile.qttest.include
 endif
 
+if ENABLE_DEX
 include Makefile.sqlite.include
+endif
