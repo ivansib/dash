@@ -1,0 +1,16 @@
+LIBS+=-lsqlite3
+LIBDEXDB_INT = dex/libdexdb.a
+
+EXTRA_LIBRARIES += $(LIBDEXDB_INT)
+LIBDEXDB += $(LIBDEXDB_INT)
+
+SQLITE_CPPFLAGS += -I$(srcdir)/dex/include
+
+dex_libdexdb_a_CPPFLAGS = $(SQLITE_CPPFLAGS)
+
+dex_libdexdb_a_SOURCES =
+
+dex_libdexdb_a_SOURCES += sqlite/sqlite3pp/sqlite3pp.cpp
+dex_libdexdb_a_SOURCES += sqlite/sqlite3pp/sqlite3ppext.cpp
+
+dex_libdexdb_a_SOURCES += dex/db/dexdb.cpp 

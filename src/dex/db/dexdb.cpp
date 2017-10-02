@@ -1,7 +1,7 @@
 #include <ctime>
-#include "sqlite/dexdb.h"
+#include "dex/dexdb.h"
 
-namespace sqlite {
+namespace dex {
 
 DexDB::DexDB(const boost::filesystem::path &path)
 {

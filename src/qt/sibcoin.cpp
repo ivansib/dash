@@ -24,7 +24,7 @@
 #include "winshutdownmonitor.h"
 
 #ifdef ENABLE_DEX
-#include "sqlite/dexdb.h"
+#include "dex/dexdb.h"
 #endif
 
 #ifdef ENABLE_WALLET
@@ -714,7 +714,7 @@ int main(int argc, char *argv[])
     initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator);
 
 #ifdef ENABLE_DEX
-    sqlite::DexDB db(GetDataDir(false));
+    dex::DexDB db(GetDataDir(false));
 #endif
 
 #ifdef ENABLE_WALLET

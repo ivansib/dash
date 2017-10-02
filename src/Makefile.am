@@ -61,7 +61,7 @@ EXTRA_LIBRARIES += \
   $(LIBBITCOIN_WALLET) \
   $(LIBBITCOIN_ZMQ)
 
-EXTRA_LIBRARIES += sqlite/libdexdb.a
+EXTRA_LIBRARIES += dex/libdexdb.a
 
 lib_LTLIBRARIES = $(LIBBITCOINCONSENSUS)
 
@@ -620,5 +620,5 @@ include Makefile.qttest.include
 endif
 
 if ENABLE_DEX
-include Makefile.sqlite.include
+include Makefile.dex.include
 endif

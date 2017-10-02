@@ -1,10 +1,10 @@
 #ifndef STORAGE_LEVELDB_INCLUDE_TESTDB_H_
 #define STORAGE_LEVELDB_INCLUDE_TESTDB_H_
 
-#include "../sqlite3pp/sqlite3pp.h"
+#include "../../sqlite/sqlite3pp/sqlite3pp.h"
 #include <boost/filesystem/path.hpp>
 
-namespace sqlite {
+namespace dex {
 
 class DexDB {
 public:
