@@ -3,16 +3,26 @@
 
 #include "../../sqlite/sqlite3pp/sqlite3pp.h"
 #include <boost/filesystem/path.hpp>
+#include <map>
 
 namespace dex {
+
+struct CountryInfo {
+    std::string name;
+    bool enabled;
+};
 
 class DexDB {
 public:
     DexDB(const boost::filesystem::path &path);
 
-    void addCurrentTime();
+    void addCountry(const std::string &iso, const std::string &name, const bool &enabled = true);
+    void editCountry(const std::string &iso, const bool &enabled);
+    void deleteCountry(const std::string &iso);
+    std::map<std::string, CountryInfo> getCountriesInfo();
+
 private:
-    void createTable();
+    void createTables();
 
     sqlite3pp::database db;
 };
