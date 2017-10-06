@@ -110,7 +110,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     signMessageAction(0),
     verifyMessageAction(0),
     goodsAction(0),
-    offerAction(0),
+    exchangeAction(0),
     aboutAction(0),
     receiveCoinsAction(0),
     receiveCoinsMenuAction(0),
@@ -358,16 +358,16 @@ void BitcoinGUI::createActions()
 #endif
     tabGroup->addAction(goodsAction);
     
-    offerAction = new QAction(QIcon(":/icons/offers"), tr("&Offers"), this);
-    offerAction->setStatusTip(tr("Show offers to buy/sell sibcoins"));
-    offerAction->setToolTip(offerAction->statusTip());
-    offerAction->setCheckable(true);
+    exchangeAction = new QAction(QIcon(":/icons/offers"), tr("&Exchange"), this);
+    exchangeAction->setStatusTip(tr("Show offers to buy/sell sibcoins"));
+    exchangeAction->setToolTip(exchangeAction->statusTip());
+    exchangeAction->setCheckable(true);
 #ifdef Q_OS_MAC
-    offerAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_6));
+    exchangeAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_6));
 #else
-    offerAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    exchangeAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
 #endif
-    tabGroup->addAction(offerAction);
+    tabGroup->addAction(exchangeAction);
 
 
 #ifdef ENABLE_WALLET
@@ -403,8 +403,8 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(goodsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(goodsAction, SIGNAL(triggered()), this, SLOT(gotoGoodsPage()));
-    connect(offerAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
-    connect(offerAction, SIGNAL(triggered()), this, SLOT(gotoOfferPage()));
+    connect(exchangeAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(exchangeAction, SIGNAL(triggered()), this, SLOT(gotoExchangePage()));
 #endif // ENABLE_WALLET
 
     quitAction = new QAction(QIcon(":/icons/" + theme + "/quit"), tr("E&xit"), this);
@@ -627,7 +627,7 @@ void BitcoinGUI::createToolBars()
             toolbar->addAction(masternodeAction);
         }
         toolbar->addAction(goodsAction);        
-        toolbar->addAction(offerAction);
+        toolbar->addAction(exchangeAction);
         toolbar->setMovable(false); // remove unused icon in upper left corner
         overviewAction->setChecked(true);
 
@@ -789,7 +789,7 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
         masternodeAction->setEnabled(enabled);
     }
     goodsAction->setEnabled(enabled);
-    offerAction->setEnabled(enabled);
+    exchangeAction->setEnabled(enabled);
     encryptWalletAction->setEnabled(enabled);
     backupWalletAction->setEnabled(enabled);
     changePassphraseAction->setEnabled(enabled);
@@ -983,10 +983,10 @@ void BitcoinGUI::gotoGoodsPage()
     if (walletFrame) walletFrame->gotoGoodsPage();
 }
 
-void BitcoinGUI::gotoOfferPage()
+void BitcoinGUI::gotoExchangePage()
 {
-    offerAction->setChecked(true);
-    if (walletFrame) walletFrame->gotoOfferPage();
+    exchangeAction->setChecked(true);
+    if (walletFrame) walletFrame->gotoExchangePage();
 }
 
 void BitcoinGUI::gotoReceiveCoinsPage()
