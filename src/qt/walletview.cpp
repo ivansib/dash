@@ -161,12 +161,6 @@ void WalletView::setSibModel(SibModel *sibModel)
     goodsPage->setSibModel(sibModel);
 }
 
-void WalletView::setOfferModel(OfferModel *offerModel)
-{
-    this->offerModel = offerModel;
-//    exchangePage->setOfferModel(offerModel);
-}
-
 void WalletView::setWalletModel(WalletModel *_walletModel)
 {
     this->walletModel = _walletModel;

@@ -88,7 +88,6 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     enableWallet(false),
     clientModel(0),
     sibModel(0),
-	offerModel(0),
     walletFrame(0),
     unitDisplayControl(0),
     labelWalletEncryptionIcon(0),
@@ -743,11 +742,6 @@ void BitcoinGUI::setClientModel(ClientModel *_clientModel)
 void BitcoinGUI::setSibModel(SibModel *sibModel)
 {
     this->sibModel = sibModel;
-}
-
-void BitcoinGUI::setOfferModel(OfferModel *offerModel)
-{
-    this->offerModel = offerModel;
 }
 
 #ifdef ENABLE_WALLET
