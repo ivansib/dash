@@ -45,7 +45,6 @@
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
 #include "sibdb.h"
-#include "offerdb.h"
 #endif
 
 #include "activemasternode.h"
@@ -96,7 +95,6 @@ extern void ThreadSendAlert(CConnman& connman);
 
 #ifdef ENABLE_WALLET
 CSibDB *psibDB = NULL;
-COfferDB *pofferDB = NULL;
 #endif
 bool fFeeEstimatesInitialized = false;
 static const bool DEFAULT_PROXYRANDOMIZE = true;
@@ -1755,8 +1753,6 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
         return false;
 
     psibDB = new CSibDB(strSibFile, "cr+");
-	// TODO:
-    pofferDB = new COfferDB(strSibFile, "cr+");
 #else
     LogPrintf("No wallet support compiled in!\n");
 #endif

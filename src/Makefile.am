@@ -180,7 +180,6 @@ BITCOIN_CORE_H = \
   torcontrol.h \
   txdb.h \
   sibdb.h \
-  offerdb.h \
   txmempool.h \
   ui_interface.h \
   undo.h \
@@ -268,7 +267,6 @@ libsibcoin_server_a_SOURCES = \
   torcontrol.cpp \
   txdb.cpp \
   sibdb.cpp \
-  offerdb.cpp \
   txmempool.cpp \
   ui_interface.cpp \
   validation.cpp \
