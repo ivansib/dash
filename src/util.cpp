@@ -124,6 +124,10 @@ int nWalletBackups = 10;
 const char * const BITCOIN_CONF_FILENAME = "sibcoin.conf";
 const char * const BITCOIN_PID_FILENAME = "sibcoind.pid";
 
+#ifdef ENABLE_DEX
+const char * const DEX_DB_FILENAME = "dex.db";
+#endif
+
 CCriticalSection cs_args;
 std::map<std::string, std::string> mapArgs;
 static std::map<std::string, std::vector<std::string> > _mapMultiArgs;
