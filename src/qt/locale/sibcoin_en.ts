@@ -7040,6 +7040,9 @@ that paper wallet has been printed successfully!</translation>
         <source>see debug.log for details.</source>
         <translation>see debug.log for details.</translation>
     </message>
+</context>
+<context>
+    <name>TableOffersDialog</name>
     <message>
         <source>Afghanistan</source>
         <translation>Afghanistan</translation>

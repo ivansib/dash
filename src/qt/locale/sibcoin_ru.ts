@@ -7054,6 +7054,10 @@ that paper wallet has been printed successfully!</source>
         <translation>Удаление всех транзакций из кошелька...</translation>
     </message>
     <message>
+        <source>wallet.dat corrupt, salvage failed</source>
+        <translation>wallet.dat повреждён, спасение данных не удалось</translation>
+    </message>
+    <message>
         <source>Afghanistan</source>
         <translation>Афганистан</translation>
     </message>
