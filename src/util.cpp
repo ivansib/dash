@@ -126,6 +126,7 @@ const char * const BITCOIN_PID_FILENAME = "sibcoind.pid";
 
 #ifdef ENABLE_DEX
 const char * const DEX_DB_FILENAME = "dex.db";
+std::string strDexDbFile;
 #endif
 
 CCriticalSection cs_args;
