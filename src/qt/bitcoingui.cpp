@@ -356,7 +356,7 @@ void BitcoinGUI::createActions()
     goodsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
 #endif
     tabGroup->addAction(goodsAction);
-    
+
     exchangeAction = new QAction(QIcon(":/icons/offers"), tr("&Exchange"), this);
     exchangeAction->setStatusTip(tr("Show offers to buy/sell sibcoins"));
     exchangeAction->setToolTip(exchangeAction->statusTip());
@@ -366,8 +366,10 @@ void BitcoinGUI::createActions()
 #else
     exchangeAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
 #endif
-    tabGroup->addAction(exchangeAction);
 
+#ifdef ENABLE_DEX
+    tabGroup->addAction(exchangeAction);
+#endif
 
 #ifdef ENABLE_WALLET
     QSettings settings;
@@ -625,8 +627,10 @@ void BitcoinGUI::createToolBars()
         {
             toolbar->addAction(masternodeAction);
         }
-        toolbar->addAction(goodsAction);        
+        toolbar->addAction(goodsAction);
+#ifdef ENABLE_DEX
         toolbar->addAction(exchangeAction);
+#endif
         toolbar->setMovable(false); // remove unused icon in upper left corner
         overviewAction->setChecked(true);
 
