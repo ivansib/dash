@@ -9,24 +9,19 @@
 #include "dexoffer.h"
 
 
-class CDexBroadcast;
-
 class CDex
 {
 private:
+    // critical section to protect the inner data structures
     mutable CCriticalSection cs;
-
-    CDexOffer offer;
 
 public:
 
+
     CDex();
-    CDex(const CDex&);
-    CDex(const CDexBroadcast&);
-
-
-
-
+    CDex(const CDex& other);
+    CDex(const CDexBroadcast& mnb);
+/*
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
@@ -36,6 +31,8 @@ public:
     }
 
 //    void Check(bool fForce = false);
+
+*/
 
 };
 
