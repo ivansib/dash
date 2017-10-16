@@ -61,7 +61,7 @@ EXTRA_LIBRARIES += \
   $(LIBBITCOIN_WALLET) \
   $(LIBBITCOIN_ZMQ)
 
-EXTRA_LIBRARIES += dex/libdexdb.a
+EXTRA_LIBRARIES += dex/libdexdb.a dex/libdex.a
 
 lib_LTLIBRARIES = $(LIBBITCOINCONSENSUS)
 
@@ -199,7 +199,8 @@ BITCOIN_CORE_H = \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h\
   zmq/zmqnotificationinterface.h \
-  zmq/zmqpublishnotifier.h
+  zmq/zmqpublishnotifier.h \
+  dex/dex.h
 
 
 
@@ -300,7 +301,7 @@ libsibcoin_wallet_a_SOURCES = \
   wallet/wallet.cpp \
   wallet/walletdb.cpp \
   policy/rbf.cpp \
-  $(BITCOIN_CORE_H) 
+  $(BITCOIN_CORE_H)
 
 # crypto primitives library
 crypto_libsibcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
@@ -474,6 +475,7 @@ sibcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPN
 
 if ENABLE_DEX
 sibcoind_LDADD += $(LIBDEXDB)
+sibcoind_LDADD += $(LIBDEX)
 endif
 
 # sibcoin-cli binary #

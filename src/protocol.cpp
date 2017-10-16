@@ -96,7 +96,7 @@ static const char* ppszTypeName[] =
     NetMsgType::MNGOVERNANCEOBJECT,
     NetMsgType::MNGOVERNANCEOBJECTVOTE,
     NetMsgType::MNVERIFY,
-    NetMsgType::DEXOFFBCST,
+//    NetMsgType::DEXOFFBCST,
     "compact block", // Should never occur
 };
 
