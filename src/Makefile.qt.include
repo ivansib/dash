@@ -534,7 +534,9 @@ QT_MOC_CPP += \
   qt/moc_tableoffersdialog.cpp \
   qt/moc_offerdetails.cpp \
   qt/moc_convertdexdata.cpp \
-  qt/moc_offerdetailseditor.cpp
+  qt/moc_offerdetailseditor.cpp \
+  qt/moc_tableoffersview.cpp \
+  qt/moc_tableofferseditor.cpp
 
 BITCOIN_QT_H += \
   qt/exchangedialog.h \
@@ -543,7 +545,9 @@ BITCOIN_QT_H += \
   qt/offerdetails.h \
   qt/convertdexdata.h \
   qt/dto.h \
-  qt/offerdetailseditor.h
+  qt/offerdetailseditor.h \
+  qt/tableoffersview.h \
+  qt/tableofferseditor.h
 
 BITCOIN_QT_CPP += \
   qt/exchangedialog.cpp \
@@ -551,7 +555,9 @@ BITCOIN_QT_CPP += \
   qt/tableoffersdialog.cpp \
   qt/offerdetails.cpp \
   qt/convertdexdata.cpp \
-  qt/offerdetailseditor.cpp
+  qt/offerdetailseditor.cpp \
+  qt/tableoffersview.cpp \
+  qt/tableofferseditor.cpp
 endif
 
 RES_IMAGES = \
