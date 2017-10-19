@@ -357,7 +357,7 @@ void BitcoinGUI::createActions()
 #endif
     tabGroup->addAction(goodsAction);
 
-    exchangeAction = new QAction(QIcon(":/icons/offers"), tr("&Exchange"), this);
+    exchangeAction = new QAction(QIcon(":/icons/cash_icon"), tr("&Exchange"), this);
     exchangeAction->setStatusTip(tr("Show offers to buy/sell sibcoins"));
     exchangeAction->setToolTip(exchangeAction->statusTip());
     exchangeAction->setCheckable(true);
