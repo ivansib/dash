@@ -7761,7 +7761,7 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <source>Palestine</source>
-        <translation>Палестинская Территория, Оккупированная</translation>
+        <translation>Палестина</translation>
     </message>
     <message>
         <source>Panama</source>
@@ -7906,10 +7906,6 @@ that paper wallet has been printed successfully!</source>
     <message>
         <source>South Africa</source>
         <translation>Южная Африка</translation>
-    </message>
-    <message>
-        <source>South Georgia and the South Sandwich Islands</source>
-        <translation>Южная Джорджия И Южные Сандвичевы Острова</translation>
     </message>
     <message>
         <source>South Sudan</source>
