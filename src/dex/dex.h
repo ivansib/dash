@@ -12,11 +12,9 @@
 class CDex
 {
 private:
-    // critical section to protect the inner data structures
     mutable CCriticalSection cs;
 
 public:
-
 
     CDex();
     CDex(const CDex& other);
@@ -29,10 +27,9 @@ public:
         LOCK(cs);
         READWRITE(offer);
     }
+*/
 
 //    void Check(bool fForce = false);
-
-*/
 
 };
 
