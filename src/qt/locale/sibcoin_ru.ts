@@ -7084,6 +7084,10 @@ that paper wallet has been printed successfully!</source>
 <context>
     <name>TableOffersDialog</name>
     <message>
+        <source>All</source>
+        <translation>Все</translation>
+    </message>
+    <message>
         <source>Afghanistan</source>
         <translation>Афганистан</translation>
     </message>
