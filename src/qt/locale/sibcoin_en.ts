@@ -2768,155 +2768,20 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../bitcoinunits.cpp" line="+233"/>
         <source>Amount</source>
-        <translation>Amount</translation>
+        <translation type="obsolete">Amount</translation>
     </message>
     <message>
-        <location filename="../guiutil.cpp" line="+138"/>
-        <source>Enter a Sibcoin address (e.g. %1)</source>
-        <translation>Enter a Sibcoin address (e.g. %1)</translation>
-    </message>
-    <message>
-        <location line="+859"/>
-        <source>%1 d</source>
-        <translation>%1 d</translation>
-    </message>
-    <message>
-        <location line="+2"/>
         <source>%1 h</source>
-        <translation>%1 h</translation>
+        <translation type="obsolete">%1 h</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>%1 m</source>
-        <translation>%1 m</translation>
+        <translation type="obsolete">%1 m</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <location line="+47"/>
-        <source>%1 s</source>
-        <translation>%1 s</translation>
-    </message>
-    <message>
-        <location line="-10"/>
-        <source>None</source>
-        <translation>None</translation>
-    </message>
-    <message>
-        <location line="+5"/>
         <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>%1 ms</source>
-        <translation>%1 ms</translation>
-    </message>
-    <message numerus="yes">
-        <location line="+18"/>
-        <source>%n second(s)</source>
-        <translation>
-            <numerusform>%n second</numerusform>
-            <numerusform>%n seconds</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <source>%n minute(s)</source>
-        <translation>
-            <numerusform>%n minute</numerusform>
-            <numerusform>%n minutes</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <source>%n hour(s)</source>
-        <translation>
-            <numerusform>%n hour</numerusform>
-            <numerusform>%n hours</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <source>%n day(s)</source>
-        <translation>
-            <numerusform>%n day</numerusform>
-            <numerusform>%n days</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <location line="+6"/>
-        <source>%n week(s)</source>
-        <translation>
-            <numerusform>%n week</numerusform>
-            <numerusform>%n weeks</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+0"/>
-        <source>%n year(s)</source>
-        <translation>
-            <numerusform>%n year</numerusform>
-            <numerusform>%n years</numerusform>
-        </translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>%1 and %2</source>
-        <translation>%1 and %2</translation>
-    </message>
-    <message>
-        <location filename="../modaloverlay.cpp" line="-29"/>
-        <source>unknown</source>
-        <translation>unknown</translation>
-    </message>
-</context>
-<context>
-    <name>QRDialog</name>
-    <message>
-        <location filename="../forms/qrdialog.ui" line="+23"/>
-        <source>QR-Code Title</source>
-        <translation>QR-Code Title</translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <source>QR Code</source>
-        <translation>QR Code</translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>&amp;Save Image...</source>
-        <translation>&amp;Save Image...</translation>
-    </message>
-    <message>
-        <location filename="../qrdialog.cpp" line="+149"/>
-        <source>Error creating QR Code.</source>
-        <translation>Error creating QR Code.</translation>
-    </message>
-</context>
-<context>
-    <name>QRGeneralImageWidget</name>
-    <message>
-        <location line="-113"/>
-        <source>&amp;Save Image...</source>
-        <translation>&amp;Save Image...</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Copy Image</source>
-        <translation>&amp;Copy Image</translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>Save QR Code</source>
-        <translation>Save QR Code</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>PNG Image (*.png)</source>
-        <translation>PNG Image (*.png)</translation>
+        <translation type="obsolete">N/A</translation>
     </message>
 </context>
 <context>
@@ -7042,7 +6907,23 @@ that paper wallet has been printed successfully!</translation>
     </message>
 </context>
 <context>
-    <name>ComboBox</name>
+    <name>QObject</name>
+    <message>
+        <source>Amount</source>
+        <translation type="obsolete">Amount</translation>
+    </message>
+    <message>
+        <source>%1 h</source>
+        <translation type="obsolete">%1 h</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation type="obsolete">%1 m</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation type="obsolete">N/A</translation>
+    </message>
     <message>
         <source>All</source>
         <translation>All</translation>

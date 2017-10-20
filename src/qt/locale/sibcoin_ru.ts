@@ -2769,161 +2769,48 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../bitcoinunits.cpp" line="+233"/>
         <source>Amount</source>
         <translation>Сумма</translation>
     </message>
     <message>
-        <location filename="../guiutil.cpp" line="+138"/>
         <source>Enter a Sibcoin address (e.g. %1)</source>
-        <translation>Введите адрес Sibcoin (например, %1)</translation>
+        <translation>Введите адрес сети червонца (напр. %1)</translation>
     </message>
     <message>
-        <location line="+859"/>
         <source>%1 d</source>
         <translation>%1 д</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>%1 h</source>
         <translation>%1 ч</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>%1 m</source>
-        <translation>%1 м</translation>
+        <translation>%1 мин</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <location line="+47"/>
         <source>%1 s</source>
         <translation>%1 с</translation>
     </message>
     <message>
-        <location line="-10"/>
+        <source>NETWORK</source>
+        <translation>СЕТЬ</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>НЕИЗВЕСТНО</translation>
+    </message>
+    <message>
         <source>None</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location line="+5"/>
         <source>N/A</source>
         <translation>Н/Д</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>%1 ms</source>
         <translation>%1 мс</translation>
-    </message>
-    <message numerus="yes">
-        <location line="+18"/>
-        <source>%n second(s)</source>
-        <translation>
-            <numerusform>%n секунда</numerusform>
-            <numerusform>%n секунды</numerusform>
-            <numerusform>%n секунд</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <source>%n minute(s)</source>
-        <translation>
-            <numerusform>%n минута</numerusform>
-            <numerusform>%n минуты</numerusform>
-            <numerusform>%n минут</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <source>%n hour(s)</source>
-        <translation>
-            <numerusform>%n час</numerusform>
-            <numerusform>%n часа</numerusform>
-            <numerusform>%n часов</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <source>%n day(s)</source>
-        <translation>
-            <numerusform>%n день</numerusform>
-            <numerusform>%n дня</numerusform>
-            <numerusform>%n дней</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <location line="+6"/>
-        <source>%n week(s)</source>
-        <translation>
-            <numerusform>%n неделя</numerusform>
-            <numerusform>%n недели</numerusform>
-            <numerusform>%n недель</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location line="+0"/>
-        <source>%n year(s)</source>
-        <translation>
-            <numerusform>%n год</numerusform>
-            <numerusform>%n года</numerusform>
-            <numerusform>%n лет</numerusform>
-        </translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>%1 and %2</source>
-        <translation>%1 и %2</translation>
-    </message>
-    <message>
-        <location filename="../modaloverlay.cpp" line="-29"/>
-        <source>unknown</source>
-        <translation>неизвестно</translation>
-    </message>
-</context>
-<context>
-    <name>QRDialog</name>
-    <message>
-        <location filename="../forms/qrdialog.ui" line="+23"/>
-        <source>QR-Code Title</source>
-        <translation>Заголовок QR-кода</translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <source>QR Code</source>
-        <translation>QR-код</translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>&amp;Save Image...</source>
-        <translation>&amp;Сохранить изображение...</translation>
-    </message>
-    <message>
-        <location filename="../qrdialog.cpp" line="+149"/>
-        <source>Error creating QR Code.</source>
-        <translation>Ошибка создания QR-кода.</translation>
-    </message>
-</context>
-<context>
-    <name>QRGeneralImageWidget</name>
-    <message>
-        <location line="-113"/>
-        <source>&amp;Save Image...</source>
-        <translation>&amp;Сохранить изображение...</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Copy Image</source>
-        <translation>&amp;Копировать изображение</translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>Save QR Code</source>
-        <translation>Сохранить QR-код</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>PNG Image (*.png)</source>
-        <translation>Изображение PNG (*.png)</translation>
     </message>
 </context>
 <context>
@@ -7082,7 +6969,7 @@ that paper wallet has been printed successfully!</source>
     </message>
 </context>
 <context>
-    <name>TableOffersDialog</name>
+    <name>ComboBox</name>
     <message>
         <source>Cash</source>
         <translation>Наличные</translation>
