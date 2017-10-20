@@ -7084,6 +7084,14 @@ that paper wallet has been printed successfully!</source>
 <context>
     <name>TableOffersDialog</name>
     <message>
+        <source>Cash</source>
+        <translation>Наличные</translation>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation>Онлайн</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Все</translation>
     </message>
