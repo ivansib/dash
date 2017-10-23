@@ -4303,6 +4303,10 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <source>Version %1</source>
         <translation>Версия %1</translation>
     </message>
+    <message>
+        <source>Show</source>
+        <translation>Подробнее</translation>
+    </message>
 </context>
 <context>
     <name>TrafficGraphWidget</name>

@@ -1116,9 +1116,11 @@
         <translation>(change)</translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>n/a</source>
-        <translation>n/a</translation>
+        <location filename="../combobox.cpp" line="+19"/>
+        <location line="+22"/>
+        <location line="+23"/>
+        <source>All</source>
+        <translation>All</translation>
     </message>
 </context>
 <context>
@@ -4271,6 +4273,69 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <location filename="../splashscreen.cpp" line="+51"/>
         <source>Version %1</source>
         <translation>Version %1</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The Bitcoin Core developers</source>
+        <translation>The Bitcoin Core developers</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The Dash Core developers</source>
+        <translation>The Dash Core developers</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The Sibcoin Core developers</source>
+        <translation>The Sibcoin Core developers</translation>
+    </message>
+    <message>
+        <location filename="../networkstyle.cpp" line="+21"/>
+        <source>[testnet]</source>
+        <translation>[testnet]</translation>
+    </message>
+</context>
+<context>
+    <name>TableOffersDialog</name>
+    <message>
+        <location filename="../forms/tableoffersdialog.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>Offer:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Payment:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Country:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Currency:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tableoffersdialog.cpp" line="+23"/>
+        <source>All</source>
+        <translation type="unfinished">All</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Buy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Sell</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
