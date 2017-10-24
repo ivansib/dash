@@ -236,9 +236,8 @@
         <translation>Сменить пароль</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Enter the old passphrase and new passphrase to the wallet.</source>
-        <translation>Введите старый пароль и новый пароль для кошелька.</translation>
+        <source>Enter the old and new passphrase to the wallet.</source>
+        <translation>Введите старый и новый пароль для бумажника.</translation>
     </message>
     <message>
         <location line="+44"/>
@@ -437,9 +436,8 @@
         <translation>&amp;Параметры...</translation>
     </message>
     <message>
-        <location line="-7"/>
-        <source>&amp;About %1</source>
-        <translation>&amp;О %1</translation>
+        <source>Modify configuration options for Sibcoin</source>
+        <translation>Изменить параметры конфигурации &quot;Сибирского Червонца&quot;</translation>
     </message>
     <message>
         <location line="-50"/>
@@ -582,9 +580,8 @@
         <translation>Показать варианты ремонта кошелька</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Open Wallet &amp;Configuration File</source>
-        <translation>Открыть файл &amp;настроек кошелька</translation>
+        <source>Open &amp;Configuration File</source>
+        <translation>Открыть файл &amp;настроек</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -667,9 +664,8 @@
         <translation>&amp;Параметры командной строки</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>Show the %1 help message to get a list with possible Sibcoin command-line options</source>
-        <translation>Показать справку по %1 со списком возможных параметров командной строки</translation>
+        <source>Show the Sibcoin Core help message to get a list with possible Sibcoin command-line options</source>
+        <translation>Показать помощь о кошельке &quot;Червонца&quot; со списком возможных параметров командной строки</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -722,7 +718,14 @@
         <translation>Панель вкладок</translation>
     </message>
     <message numerus="yes">
-        <location line="+397"/>
+        <source>Processed %n blocks of transaction history.</source>
+        <translation>
+            <numerusform>Обработан %n блок истории транзакций.</numerusform>
+            <numerusform>Обработано %n блока истории транзакций.</numerusform>
+            <numerusform>Обработано %n блоков истории транзакций.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
         <source>%n active connection(s) to Sibcoin network</source>
         <translation>
             <numerusform>%n активное соединение с сетью Sibcoin</numerusform>
@@ -865,9 +868,16 @@
         <translation>Входящая транзакция</translation>
     </message>
     <message>
-        <location line="+54"/>
-        <source>HD key generation is &lt;b&gt;enabled&lt;/b&gt;</source>
-        <translation>Генерация HD ключей &lt;b&gt;включена&lt;/b&gt;</translation>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation>Дата: %1
+Сумма: %2
+Тип: %3
+Адрес: %4
+</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -875,9 +885,8 @@
         <translation>Генерация HD ключей &lt;b&gt;отключена&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+22"/>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>Кошелёк &lt;b&gt;зашифрован&lt;/b&gt; и в настоящее время &lt;b&gt;разблокирован&lt;/b&gt;</translation>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization only</source>
+        <translation>Бумажник &lt;b&gt;зашифрован&lt;/b&gt; и в данный момент &lt;b&gt;разблокирован&lt;/b&gt; только для целей анонимизации</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1508,9 +1517,12 @@ p, li { white-space: pre-wrap; }
         <translation>Информация о PrivateSend</translation>
     </message>
     <message>
-        <location line="+4"/>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Sibcoin in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.1 SIB, 1 SIB, 10 SIB and 100 SIB -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href=&quot;http://sibcoin.org/privatesend&quot;&gt;http://sibcoin.org/privatesend&lt;/a&gt;         </source>
-        <translation>&lt;h3&gt;Основы PrivateSend&lt;/h3&gt;PrivateSend позволяет Вам получить настоящую финансовую конфиденциальность за счет скрытия источников Ваших средств. Все червонцы в  Вашем кошельке состоят из различных &quot;&quot;входов&quot;, Вы можете думать о них как об отдельных монетах.&lt;br&gt;PrivateSend использует инновационный процесс для перемешивания Ваших входов со входами еще двоих человек, но при этом Ваши монеты никогда не покидают Ваш кошелек. Вы сохраняете контроль над Вашими деньгами на протяжении всего времени.&lt;hr&gt; &lt;b&gt;PrivateSend работает так:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend начинается с разбиения Ваших входов транзакций на стандартные номиналы. Такими номиналами являются 0.1 Ч, 1 Ч, 10 Ч и 100 Ч -- что-то вроде купюр, которыми вы пользуетесь каждый день.&lt;/li&gt; &lt;li&gt;Ваш кошелек затем отправляет запросы к особым образом настроенным сетевым узлам, называемым &quot;мастернодами&quot;. Эти мастерноды знают только то, что Вы хотите перемешать определенные номиналы. Никакой идентифицирующей информации мастернодам не отравляется, так что они не знают &quot;кто&quot; Вы конкретно.&lt;/li&gt; &lt;li&gt;Сессия перемешивания начинается тогда, когда еще двое человек отправляют схожее сообщение, подтверждающее, что они хотят перемешать точно такой же номинал. Мастернода перемешивает входы и просит кошельки всех пользователей осуществить платежи по ним. Ваш кошелек осуществляет выплату самому себе, но на другой адрес (тоже из вашего кошелька).&lt;/li&gt; &lt;li&gt;Для скрытия Ваших средств кошелек должен повторить этот процесс несколько раз с каждым номиналом. Каждый раз, когда такой процесс завершается, называется &quot;раундом&quot;. С каждым раундом PrivateSend становится экспоненциально сложнее определить откуда поступили средства.&lt;/li&gt; &lt;li&gt;Процесс перемешивания выполняется в фоне, без участия пользователя. Когда Вы захотите провести транзакцию, средства уже будут анонимизированы. Дополнительно ждать не требуется.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Ваш кошелек содержит 1000 адресов. Каждое перемешивание использует до 9 из этих адресов. Это означает, что 1000 адресов хватит примерно на 100 перемешиваний. Когда 900 адресов будут уже использованы, Ваш кошелек должен создать новые адреса. Однако, он может сделать это, только если у Вас включены автоматические резервные копии.&lt;br&gt;Соответственно, пользователям с отключенным резервным копированием PrivateSend не доступен. &lt;hr&gt;Дополнительная информация доступна по ссылке &lt;a href=&quot;http://sibcoin.org/privatesend&quot;&gt;http://sibcoin.org/privatesend&lt;/a&gt;</translation>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Указать корневые SSL-сертификаты для запроса платежа (по умолчанию: -system-)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: 1)</source>
+        <translation>Показывать заставку при запуске (по умолчанию: 1)</translation>
     </message>
 </context>
 <context>
@@ -1777,6 +1789,10 @@ p, li { white-space: pre-wrap; }
         <source>Sentinel</source>
         <translation>Sentinel</translation>
     </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрыть</translation>
+    </message>
 </context>
 <context>
     <name>ModalOverlay</name>
@@ -1842,6 +1858,10 @@ p, li { white-space: pre-wrap; }
         <location filename="../modaloverlay.cpp" line="-1"/>
         <source>Unknown. Syncing Headers (%1)...</source>
         <translation>Неизвестно. Синхронизация заголовков (%1)...</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2137,7 +2157,10 @@ p, li { white-space: pre-wrap; }
         <translation>&amp;Cворачивать в системный лоток вместо панели задач</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
+        <translation>Сворачивать вместо закрытия. Если данная настройка будет выбрана, то приложение закроется только после выбора пункта меню Завершить.</translation>
+    </message>
+    <message>
         <source>M&amp;inimize on close</source>
         <translation>С&amp;ворачивать при закрытии</translation>
     </message>
@@ -2184,7 +2207,10 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Знаков после запятой</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>Сторонние URL (например, block explorer), которые отображаются на вкладке транзакций как пункты контекстного меню. %s в URL заменяется хэшем транзакции. URL отделяются друг от друга вертикальной чертой |.</translation>
+    </message>
+    <message>
         <source>Third party transaction URLs</source>
         <translation>Сторонние URL для транзакций</translation>
     </message>
@@ -2235,9 +2261,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Для применения изменений требуется перезапуск клиента.</translation>
     </message>
     <message>
-        <location line="-48"/>
-        <source>Client will be shut down. Do you want to proceed?</source>
-        <translation>Клиент будет выключен. Продолжить?</translation>
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation>Клиент будет выключен, хотите продолжить?</translation>
     </message>
     <message>
         <location line="+52"/>
@@ -2454,17 +2479,14 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Автоматические бэкапы отключены, перемешивание недоступно!</translation>
     </message>
     <message>
-        <location line="+4"/>
-        <location line="+318"/>
-        <location line="+155"/>
-        <source>Start Mixing</source>
-        <translation>Начать перемешивание</translation>
+        <source>Start PrivateSend Mixing</source>
+        <translation>Начать автоперемешивание</translation>
     </message>
     <message>
         <location line="-471"/>
         <location line="+474"/>
         <source>Stop Mixing</source>
-        <translation>Остановить перемешивание</translation>
+        <translation type="vanished">Остановить перемешивание</translation>
     </message>
     <message>
         <location line="-295"/>
@@ -2682,9 +2704,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Сеть запроса платежа не соответствует сети клиента.</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>Payment request expired.</source>
-        <translation>Время этого запроса платежа истекло.</translation>
+        <source>Payment request has expired.</source>
+        <translation>Истек срок действия запроса платежа.</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -2718,7 +2739,10 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Запрос платежа %1 слишком большой (%2 байт, разрешено %3 байт).</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <source>Payment request DoS protection</source>
+        <translation>Защита от DoS через запрос платежа</translation>
+    </message>
+    <message>
         <source>Error communicating with %1: %2</source>
         <translation>Ошибка связи с %1: %2</translation>
     </message>
@@ -2746,9 +2770,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
 <context>
     <name>PeerTableModel</name>
     <message>
-        <location filename="../peertablemodel.cpp" line="+117"/>
-        <source>NodeId</source>
-        <translation>ID ноды</translation>
+        <source>Address/Hostname</source>
+        <translation>IP адрес/Хост</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -2794,11 +2817,11 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <source>NETWORK</source>
-        <translation>СЕТЬ</translation>
+        <translation type="vanished">СЕТЬ</translation>
     </message>
     <message>
         <source>UNKNOWN</source>
-        <translation>НЕИЗВЕСТНО</translation>
+        <translation type="vanished">НЕИЗВЕСТНО</translation>
     </message>
     <message>
         <source>None</source>
@@ -2811,6 +2834,1622 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     <message>
         <source>%1 ms</source>
         <translation>%1 мс</translation>
+    </message>
+    <message>
+        <source>test</source>
+        <translation>проверка данных</translation>
+    </message>
+    <message>
+        <source>Cash</source>
+        <translation>Наличные</translation>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation>Онлайн</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <source>Afghanistan</source>
+        <translation>Афганистан</translation>
+    </message>
+    <message>
+        <source>Åland Islands</source>
+        <translation>Эландские Острова</translation>
+    </message>
+    <message>
+        <source>Albania</source>
+        <translation>Албания</translation>
+    </message>
+    <message>
+        <source>Algeria</source>
+        <translation>Алжир</translation>
+    </message>
+    <message>
+        <source>American Samoa</source>
+        <translation>Восточное Самоа</translation>
+    </message>
+    <message>
+        <source>Andorra</source>
+        <translation>Андорра</translation>
+    </message>
+    <message>
+        <source>Angola</source>
+        <translation>Ангола</translation>
+    </message>
+    <message>
+        <source>Anguilla</source>
+        <translation>Ангилья</translation>
+    </message>
+    <message>
+        <source>Antigua and Barbuda</source>
+        <translation>Антигуа И Барбуда</translation>
+    </message>
+    <message>
+        <source>Argentina</source>
+        <translation>Аргентина</translation>
+    </message>
+    <message>
+        <source>Armenia</source>
+        <translation>Армения</translation>
+    </message>
+    <message>
+        <source>Aruba</source>
+        <translation>Аруба</translation>
+    </message>
+    <message>
+        <source>Australia</source>
+        <translation>Австралия</translation>
+    </message>
+    <message>
+        <source>Austria</source>
+        <translation>Австрия</translation>
+    </message>
+    <message>
+        <source>Azerbaijan</source>
+        <translation>Азербайджан</translation>
+    </message>
+    <message>
+        <source>Bahamas</source>
+        <translation>Багамы</translation>
+    </message>
+    <message>
+        <source>Bahrain</source>
+        <translation>Бахрейн</translation>
+    </message>
+    <message>
+        <source>Bangladesh</source>
+        <translation>Бангладеш</translation>
+    </message>
+    <message>
+        <source>Barbados</source>
+        <translation>Барбадос</translation>
+    </message>
+    <message>
+        <source>Belarus</source>
+        <translation>Беларусь</translation>
+    </message>
+    <message>
+        <source>Belgium</source>
+        <translation>Бельгия</translation>
+    </message>
+    <message>
+        <source>Belize</source>
+        <translation>Белиз</translation>
+    </message>
+    <message>
+        <source>Benin</source>
+        <translation>Бенин</translation>
+    </message>
+    <message>
+        <source>Bermuda</source>
+        <translation>Бермуды</translation>
+    </message>
+    <message>
+        <source>Bhutan</source>
+        <translation>Бутан</translation>
+    </message>
+    <message>
+        <source>Bolivia</source>
+        <translation>Боливия</translation>
+    </message>
+    <message>
+        <source>Caribbean Netherlands</source>
+        <translation>Карибские Нидерланды</translation>
+    </message>
+    <message>
+        <source>Bosnia and Herzegovina</source>
+        <translation>Босния И Герцеговина</translation>
+    </message>
+    <message>
+        <source>Botswana</source>
+        <translation>Ботсвана</translation>
+    </message>
+    <message>
+        <source>Bouvet Island</source>
+        <translation>Буве</translation>
+    </message>
+    <message>
+        <source>Brazil</source>
+        <translation>Бразилия</translation>
+    </message>
+    <message>
+        <source>British Indian Ocean Territory</source>
+        <translation>Британ. Террит.</translation>
+    </message>
+    <message>
+        <source>Brunei Darussalam</source>
+        <translation>Бруней</translation>
+    </message>
+    <message>
+        <source>Bulgaria</source>
+        <translation>Болгария</translation>
+    </message>
+    <message>
+        <source>Burkina Faso</source>
+        <translation>Буркина-Фасо</translation>
+    </message>
+    <message>
+        <source>Burundi</source>
+        <translation>Бурунди</translation>
+    </message>
+    <message>
+        <source>Cambodia</source>
+        <translation>Камбоджа</translation>
+    </message>
+    <message>
+        <source>Cameroon</source>
+        <translation>Камерун</translation>
+    </message>
+    <message>
+        <source>Canada</source>
+        <translation>Канада</translation>
+    </message>
+    <message>
+        <source>Cape Verde</source>
+        <translation>Кабо-Верде</translation>
+    </message>
+    <message>
+        <source>Cayman Islands</source>
+        <translation>Кайман</translation>
+    </message>
+    <message>
+        <source>CAR</source>
+        <translation>Центр. - Афр. Республика</translation>
+    </message>
+    <message>
+        <source>Chad</source>
+        <translation>Чад</translation>
+    </message>
+    <message>
+        <source>Chile</source>
+        <translation>Чили</translation>
+    </message>
+    <message>
+        <source>China</source>
+        <translation>Китай</translation>
+    </message>
+    <message>
+        <source>Christmas Island</source>
+        <translation>О-В Рождества</translation>
+    </message>
+    <message>
+        <source>Cocos Islands</source>
+        <translation>Кокосовые О-Ва</translation>
+    </message>
+    <message>
+        <source>Colombia</source>
+        <translation>Колумбия</translation>
+    </message>
+    <message>
+        <source>Comoros</source>
+        <translation>Коморы</translation>
+    </message>
+    <message>
+        <source>Congo</source>
+        <translation>Конго</translation>
+    </message>
+    <message>
+        <source>Cook Islands</source>
+        <translation>Острова Кука</translation>
+    </message>
+    <message>
+        <source>Costa Rica</source>
+        <translation>Коста-Рика</translation>
+    </message>
+    <message>
+        <source>Côte d&apos;Ivoire</source>
+        <translation>Кот Д&apos;Ивуар</translation>
+    </message>
+    <message>
+        <source>Croatia</source>
+        <translation>Хорватия</translation>
+    </message>
+    <message>
+        <source>Cuba</source>
+        <translation>Куба</translation>
+    </message>
+    <message>
+        <source>Curaçao</source>
+        <translation>Кюрасао</translation>
+    </message>
+    <message>
+        <source>Cyprus</source>
+        <translation>Кипр</translation>
+    </message>
+    <message>
+        <source>Czechia</source>
+        <translation>Чехия</translation>
+    </message>
+    <message>
+        <source>Denmark</source>
+        <translation>Дания</translation>
+    </message>
+    <message>
+        <source>Djibouti</source>
+        <translation>Джибути</translation>
+    </message>
+    <message>
+        <source>Dominica</source>
+        <translation>Доминика</translation>
+    </message>
+    <message>
+        <source>Dominican Republic</source>
+        <translation>Доминиканская Республика</translation>
+    </message>
+    <message>
+        <source>Ecuador</source>
+        <translation>Эквадор</translation>
+    </message>
+    <message>
+        <source>Egypt</source>
+        <translation>Египет</translation>
+    </message>
+    <message>
+        <source>El Salvador</source>
+        <translation>Эль-Сальвадор</translation>
+    </message>
+    <message>
+        <source>Equatorial Guinea</source>
+        <translation>Экваториальная Гвинея</translation>
+    </message>
+    <message>
+        <source>Eritrea</source>
+        <translation>Эритрея</translation>
+    </message>
+    <message>
+        <source>Estonia</source>
+        <translation>Эстония</translation>
+    </message>
+    <message>
+        <source>Ethiopia</source>
+        <translation>Эфиопия</translation>
+    </message>
+    <message>
+        <source>Falkland Islands</source>
+        <translation>Фолклендские О-Ва</translation>
+    </message>
+    <message>
+        <source>Faroe Islands</source>
+        <translation>Фарерские О-Ва</translation>
+    </message>
+    <message>
+        <source>Fiji</source>
+        <translation>Фиджи</translation>
+    </message>
+    <message>
+        <source>Finland</source>
+        <translation>Финляндия</translation>
+    </message>
+    <message>
+        <source>France</source>
+        <translation>Франция</translation>
+    </message>
+    <message>
+        <source>French Guiana</source>
+        <translation>Гвиана</translation>
+    </message>
+    <message>
+        <source>French Polynesia</source>
+        <translation>Французская Полинезия</translation>
+    </message>
+    <message>
+        <source>French Southern Territories</source>
+        <translation>Фр. Южные Территории</translation>
+    </message>
+    <message>
+        <source>Gabon</source>
+        <translation>Габон</translation>
+    </message>
+    <message>
+        <source>Gambia</source>
+        <translation>Гамбия</translation>
+    </message>
+    <message>
+        <source>Georgia</source>
+        <translation>Грузия</translation>
+    </message>
+    <message>
+        <source>Germany</source>
+        <translation>Германия</translation>
+    </message>
+    <message>
+        <source>Ghana</source>
+        <translation>Гана</translation>
+    </message>
+    <message>
+        <source>Gibraltar</source>
+        <translation>Гибралтар</translation>
+    </message>
+    <message>
+        <source>Greece</source>
+        <translation>Греция</translation>
+    </message>
+    <message>
+        <source>Greenland</source>
+        <translation>Гренландия</translation>
+    </message>
+    <message>
+        <source>Grenada</source>
+        <translation>Гренада</translation>
+    </message>
+    <message>
+        <source>Guadeloupe</source>
+        <translation>Гваделупа</translation>
+    </message>
+    <message>
+        <source>Guam</source>
+        <translation>Гуам</translation>
+    </message>
+    <message>
+        <source>Guatemala</source>
+        <translation>Гватемала</translation>
+    </message>
+    <message>
+        <source>Guernsey</source>
+        <translation>Гернси</translation>
+    </message>
+    <message>
+        <source>Guinea</source>
+        <translation>Гвинея</translation>
+    </message>
+    <message>
+        <source>Guinea-Bissau</source>
+        <translation>Гвинея-Бисау</translation>
+    </message>
+    <message>
+        <source>Guyana</source>
+        <translation>Гайана</translation>
+    </message>
+    <message>
+        <source>Haiti</source>
+        <translation>Гаити</translation>
+    </message>
+    <message>
+        <source>Heard Island and McDonald Islands</source>
+        <translation>Херд И Макдональд</translation>
+    </message>
+    <message>
+        <source>Holy See</source>
+        <translation>Ватикан</translation>
+    </message>
+    <message>
+        <source>Honduras</source>
+        <translation>Гондурас</translation>
+    </message>
+    <message>
+        <source>Hong Kong</source>
+        <translation>Гонконг</translation>
+    </message>
+    <message>
+        <source>Hungary</source>
+        <translation>Венгрия</translation>
+    </message>
+    <message>
+        <source>Iceland</source>
+        <translation>Исландия</translation>
+    </message>
+    <message>
+        <source>India</source>
+        <translation>Индия</translation>
+    </message>
+    <message>
+        <source>Indonesia</source>
+        <translation>Индонезия</translation>
+    </message>
+    <message>
+        <source>Iran</source>
+        <translation>Иран</translation>
+    </message>
+    <message>
+        <source>Iraq</source>
+        <translation>Ирак</translation>
+    </message>
+    <message>
+        <source>Ireland</source>
+        <translation>Ирландия</translation>
+    </message>
+    <message>
+        <source>Isle of Man</source>
+        <translation>О-В Мэн</translation>
+    </message>
+    <message>
+        <source>Israel</source>
+        <translation>Израиль</translation>
+    </message>
+    <message>
+        <source>Italy</source>
+        <translation>Италия</translation>
+    </message>
+    <message>
+        <source>Jamaica</source>
+        <translation>Ямайка</translation>
+    </message>
+    <message>
+        <source>Japan</source>
+        <translation>Япония</translation>
+    </message>
+    <message>
+        <source>Jersey</source>
+        <translation>Джерси</translation>
+    </message>
+    <message>
+        <source>Jordan</source>
+        <translation>Иордания</translation>
+    </message>
+    <message>
+        <source>Kazakhstan</source>
+        <translation>Казахстан</translation>
+    </message>
+    <message>
+        <source>Kenya</source>
+        <translation>Кения</translation>
+    </message>
+    <message>
+        <source>Kiribati</source>
+        <translation>Кирибати</translation>
+    </message>
+    <message>
+        <source>North Korea</source>
+        <translation>Корея (Кндр)</translation>
+    </message>
+    <message>
+        <source>South Korea</source>
+        <translation>Корея</translation>
+    </message>
+    <message>
+        <source>Kuwait</source>
+        <translation>Кувейт</translation>
+    </message>
+    <message>
+        <source>Kyrgyzstan</source>
+        <translation>Кыргызстан</translation>
+    </message>
+    <message>
+        <source>Laos</source>
+        <translation>Лаос</translation>
+    </message>
+    <message>
+        <source>Latvia</source>
+        <translation>Латвия</translation>
+    </message>
+    <message>
+        <source>Lebanon</source>
+        <translation>Ливан</translation>
+    </message>
+    <message>
+        <source>Lesotho</source>
+        <translation>Лесото</translation>
+    </message>
+    <message>
+        <source>Liberia</source>
+        <translation>Либерия</translation>
+    </message>
+    <message>
+        <source>Libya</source>
+        <translation>Ливия</translation>
+    </message>
+    <message>
+        <source>Liechtenstein</source>
+        <translation>Лихтенштейн</translation>
+    </message>
+    <message>
+        <source>Lithuania</source>
+        <translation>Литва</translation>
+    </message>
+    <message>
+        <source>Luxembourg</source>
+        <translation>Люксембург</translation>
+    </message>
+    <message>
+        <source>Macao</source>
+        <translation>Макао</translation>
+    </message>
+    <message>
+        <source>Macedonia</source>
+        <translation>Македония</translation>
+    </message>
+    <message>
+        <source>Madagascar</source>
+        <translation>Мадагаскар</translation>
+    </message>
+    <message>
+        <source>Malawi</source>
+        <translation>Малави</translation>
+    </message>
+    <message>
+        <source>Malaysia</source>
+        <translation>Малайзия</translation>
+    </message>
+    <message>
+        <source>Maldives</source>
+        <translation>Мальдивы</translation>
+    </message>
+    <message>
+        <source>Mali</source>
+        <translation>Мали</translation>
+    </message>
+    <message>
+        <source>Malta</source>
+        <translation>Мальта</translation>
+    </message>
+    <message>
+        <source>Marshall Islands</source>
+        <translation>Маршалловы Острова</translation>
+    </message>
+    <message>
+        <source>Martinique</source>
+        <translation>Мартиника</translation>
+    </message>
+    <message>
+        <source>Mauritania</source>
+        <translation>Мавритания</translation>
+    </message>
+    <message>
+        <source>Mauritius</source>
+        <translation>Маврикий</translation>
+    </message>
+    <message>
+        <source>Mayotte</source>
+        <translation>Майотта</translation>
+    </message>
+    <message>
+        <source>Mexico</source>
+        <translation>Мексика</translation>
+    </message>
+    <message>
+        <source>Micronesia</source>
+        <translation>Микронезия</translation>
+    </message>
+    <message>
+        <source>Moldova</source>
+        <translation>Молдова</translation>
+    </message>
+    <message>
+        <source>Monaco</source>
+        <translation>Монако</translation>
+    </message>
+    <message>
+        <source>Mongolia</source>
+        <translation>Монголия</translation>
+    </message>
+    <message>
+        <source>Montenegro</source>
+        <translation>Черногория</translation>
+    </message>
+    <message>
+        <source>Montserrat</source>
+        <translation>Монтсеррат</translation>
+    </message>
+    <message>
+        <source>Morocco</source>
+        <translation>Марокко</translation>
+    </message>
+    <message>
+        <source>Mozambique</source>
+        <translation>Мозамбик</translation>
+    </message>
+    <message>
+        <source>Myanmar</source>
+        <translation>Мьянма</translation>
+    </message>
+    <message>
+        <source>Namibia</source>
+        <translation>Намибия</translation>
+    </message>
+    <message>
+        <source>Nauru</source>
+        <translation>Науру</translation>
+    </message>
+    <message>
+        <source>Nepal</source>
+        <translation>Непал</translation>
+    </message>
+    <message>
+        <source>Netherlands</source>
+        <translation>Нидерланды</translation>
+    </message>
+    <message>
+        <source>New Caledonia</source>
+        <translation>Новая Каледония</translation>
+    </message>
+    <message>
+        <source>New Zealand</source>
+        <translation>Новая Зеландия</translation>
+    </message>
+    <message>
+        <source>Nicaragua</source>
+        <translation>Никарагуа</translation>
+    </message>
+    <message>
+        <source>Niger</source>
+        <translation>Нигер</translation>
+    </message>
+    <message>
+        <source>Nigeria</source>
+        <translation>Нигерия</translation>
+    </message>
+    <message>
+        <source>Niue</source>
+        <translation>Ниуэ</translation>
+    </message>
+    <message>
+        <source>Norfolk Island</source>
+        <translation>Норфолк</translation>
+    </message>
+    <message>
+        <source>Northern Mariana Islands</source>
+        <translation>Марианские Острова</translation>
+    </message>
+    <message>
+        <source>Norway</source>
+        <translation>Норвегия</translation>
+    </message>
+    <message>
+        <source>Oman</source>
+        <translation>Оман</translation>
+    </message>
+    <message>
+        <source>Pakistan</source>
+        <translation>Пакистан</translation>
+    </message>
+    <message>
+        <source>Palau</source>
+        <translation>Палау</translation>
+    </message>
+    <message>
+        <source>Palestine</source>
+        <translation>Палестина</translation>
+    </message>
+    <message>
+        <source>Panama</source>
+        <translation>Панама</translation>
+    </message>
+    <message>
+        <source>Papua New Guinea</source>
+        <translation>Папуа - Новая Гвинея</translation>
+    </message>
+    <message>
+        <source>Paraguay</source>
+        <translation>Парагвай</translation>
+    </message>
+    <message>
+        <source>Peru</source>
+        <translation>Перу</translation>
+    </message>
+    <message>
+        <source>Philippines</source>
+        <translation>Филиппины</translation>
+    </message>
+    <message>
+        <source>Pitcairn</source>
+        <translation>Питкэрн</translation>
+    </message>
+    <message>
+        <source>Poland</source>
+        <translation>Польша</translation>
+    </message>
+    <message>
+        <source>Portugal</source>
+        <translation>Португалия</translation>
+    </message>
+    <message>
+        <source>Puerto Rico</source>
+        <translation>Пуэрто-Рико</translation>
+    </message>
+    <message>
+        <source>Qatar</source>
+        <translation>Катар</translation>
+    </message>
+    <message>
+        <source>Réunion</source>
+        <translation>Реюньон</translation>
+    </message>
+    <message>
+        <source>Romania</source>
+        <translation>Румыния</translation>
+    </message>
+    <message>
+        <source>Russia</source>
+        <translation>Россия</translation>
+    </message>
+    <message>
+        <source>Rwanda</source>
+        <translation>Руанда</translation>
+    </message>
+    <message>
+        <source>Saint Barthélemy</source>
+        <translation>Сен-Бартелеми</translation>
+    </message>
+    <message>
+        <source>Saint Hele</source>
+        <translation>Святая Елена</translation>
+    </message>
+    <message>
+        <source>Saint Kitts and Nevis</source>
+        <translation>Сент-Китс И Невис</translation>
+    </message>
+    <message>
+        <source>Saint Lucia</source>
+        <translation>Сент-Люсия</translation>
+    </message>
+    <message>
+        <source>Saint Martin</source>
+        <translation>Сен-Мартен</translation>
+    </message>
+    <message>
+        <source>Saint Pierre and Miquelon</source>
+        <translation>Сен-Пьер И Микелон</translation>
+    </message>
+    <message>
+        <source>Saint Vincent and the Grenadines</source>
+        <translation>Сент-Винсент И Гренадины</translation>
+    </message>
+    <message>
+        <source>Samoa</source>
+        <translation>Самоа</translation>
+    </message>
+    <message>
+        <source>San Marino</source>
+        <translation>Сан-Марино</translation>
+    </message>
+    <message>
+        <source>Sao Tome and Principe</source>
+        <translation>Сан-Томе И Принсипи</translation>
+    </message>
+    <message>
+        <source>Saudi Arabia</source>
+        <translation>Саудовская Аравия</translation>
+    </message>
+    <message>
+        <source>Senegal</source>
+        <translation>Сенегал</translation>
+    </message>
+    <message>
+        <source>Serbia</source>
+        <translation>Сербия</translation>
+    </message>
+    <message>
+        <source>Seychelles</source>
+        <translation>Сейшелы</translation>
+    </message>
+    <message>
+        <source>Sierra Leone</source>
+        <translation>Сьерра-Леоне</translation>
+    </message>
+    <message>
+        <source>Singapore</source>
+        <translation>Сингапур</translation>
+    </message>
+    <message>
+        <source>Sint Maarten</source>
+        <translation>Синт-Мартен</translation>
+    </message>
+    <message>
+        <source>Slovakia</source>
+        <translation>Словакия</translation>
+    </message>
+    <message>
+        <source>Slovenia</source>
+        <translation>Словения</translation>
+    </message>
+    <message>
+        <source>Solomon Islands</source>
+        <translation>Соломоновы О-Ва</translation>
+    </message>
+    <message>
+        <source>Somalia</source>
+        <translation>Сомали</translation>
+    </message>
+    <message>
+        <source>South Africa</source>
+        <translation>Южная Африка</translation>
+    </message>
+    <message>
+        <source>South Sudan</source>
+        <translation>Южный Судан</translation>
+    </message>
+    <message>
+        <source>Spain</source>
+        <translation>Испания</translation>
+    </message>
+    <message>
+        <source>Sri Lanka</source>
+        <translation>Шри-Ланка</translation>
+    </message>
+    <message>
+        <source>Sudan</source>
+        <translation>Судан</translation>
+    </message>
+    <message>
+        <source>Suriname</source>
+        <translation>Суринам</translation>
+    </message>
+    <message>
+        <source>Svalbard and Jan Mayen</source>
+        <translation>Шпицберген И Ян-Майен</translation>
+    </message>
+    <message>
+        <source>Swaziland</source>
+        <translation>Свазиленд</translation>
+    </message>
+    <message>
+        <source>Sweden</source>
+        <translation>Швеция</translation>
+    </message>
+    <message>
+        <source>Switzerland</source>
+        <translation>Швейцария</translation>
+    </message>
+    <message>
+        <source>Syrian</source>
+        <translation>Сирия</translation>
+    </message>
+    <message>
+        <source>Taiwan</source>
+        <translation>Тайвань</translation>
+    </message>
+    <message>
+        <source>Tajikistan</source>
+        <translation>Таджикистан</translation>
+    </message>
+    <message>
+        <source>Tanzania</source>
+        <translation>Танзания</translation>
+    </message>
+    <message>
+        <source>Thailand</source>
+        <translation>Таиланд</translation>
+    </message>
+    <message>
+        <source>Timor-Leste</source>
+        <translation>Восточный Тимор</translation>
+    </message>
+    <message>
+        <source>Togo</source>
+        <translation>Того</translation>
+    </message>
+    <message>
+        <source>Tokelau</source>
+        <translation>Токелау</translation>
+    </message>
+    <message>
+        <source>Tonga</source>
+        <translation>Тонга</translation>
+    </message>
+    <message>
+        <source>Trinidad and Tobago</source>
+        <translation>Тринидад И Тобаго</translation>
+    </message>
+    <message>
+        <source>Tunisia</source>
+        <translation>Тунис</translation>
+    </message>
+    <message>
+        <source>Turkey</source>
+        <translation>Турция</translation>
+    </message>
+    <message>
+        <source>Turkmenistan</source>
+        <translation>Туркмения</translation>
+    </message>
+    <message>
+        <source>Turks and Caicos Islands</source>
+        <translation>Теркс И Кайкос</translation>
+    </message>
+    <message>
+        <source>Tuvalu</source>
+        <translation>Тувалу</translation>
+    </message>
+    <message>
+        <source>Uganda</source>
+        <translation>Уганда</translation>
+    </message>
+    <message>
+        <source>Ukraine</source>
+        <translation>Украина</translation>
+    </message>
+    <message>
+        <source>UAE</source>
+        <translation>Объед. Арабские Эмираты</translation>
+    </message>
+    <message>
+        <source>United Kingdom</source>
+        <translation>Соединенное Королевство</translation>
+    </message>
+    <message>
+        <source>USA</source>
+        <translation>Сша</translation>
+    </message>
+    <message>
+        <source>United States Minor Outlying Islands</source>
+        <translation>Малые Тихоок. Острова (Сша)</translation>
+    </message>
+    <message>
+        <source>Uruguay</source>
+        <translation>Уругвай</translation>
+    </message>
+    <message>
+        <source>Uzbekistan</source>
+        <translation>Узбекистан</translation>
+    </message>
+    <message>
+        <source>Vanuatu</source>
+        <translation>Вануату</translation>
+    </message>
+    <message>
+        <source>Venezuela</source>
+        <translation>Венесуэла</translation>
+    </message>
+    <message>
+        <source>Viet Nam</source>
+        <translation>Вьетнам</translation>
+    </message>
+    <message>
+        <source>British Virgin Islands</source>
+        <translation>Виргин. О-Ва, Британские</translation>
+    </message>
+    <message>
+        <source>U.S. Virgin Islands</source>
+        <translation>Виргин. О-Ва</translation>
+    </message>
+    <message>
+        <source>Wallis and Futuna</source>
+        <translation>Уоллис И Футуна</translation>
+    </message>
+    <message>
+        <source>Western Sahara</source>
+        <translation>Западная Сахара</translation>
+    </message>
+    <message>
+        <source>Yemen</source>
+        <translation>Йемен</translation>
+    </message>
+    <message>
+        <source>Zambia</source>
+        <translation>Замбия</translation>
+    </message>
+    <message>
+        <source>Zimbabwe</source>
+        <translation>Зимбабве</translation>
+    </message>
+    <message>
+        <source>United Arab Emirates dirham</source>
+        <translation>Дирхам (Оаэ)</translation>
+    </message>
+    <message>
+        <source>Afghani</source>
+        <translation>Афгани</translation>
+    </message>
+    <message>
+        <source>South Korean won</source>
+        <translation>Южнокорейская вона</translation>
+    </message>
+    <message>
+        <source>New Taiwan dollar</source>
+        <translation>Новый тайваньский доллар</translation>
+    </message>
+    <message>
+        <source>Moldovan leu</source>
+        <translation>Молдавский лей</translation>
+    </message>
+    <message>
+        <source>Lek</source>
+        <translation>Лек</translation>
+    </message>
+    <message>
+        <source>Armenian Dram</source>
+        <translation>Армянский Драм</translation>
+    </message>
+    <message>
+        <source>Netherlands Antillian Guilder</source>
+        <translation>Нидерландский Антильский Гульден</translation>
+    </message>
+    <message>
+        <source>Kwanza</source>
+        <translation>Кванза</translation>
+    </message>
+    <message>
+        <source>Argentine Peso</source>
+        <translation>Аргентинское Песо</translation>
+    </message>
+    <message>
+        <source>Australian Dollar</source>
+        <translation>Австралийский Доллар</translation>
+    </message>
+    <message>
+        <source>Aruban Guilder</source>
+        <translation>Арубанский Флорин</translation>
+    </message>
+    <message>
+        <source>Azerbaijanian Manat</source>
+        <translation>Азербайджанский Манат</translation>
+    </message>
+    <message>
+        <source>Convertible Marks</source>
+        <translation>Конвертируемая Марка</translation>
+    </message>
+    <message>
+        <source>Barbados Dollar</source>
+        <translation>Барбадосский Доллар</translation>
+    </message>
+    <message>
+        <source>Bangladeshi Taka</source>
+        <translation>Така</translation>
+    </message>
+    <message>
+        <source>Bulgarian Lev</source>
+        <translation>Болгарский Лев</translation>
+    </message>
+    <message>
+        <source>Bahraini Dinar</source>
+        <translation>Бахрейнский Динар</translation>
+    </message>
+    <message>
+        <source>Burundian Franc</source>
+        <translation>Бурундийский Франк</translation>
+    </message>
+    <message>
+        <source>Bermudian Dollar</source>
+        <translation>Бермудский Доллар</translation>
+    </message>
+    <message>
+        <source>Brunei Dollar</source>
+        <translation>Брунейский Доллар</translation>
+    </message>
+    <message>
+        <source>Brazilian Real</source>
+        <translation>Бразильский Реал</translation>
+    </message>
+    <message>
+        <source>Bahamian Dollar</source>
+        <translation>Багамский Доллар</translation>
+    </message>
+    <message>
+        <source>Ngultrum</source>
+        <translation>Нгултрум</translation>
+    </message>
+    <message>
+        <source>Pula</source>
+        <translation>Пула</translation>
+    </message>
+    <message>
+        <source>Belarussian Ruble</source>
+        <translation>Белорусский Рубль</translation>
+    </message>
+    <message>
+        <source>Belize Dollar</source>
+        <translation>Белизский Доллар</translation>
+    </message>
+    <message>
+        <source>Canadian Dollar</source>
+        <translation>Канадский Доллар</translation>
+    </message>
+    <message>
+        <source>Franc Congolais</source>
+        <translation>Конголезский Франк</translation>
+    </message>
+    <message>
+        <source>Swiss Franc</source>
+        <translation>Швейцарский Франк</translation>
+    </message>
+    <message>
+        <source>Chilean Peso</source>
+        <translation>Чилийское Песо</translation>
+    </message>
+    <message>
+        <source>Yuan Renminbi</source>
+        <translation>Юань</translation>
+    </message>
+    <message>
+        <source>Colombian Peso</source>
+        <translation>Колумбийское Песо</translation>
+    </message>
+    <message>
+        <source>Costa Rican Colon</source>
+        <translation>Костариканский Колон</translation>
+    </message>
+    <message>
+        <source>Cuban Peso</source>
+        <translation>Кубинское Песо</translation>
+    </message>
+    <message>
+        <source>Cape Verde Escudo</source>
+        <translation>Эскудо Кабо-Верде</translation>
+    </message>
+    <message>
+        <source>Czech Koruna</source>
+        <translation>Чешская Крона</translation>
+    </message>
+    <message>
+        <source>Djibouti Franc</source>
+        <translation>Франк Джибути</translation>
+    </message>
+    <message>
+        <source>Danish Krone</source>
+        <translation>Датская Крона</translation>
+    </message>
+    <message>
+        <source>Dominican Peso</source>
+        <translation>Доминиканское Песо</translation>
+    </message>
+    <message>
+        <source>Algerian Dinar</source>
+        <translation>Алжирский Динар</translation>
+    </message>
+    <message>
+        <source>Egyptian Pound</source>
+        <translation>Египетский Фунт</translation>
+    </message>
+    <message>
+        <source>Nakfa</source>
+        <translation>Накфа</translation>
+    </message>
+    <message>
+        <source>Ethiopian Birr</source>
+        <translation>Эфиопский Быр</translation>
+    </message>
+    <message>
+        <source>Euro</source>
+        <translation>Евро</translation>
+    </message>
+    <message>
+        <source>Fiji Dollar</source>
+        <translation>Доллар Фиджи</translation>
+    </message>
+    <message>
+        <source>Falkland Islands Pound</source>
+        <translation>Фунт Фолклендских Островов</translation>
+    </message>
+    <message>
+        <source>Pound Sterling</source>
+        <translation>Фунт Стерлингов</translation>
+    </message>
+    <message>
+        <source>Lari</source>
+        <translation>Лари</translation>
+    </message>
+    <message>
+        <source>Cedi</source>
+        <translation>Ганский Седи</translation>
+    </message>
+    <message>
+        <source>Gibraltar pound</source>
+        <translation>Гибралтарский Фунт</translation>
+    </message>
+    <message>
+        <source>Dalasi</source>
+        <translation>Даласи</translation>
+    </message>
+    <message>
+        <source>Guinea Franc</source>
+        <translation>Гвинейский Франк</translation>
+    </message>
+    <message>
+        <source>Quetzal</source>
+        <translation>Кетсаль</translation>
+    </message>
+    <message>
+        <source>Guyana Dollar</source>
+        <translation>Гайанский Доллар</translation>
+    </message>
+    <message>
+        <source>Hong Kong Dollar</source>
+        <translation>Гонконгский Доллар</translation>
+    </message>
+    <message>
+        <source>Lempira</source>
+        <translation>Лемпира</translation>
+    </message>
+    <message>
+        <source>Croatian Kuna</source>
+        <translation>Хорватская Куна</translation>
+    </message>
+    <message>
+        <source>Haiti Gourde</source>
+        <translation>Гурд</translation>
+    </message>
+    <message>
+        <source>Forint</source>
+        <translation>Форинт</translation>
+    </message>
+    <message>
+        <source>Rupiah</source>
+        <translation>Рупия</translation>
+    </message>
+    <message>
+        <source>New Israeli Shekel</source>
+        <translation>Новый Израильский Шекель</translation>
+    </message>
+    <message>
+        <source>Indian Rupee</source>
+        <translation>Индийская Рупия</translation>
+    </message>
+    <message>
+        <source>Iraqi Dinar</source>
+        <translation>Иракский Динар</translation>
+    </message>
+    <message>
+        <source>Iceland Krona</source>
+        <translation>Исландская Крона</translation>
+    </message>
+    <message>
+        <source>Jamaican Dollar</source>
+        <translation>Ямайский Доллар</translation>
+    </message>
+    <message>
+        <source>Jordanian Dinar</source>
+        <translation>Иорданский Динар</translation>
+    </message>
+    <message>
+        <source>Japanese yen</source>
+        <translation>Иена</translation>
+    </message>
+    <message>
+        <source>Kenyan Shilling</source>
+        <translation>Кенийский Шиллинг</translation>
+    </message>
+    <message>
+        <source>Som</source>
+        <translation>Сом</translation>
+    </message>
+    <message>
+        <source>Riel</source>
+        <translation>Риель</translation>
+    </message>
+    <message>
+        <source>Comoro Franc</source>
+        <translation>Франк Комор</translation>
+    </message>
+    <message>
+        <source>Kuwaiti Dinar</source>
+        <translation>Кувейтский Динар</translation>
+    </message>
+    <message>
+        <source>Cayman Islands Dollar</source>
+        <translation>Доллар Островов Кайман</translation>
+    </message>
+    <message>
+        <source>Tenge</source>
+        <translation>Тенге</translation>
+    </message>
+    <message>
+        <source>Kip</source>
+        <translation>Кип</translation>
+    </message>
+    <message>
+        <source>Lebanese Pound</source>
+        <translation>Ливанский Фунт</translation>
+    </message>
+    <message>
+        <source>Sri Lanka Rupee</source>
+        <translation>Шри-Ланкийская Рупия</translation>
+    </message>
+    <message>
+        <source>Liberian Dollar</source>
+        <translation>Либерийский Доллар</translation>
+    </message>
+    <message>
+        <source>Loti</source>
+        <translation>Лоти</translation>
+    </message>
+    <message>
+        <source>Libyan Dinar</source>
+        <translation>Ливийский Динар</translation>
+    </message>
+    <message>
+        <source>Moroccan Dirham</source>
+        <translation>Марокканский Дирхам</translation>
+    </message>
+    <message>
+        <source>Malagasy Ariary</source>
+        <translation>Малагасийский Ариари</translation>
+    </message>
+    <message>
+        <source>Kyat</source>
+        <translation>Кьят</translation>
+    </message>
+    <message>
+        <source>Tugrik</source>
+        <translation>Тугрик</translation>
+    </message>
+    <message>
+        <source>Pataca</source>
+        <translation>Патака</translation>
+    </message>
+    <message>
+        <source>Ouguiya</source>
+        <translation>Угия</translation>
+    </message>
+    <message>
+        <source>Mauritius Rupee</source>
+        <translation>Маврикийская Рупия</translation>
+    </message>
+    <message>
+        <source>Rufiyaa</source>
+        <translation>Руфия</translation>
+    </message>
+    <message>
+        <source>Kwacha</source>
+        <translation>Квача</translation>
+    </message>
+    <message>
+        <source>Mexican Peso</source>
+        <translation>Мексиканское Песо</translation>
+    </message>
+    <message>
+        <source>Malaysian Ringgit</source>
+        <translation>Малайзийский Ринггит</translation>
+    </message>
+    <message>
+        <source>Metical</source>
+        <translation>Мозамбикский Метикал</translation>
+    </message>
+    <message>
+        <source>Namibian Dollar</source>
+        <translation>Доллар Намибии</translation>
+    </message>
+    <message>
+        <source>Naira</source>
+        <translation>Найра</translation>
+    </message>
+    <message>
+        <source>Cordoba Oro</source>
+        <translation>Золотая Кордоба</translation>
+    </message>
+    <message>
+        <source>Norwegian Krone</source>
+        <translation>Норвежская Крона</translation>
+    </message>
+    <message>
+        <source>Nepalese Rupee</source>
+        <translation>Непальская Рупия</translation>
+    </message>
+    <message>
+        <source>New Zealand Dollar</source>
+        <translation>Новозеландский Доллар</translation>
+    </message>
+    <message>
+        <source>Rial Omani</source>
+        <translation>Оманский Риал</translation>
+    </message>
+    <message>
+        <source>Balboa</source>
+        <translation>Бальбоа</translation>
+    </message>
+    <message>
+        <source>Nuevo Sol</source>
+        <translation>Новый Соль</translation>
+    </message>
+    <message>
+        <source>Kina</source>
+        <translation>Кина</translation>
+    </message>
+    <message>
+        <source>Philippine Peso</source>
+        <translation>Филиппинское Песо</translation>
+    </message>
+    <message>
+        <source>Pakistan Rupee</source>
+        <translation>Пакистанская Рупия</translation>
+    </message>
+    <message>
+        <source>Zloty</source>
+        <translation>Злотый</translation>
+    </message>
+    <message>
+        <source>Guarani</source>
+        <translation>Гуарани</translation>
+    </message>
+    <message>
+        <source>Qatari Rial</source>
+        <translation>Катарский Риал</translation>
+    </message>
+    <message>
+        <source>Romanian New Leu</source>
+        <translation>Новый Румынский Лей</translation>
+    </message>
+    <message>
+        <source>Serbian Dinar</source>
+        <translation>Сербский Динар</translation>
+    </message>
+    <message>
+        <source>Russian Ruble</source>
+        <translation>Российский Рубль</translation>
+    </message>
+    <message>
+        <source>Rwanda Franc</source>
+        <translation>Франк Руанды</translation>
+    </message>
+    <message>
+        <source>Saudi Riyal</source>
+        <translation>Саудовский Риял</translation>
+    </message>
+    <message>
+        <source>Solomon Islands Dollar</source>
+        <translation>Доллар Соломоновых Островов</translation>
+    </message>
+    <message>
+        <source>Seychelles Rupee</source>
+        <translation>Сейшельская Рупия</translation>
+    </message>
+    <message>
+        <source>Sudanese Pound</source>
+        <translation>Суданский Фунт</translation>
+    </message>
+    <message>
+        <source>Swedish Krona</source>
+        <translation>Шведская Крона</translation>
+    </message>
+    <message>
+        <source>Singapore Dollar</source>
+        <translation>Сингапурский Доллар</translation>
+    </message>
+    <message>
+        <source>Leone</source>
+        <translation>Леоне</translation>
+    </message>
+    <message>
+        <source>Somali Shilling</source>
+        <translation>Сомалийский Шиллинг</translation>
+    </message>
+    <message>
+        <source>Surinam Dollar</source>
+        <translation>Суринамский Доллар</translation>
+    </message>
+    <message>
+        <source>South Sudanese pound</source>
+        <translation>Южносуданский Фунт</translation>
+    </message>
+    <message>
+        <source>Dobra</source>
+        <translation>Добра</translation>
+    </message>
+    <message>
+        <source>Syrian Pound</source>
+        <translation>Сирийский Фунт</translation>
+    </message>
+    <message>
+        <source>Lilangeni</source>
+        <translation>Лилангени</translation>
+    </message>
+    <message>
+        <source>Baht</source>
+        <translation>Бат</translation>
+    </message>
+    <message>
+        <source>Somoni</source>
+        <translation>Сомони</translation>
+    </message>
+    <message>
+        <source>Manat</source>
+        <translation>Азербайджанский манат</translation>
+    </message>
+    <message>
+        <source>Tunisian Dinar</source>
+        <translation>Тунисский Динар</translation>
+    </message>
+    <message>
+        <source>Pa&apos;anga</source>
+        <translation>Паанга</translation>
+    </message>
+    <message>
+        <source>New Turkish Lira</source>
+        <translation>Турецкая Лира</translation>
+    </message>
+    <message>
+        <source>Trinidad and Tobago Dollar</source>
+        <translation>Доллар Тринидада И Тобаго</translation>
+    </message>
+    <message>
+        <source>Hryvnia</source>
+        <translation>Гривна</translation>
+    </message>
+    <message>
+        <source>Uganda Shilling</source>
+        <translation>Угандийский Шиллинг</translation>
+    </message>
+    <message>
+        <source>US Dollar</source>
+        <translation>Доллар Сша</translation>
+    </message>
+    <message>
+        <source>Peso Uruguayo</source>
+        <translation>Уругвайское Песо</translation>
+    </message>
+    <message>
+        <source>Uzbekistan Som</source>
+        <translation>Узбекский Сум</translation>
+    </message>
+    <message>
+        <source>Vietnamese đồng</source>
+        <translation>Донг</translation>
+    </message>
+    <message>
+        <source>Vatu</source>
+        <translation>Вату</translation>
+    </message>
+    <message>
+        <source>CFA Franc BEAC</source>
+        <translation>Франк Кфа Веас</translation>
+    </message>
+    <message>
+        <source>East Caribbean Dollar</source>
+        <translation>Восточно-Карибский Доллар</translation>
+    </message>
+    <message>
+        <source>CFA Franc BCEAO</source>
+        <translation>Франк Кфа Всеао</translation>
+    </message>
+    <message>
+        <source>CFP franc</source>
+        <translation>Франк Кфп</translation>
+    </message>
+    <message>
+        <source>Yemeni Rial</source>
+        <translation>Йеменский Риал</translation>
+    </message>
+    <message>
+        <source>South African Rand</source>
+        <translation>Рэнд</translation>
+    </message>
+    <message>
+        <source>Zimbabwe Dollar</source>
+        <translation>Доллар Зимбабве</translation>
+    </message>
+    <message>
+        <source>Sibcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrong path to dexdb file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can`t open dex database: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error reading masternode configuration file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sibcoin Core didn&apos;t yet exit safely...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2923,7 +4562,14 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Отладочный лог-файл</translation>
     </message>
     <message>
-        <location line="-123"/>
+        <source>Using OpenSSL version</source>
+        <translation>Используется версия OpenSSL</translation>
+    </message>
+    <message>
+        <source>Build date</source>
+        <translation>Дата сборки</translation>
+    </message>
+    <message>
         <source>Current number of blocks</source>
         <translation>Текущее количество блоков</translation>
     </message>
@@ -3063,14 +4709,12 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Папка с данными</translation>
     </message>
     <message>
-        <location line="+265"/>
-        <source>Open the %1 debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Открыть отладочный лог-файл %1 из текущего каталога данных. Для больших лог-файлов эта операция может занять несколько секунд.</translation>
+        <source>Starting Height</source>
+        <translation>Начальная высота</translation>
     </message>
     <message>
-        <location line="+65"/>
-        <source>Decrease font size</source>
-        <translation>Уменьшить шрифт</translation>
+        <source>Sync Height</source>
+        <translation>Синхрон. высота</translation>
     </message>
     <message>
         <location line="+32"/>
@@ -3103,7 +4747,14 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Последнее получение</translation>
     </message>
     <message>
-        <location line="+69"/>
+        <source>Bytes Sent</source>
+        <translation>Байт отправлено</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Байт получено</translation>
+    </message>
+    <message>
         <source>Ping Time</source>
         <translation>Время пинга</translation>
     </message>
@@ -3336,6 +4987,10 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <location line="+6"/>
         <source>Unknown</source>
         <translation>Неизвестно</translation>
+    </message>
+    <message>
+        <source>Fetching...</source>
+        <translation>Получаем...</translation>
     </message>
 </context>
 <context>
@@ -3678,9 +5333,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>свернуть настройки комиссии</translation>
     </message>
     <message>
-        <location line="+247"/>
-        <source>Confirmation time target:</source>
-        <translation>Желаемое время подтверждения:</translation>
+        <source>Minimize</source>
+        <translation>Свернуть</translation>
     </message>
     <message>
         <location line="+243"/>
@@ -3905,9 +5559,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Сумма превысит Ваш баланс, если комиссия в размере %1 будет добавлена к транзакции.</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Duplicate address found: addresses should only be used once each.</source>
-        <translation>Обнаружен дублирующийся адрес: каждый адрес должен быть использован только один раз.</translation>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation>Обнаружен дублирующийся адрес. Отправка на один и тот же адрес возможна только один раз за одну операцию отправки.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3920,28 +5573,16 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Транзакция отклонена по следующей причине: %1</translation>
     </message>
     <message>
-        <location line="+4"/>
-        <source>A fee higher than %1 is considered an absurdly high fee.</source>
-        <translation>Комиссия выше чем %1 считается &quot;безумно высокой&quot;.</translation>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>Ошибка: этот бумажник был разблокирован только для анонимизации червонцев.</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Payment request expired.</source>
-        <translation>Время этого запроса платежа истекло.</translation>
-    </message>
-    <message numerus="yes">
-        <location line="+67"/>
-        <source>%n block(s)</source>
-        <translation>
-            <numerusform>%n блок</numerusform>
-            <numerusform>%n блока</numerusform>
-            <numerusform>%n блоков</numerusform>
-        </translation>
+        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
+        <translation>Комиссия в %1 раз выше чем %2 за килобайт считается безумно большой.</translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source>Pay only the required fee of %1</source>
-        <translation>Заплатить только требуемую комиссию %1</translation>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Заплатить только минимальную комиссию %1</translation>
     </message>
     <message numerus="yes">
         <location line="+30"/>
@@ -4304,8 +5945,63 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Версия %1</translation>
     </message>
     <message>
+        <source>The Bitcoin Core developers</source>
+        <translation>Разработчики Bitcoin Core</translation>
+    </message>
+    <message>
+        <source>The Dash Core developers</source>
+        <translation>Разработчики Dash Core</translation>
+    </message>
+    <message>
+        <source>The Sibcoin Core developers</source>
+        <translation>Разработчики Sibcoin Core</translation>
+    </message>
+    <message>
+        <source>[testnet]</source>
+        <translation>[тестовая сеть]</translation>
+    </message>
+</context>
+<context>
+    <name>TableOffersDialog</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offer:</source>
+        <translation>Предложение:</translation>
+    </message>
+    <message>
+        <source>Payment:</source>
+        <translation>Платеж:</translation>
+    </message>
+    <message>
+        <source>Country:</source>
+        <translation>Страна:</translation>
+    </message>
+    <message>
+        <source>Currency:</source>
+        <translation>Валюта:</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <source>Buy</source>
+        <translation>Покупка</translation>
+    </message>
+    <message>
+        <source>Sell</source>
+        <translation>Продажа</translation>
+    </message>
+    <message>
         <source>Show</source>
         <translation>Подробнее</translation>
+    </message>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4338,19 +6034,16 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>в противоречии</translation>
     </message>
     <message>
-        <location line="+6"/>
-        <source>%1/offline</source>
-        <translation>%1/отключен</translation>
+        <source>%1/offline (verified via instantx)</source>
+        <translation>%1/отключен (проверено через instantx)</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>0/unconfirmed, %1</source>
-        <translation>0/не подтверждено, %1</translation>
+        <source>%1/confirmed (verified via instantx)</source>
+        <translation>%1/подтвержден (проверено через instantx)</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>in memory pool</source>
-        <translation>в пуле памяти</translation>
+        <source>%1 confirmations (verified via instantx)</source>
+        <translation>%1 подтверждений (проверено через instantx)</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -4755,9 +6448,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <translation>Участвовал ли адрес для просмотра в этой транзакции.</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>User-defined intent/purpose of the transaction.</source>
-        <translation>Определенное пользователем назначение транзакции.</translation>
+        <source>Destination address of transaction.</source>
+        <translation>Адрес назначения транзакции.</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -5280,19 +6972,25 @@ that paper wallet has been printed successfully!</source>
         <translation>(1 = сохранить мета-данные, например, о владельце аккаунта и информацию о запросе платежа, 2 = удалить мета-данные)</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
-        <translation>установлено очень большое значение -maxtxfee! Комиссия такого размера может быть уплачена при проведении отдельной транзакции.</translation>
+        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
+        <translation>Установлено очень большое значение -paytxfee! Это комиссия, которую Вы заплатите, когда расчет предполагаемой комиссии не доступен.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation type="vanished">установлено очень большое значение -maxtxfee! Комиссия такого размера может быть уплачена при проведении отдельной транзакции.</translation>
+    </message>
+    <message>
+        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation>установлено очень большое значение -paytxfee! Это комиссия, которую Вы заплатите при проведении транзакции.</translation>
+    </message>
+    <message>
         <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation>Комиссия (в %s/kB), которая будет использована при недостаточности данных для расчета предполагаемой комиссии (по умолчанию: %s)</translation>
+        <translation type="vanished">Комиссия (в %s/kB), которая будет использована при недостаточности данных для расчета предполагаемой комиссии (по умолчанию: %s)</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation>Принимать пересылаемые транзакции, полученные от узлов в белом списке, даже когда пересылка транзакций отключена (по умолчанию: %d)</translation>
+        <translation type="vanished">Принимать пересылаемые транзакции, полученные от узлов в белом списке, даже когда пересылка транзакций отключена (по умолчанию: %d)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -5375,7 +7073,58 @@ that paper wallet has been printed successfully!</source>
         <translation>Вывод отладочной информации (по умолчанию: %u, указание &lt;category&gt; необязательно)</translation>
     </message>
     <message>
-        <location line="+97"/>
+        <source>Provide liquidity to PrivateSend by infrequently mixing coins on a continual basis (0-100, default: %u, 1=very frequent, high fees, 100=very infrequent, low fees)</source>
+        <translation>Предоставлять ликвидность для PrivateSend путем редкого участия в перемешивании червонцев на постоянной основе (0-100, по умолчанию: %u, 1=очень часто, высокая комиссия, 100=очень редко, низкая комиссия)</translation>
+    </message>
+    <message>
+        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
+        <translation>Ретранслировать транзакций с нулевой или низкой комиссией, только если у них высокий приоритет (по умолчанию:%u)</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file (default: %u)</source>
+        <translation>Выводить информацию трассировки/отладки на консоль вместо файла debug.log (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
+        <translation>Задать число потоков выполнения для генерации червонцев, если таковая включена (-1 = все ядра, по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Show N confirmations for a successfully locked transaction (0-9999, default: %u)</source>
+        <translation>Показывать N подтверждений для успешно заблокированной транзакции (0-9999, по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation>Этот продукт включает ПО, разработанное проектом OpenSSL Project для использования в OpenSSL Toolkit &lt;https://www.openssl.org/&gt;, криптографическое ПО, написанное Eric Young и ПО для работы с UPnP, написанное Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>To use sibcoind, or the -server option to sibcoin-qt, you must set an rpcpassword in the configuration file:
+%s
+It is recommended you use the following random password:
+rpcuser=sibcoinrpc
+rpcpassword=%s
+(you do not need to remember this password)
+The username and password MUST NOT be the same.
+If the file does not exist, create it with owner-readable-only file permissions.
+It is also recommended to set alertnotify so you are notified of problems;
+for example: alertnotify=echo %%s | mail -s &quot;Sibcoin Alert&quot; admin@foo.com
+</source>
+        <translation>Для использования sibcoind или опции -server с sibcoin-qt, вы должны установить опцию rpcpassword в конфигурационном файле:
+%s
+Рекомендуется использовать следующий случайный пароль:
+rpcuser=sibcoinrpc
+rpcpassword=%s
+(вам не нужно запоминать этот пароль)
+Имя и пароль ДОЛЖНЫ различаться.
+Если файл не существует, то создайте его и оставьте права на чтение только для владельца.
+Также рекомендуется включить alertnotify для оповещения о проблемах;
+Например: alertnotify=echo %%s | mail -s &quot;Sibcoin Alert&quot; admin@foo.com
+</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough funds for this transaction that are not equal 1000 SIB.</source>
+        <translation>Не удалось обнаружить достаточных для выполнения этой транзакции средств, отличающихся от 1000 SIB.</translation>
+    </message>
+    <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
         <translation>Использовать отдельный SOCKS5 прокси для подключения к участникам через скрытые сервисы Tor (по умолчанию: %s)</translation>
     </message>
@@ -5562,12 +7311,12 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+2"/>
         <source>Loading masternode cache...</source>
-        <translation>Загрузка кэша мастернод...</translation>
+        <translation type="vanished">Загрузка кэша мастернод...</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Loading masternode payment cache...</source>
-        <translation>Загрузка кэша выплат Мастернодам...</translation>
+        <translation type="vanished">Загрузка кэша выплат Мастернодам...</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -5627,7 +7376,7 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+3"/>
         <source>Port: %d</source>
-        <translation>Порт: %d</translation>
+        <translation type="vanished">Порт: %d</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -5647,7 +7396,7 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+9"/>
         <source>Send trace/debug info to debug.log file (default: %u)</source>
-        <translation>Выводить информацию трассировки/отладки в файл debug.log (по умолчанию: %u)</translation>
+        <translation type="vanished">Выводить информацию трассировки/отладки в файл debug.log (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -5737,47 +7486,47 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+1"/>
         <source>Too many %f denominations, removing.</source>
-        <translation>Слишком много номиналов %f, удаляем.</translation>
+        <translation type="vanished">Слишком много номиналов %f, удаляем.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Tor control port password (default: empty)</source>
-        <translation>Пароль контрольного порта Tor (по умолчанию: пустой)</translation>
+        <translation type="vanished">Пароль контрольного порта Tor (по умолчанию: пустой)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation>Используемый контрольный порт Tor при включенном прослушивании сети onion (по умолчанию: %s)</translation>
+        <translation type="vanished">Используемый контрольный порт Tor при включенном прослушивании сети onion (по умолчанию: %s)</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Unable to start HTTP server. See debug log for details.</source>
-        <translation>Не удалось стартовать HTTP сервер. Смотрите debug.log для получения подробной информации.</translation>
+        <translation type="vanished">Не удалось стартовать HTTP сервер. Смотрите debug.log для получения подробной информации.</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Unknown response.</source>
-        <translation>Неизвестный ответ.</translation>
+        <translation type="vanished">Неизвестный ответ.</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation>Опция -benchmark проигнорирована, используйте -debug=bench вместо нее.</translation>
+        <translation type="vanished">Опция -benchmark проигнорирована, используйте -debug=bench вместо нее.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation>Опция -debugnet проигнорирована, используйте -debug=net вместо нее.</translation>
+        <translation type="vanished">Опция -debugnet проигнорирована, используйте -debug=net вместо нее.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Unsupported argument -tor found, use -onion.</source>
-        <translation>Обнаружен неподдерживаемый параметр -tor, используйте -onion вместо него.</translation>
+        <translation type="vanished">Обнаружен неподдерживаемый параметр -tor, используйте -onion вместо него.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Upgrade wallet to latest format on startup</source>
-        <translation>Обновить бумажник до последнего формата на старте</translation>
+        <translation type="vanished">Обновить бумажник до последнего формата на старте</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -5792,10 +7541,13 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+1"/>
         <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation>Комментарий User Agent  (%s) содержит небезопасные символы.</translation>
+        <translation type="vanished">Комментарий User Agent  (%s) содержит небезопасные символы.</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <source>Value more than PrivateSend pool maximum allows.</source>
+        <translation>Превышено значение допустимой для пула PrivateSend суммы.</translation>
+    </message>
+    <message>
         <source>Will retry...</source>
         <translation>Попробуем еще раз...</translation>
     </message>
@@ -5805,7 +7557,10 @@ that paper wallet has been printed successfully!</source>
         <translation>Неправильное значение masternodeprivkey. Пожалуйста, ознакомьтесь с документацией.</translation>
     </message>
     <message>
-        <location line="-75"/>
+        <source>(must be 9999 for mainnet)</source>
+        <translation>(должно быть 9999 в главной сети)</translation>
+    </message>
+    <message>
         <source>Can&apos;t find random Masternode.</source>
         <translation>Не получилось выбрать случайную Мастерноду.</translation>
     </message>
@@ -5850,134 +7605,152 @@ that paper wallet has been printed successfully!</source>
         <translation>Держать в памяти до &lt;n&gt; несвязных транзакций (по умолчанию: %u)</translation>
     </message>
     <message>
-        <location line="-385"/>
-        <source>Disable all Sibcoin specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Отключить всю функциональность, относящуюся к Sibcoin (Мастерноды, PrivateSend, InstantSend, Governance) (0-1, по умолчанию: %u)</translation>
+        <source>Disable all Dash/Sibcoin specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
+        <translation>Отключить всю функциональность, относящуюся к Dash/Sibcoin (Мастерноды, PrivateSend, InstantSend, Governance) (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation>Определить свой IP (по умолчанию: 1 при прослушивании и если не используется -externalip или -proxy)</translation>
+        <translation type="vanished">Определить свой IP (по умолчанию: 1 при прослушивании и если не используется -externalip или -proxy)</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation>Не хранить транзакции в мемпуле дольше чем &lt;n&gt; часов (по умолчанию: %u)</translation>
+        <translation type="vanished">Не хранить транзакции в мемпуле дольше чем &lt;n&gt; часов (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Enable InstantSend, show confirmations for locked transactions (0-1, default: %u)</source>
-        <translation>Включить InstantSend, показывать подтверждения для заблокированных транзакций (0-1, по умолчанию: %u)</translation>
+        <translation type="vanished">Включить InstantSend, показывать подтверждения для заблокированных транзакций (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>Включить множественное перемешивание PrivateSend за один блок (0-1, по умолчанию: %u)</translation>
+        <translation type="vanished">Включить множественное перемешивание PrivateSend за один блок (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Enable use of automated PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>Включить автоматическое перемешивание PrivateSend для средств, хранящихся в этом кошельке (0-1, по умолчанию: %u)</translation>
+        <translation type="vanished">Включить автоматическое перемешивание PrivateSend для средств, хранящихся в этом кошельке (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <source>Error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation>Ошибка чтения wallet.dat! Все ключи прочитаны верно, но данные транзакций или записи адресной книги могут отсутствовать или быть неправильными.</translation>
+    </message>
+    <message>
         <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
-        <translation>Выполнить команду, когда транзакция InstantSend успешно заблокирована (%s в команде заменяется на TxID)</translation>
+        <translation type="vanished">Выполнить команду, когда транзакция InstantSend успешно заблокирована (%s в команде заменяется на TxID)</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
-        <translation>Не удалось создать резервную копию, т.к. файл уже существует! Такое могло случится, если вы перезапустили кошелек менее чем через 60 секунд после предыдущего запуска. Вы можете продолжить, если это допустимо.</translation>
+        <translation type="vanished">Не удалось создать резервную копию, т.к. файл уже существует! Такое могло случится, если вы перезапустили кошелек менее чем через 60 секунд после предыдущего запуска. Вы можете продолжить, если это допустимо.</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation>Комиссии (в %s/kB) меньше этого значения считаются нулевой для ретранслирования, майнинга и создания транзакции (по умолчанию: %s)</translation>
+        <translation type="vanished">Комиссии (в %s/kB) меньше этого значения считаются нулевой для ретранслирования, майнинга и создания транзакции (по умолчанию: %s)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Комиссии (в %s/kB) меньше этого значения считаются нулевой при создании транзакции (по умолчанию: %s)</translation>
+        <translation type="vanished">Комиссии (в %s/kB) меньше этого значения считаются нулевой при создании транзакции (по умолчанию: %s)</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
+        <translation>Пересылать транзакции от узлов в белом списке, даже если они нарушают локальные правила пересылки (по умолчанию: %d)</translation>
+    </message>
+    <message>
         <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation>Если &lt;category&gt; не указана или &lt;category&gt; = 1, выводит всю отладочную информацию.</translation>
+        <translation type="vanished">Если &lt;category&gt; не указана или &lt;category&gt; = 1, выводит всю отладочную информацию.</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 SIB.</source>
+        <translation>InstantSend пока что не поддерживает такие большие суммы. На данный момент транзакции ограничены суммами до %1 SIB.</translation>
+    </message>
+    <message>
         <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>InstantSend требует наличия средств с хотя бы %d подтверждениями, возможно Вам нужно подождать пару минут и попробовать снова.</translation>
+        <translation type="vanished">InstantSend требует наличия средств с хотя бы %d подтверждениями, возможно Вам нужно подождать пару минут и попробовать снова.</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Maintain a full address index, used to query for the balance, txids and unspent outputs for addresses (default: %u)</source>
-        <translation>Хранить полный индекс для адресов, используется для запроса баланса, транзакций и непотраченных выходов для конкретного адреса (по умолчанию: %u)</translation>
+        <translation type="vanished">Хранить полный индекс для адресов, используется для запроса баланса, транзакций и непотраченных выходов для конкретного адреса (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Maintain a full spent index, used to query the spending txid and input index for an outpoint (default: %u)</source>
-        <translation>Хранить полный индекс трат, используется для запроса id транзакции и индекса входа для конкретного выхода (по умолчанию: %u)</translation>
+        <translation type="vanished">Хранить полный индекс трат, используется для запроса id транзакции и индекса входа для конкретного выхода (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Maintain a timestamp index for block hashes, used to query blocks hashes by a range of timestamps (default: %u)</source>
-        <translation>Хранить индекс меток времени для хэшей блока, используется для запроса хэшей блоков по диапазону меток времени (по умолчанию: %u)</translation>
+        <translation type="vanished">Хранить индекс меток времени для хэшей блока, используется для запроса хэшей блоков по диапазону меток времени (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Maintain at most &lt;n&gt; connections to peers (temporary service connections excluded) (default: %u)</source>
-        <translation>Поддерживать не более &lt;n&gt; подключений к узлам (без учета временных сервисных соединений) (по умолчанию: %u)</translation>
+        <translation type="vanished">Поддерживать не более &lt;n&gt; подключений к узлам (без учета временных сервисных соединений) (по умолчанию: %u)</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <source>Maximum total fees (in %s) to use in a single wallet transaction; setting this too low may abort large transactions (default: %s)</source>
+        <translation>Максимальная сумма комиссии (в %s), допустимая в одной транзакции. Установка слишком низкого значения может привести к невозможности отправить большие транзакции (по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong Sibcoin Core will not work properly.</source>
+        <translation>Пожалуйста, убедитесь что дата и время на Вашем компьютере выставлены правильно! Sibcoin Core не сможет работать корректно, если часы настроены неверно.</translation>
+    </message>
+    <message>
         <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
-        <translation>При отправке PrivateSend использует только деноминированные средства, возможно, Вам просто нужно анонимизировать немного больше монет.</translation>
+        <translation type="vanished">При отправке PrivateSend использует только деноминированные средства, возможно, Вам просто нужно анонимизировать немного больше монет.</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation>Удаление блоков настроено ниже допустимого предела в %d MiB.  Пожалуйста, укажите большее число.</translation>
+        <translation type="vanished">Удаление блоков настроено ниже допустимого предела в %d MiB.  Пожалуйста, укажите большее число.</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation>Удаление блоков: последняя синхронизация кошелька выходит за рамки удаленных данных. Вам нужно запустить клиента с ключом -reindex (в случае узла с удаленными блоками это означает повторное скачивание всей цепи блоков)</translation>
+        <translation type="vanished">Удаление блоков: последняя синхронизация кошелька выходит за рамки удаленных данных. Вам нужно запустить клиента с ключом -reindex (в случае узла с удаленными блоками это означает повторное скачивание всей цепи блоков)</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation>Использовать случайные учётные данные для каждого прокси-подключения. Эта функция позволяет изолировать потоки Tor (по умолчанию: %u)</translation>
+        <translation type="vanished">Использовать случайные учётные данные для каждого прокси-подключения. Эта функция позволяет изолировать потоки Tor (по умолчанию: %u)</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
+        <translation>Уменьшить требования к размеру хранилища путем урезания (удаления) старых блоков. Этот режим несовместим с -txindex и -rescan. Внимание: отмена этой настройки потребует повторного скачивания всей цепочки блоков. (по умолчанию: 0 = отключить удаление блоков, &gt;%u = целевой размер в MiB, который будут займут файлы блоков)</translation>
+    </message>
+    <message>
         <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation>Повторное сканирование невозможно в режиме удаления блоков. Вам надо будет использовать -reindex, что приведет к повторной загрузке всей цепи блоков.</translation>
+        <translation type="vanished">Повторное сканирование невозможно в режиме удаления блоков. Вам надо будет использовать -reindex, что приведет к повторной загрузке всей цепи блоков.</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Specify full path to directory for automatic wallet backups (must exist)</source>
-        <translation>Укажите полный путь к папке для автоматических резервных копий кошелька (должна уже быть создана)</translation>
+        <translation type="vanished">Укажите полный путь к папке для автоматических резервных копий кошелька (должна уже быть создана)</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation>Поддерживать фильтрацию блоков и транзакций с помощью фильтров Блума (по умолчанию: %u)</translation>
+        <translation type="vanished">Поддерживать фильтрацию блоков и транзакций с помощью фильтров Блума (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
-        <translation>База данных блоков содержит блок, созданный в будущем. Такое может случиться из-за некорректно установленных даты и времени на Вашем компьютере. Перестройте базу блоков, только если вы уверены, что дата и время корректны.</translation>
+        <translation type="vanished">База данных блоков содержит блок, созданный в будущем. Такое может случиться из-за некорректно установленных даты и времени на Вашем компьютере. Перестройте базу блоков, только если вы уверены, что дата и время корректны.</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>The transaction amount is too small to send after the fee has been deducted</source>
-        <translation>При вычете комиссии сумма транзакции будет слишком мала для отправки</translation>
+        <translation type="vanished">При вычете комиссии сумма транзакции будет слишком мала для отправки</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation>Длина строки сетевой версии (%i) превышает максимально допустимую (%i). Уменьшите количество или размер строк uacomment.</translation>
+        <translation type="vanished">Длина строки сетевой версии (%i) превышает максимально допустимую (%i). Уменьшите количество или размер строк uacomment.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -5987,47 +7760,57 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+3"/>
         <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation>Пытаться ограничить исходящий трафик в пределах установленного лимита (в МБ за 24ч), 0 = не ограничивать (по умолчанию: %d)</translation>
+        <translation type="vanished">Пытаться ограничить исходящий трафик в пределах установленного лимита (в МБ за 24ч), 0 = не ограничивать (по умолчанию: %d)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>Не удалось обнаружить достаточных для выполнения этой транзакции номиналов PrivateSend.</translation>
+        <translation type="vanished">Не удалось обнаружить достаточных для выполнения этой транзакции номиналов PrivateSend.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction that are not equal 1000 SIB.</source>
+        <translation>Не удалось обнаружить достаточных для выполнения этой транзакции неденоминированных средств, отличающихся от 1000 SIB.</translation>
+    </message>
+    <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation>Обнаружен неподдерживаемый аргумент -socks. Выбор версии SOCKS больше невозможен, поддерживаются только прокси версии SOCKS5.</translation>
+        <translation type="vanished">Обнаружен неподдерживаемый аргумент -socks. Выбор версии SOCKS больше невозможен, поддерживаются только прокси версии SOCKS5.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation>Неподдерживаемый аргумент -whitelistalwaysrelay проигнорирован, используйте -whitelistrelay и/или -whitelistforcerelay.</translation>
+        <translation type="vanished">Неподдерживаемый аргумент -whitelistalwaysrelay проигнорирован, используйте -whitelistrelay и/или -whitelistforcerelay.</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <source>Use N separate masternodes for each denominated input to mix funds (2-16, default: %u)</source>
+        <translation>Использовать N отдельных мастернод для перемешивания средств (2-16, по умолчанию: %u)</translation>
+    </message>
+    <message>
         <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation>Использовать UPnP для проброса порта (по умолчанию: 1, если используется прослушивание и нет -proxy)</translation>
+        <translation type="vanished">Использовать UPnP для проброса порта (по умолчанию: 1, если используется прослушивание и нет -proxy)</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
+        <translation>Имя пользователя и хэш пароля для JSON-RPC соединений. Поле &lt;userpw&gt; использует формат: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Каноничный пример скрипта на питоне находится в share/rpcuser. Эта опция может быть указана несколько раз</translation>
+    </message>
+    <message>
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
-        <translation>ВНИМАНИЕ! Ну удалось обновить пул ключей, пожалуйста, разблокируйте кошелек.</translation>
+        <translation type="vanished">ВНИМАНИЕ! Ну удалось обновить пул ключей, пожалуйста, разблокируйте кошелек.</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <source>WARNING: abnormally high number of blocks generated, %d blocks received in the last %d hours (%d expected)</source>
+        <translation>ВНИМАНИЕ: создано ненормально высокое количество блоков, получено %d блоков за последние %d часов (ожидалось %d)</translation>
+    </message>
+    <message>
+        <source>WARNING: check your network connection, %d blocks received in the last %d hours (%d expected)</source>
+        <translation>ВНИМАНИЕ: проверьте Ваше сетевое соединение, получено %d блоков за последние %d часов (ожидалось %d)</translation>
+    </message>
+    <message>
         <source>Wallet is locked, can&apos;t replenish keypool! Automatic backups and mixing are disabled, please unlock your wallet to replenish keypool.</source>
         <translation>Кошелек заблокирован, невозможно пополнить пул ключей! Автоматические резервные копии и перемешивание отключены. Пожалуйста, разблокируйте кошелек для пополнения пула ключей.</translation>
     </message>
     <message>
-        <location line="+13"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong %s will not work properly.</source>
-        <translation>Внимание: пожалуйста, убедитесь что дата и время на Вашем компьютере выставлены правильно! %s не сможет работать корректно, если часы настроены неверно.</translation>
-    </message>
-    <message>
-        <location line="+6"/>
         <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
-        <translation>Внимание: создаются блоки неизвестной версии! Возможно активированы неизвестные правила</translation>
+        <translation type="vanished">Внимание: создаются блоки неизвестной версии! Возможно активированы неизвестные правила</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -6037,132 +7820,145 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+6"/>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation>Вам необходимо пересоздать базы данных, запустив клиент с ключом -reindex, чтобы вернуться в полный режим. Это приведет к повторному скачиванию всей цепи блоков.</translation>
+        <translation type="vanished">Вам необходимо пересоздать базы данных, запустив клиент с ключом -reindex, чтобы вернуться в полный режим. Это приведет к повторному скачиванию всей цепи блоков.</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <source>masternodeaddr option is deprecated. Please use masternode.conf to manage your remote masternodes.</source>
+        <translation>Опция masternodeaddr устарела. Пожалуйста, используйте masternode.conf для управления Вашими удаленными мастернодами.</translation>
+    </message>
+    <message>
+        <source>%s - %d confirmations</source>
+        <translation>%s - %d подтверждений</translation>
+    </message>
+    <message>
         <source>(%d could be used only on mainnet)</source>
-        <translation>(%d можно использовать только в главной сети)</translation>
+        <translation type="vanished">(%d можно использовать только в главной сети)</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>(default: %u)</source>
-        <translation>(по умолчанию: %u)</translation>
+        <translation type="vanished">(по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>(must be %d for mainnet)</source>
-        <translation>(должно быть %d в главной сети)</translation>
+        <translation type="vanished">(должно быть %d в главной сети)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>-maxmempool must be at least %d MB</source>
-        <translation>-maxmempool должно быть минимум %d MB</translation>
+        <translation type="vanished">-maxmempool должно быть минимум %d MB</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&lt;category&gt; can be:</source>
-        <translation>&lt;category&gt; может быть:</translation>
+        <translation type="vanished">&lt;category&gt; может быть:</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <source>Activating best chain...</source>
+        <translation>Активируется лучшая цепь...</translation>
+    </message>
+    <message>
         <source>Append comment to the user agent string</source>
-        <translation>Добавить комментарий к строке User Agent</translation>
+        <translation type="vanished">Добавить комментарий к строке User Agent</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <source>Attempt to recover private keys from a corrupt wallet.dat on startup</source>
+        <translation>Попытаться восстановить закрытые ключи из повреждённого wallet.dat на старте</translation>
+    </message>
+    <message>
         <source>Automatic backups disabled</source>
-        <translation>Автоматические бэкапы отключены</translation>
+        <translation type="vanished">Автоматические бэкапы отключены</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation>Автоматически создавать скрытый сервис Tor (по умолчанию: %d)</translation>
+        <translation type="vanished">Автоматически создавать скрытый сервис Tor (по умолчанию: %d)</translation>
     </message>
     <message>
         <location line="+21"/>
         <source>ERROR! Failed to create automatic backup</source>
-        <translation>ОШИБКА! Не удалось создать автоматический бэкап</translation>
+        <translation type="vanished">ОШИБКА! Не удалось создать автоматический бэкап</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation>Включить публикацию хэша блока на &lt;address&gt;</translation>
+        <translation type="vanished">Включить публикацию хэша блока на &lt;address&gt;</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation>Включить публикацию хэша транзакции (заблокированной через InstantSend) на &lt;address&gt;</translation>
+        <translation type="vanished">Включить публикацию хэша транзакции (заблокированной через InstantSend) на &lt;address&gt;</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation>Включить публикацию хэша транзакции на &lt;address&gt;</translation>
+        <translation type="vanished">Включить публикацию хэша транзакции на &lt;address&gt;</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation>Включить публикацию кода блока на &lt;address&gt;</translation>
+        <translation type="vanished">Включить публикацию кода блока на &lt;address&gt;</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Enable publish raw transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation>Включить публикацию кода транзакции (заблокированной через InstantSend) на &lt;address&gt;</translation>
+        <translation type="vanished">Включить публикацию кода транзакции (заблокированной через InstantSend) на &lt;address&gt;</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation>Включить публикацию кода транзакции на &lt;address&gt;</translation>
+        <translation type="vanished">Включить публикацию кода транзакции на &lt;address&gt;</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation>Разрешить подмену транзакций в пуле памяти (по умолчанию: %u)</translation>
+        <translation type="vanished">Разрешить подмену транзакций в пуле памяти (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
-        <translation>Ошибка: Произошла критическая ошибка, подробности смотрите в файле debug.log</translation>
+        <translation type="vanished">Ошибка: Произошла критическая ошибка, подробности смотрите в файле debug.log</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Failed to create backup %s!</source>
-        <translation>Не удалось создать резервную копию %s!</translation>
+        <translation type="vanished">Не удалось создать резервную копию %s!</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Failed to create backup, error: %s</source>
-        <translation>Не удалось создать резервную копию, ошибка: %s</translation>
+        <translation type="vanished">Не удалось создать резервную копию, ошибка: %s</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Failed to delete backup, error: %s</source>
-        <translation>Не удалось удалить резервную копию, ошибка: %s</translation>
+        <translation type="vanished">Не удалось удалить резервную копию, ошибка: %s</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Failed to parse host:port string</source>
-        <translation>Не удалось разбить строку host:port</translation>
+        <translation type="vanished">Не удалось разбить строку host:port</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation>Комиссия (в %s/kB), добавляемая к отправляемым Вами транзакциям (по умолчанию: %s)</translation>
+        <translation type="vanished">Комиссия (в %s/kB), добавляемая к отправляемым Вами транзакциям (по умолчанию: %s)</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation>Импортировать блоки из внешнего файла blk000??.dat на старте</translation>
+        <translation type="vanished">Импортировать блоки из внешнего файла blk000??.dat на старте</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>InstantSend options:</source>
-        <translation>Параметры InstantSend:</translation>
+        <translation type="vanished">Параметры InstantSend:</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Неверная сумма в параметре -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</translation>
+        <translation type="vanished">Неверная сумма в параметре -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6177,17 +7973,17 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+2"/>
         <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation>Держать размер пула памяти транзакций ниже &lt;n&gt; мегабайт (по умолчанию: %u)</translation>
+        <translation type="vanished">Держать размер пула памяти транзакций ниже &lt;n&gt; мегабайт (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Last PrivateSend was too recent.</source>
-        <translation>Последнее действие PrivateSend было слишком недавно.</translation>
+        <translation type="vanished">Последнее действие PrivateSend было слишком недавно.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Last successful PrivateSend action was too recent.</source>
-        <translation>Последнее успешное действие PrivateSend было слишком недавно.</translation>
+        <translation type="vanished">Последнее успешное действие PrivateSend было слишком недавно.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6205,9 +8001,12 @@ that paper wallet has been printed successfully!</source>
         <translation>Загрузка индекса блоков...</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <source>Loading fullfiled requests cache...</source>
+        <translation>Загрузка кэша выполненных запросов...</translation>
+    </message>
+    <message>
         <source>Loading governance cache...</source>
-        <translation>Загрузка кэша управления...</translation>
+        <translation type="vanished">Загрузка кэша управления...</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -6222,17 +8021,17 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+1"/>
         <source>Location of the auth cookie (default: data dir)</source>
-        <translation>Расположение cookie для аутентификации (по умолчанию: папка данных)</translation>
+        <translation type="vanished">Расположение cookie для аутентификации (по умолчанию: папка данных)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Make the wallet broadcast transactions</source>
-        <translation>Рассылать транзакции из бумажника</translation>
+        <translation type="vanished">Рассылать транзакции из бумажника</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Masternode cache is empty, skipping payments and governance cache...</source>
-        <translation>Кэш мастернод пуст, пропускаем кэш платежей и объектов управления...</translation>
+        <translation type="vanished">Кэш мастернод пуст, пропускаем кэш платежей и объектов управления...</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6252,7 +8051,7 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+3"/>
         <source>Minimum bytes per sigop in transactions we relay and mine (default: %u)</source>
-        <translation>Минимальное количество байт на операцию в транзакциях, которые мы ретранслируем и добываем (по умолчанию: %u)</translation>
+        <translation type="vanished">Минимальное количество байт на операцию в транзакциях, которые мы ретранслируем и добываем (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6262,7 +8061,7 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+6"/>
         <source>No errors detected.</source>
-        <translation>Ошибок не обнаружено.</translation>
+        <translation type="vanished">Ошибок не обнаружено.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6292,12 +8091,12 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+1"/>
         <source>Not enough funds to anonymize.</source>
-        <translation>Недостаточно средств, подходящих для анонимизации.</translation>
+        <translation type="vanished">Недостаточно средств, подходящих для анонимизации.</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Number of automatic wallet backups (default: %u)</source>
-        <translation>Количество автоматических резервных копий кошелька (по умолчанию: %u)</translation>
+        <translation type="vanished">Количество автоматических резервных копий кошелька (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6312,47 +8111,50 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+4"/>
         <source>Print version and exit</source>
-        <translation>Вывести версию и выйти</translation>
+        <translation type="vanished">Вывести версию и выйти</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>PrivateSend is idle.</source>
-        <translation>PrivateSend в режиме ожидания.</translation>
+        <translation type="vanished">PrivateSend в режиме ожидания.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>PrivateSend options:</source>
-        <translation>Опции PrivateSend:</translation>
+        <translation type="vanished">Опции PrivateSend:</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>PrivateSend request complete:</source>
-        <translation>Запрос PrivateSend завершен:</translation>
+        <translation type="vanished">Запрос PrivateSend завершен:</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>PrivateSend request incomplete:</source>
-        <translation>Запрос PrivateSend не завершен:</translation>
+        <translation type="vanished">Запрос PrivateSend не завершен:</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Prune cannot be configured with a negative value.</source>
-        <translation>Удаление блоков не может использовать отрицательное значение.</translation>
+        <translation type="vanished">Удаление блоков не может использовать отрицательное значение.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Prune mode is incompatible with -txindex.</source>
-        <translation>Режим удаления блоков несовместим с -txindex.</translation>
+        <translation type="vanished">Режим удаления блоков несовместим с -txindex.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Pruning blockstore...</source>
-        <translation>Урезание хранилища блоков...</translation>
+        <translation type="vanished">Урезание хранилища блоков...</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <source>Rebuild block chain index from current blk000??.dat files on startup</source>
+        <translation>Перестроить индекс цепочки блоков из текущих файлов blk000??.dat на старте</translation>
+    </message>
+    <message>
         <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation>Перепроверить цепочку блоков на предмет отсутствующих в бумажнике транзакций на старте</translation>
+        <translation type="vanished">Перепроверить цепочку блоков на предмет отсутствующих в бумажнике транзакций на старте</translation>
     </message>
     <message>
         <location line="+37"/>
@@ -6417,32 +8219,32 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+4"/>
         <source>Warning: unknown new rules activated (versionbit %i)</source>
-        <translation>Внимание: вступили в силу неизвестные правила (versionbit %i)</translation>
+        <translation type="vanished">Внимание: вступили в силу неизвестные правила (versionbit %i)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Wasn&apos;t able to create wallet backup folder %s!</source>
-        <translation>Не удалось создать папку для резервной копии кошелька %s!</translation>
+        <translation type="vanished">Не удалось создать папку для резервной копии кошелька %s!</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation>Работать в режиме обработки только блоков (по умолчанию: %u)</translation>
+        <translation type="vanished">Работать в режиме обработки только блоков (по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>ZeroMQ notification options:</source>
-        <translation>Параметры оповещения ZeroMQ:</translation>
+        <translation type="vanished">Параметры оповещения ZeroMQ:</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>no mixing available.</source>
-        <translation>перемешивание недоступно.</translation>
+        <translation type="vanished">перемешивание недоступно.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>see debug.log for details.</source>
-        <translation>смотрите debug.log для получения подробной информации.</translation>
+        <translation type="vanished">смотрите debug.log для получения подробной информации.</translation>
     </message>
     <message>
         <location line="-99"/>
@@ -6717,7 +8519,7 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+1"/>
         <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
-        <translation>Настройка -maxconnections снижена с %d до %d из-за ограничений системы.</translation>
+        <translation type="vanished">Настройка -maxconnections снижена с %d до %d из-за ограничений системы.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6742,7 +8544,7 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+1"/>
         <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation>Выводить информацию трассировки/отладки на консоль вместо файла debug.log</translation>
+        <translation type="vanished">Выводить информацию трассировки/отладки на консоль вместо файла debug.log</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -6807,17 +8609,17 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+7"/>
         <source>Synchronization pending...</source>
-        <translation>Ожидание синхронизации...</translation>
+        <translation type="vanished">Ожидание синхронизации...</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Synchronizing governance objects...</source>
-        <translation>Синхронизация объектов управления...</translation>
+        <translation type="vanished">Синхронизация объектов управления...</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Synchronizing masternode payments...</source>
-        <translation>Синхронизация выплат мастернодам...</translation>
+        <translation type="vanished">Синхронизация выплат мастернодам...</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6827,7 +8629,7 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+1"/>
         <source>The transaction amount is too small to pay the fee</source>
-        <translation>Сумма транзакции слишком мала для оплаты комиссии</translation>
+        <translation type="vanished">Сумма транзакции слишком мала для оплаты комиссии</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6897,7 +8699,7 @@ that paper wallet has been printed successfully!</source>
     <message>
         <location line="+1"/>
         <source>Very low number of keys left: %d</source>
-        <translation>Осталось очень мало ключей: %d</translation>
+        <translation type="vanished">Осталось очень мало ключей: %d</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6951,6 +8753,10 @@ that paper wallet has been printed successfully!</source>
 </context>
 <context>
     <name>ExchangeDialog</name>
+    <message>
+        <source>(must be 1945 for mainnet)</source>
+        <translation type="unfinished">(должно быть 9999 в главной сети) {1945 ?}</translation>
+    </message>
     <message>
         <source>Buy Sibcoin</source>
         <translation>Покупка Sibcoin</translation>
@@ -7023,8 +8829,8 @@ that paper wallet has been printed successfully!</source>
         <translation>Антигуа И Барбуда</translation>
     </message>
     <message>
-        <source>Argentina</source>
-        <translation>Аргентина</translation>
+        <source>(must be 1945 for mainnet)</source>
+        <translation type="unfinished">(должно быть 9999 в главной сети) {1945 ?}</translation>
     </message>
     <message>
         <source>Armenia</source>
