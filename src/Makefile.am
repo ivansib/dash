@@ -474,8 +474,8 @@ sibcoind_LDADD = \
 sibcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 if ENABLE_DEX
-sibcoind_LDADD += $(LIBDEXDB)
 sibcoind_LDADD += $(LIBDEX)
+sibcoind_LDADD += $(LIBDEXDB)
 endif
 
 # sibcoin-cli binary #
