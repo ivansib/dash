@@ -3,7 +3,6 @@
 #define __DEX_OFFER_H__
 
 #include "key.h"
-#include "main.h"
 #include "net.h"
 #include "timedata.h"
 #include "dex/dexdto.h"
@@ -84,6 +83,8 @@ public:
     uint256 MakeHash();
 
     std::string dump() const;
+
+    bool Check(bool fullcheck);
 
 };
 

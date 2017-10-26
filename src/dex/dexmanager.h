@@ -6,7 +6,6 @@
 #include "net.h"
 #include "dex/dexdto.h"
 #include "dex.h"
-#include "dexbc.h"
 
 class CDexManager;
 extern CDexManager dexman;
