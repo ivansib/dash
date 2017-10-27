@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ru">
+<TS version="2.1" language="ru">
+<context>
+    <name>AboutDialog</name>
+    <message>
+        <source>About Sibcoin Core</source>
+        <translation>О программе: &quot;Сибирский Червонец&quot; (SIB)</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Sibcoin Core&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Сибирский Червонец&lt;/b&gt; версия</translation>
+    </message>
+    <message>
+        <source>Copyright &amp;copy; 2009-2014 The Bitcoin Core developers.
+Copyright &amp;copy; 2014-YYYY The Dash Core developers.
+Copyright &amp;copy; 2015-YYYY The Sibcoin Core developers.</source>
+        <translation>Copyright &amp;copy; 2009-2014 Разработчики Bitcoin Core.
+Copyright &amp;copy; 2014-YYYY Разработчики Dash Core.
+Copyright &amp;copy; 2015-YYYY Разработчики Sibcoin Core.</translation>
+    </message>
+    <message>
+        <source>
+This is experimental software.
+
+Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
+        <translation>Это экспериментальное ПО.
+
+Распространяется под лицензией MIT/X11, см. приложенный файл COPYING или http://www.opensource.org/licenses/mit-license.php.
+
+Этот продукт включает ПО, разработанное проектом OpenSSL Project для использования в OpenSSL Toolkit (http://www.openssl.org/), криптографическое ПО, написанное Eric Young (eay@cryptsoft.com) и ПО для работы с UPnP, написанное Thomas Bernard.</translation>
+    </message>
+</context>
 <context>
     <name>AddressBookPage</name>
     <message>
@@ -1793,6 +1825,18 @@ p, li { white-space: pre-wrap; }
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
+    <message>
+        <source>Approximate Time Expiration:</source>
+        <translation>Приблизительная Дата Истечения:</translation>
+    </message>
+    <message>
+        <source>Buy</source>
+        <translation>Покупка</translation>
+    </message>
+    <message>
+        <source>Sell</source>
+        <translation>Продажа</translation>
+    </message>
 </context>
 <context>
     <name>ModalOverlay</name>
@@ -1855,9 +1899,31 @@ p, li { white-space: pre-wrap; }
         <translation>Скрыть</translation>
     </message>
     <message>
-        <location filename="../modaloverlay.cpp" line="-1"/>
-        <source>Unknown. Syncing Headers (%1)...</source>
-        <translation>Неизвестно. Синхронизация заголовков (%1)...</translation>
+        <source>Short Info:</source>
+        <translation>Краткая Информация:</translation>
+    </message>
+    <message>
+        <source>Details:</source>
+        <translation>Детали:</translation>
+    </message>
+</context>
+<context>
+    <name>OfferModel</name>
+    <message>
+        <source>Price</source>
+        <translation>Цена</translation>
+    </message>
+    <message>
+        <source>Short Info</source>
+        <translation>Краткая Информация</translation>
+    </message>
+    <message>
+        <source>Min Amount</source>
+        <translation>Мин. сумма</translation>
+    </message>
+    <message>
+        <source>More Details</source>
+        <translation>Больше Деталей</translation>
     </message>
     <message>
         <source>Show</source>
@@ -3781,7 +3847,7 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <source>USA</source>
-        <translation>Сша</translation>
+        <translation>США</translation>
     </message>
     <message>
         <source>United States Minor Outlying Islands</source>
@@ -4373,7 +4439,7 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <source>US Dollar</source>
-        <translation>Доллар Сша</translation>
+        <translation>Доллар США</translation>
     </message>
     <message>
         <source>Peso Uruguayo</source>
@@ -4449,6 +4515,10 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <source>Sibcoin Core didn&apos;t yet exit safely...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FontAwesome cannot be loaded</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6002,6 +6072,10 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     <message>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation>Создать</translation>
     </message>
 </context>
 <context>

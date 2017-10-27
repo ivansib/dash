@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en">
+<TS version="2.0" language="en">
 <context>
     <name>AddressBookPage</name>
     <message>
@@ -884,6 +884,11 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
+    <message>
+        <location filename="../sibcoin.cpp" line="+558"/>
+        <source>A fatal error occurred. Sibcoin can no longer continue safely and will quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ClientModel</name>
@@ -1741,69 +1746,82 @@ p, li { white-space: pre-wrap; }
         <translation>Are you sure you want to start MISSING masternodes?</translation>
     </message>
     <message>
-        <location line="+77"/>
-        <source>Additional information for Masternode %1</source>
-        <translation>Additional information for Masternode %1</translation>
+        <location filename="../forms/offerdetails.ui" line="+14"/>
+        <source>Details</source>
+        <translation>Details</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Masternode Private Key</source>
-        <translation>Masternode Private Key</translation>
+        <location line="+6"/>
+        <source>Id Transaction:</source>
+        <translation>Transaction ID:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Hash:</source>
         <translation>Hash:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Country:</source>
         <translation>Country:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Currency:</source>
         <translation>Currency:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Payment:</source>
         <translation>Payment:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Price:</source>
         <translation>Price:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Min Amount:</source>
         <translation>Min Amount:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Time Create:</source>
         <translation>Time Create:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Time Expiration:</source>
         <translation>Time Expiration:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+23"/>
         <source>Short Info:</source>
         <translation>Short Info:</translation>
     </message>
     <message>
-        <location line="+20"/>
         <source>Details:</source>
         <translation>Details:</translation>
     </message>
     <message>
-        <location line="+35"/>
         <source>Close</source>
         <translation>Close</translation>
+    </message>
+    <message>
+        <location filename="../offerdetails.cpp" line="+47"/>
+        <source>Approximate Time Expiration:</source>
+        <translation>Approximate Time Expiration:</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Buy</source>
+        <translation>Buy</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Sell</source>
+        <translation>Sell</translation>
     </message>
 </context>
 <context>
@@ -1819,14 +1837,14 @@ p, li { white-space: pre-wrap; }
         <translation>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Sibcoin network, as detailed below.</translation>
     </message>
     <message>
-        <location line="+19"/>
-        <source>Attempting to spend Sibcoin that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Attempting to spend Sibcoin that are affected by not-yet-displayed transactions will not be accepted by the network.</translation>
+        <location line="+14"/>
+        <source>Hash:</source>
+        <translation>Hash:</translation>
     </message>
     <message>
-        <location line="+63"/>
-        <source>Number of blocks left</source>
-        <translation>Number of blocks left</translation>
+        <location line="+14"/>
+        <source>Country:</source>
+        <translation>Country:</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1856,17 +1874,17 @@ p, li { white-space: pre-wrap; }
         <translation>Time Create:</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+20"/>
         <source>Time To Expiration:</source>
         <translation>Time Expiration:</translation>
     </message>
     <message>
-        <location line="+37"/>
-        <source>Hide</source>
-        <translation>Hide</translation>
+        <location line="+16"/>
+        <source>days     Time Expiration:</source>
+        <translation>days     Time Expiration:</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+25"/>
         <source>Short Info:</source>
         <translation>Short Info:</translation>
     </message>
@@ -1874,6 +1892,109 @@ p, li { white-space: pre-wrap; }
         <location line="+23"/>
         <source>Details:</source>
         <translation>Details:</translation>
+    </message>
+    <message>
+        <location filename="../offerdetailseditor.cpp" line="+36"/>
+        <source>Active</source>
+        <translation>Active</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Draft</source>
+        <translation>Draft</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Expired</source>
+        <translation>Expired</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Cancelled</source>
+        <translation>Cancelled</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Suspended</source>
+        <translation>Suspended</translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Buy</source>
+        <translation>Buy</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Sell</source>
+        <translation>Sell</translation>
+    </message>
+</context>
+<context>
+    <name>OfferDetailsView</name>
+    <message>
+        <location filename="../forms/offerdetailsview.ui" line="+14"/>
+        <source>Details</source>
+        <translation>Details</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Id Transaction:</source>
+        <translation>Transaction ID:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Hash:</source>
+        <translation>Hash:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Country:</source>
+        <translation>Country:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Currency:</source>
+        <translation>Currency:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Payment:</source>
+        <translation>Payment:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Price:</source>
+        <translation>Price:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Min Amount:</source>
+        <translation>Min Amount:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Time Create:</source>
+        <translation>Time Create:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Time Expiration:</source>
+        <translation>Time Expiration:</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Short Info:</source>
+        <translation>Short Info:</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Details:</source>
+        <translation>Details:</translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>Close</source>
+        <translation>Close</translation>
     </message>
 </context>
 <context>
@@ -1900,9 +2021,9 @@ p, li { white-space: pre-wrap; }
         <translation>Edit Details</translation>
     </message>
     <message>
-        <location line="+64"/>
+        <location line="+100"/>
         <source>Show</source>
-        <translation type="unfinished">Show</translation>
+        <translation>Show</translation>
     </message>
 </context>
 <context>
@@ -2546,7 +2667,6 @@ p, li { white-space: pre-wrap; }
         <translation>
             <numerusform>%n Round</numerusform>
             <numerusform>%n Rounds</numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -2585,7 +2705,6 @@ p, li { white-space: pre-wrap; }
         <translation>
             <numerusform>Denominated inputs have %5 of %n round on average</numerusform>
             <numerusform>Denominated inputs have %5 of %n rounds on average</numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -4439,14 +4558,15 @@ p, li { white-space: pre-wrap; }
         <location filename="../sibcoin.cpp" line="+86"/>
         <location line="+7"/>
         <location line="+15"/>
-        <location line="+27"/>
+        <location line="+17"/>
+        <location line="+14"/>
         <location line="+9"/>
         <location line="+9"/>
         <source>Sibcoin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-66"/>
+        <location line="-70"/>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4461,7 +4581,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+17"/>
+        <source>FontAwesome cannot be loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
         <source>Wrong path to dexdb file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6058,6 +6183,11 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+31"/>
+        <source>Create</source>
+        <translation>Create</translation>
+    </message>
+    <message>
         <location filename="../tableoffersdialog.cpp" line="+23"/>
         <source>All</source>
         <translation type="unfinished">All</translation>
@@ -6070,7 +6200,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location line="+1"/>
         <source>Sell</source>
-        <translation type="unfinished"></translation>
+        <translation>Sell</translation>
+    </message>
+    <message>
+        <location line="+57"/>
+        <source>Show</source>
+        <translation>Show</translation>
     </message>
 </context>
 <context>
