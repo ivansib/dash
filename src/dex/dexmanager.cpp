@@ -49,7 +49,7 @@ void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CD
                     pNode->PushMessage(NetMsgType::DEXOFFBCST, offer);
                 }
             }
-            LogPrint("dex", "DEXOFFBCST --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
+            LogPrintf("DEXOFFBCST --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
         }
     }
 }
