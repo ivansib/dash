@@ -542,7 +542,9 @@ QT_MOC_CPP += \
   qt/moc_pricespinbox.cpp \
   qt/moc_offerdetailsview.cpp \
   qt/moc_offerdetailscreator.cpp \
-  qt/moc_settingsdialog.cpp
+  qt/moc_settingsdialog.cpp \
+  qt/moc_tablecountries.cpp \
+  qt/moc_countriesmodel.cpp
 
 BITCOIN_QT_H += \
   qt/exchangedialog.h \
@@ -558,7 +560,9 @@ BITCOIN_QT_H += \
   qt/pricespinbox.h \
   qt/offerdetailsview.h \
   qt/offerdetailscretor.h \
-  qt/settingsdialog.h
+  qt/settingsdialog.h \
+  qt/tablecountries.h \
+  qt/countriesmodel.h
 
 BITCOIN_QT_CPP += \
   qt/exchangedialog.cpp \
@@ -573,7 +577,9 @@ BITCOIN_QT_CPP += \
   qt/pricespinbox.cpp \
   qt/offerdetailsview.cpp \
   qt/offerdetailscreator.cpp \
-  qt/settingsdialog.cpp
+  qt/settingsdialog.cpp \
+  qt/tablecountries.cpp \
+  qt/countriesmodel.cpp
 endif
 
 RES_IMAGES = \
