@@ -545,7 +545,10 @@ QT_MOC_CPP += \
   qt/moc_settingsdialog.cpp \
   qt/moc_tablecountries.cpp \
   qt/moc_countriesmodel.cpp \
-  qt/moc_countriesdelegate.cpp
+  qt/moc_countriesdelegate.cpp \
+  qt/moc_tablecurrencies.cpp \
+  qt/moc_settingsmodel.cpp \
+  qt/moc_currenciesmodel.cpp
 
 BITCOIN_QT_H += \
   qt/exchangedialog.h \
@@ -564,7 +567,10 @@ BITCOIN_QT_H += \
   qt/settingsdialog.h \
   qt/tablecountries.h \
   qt/countriesmodel.h \
-  qt/countriesdelegate.h
+  qt/countriesdelegate.h \
+  qt/tablecurrencies.h \
+  qt/settingsmodel.h \
+  qt/currenciesmodel.h
 
 BITCOIN_QT_CPP += \
   qt/exchangedialog.cpp \
@@ -582,7 +588,10 @@ BITCOIN_QT_CPP += \
   qt/settingsdialog.cpp \
   qt/tablecountries.cpp \
   qt/countriesmodel.cpp \
-  qt/countriesdelegate.cpp
+  qt/countriesdelegate.cpp \
+  qt/tablecurrencies.cpp \
+  qt/settingsmodel.cpp \
+  qt/currenciesmodel.cpp
 endif
 
 RES_IMAGES = \
