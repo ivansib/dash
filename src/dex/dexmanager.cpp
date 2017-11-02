@@ -4,9 +4,19 @@
 
 #include "init.h"
 #include "util.h"
+#include "utilstrencodings.h"
 
 #include "dexoffer.h"
 #include "dex/dexdb.h"
+#include "txmempool.h"
+#include "base58.h"
+
+
+
+
+#define PAYOFFER_RETURN_FEE     10000
+#define PAYOFFER_TX_FEE         50000000
+#define PAYOFFER_MIN_TX_HEIGHT  6
 
 
 CDexManager dexman;
@@ -56,5 +66,6 @@ void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CD
         }
     }
 }
+
 
 

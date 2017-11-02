@@ -67,7 +67,8 @@ public:
         LOCK(cs);
         if (!(s.GetType() & SER_GETHASH))
             READWRITE(hash);
-        READWRITE(idTransaction);
+            READWRITE(idTransaction);
+        }
         READWRITE(type);
         READWRITE(countryIso);
         READWRITE(currencyIso);
