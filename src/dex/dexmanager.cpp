@@ -22,8 +22,6 @@
 CDexManager dexman;
 
 
-
-
 CDexManager::CDexManager()
 {
 }
