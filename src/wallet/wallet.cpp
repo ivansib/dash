@@ -51,6 +51,10 @@ bool bBIP69Enabled = true;
 
 const char * DEFAULT_WALLET_DAT = "wallet.dat";
 
+#ifdef ENABLE_DEX
+extern CAmount dexPayTxFee;
+#endif
+
 /** 
  * Fees smaller than this (in duffs) are considered zero fee (for transaction creation)
  * Override with -mintxfee
@@ -3949,6 +3953,11 @@ CAmount CWallet::GetMinimumFee(unsigned int nTxBytes, unsigned int nConfirmTarge
     // But always obey the maximum
     if (nFeeNeeded > maxTxFee)
         nFeeNeeded = maxTxFee;
+#ifdef ENABLE_DEX
+     if (nFeeNeeded < dexPayTxFee)
+         nFeeNeeded = dexPayTxFee;
+#endif
+
     return nFeeNeeded;
 }
 
