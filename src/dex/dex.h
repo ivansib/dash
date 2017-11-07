@@ -13,7 +13,8 @@ class CDex
 {
 private:
     mutable CCriticalSection cs;
-
+    CTransaction payTx;
+    
 public:
     CDexOffer offer;
 
@@ -34,7 +35,7 @@ public:
 
     // оплата предложения (создание, подпись и ретрансляция транзакции)
     // хеш транзакции помещается в offer
-    bool PayForOffer(CTransaction &newTx, std::string &sError);
+    bool PayForOffer(uint256 &txid, std::string &sError);
 
     ADD_SERIALIZE_METHODS;
 
