@@ -1392,6 +1392,10 @@ bool IsInitialBlockDownload()
     const CChainParams& chainParams = Params();
     if (chainActive.Tip() == NULL)
         return true;
+
+    if (chainActive.Tip() == NULL)
+        return false;
+
     if (chainActive.Tip()->nChainWork < UintToArith256(chainParams.GetConsensus().nMinimumChainWork))
         return true;
     if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
