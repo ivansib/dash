@@ -42,7 +42,7 @@ public:
 
     void SetNull();
 
-    bool isNull() const
+    bool IsNull() const
     {
       return (hash.IsNull());
     }
