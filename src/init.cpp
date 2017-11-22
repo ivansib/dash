@@ -46,6 +46,9 @@
 #include "wallet/wallet.h"
 #include "sibdb.h"
 #endif
+#ifdef ENABLE_DEX
+#include "dex/dexofferssync.h"
+#endif
 
 #include "activemasternode.h"
 #include "dsnotificationinterface.h"
@@ -1998,6 +2001,10 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
 #ifdef ENABLE_WALLET
     if (pwalletMain)
         pwalletMain->postInitProcess(threadGroup);
+#endif
+
+#ifdef ENABLE_DEX
+   threadGroup.create_thread(boost::bind(&ThreadOffersSync));
 #endif
 
     threadGroup.create_thread(boost::bind(&ThreadSendAlert, boost::ref(connman)));

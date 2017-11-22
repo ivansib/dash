@@ -43,7 +43,6 @@
 #include "masternodeman.h"
 #include "masternode-payments.h"
 
-#include <atomic>
 #include <sstream>
 
 #include <boost/algorithm/string/replace.hpp>
