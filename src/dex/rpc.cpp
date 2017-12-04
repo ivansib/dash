@@ -15,6 +15,7 @@
 #include "netmessagemaker.h"
 
 #include "dexoffer.h"
+#include "validation.h"
 #include "random.h"
 #include "dex/dexdb.h"
 #include "dex.h"
@@ -29,6 +30,11 @@ using namespace std;
 
 UniValue dexoffer(const JSONRPCRequest& request)
 {
+    if (!fTxIndex) {
+        throw runtime_error(
+            "To use this feture please enable -txindex and make -reindex.\n"
+        );
+    }
 
     if (request.fHelp || request.params.size() > 1 || (request.params[0].get_str() != "buy" && request.params[0].get_str() != "sell"))
         throw runtime_error(
@@ -59,6 +65,11 @@ UniValue dexoffer(const JSONRPCRequest& request)
 
 UniValue payoffertx(const JSONRPCRequest& request)
 {
+    if (!fTxIndex) {
+        throw runtime_error(
+            "To use this feture please enable -txindex and make -reindex.\n"
+        );
+    }
 
     if (request.fHelp)
         throw runtime_error(

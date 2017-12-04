@@ -1820,7 +1820,19 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     if(fLiteMode) {
         InitWarning(_("You are starting in lite mode, all Sibcoin-specific functionality is disabled."));
+
+#ifdef ENABLE_DEX
+    if (fMasterNode && !GetBoolArg("-txindex", false)) {
+        return InitError("Enabling Masternode support requires turning on transaction indexing. "
+                  "Please add txindex=1 to your configuration and start with -reindex");
     }
+#else 
+    if (fMasterNode) {
+        return InitError("Enabling Masternode support requires DEX feature. "
+                  "Please rebuild client with DEX support (--with-dex).");
+    }
+#endif
+
 
     if((!fLiteMode && fTxIndex == false)
        && chainparams.NetworkIDString() != CBaseChainParams::REGTEST) { // TODO remove this when pruning is fixed. See https://github.com/dashpay/dash/pull/1817 and https://github.com/dashpay/dash/pull/1743
@@ -1864,8 +1876,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
             }
             pwalletMain->LockCoin(outpoint);
             LogPrintf("  %s %s - locked successfully\n", mne.getTxHash(), mne.getOutputIndex());
-        }
-    }
+        }   }
 
     privateSendClient.nLiquidityProvider = std::min(std::max((int)GetArg("-liquidityprovider", DEFAULT_PRIVATESEND_LIQUIDITY), MIN_PRIVATESEND_LIQUIDITY), MAX_PRIVATESEND_LIQUIDITY);
     int nMaxRounds = MAX_PRIVATESEND_ROUNDS;
