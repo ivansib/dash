@@ -58,6 +58,8 @@ public:
 
     bool Create(const dex::OfferInfo &info, dex::TypeOffer offertype);
 
+    bool Create(const dex::MyOfferInfo &info);
+
     operator dex::OfferInfo() const;
     CDexOffer& operator=(const CDexOffer&);
 
