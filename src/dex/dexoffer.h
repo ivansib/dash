@@ -6,6 +6,7 @@
 #include "net.h"
 #include "timedata.h"
 #include "dex/dexdto.h"
+#include <univalue.h>
 
 
 
@@ -100,6 +101,8 @@ public:
     std::string dump() const;
 
     bool Check(bool fullcheck);
+    
+    UniValue getUniValue();
 
 };
 
