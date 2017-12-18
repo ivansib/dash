@@ -2018,7 +2018,12 @@ p, li { white-space: pre-wrap; }
         <location line="+0"/>
         <location line="+64"/>
         <source>More Details</source>
-        <translation>Edit Details</translation>
+        <translation>More Details</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Edit</source>
+        <translation>Edit</translation>
     </message>
     <message>
         <location line="+100"/>

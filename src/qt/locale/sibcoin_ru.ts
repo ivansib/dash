@@ -1926,6 +1926,10 @@ p, li { white-space: pre-wrap; }
         <translation>Больше Деталей</translation>
     </message>
     <message>
+        <source>Edit</source>
+        <translation>Редактировать</translation>
+    </message>
+    <message>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
