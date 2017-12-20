@@ -24,6 +24,7 @@ public:
     void ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv);
     
     void sendOffer(const CDexOffer &offer);
+    void checkUncOffers();
     void deleteOldUncOffers();
 
 private:
