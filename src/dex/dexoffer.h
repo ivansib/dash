@@ -23,6 +23,7 @@ public:
 
     uint256 hash;
     uint256 idTransaction;
+    uint256 pubKey;
     std::string type;
     std::string countryIso;
     std::string currencyIso;
@@ -38,6 +39,7 @@ public:
 public:
 
     CDexOffer();
+    CDexOffer(const CDexOffer &off);
     CDexOffer(const dex::OfferInfo &info, dex::TypeOffer offertype);
     CDexOffer(const dex::MyOfferInfo &info);
 
@@ -49,11 +51,11 @@ public:
     }
 
 
-    bool Create(Type type, const std::string &countryIso, const std::string &currencyIso,
+    bool Create(Type type, const uint256 &pubKey_, const std::string &countryIso, const std::string &currencyIso,
            uint8_t paymentMethod, uint64_t price, uint64_t minAmount, int timeExpiration,
            const std::string &shortInfo, const std::string &details);
 
-    bool Create(const uint256 &idTransaction, Type type, const std::string &countryIso, const std::string &currencyIso,
+    bool Create(const uint256 &idTransaction, Type type, const uint256 &pubKey_, const std::string &countryIso, const std::string &currencyIso,
            uint8_t paymentMethod, uint64_t price, uint64_t minAmount, int timeExpiration,
            const std::string &shortInfo, const std::string &details);
 
@@ -80,6 +82,7 @@ public:
             READWRITE(hash);
             READWRITE(idTransaction);
         }
+        READWRITE(pubKey);
         READWRITE(type);
         READWRITE(countryIso);
         READWRITE(currencyIso);
