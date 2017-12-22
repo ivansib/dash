@@ -23,7 +23,7 @@ public:
 
     void ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv);
     
-    void sendOffer(const CDexOffer &offer);
+    void sendNewOffer(const CDexOffer &offer);
     void checkUncOffers();
     void deleteOldUncOffers();
 
@@ -31,8 +31,14 @@ private:
     DexDB *db;
     UnconfirmedOffers *uncOffers;
 
-    std::list<uint256> availableOfferHash();
-    CDexOffer getOfferInfo(const uint256 &hash);
+    void sendHashOffers(CNode* pfrom) const;
+    void getHashsAndSendRequestForGetOffers(CNode* pfrom, CDataStream& vRecv) const;
+    void sendOffer(CNode* pfrom, CDataStream& vRecv) const;
+    void getOfferAndSaveInDb(CDataStream& vRecv);
+    void getAndSendNewOffer(CNode* pfrom, CDataStream& vRecv);
+
+    std::list<uint256> availableOfferHash() const;
+    CDexOffer getOfferInfo(const uint256 &hash) const;
 };
 
 void ThreadDexManager();
