@@ -6,6 +6,7 @@
 #include "db/countryiso.h"
 #include "db/currencyiso.h"
 #include "db/paymentmethodtype.h"
+#include "utilstrencodings.h"
 #include <univalue.h>
 
 
@@ -21,7 +22,24 @@ dex::PaymentMethodType defaultPaymentMethod;
 
 CDexOffer::CDexOffer()
 {
-   SetNull();
+    SetNull();
+}
+
+CDexOffer::CDexOffer(const CDexOffer &off)
+{
+    idTransaction    = off.idTransaction;
+    hash             = off.hash;
+    pubKey           = off.pubKey;
+    countryIso       = off.countryIso;
+    currencyIso      = off.currencyIso;
+    paymentMethod    = off.paymentMethod;
+    price            = off.price;
+    minAmount        = off.minAmount;
+    timeCreate       = off.timeCreate;
+    timeExpiration   = off.timeExpiration;
+    shortInfo        = off.shortInfo;
+    details          = off.details;
+    type             = off.type;
 }
 
 
@@ -29,6 +47,7 @@ CDexOffer::CDexOffer(const dex::OfferInfo &info, dex::TypeOffer offertype)
 {
     idTransaction    = info.idTransaction;
     hash             = info.hash;
+    pubKey           = info.pubKey;
     countryIso       = info.countryIso;
     currencyIso      = info.currencyIso;
     paymentMethod    = info.paymentMethod;
@@ -44,12 +63,33 @@ CDexOffer::CDexOffer(const dex::OfferInfo &info, dex::TypeOffer offertype)
     }
 }
 
+CDexOffer::CDexOffer(const dex::MyOfferInfo &info)
+{
+    idTransaction    = info.idTransaction;
+    hash             = info.hash;
+    pubKey           = info.pubKey;
+    countryIso       = info.countryIso;
+    currencyIso      = info.currencyIso;
+    paymentMethod    = info.paymentMethod;
+    price            = info.price;
+    minAmount        = info.minAmount;
+    timeCreate       = info.timeCreate;
+    timeExpiration   = info.timeToExpiration;
+    shortInfo        = info.shortInfo;
+    details          = info.details;
+    switch (info.type) {
+        case  dex::Buy: type = OFFER_TYPE_BUY;  break;
+        case dex::Sell: type = OFFER_TYPE_SELL; break;
+    }
+}
+
 
 
 void CDexOffer::SetNull()
 {
     hash.SetNull();
     idTransaction.SetNull();
+    pubKey.clear();
     type.clear();
     countryIso.clear();
     currencyIso.clear();
@@ -64,21 +104,22 @@ void CDexOffer::SetNull()
 
 
 
-bool CDexOffer::Create(Type type_, const std::string &countryIso_, const std::string &currencyIso_,
+bool CDexOffer::Create(Type type_, const std::string &pubKey_, const std::string &countryIso_, const std::string &currencyIso_,
            uint8_t paymentMethod_, uint64_t price_, uint64_t minAmount_, int timeExpiration_,
            const std::string &shortInfo_, const std::string &details_)
 {
     uint256 txid;
-    return Create(txid, type_, countryIso_, currencyIso_, paymentMethod_, price_, minAmount_, timeExpiration_, shortInfo_, details_);
+    return Create(txid, type_, pubKey_, countryIso_, currencyIso_, paymentMethod_, price_, minAmount_, timeExpiration_, shortInfo_, details_);
 }
 
 
 
-bool CDexOffer::Create(const uint256 &idTransaction_, Type type_, const std::string &countryIso_, const std::string &currencyIso_,
+bool CDexOffer::Create(const uint256 &idTransaction_, Type type_, const std::string &pubKey_, const std::string &countryIso_, const std::string &currencyIso_,
            uint8_t paymentMethod_, uint64_t price_, uint64_t minAmount_, int timeExpiration_,
            const std::string &shortInfo_, const std::string &details_)
 {
     idTransaction   = idTransaction_;
+    pubKey          = pubKey_;
     paymentMethod   = paymentMethod_;
     currencyIso     = currencyIso_;
     countryIso      = countryIso_;
@@ -105,6 +146,7 @@ bool CDexOffer::Create(const uint256 &idTransaction_, Type type_, const std::str
 bool CDexOffer::Create(const dex::OfferInfo &info, dex::TypeOffer offertype)
 {
     idTransaction   = info.idTransaction;
+    pubKey          = info.pubKey;
     paymentMethod   = info.paymentMethod;
     currencyIso     = info.currencyIso;
     countryIso      = info.countryIso;
@@ -126,6 +168,10 @@ bool CDexOffer::Create(const dex::OfferInfo &info, dex::TypeOffer offertype)
     return true;
 }
 
+bool CDexOffer::Create(const dex::MyOfferInfo &info) {
+    return Create(info.getOfferInfo(), info.type);
+}
+
 
 
 uint256 CDexOffer::MakeHash()
@@ -140,6 +186,7 @@ CDexOffer::operator dex::OfferInfo() const
     dex::OfferInfo info;
     info.idTransaction    = idTransaction;
     info.hash             = hash;
+    info.pubKey           = pubKey;
     info.countryIso       = countryIso;
     info.currencyIso      = currencyIso;
     info.paymentMethod    = paymentMethod;
@@ -156,6 +203,7 @@ CDexOffer& CDexOffer::operator=(const CDexOffer& off)
 {
     idTransaction    = off.idTransaction;
     hash             = off.hash;
+    pubKey           = off.pubKey;
     countryIso       = off.countryIso;
     currencyIso      = off.currencyIso;
     paymentMethod    = off.paymentMethod;
@@ -203,6 +251,7 @@ std::string CDexOffer::dump() const
         "\ttype\t\t%s\n"
         "\tidTransaction\t%s\n"
         "\thash\t\t%s\n"
+        "\tpubKey\t\t%s\n"
         "\tcountryIso\t%s\n"
         "\tcurrencyIso\t%s\n"
         "\tpaymentMethod\t%d\n"
@@ -212,9 +261,17 @@ std::string CDexOffer::dump() const
         "\ttimeExpiration\t%d\n"
         "\tshortInfo\t%s\n"
         "\tdetails\t\t%s\n",
-        type.c_str(), idTransaction.GetHex().c_str(), hash.GetHex().c_str(), countryIso.c_str(),
-        currencyIso.c_str(), paymentMethod, price, minAmount, timeCreate, timeExpiration,
-        shortInfo.c_str(), details.c_str());
+        type.c_str(), idTransaction.GetHex().c_str(), hash.GetHex().c_str(), pubKey.c_str(),
+        countryIso.c_str(), currencyIso.c_str(), paymentMethod, price, minAmount, timeCreate,
+        timeExpiration, shortInfo.c_str(), details.c_str());
+}
+
+
+CPubKey CDexOffer::getPubKeyObject() const
+{
+    std::vector<unsigned char> data(ParseHex(pubKey));
+    CPubKey key(data.begin(), data.end());
+    return key;
 }
 
 
@@ -227,6 +284,10 @@ bool CDexOffer::Check(bool fullcheck)
         }
         if (fullcheck && hash.IsNull()) {
             LogPrintf("DexOffer::Check(%s) error: hash is empty\n", idTransaction.GetHex().c_str());
+            break;
+        }
+        if (fullcheck && !getPubKeyObject().IsFullyValid()) {
+            LogPrintf("DexOffer::Check(%s) error: pubKey is invalid\n", idTransaction.GetHex().c_str());
             break;
         }
         if (fullcheck && hash != MakeHash()) {
@@ -282,7 +343,7 @@ UniValue CDexOffer::getUniValue()
     result.push_back(Pair("type", type));
     result.push_back(Pair("idTransaction", idTransaction.GetHex()));
     result.push_back(Pair("hash", hash.GetHex()));
-    result.push_back(Pair("pubKey", pubKey.GetHex()));
+    result.push_back(Pair("pubKey", pubKey));
     result.push_back(Pair("countryIso", countryIso));
     result.push_back(Pair("currencyIso", currencyIso));
     result.push_back(Pair("paymentMethod", paymentMethod));
