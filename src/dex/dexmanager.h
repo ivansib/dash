@@ -21,8 +21,8 @@ public:
     CDexManager();
     ~CDexManager();
 
-    void ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv);
-    
+    void ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
+
     void sendNewOffer(const CDexOffer &offer);
     void sendEditedOffer(const CDexOffer &offer);
     void checkUncOffers();
@@ -40,6 +40,7 @@ private:
     void getOfferAndSaveInDb(CDataStream& vRecv);
     void getAndSendNewOffer(CNode* pfrom, CDataStream& vRecv);
     void getAndSendEditedOffer(CDataStream& vRecv);
+    void getAndDelOffer(CNode* pfrom, CDataStream& vRecv);
 
     std::list<uint256> availableOfferHash() const;
     CDexOffer getOfferInfo(const uint256 &hash) const;
