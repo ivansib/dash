@@ -89,12 +89,9 @@ public:
         READWRITE(countryIso);
         READWRITE(currencyIso);
         READWRITE(paymentMethod);
-        READWRITE(price);
         READWRITE(minAmount);
         READWRITE(timeCreate);
         READWRITE(timeExpiration);
-        READWRITE(shortInfo);
-        READWRITE(details);
     }
 
     uint256 MakeHash();
