@@ -15,7 +15,7 @@ const char * OFFER_TYPE_SELL = "sell";
 
 
 dex::CurrencyIso  defaultCurrencyIso;
-dex::CountryIso  defaultCountryIso;
+dex::CountryIso   defaultCountryIso;
 dex::PaymentMethodType defaultPaymentMethod;
 
 
@@ -114,18 +114,19 @@ void CDexOffer::SetNull()
 
 bool CDexOffer::Create(Type type_, const std::string &pubKey_, const std::string &countryIso_, const std::string &currencyIso_,
            uint8_t paymentMethod_, uint64_t price_, uint64_t minAmount_, int timeExpiration_,
-           const std::string &shortInfo_, const std::string &details_, const int &editingVersion_)
+           const std::string &shortInfo_, const std::string &details_)
 {
     uint256 txid;
-    return Create(txid, type_, pubKey_, countryIso_, currencyIso_, paymentMethod_, price_, minAmount_, timeExpiration_, shortInfo_, details_, editingVersion_);
+    return Create(txid, type_, pubKey_, countryIso_, currencyIso_, paymentMethod_, price_, minAmount_, timeExpiration_, shortInfo_, details_);
 }
 
 
 
 bool CDexOffer::Create(const uint256 &idTransaction_, Type type_, const std::string &pubKey_, const std::string &countryIso_, const std::string &currencyIso_,
            uint8_t paymentMethod_, uint64_t price_, uint64_t minAmount_, int timeExpiration_,
-           const std::string &shortInfo_, const std::string &details_, const int &editingVersion_)
+           const std::string &shortInfo_, const std::string &details_)
 {
+    status          = dex::Draft;
     idTransaction   = idTransaction_;
     pubKey          = pubKey_;
     paymentMethod   = paymentMethod_;
@@ -155,6 +156,7 @@ bool CDexOffer::Create(const uint256 &idTransaction_, Type type_, const std::str
 
 bool CDexOffer::Create(const dex::OfferInfo &info, dex::TypeOffer offertype)
 {
+    status          = dex::Draft;
     idTransaction   = info.idTransaction;
     pubKey          = info.pubKey;
     paymentMethod   = info.paymentMethod;
@@ -182,7 +184,9 @@ bool CDexOffer::Create(const dex::OfferInfo &info, dex::TypeOffer offertype)
 bool CDexOffer::Create(const dex::MyOfferInfo &info)
 {
     myoffer_ = true;
-    return Create(info.getOfferInfo(), info.type);
+    bool ret = Create(info.getOfferInfo(), info.type);
+    status = info.status;
+    return ret;
 }
 
 
@@ -213,6 +217,27 @@ CDexOffer::operator dex::OfferInfo() const
     return info;
 }
 
+CDexOffer::operator dex::MyOfferInfo() const
+{
+    dex::MyOfferInfo info;
+    info.idTransaction    = idTransaction;
+    info.hash             = hash;
+    info.pubKey           = pubKey;
+    info.countryIso       = countryIso;
+    info.currencyIso      = currencyIso;
+    info.paymentMethod    = paymentMethod;
+    info.price            = price;
+    info.minAmount        = minAmount;
+    info.timeCreate       = timeCreate;
+    info.timeToExpiration = timeExpiration;
+    info.shortInfo        = shortInfo;
+    info.details          = details;
+    info.type             = getTypeOffer();
+    info.status           = (dex::StatusOffer)status;
+    return info;
+}
+
+
 CDexOffer& CDexOffer::operator=(const CDexOffer& off)
 {
     idTransaction    = off.idTransaction;
@@ -230,6 +255,7 @@ CDexOffer& CDexOffer::operator=(const CDexOffer& off)
     editingVersion   = off.editingVersion;
     type             = off.type;
     myoffer_         = off.myoffer_;
+    status           = off.status;
     return *this;
 }
 
@@ -281,11 +307,11 @@ std::string CDexOffer::dump() const
         "\ttimeCreate\t%lld\n"
         "\ttimeExpiration\t%d\n"
         "\tshortInfo\t%s\n"
-        "\tdetails\t\t%s\n"
-        "\teditingVersion\t\t%s\n",
+        "\tdetails\t\t%s\n",
+        "\tstatus\t\t%d\n",
         type.c_str(), idTransaction.GetHex().c_str(), hash.GetHex().c_str(), pubKey.c_str(),
         countryIso.c_str(), currencyIso.c_str(), paymentMethod, price, minAmount, timeCreate,
-        timeExpiration, shortInfo.c_str(), details.c_str(), editingVersion);
+        timeExpiration, shortInfo.c_str(), details.c_str(), status);
 }
 
 
