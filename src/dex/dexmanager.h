@@ -33,6 +33,7 @@ public:
 private:
     DexDB *db;
     UnconfirmedOffers *uncOffers;
+    bool isInitDb;
 
     void sendHashOffers(CNode* pfrom) const;
     void getHashsAndSendRequestForGetOffers(CNode* pfrom, CDataStream& vRecv) const;
