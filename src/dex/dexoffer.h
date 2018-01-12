@@ -55,14 +55,13 @@ public:
       return (hash.IsNull());
     }
 
-
     bool Create(Type type, const std::string &pubKey, const std::string &countryIso, const std::string &currencyIso,
            uint8_t paymentMethod, uint64_t price, uint64_t minAmount, int timeExpiration,
-           const std::string &shortInfo, const std::string &details, const int &editingVersion);
+           const std::string &shortInfo, const std::string &details, const int &editingVersion = 1);
 
     bool Create(const uint256 &idTransaction, Type type, const std::string &pubKey, const std::string &countryIso, const std::string &currencyIso,
            uint8_t paymentMethod, uint64_t price, uint64_t minAmount, int timeExpiration,
-           const std::string &shortInfo, const std::string &details, const int &editingVersion);
+           const std::string &shortInfo, const std::string &details, const int &editingVersion = 1);
 
     bool Create(const dex::OfferInfo &info, dex::TypeOffer offertype);
 
@@ -77,9 +76,8 @@ public:
     bool isBuy() const;
     bool isSell() const;
     bool isMyOffer() const;
-    
-    CPubKey getPubKeyObject() const;
 
+    CPubKey getPubKeyObject() const;
 
     ADD_SERIALIZE_METHODS;
 

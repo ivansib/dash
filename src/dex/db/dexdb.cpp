@@ -17,7 +17,13 @@ int DexDB::nCounter = 0;
 
 DexDB::DexDB()
 {
-    db = sqlite3pp::database(strDexDbFile.c_str(),
+    bool firstrun = false;
+    if (self_ == 0) {
+        firstrun = true;
+        self_ = this;
+    }
+
+    db = sqlite3pp::database(path.c_str(),
             SQLITE_OPEN_READWRITE |
             SQLITE_OPEN_CREATE |
             SQLITE_OPEN_FULLMUTEX |
@@ -27,18 +33,21 @@ DexDB::DexDB()
     isGetCurrenciesDataFromDB = true;
     isGetPaymentsDataFromDB = true;
 
-    createTables();
-    addDefaultData();
-
-    if (isDexDbOutdated()) {
-        dropTables();
+    if (firstrun) {
         createTables();
         addDefaultData();
+
+        if (isDexDbOutdated()) {
+            dropTables();
+            createTables();
+            addDefaultData();
+        }
     }
 }
 
 DexDB::~DexDB()
 {
+    removeCallBack();
 }
 
 
@@ -1241,8 +1250,13 @@ void DexDB::addDefaultData()
     count = tableCount("countries");
     if (count <= 0) {
         std::list<DefaultCountry> countries = def.dataCountries();
+
+        countries.sort(DefaultCountry::cmp_name);
+        countries.sort(DefaultCountry::cmp_sortorder);
+
+        int order = 0;
         for (auto item : countries) {
-            addCountry(item.iso, item.name, item.currency, true, -1);
+            addCountry(item.iso, item.name, item.currency, true, order++);
         }
 
         isGetCountriesDataFromDB = false;
