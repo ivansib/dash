@@ -33,6 +33,8 @@ bool CreatePayOfferTransaction(const CDexOffer &offer, CTransaction &newTx, std:
         CAmount curBalance = pwalletMain->GetBalance();
 
         int coef = offer.timeExpiration / 10;
+        LogPrintf("timeExpiration %d, coef %d\n",offer.timeExpiration, coef);
+        if (coef < 1) coef = 1;
 
         CHECK(curBalance >= (PAYOFFER_RETURN_FEE + PAYOFFER_TX_FEE * coef), "Insufficient funds");
 
@@ -51,7 +53,8 @@ bool CreatePayOfferTransaction(const CDexOffer &offer, CTransaction &newTx, std:
         CValidationState state;
         CHECK(pwalletMain->CommitTransaction(wtxNew, reservekey, g_connman.get(), state), "Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.");
         newTx = *wtxNew.tx.get(); // WARNING: check affter merge branches
-        return true;
+	dexPayTxFee = 0;        
+	return true;
     } while(false);
 #endif
     dexPayTxFee = 0;
