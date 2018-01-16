@@ -18,7 +18,7 @@ int DexDB::nCounter = 0;
 DexDB::DexDB()
 {
 
-    db = sqlite3pp::database(path.c_str(),
+    db = sqlite3pp::database(strDexDbFile.c_str(),
             SQLITE_OPEN_READWRITE |
             SQLITE_OPEN_CREATE |
             SQLITE_OPEN_FULLMUTEX |
@@ -523,7 +523,43 @@ std::list<MyOfferInfo> DexDB::getMyOffers()
     sqlite3pp::query qry(db, str.c_str());
 
     for (sqlite3pp::query::iterator i = qry.begin(); i != qry.end(); ++i) {
-        MyOfferInfo info = getMyOffer(i);
+        std::string idTransaction;
+        std::string hash;
+        std::string pubKey;
+        std::string countryIso;
+        std::string currencyIso;
+        uint8_t paymentMethod;
+        long long int price;
+        long long int minAmount;
+        long long int timeCreate;
+        long long int timeToExpiration;
+        std::string shortInfo;
+        std::string details;
+        int type;
+        int status;
+        int editingVersion;
+        std::tie(idTransaction, hash, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount,
+                 timeCreate, timeToExpiration, shortInfo, details, type, status, editingVersion)
+                = (*i).get_columns<std::string, std::string, std::string, std::string, std::string, uint8_t,
+                long long int, long long int, long long int, long long int, std::string, std::string, int, int, int>
+                (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
+
+        MyOfferInfo info;
+        info.idTransaction.SetHex(idTransaction);
+        info.hash.SetHex(hash);
+        info.pubKey = pubKey;
+        info.countryIso = countryIso;
+        info.currencyIso = currencyIso;
+        info.paymentMethod = paymentMethod;
+        info.price = price;
+        info.minAmount = minAmount;
+        info.shortInfo = shortInfo;
+        info.timeCreate = timeCreate;
+        info.timeToExpiration = timeToExpiration;
+        info.details = details;
+        info.type = static_cast<TypeOffer>(type);
+        info.status = static_cast<StatusOffer>(status);
+        info.editingVersion = editingVersion;
         offers.push_back(info);
     }
 
@@ -535,7 +571,7 @@ std::list<MyOfferInfo> DexDB::getMyOffers()
 
 MyOfferInfo DexDB::getMyOffer(const uint256 &idTransaction)
 {
-    std::string str = "SELECT idTransaction, hash, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount, timeCreate, "
+    std::string str = "SELECT hash, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount, timeCreate, "
                       "timeToExpiration, shortInfo, details, type, status, editingVersion FROM myOffers WHERE idTransaction = \"" + idTransaction.GetHex() + "\"";
 
     sqlite3pp::query qry(db, str.c_str());
@@ -576,20 +612,20 @@ MyOfferInfo DexDB::getMyOffer(sqlite3pp::query::iterator it)
     long long int price;
     long long int minAmount;
     long long int timeCreate;
-    int timeToExpiration;
+    long long int timeToExpiration;
     std::string shortInfo;
     std::string details;
     int type;
     int status;
     int editingVersion;
-    std::tie(idTransaction, hash, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount,
+    std::tie(hash, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount,
              timeCreate, timeToExpiration, shortInfo, details, type, status, editingVersion)
-            = (*it).get_columns<std::string, std::string, std::string, std::string, std::string, uint8_t,
-            long long int, long long int, long long int, int, std::string, std::string, int, int, int>
-            (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
+            = (*i).get_columns<std::string, std::string, std::string, std::string, uint8_t,
+            long long int, long long int, long long int, long long int, std::string, std::string, int, int, int>
+            (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
 
     MyOfferInfo info;
-    info.idTransaction.SetHex(idTransaction);
+    info.idTransaction = idTransaction;
     info.hash.SetHex(hash);
     info.pubKey = pubKey;
     info.countryIso = countryIso;
@@ -604,6 +640,9 @@ MyOfferInfo DexDB::getMyOffer(sqlite3pp::query::iterator it)
     info.type = static_cast<TypeOffer>(type);
     info.status = static_cast<StatusOffer>(status);
     info.editingVersion = editingVersion;
+
+    int stat = qry.finish();
+    finishTableOperation(callBack, MyOffers, Read, stat);
 
     return info;
 }
@@ -734,7 +773,7 @@ void DexDB::bindOfferData(sqlite3pp::command &cmd, const OfferInfo &offer)
     cmd.bind(":price", static_cast<long long int>(offer.price));
     cmd.bind(":minAmount", static_cast<long long int>(offer.minAmount));
     cmd.bind(":timeCreate", static_cast<long long int>(offer.timeCreate));
-    cmd.bind(":timeToExpiration", offer.timeToExpiration);
+    cmd.bind(":timeToExpiration", static_cast<long long int>(offer.timeToExpiration));
     cmd.bind(":shortInfo", offer.shortInfo, sqlite3pp::copy);
     cmd.bind(":details", offer.details, sqlite3pp::copy);
     cmd.bind(":editingVersion", offer.editingVersion);
@@ -778,7 +817,7 @@ void DexDB::deleteOfferByHash(sqlite3pp::database &db, const CallBack &callBack,
 
 void dex::DexDB::deleteOldOffers(sqlite3pp::database &db, const CallBack &callBack, const std::string &tableName)
 {
-    std::string query = "DELETE FROM " + tableName + " WHERE timeCreate + timeToExpiration * 86400 <= :currentTime";
+    std::string query = "DELETE FROM " + tableName + " WHERE timeToExpiration <= :currentTime";
 
     long long int currentTime = static_cast<long long int>(time(NULL));
     sqlite3pp::command cmd(db, query.c_str());
@@ -815,14 +854,14 @@ std::list<OfferInfo> DexDB::getOffers(const std::string &tableName)
         long long int price;
         long long int minAmount;
         long long int timeCreate;
-        int timeToExpiration;
+        long long int timeToExpiration;
         std::string shortInfo;
         std::string details;
         int editingVersion;
         std::tie(idTransaction, hash, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount,
                  timeCreate, timeToExpiration, shortInfo, details, editingVersion)
                 = (*i).get_columns<std::string, std::string, std::string, std::string, std::string, uint8_t,
-                long long int, long long int, long long int, int, std::string, std::string, int>
+                long long int, long long int, long long int, long long int, std::string, std::string, int>
                 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
         OfferInfo info;
@@ -906,14 +945,14 @@ OfferInfo DexDB::getOffer(const std::string &guery, int &status)
     long long int price;
     long long int minAmount;
     long long int timeCreate;
-    int timeToExpiration;
+    long long int timeToExpiration;
     std::string shortInfo;
     std::string details;
     int editingVersion;
     std::tie(hash, idTransaction, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount,
              timeCreate, timeToExpiration, shortInfo, details, editingVersion)
             = (*i).get_columns<std::string, std::string, std::string, std::string, std::string, uint8_t,
-            long long int, long long int, long long int, int, std::string, std::string, int>
+            long long int, long long int, long long int, long long int, std::string, std::string, int>
             (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
     OfferInfo info;
@@ -1192,7 +1231,7 @@ void DexDB::createTables()
     db.execute("CREATE TABLE IF NOT EXISTS myOffers (hash TEXT NOT NULL PRIMARY KEY, "
                "idTransaction TEXT, pubKey TEXT, countryIso VARCHAR(2), "
                "currencyIso VARCHAR(3), paymentMethod TINYINT, price UNSIGNED BIG INT, "
-               "minAmount UNSIGNED BIG INT, timeCreate UNSIGNED BIG INT, timeToExpiration INT, "
+               "minAmount UNSIGNED BIG INT, timeCreate UNSIGNED BIG INT, timeToExpiration UNSIGNED BIG INT, "
                "shortInfo VARCHAR(140), details TEXT, type INT, status INT, editingVersion INT)");
 
     db.execute("CREATE TABLE IF NOT EXISTS filterList (filter VARCHAR(100) NOT NULL PRIMARY KEY)");
@@ -1285,7 +1324,7 @@ std::string DexDB::templateOffersTable(const std::string &tableName) const
     std::string query = "CREATE TABLE IF NOT EXISTS " + tableName + " (idTransaction TEXT NOT NULL PRIMARY KEY, "
                         "hash TEXT, pubKey TEXT, countryIso VARCHAR(2), "
                         "currencyIso VARCHAR(3), paymentMethod TINYINT, price UNSIGNED BIG INT, "
-                        "minAmount UNSIGNED BIG INT, timeCreate UNSIGNED BIG INT, timeToExpiration INT, "
+                        "minAmount UNSIGNED BIG INT, timeCreate UNSIGNED BIG INT, timeToExpiration UNSIGNED BIG INT, "
                         "shortInfo VARCHAR(140), details TEXT, editingVersion INT)";
 
     return query;
@@ -1295,6 +1334,8 @@ void DexDB::createTestOffers()
 {
     OfferInfo info;
 
+    long long int currentTime = static_cast<long long int>(time(NULL));
+
     info.hash = GetRandHash();
     info.idTransaction = GetRandHash();
     info.price = 1234567;
@@ -1303,7 +1344,7 @@ void DexDB::createTestOffers()
     info.countryIso = "RU";
     info.currencyIso = "RUB";
     info.paymentMethod = 1;
-    info.timeToExpiration = 10;
+    info.timeToExpiration = currentTime + 86400*10;
     addOfferBuy(info);
 
     info.hash = GetRandHash();
@@ -1314,6 +1355,7 @@ void DexDB::createTestOffers()
     info.countryIso = "RU";
     info.currencyIso = "RUB";
     info.paymentMethod = 128;
+    info.timeToExpiration = currentTime + 86400*20;
     addOfferBuy(info);
 
     info.hash = GetRandHash();
@@ -1324,6 +1366,7 @@ void DexDB::createTestOffers()
     info.countryIso = "UA";
     info.currencyIso = "UAH";
     info.paymentMethod = 1;
+    info.timeToExpiration = currentTime + 86400*30;
     addOfferBuy(info);
 
     info.hash = GetRandHash();

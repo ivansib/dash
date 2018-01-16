@@ -51,9 +51,6 @@ bool bBIP69Enabled = true;
 
 const char * DEFAULT_WALLET_DAT = "wallet.dat";
 
-#ifdef ENABLE_DEX
-extern CAmount dexPayTxFee;
-#endif
 
 /** 
  * Fees smaller than this (in duffs) are considered zero fee (for transaction creation)
