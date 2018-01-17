@@ -1,5 +1,7 @@
-packages:=boost openssl libevent zeromq
-native_packages := native_ccache
+packages:=boost openssl libevent sqlite
+darwin_packages:=zeromq
+linux_packages:=zeromq
+native_packages := native_ccache native_comparisontool
 
 qt_native_packages = native_protobuf
 qt_packages = qrencode protobuf zlib
