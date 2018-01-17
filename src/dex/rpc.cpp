@@ -480,10 +480,9 @@ UniValue adddexoffer(const UniValue& params, bool fHelp)
     std::string jsonData = params[0].get_str();
     std::string error;
 
-    MyOfferInfo offer = fromJsonForAdd(jsonData, error);
+    MyOfferInfo offer = jsonToMyOfferInfo(jsonData, error);
     offer.status = Draft;
     offer.editingVersion = 0;
-    offer.timeCreate = GetTime();
 
     if (error.length() > 0) {
         throw runtime_error("\nERROR: " + error);
@@ -571,16 +570,16 @@ UniValue editdexoffer(const UniValue& params, bool fHelp)
 
     std::string jsonData = params[1].get_str();
     std::string error;
-    MyOfferInfo offer = fromJsonForAdd(jsonData, error);
+    MyOfferInfo offer = jsonToMyOfferInfo(jsonData, error);
 
     if (error.length() > 0) {
         throw runtime_error("\nERROR: " + error);
     }
 
-    if (dex::DexDB::self()->getMyOfferByHash(hash).status == Draft) {
+    MyOfferInfo oldMyOffer = dex::DexDB::self()->getMyOfferByHash(hash);
+    if (oldMyOffer.status == Draft) {
         offer.status = Draft;
         offer.editingVersion = 0;
-        offer.timeCreate = GetTime();
 
         CDexOffer dexOffer;
         dexOffer.Create(offer);
@@ -608,8 +607,10 @@ UniValue senddexoffer(const UniValue& params, bool fHelp)
         );
     }
 
-    if (!offer.Create(type, pubKey, params[1].get_str(), params[2].get_str(), 1, price, minAmount, GetTime()+86400*30, "test offer", "test offer details", 0)) {
-        throw runtime_error("\nERROR: error create offer");
+    if (dex::DexDB::self() == nullptr) {
+        throw runtime_error(
+            "DexDB is not initialized.\n"
+        );
     }
 
     if (fHelp || params.size() != 1)
