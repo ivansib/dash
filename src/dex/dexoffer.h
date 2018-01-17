@@ -39,7 +39,7 @@ public:
     int editingVersion;
 
     bool myoffer_;
-    int status;
+    dex::StatusOffer status;
 
 public:
 
