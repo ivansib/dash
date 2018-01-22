@@ -14,6 +14,7 @@
 #include "uritests.h"
 #include "compattests.h"
 #include "trafficgraphdatatests.h"
+#include "convertdatatests.h"
 
 #ifdef ENABLE_WALLET
 #include "paymentservertests.h"
@@ -72,6 +73,13 @@ int main(int argc, char *argv[])
     TrafficGraphDataTests test5;
     if (QTest::qExec(&test5) != 0)
         fInvalid = true;
+
+#ifdef ENABLE_DEX
+    ConvertDataTests test6;
+    if (QTest::qExec(&test6) != 0)
+        fInvalid = true;
+#endif
+
     ECC_Stop();
     return fInvalid;
 }
