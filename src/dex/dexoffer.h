@@ -37,6 +37,7 @@ public:
     std::string shortInfo;
     std::string details;
     int editingVersion;
+    std::string editsign;
 
     bool myoffer_;
     dex::StatusOffer status;
@@ -119,6 +120,8 @@ public:
     }
 
     uint256 MakeHash();
+    uint256 MakeEditHash();
+    bool CheckEditSign();
 
     std::string dump() const;
 
