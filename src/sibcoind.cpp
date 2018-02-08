@@ -23,7 +23,7 @@
 #include "utilstrencodings.h"
 
 #ifdef ENABLE_DEX
-  #include "dex/dexdb.h"
+  #include "dex/db/dexdb.h"
 #endif
 
 #include <boost/algorithm/string/predicate.hpp>

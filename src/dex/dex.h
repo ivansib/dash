@@ -5,7 +5,7 @@
 #include "key.h"
 #include "net.h"
 #include "timedata.h"
-#include "dex/dexdto.h"
+#include "dex/db/dexdto.h"
 #include "dexoffer.h"
 #include "primitives/transaction.h"
 

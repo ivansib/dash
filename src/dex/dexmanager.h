@@ -4,8 +4,8 @@
 
 #include "key.h"
 #include "net.h"
-#include "dex/dexdto.h"
-#include "dex/dexdb.h"
+#include "dex/db/dexdto.h"
+#include "dex/db/dexdb.h"
 #include "dex.h"
 #include "dexoffer.h"
 #include "unconfirmedoffers.h"

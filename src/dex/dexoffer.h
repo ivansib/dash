@@ -6,7 +6,7 @@
 #include "net.h"
 #include "utilstrencodings.h"
 #include "timedata.h"
-#include "dex/dexdto.h"
+#include "dex/db/dexdto.h"
 #include <univalue.h>
 
 
