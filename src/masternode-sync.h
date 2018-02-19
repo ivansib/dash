@@ -4,6 +4,7 @@
 #ifndef MASTERNODE_SYNC_H
 #define MASTERNODE_SYNC_H
 
+#include <boost/signals2/signal.hpp>
 #include "chain.h"
 #include "net.h"
 
@@ -77,6 +78,8 @@ public:
     void AcceptedBlockHeader(const CBlockIndex *pindexNew);
     void NotifyHeaderTip(const CBlockIndex *pindexNew, bool fInitialDownload, CConnman& connman);
     void UpdatedBlockTip(const CBlockIndex *pindexNew, bool fInitialDownload, CConnman& connman);
+
+    boost::signals2::signal<void()> syncFinished;
 };
 
 #endif

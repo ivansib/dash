@@ -46,6 +46,7 @@
 
 #ifdef ENABLE_DEX
 #include "dex/dexmanager.h"
+#include "dex/dexsync.h"
 #endif
 
 #if defined(NDEBUG)
@@ -2848,6 +2849,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
             governance.ProcessMessage(pfrom, strCommand, vRecv, connman);
 #ifdef ENABLE_DEX
 //            dexman.ProcessMessage(pfrom, strCommand, vRecv); // WARNING: check affter merge branches
+            dexsync.ProcessMessage(pfrom, strCommand, vRecv);
 #endif
         }
         else

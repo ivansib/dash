@@ -48,6 +48,7 @@
 #endif
 #ifdef ENABLE_DEX
 #include "dex/dexmanager.h"
+#include "dex/dexsync.h"
 #endif
 
 #include "activemasternode.h"
@@ -2016,6 +2017,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
 
 #ifdef ENABLE_DEX
    threadGroup.create_thread(boost::bind(&ThreadDexManager));
+   DexConnectSignals();
 #endif
 
     threadGroup.create_thread(boost::bind(&ThreadSendAlert, boost::ref(connman)));

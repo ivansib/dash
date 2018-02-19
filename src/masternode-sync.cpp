@@ -89,6 +89,8 @@ void CMasternodeSync::SwitchToNextAsset(CConnman& connman)
             //try to activate our masternode if possible
             activeMasternode.ManageState(connman);
 
+            syncFinished();
+
             connman.ForEachNode(CConnman::AllNodes, [](CNode* pnode) {
                 netfulfilledman.AddFulfilledRequest(pnode->addr, "full-sync");
             });
