@@ -447,8 +447,22 @@ void ThreadDexManager()
     while (true) {
         MilliSleep(minPeriod);
 
-        if (!dexsync.isSynced()) {
-            continue;
+        if (masternodeSync.IsSynced()) {
+            LogPrintf("ThreadDexManager -- start synchronization offers\n");
+            std::vector<CNode*> vNodesCopy = CopyNodeVector();
+
+            for (auto node : vNodesCopy) {
+                
+                if(node->nVersion < MIN_DEX_PROTO_VERSION) continue;
+                
+                if(node->fMasternode || (fMasterNode && node->fInbound)) {
+                    continue;
+                }
+
+                node->PushMessage(NetMsgType::DEXSYNCGETALLHASH);
+            }
+
+            break;
         }
     }
 
