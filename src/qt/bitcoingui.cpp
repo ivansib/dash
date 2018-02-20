@@ -30,6 +30,10 @@
 #include "sibmodel.h"
 #endif // ENABLE_WALLET
 
+#ifdef ENABLE_DEX
+#include "dex/dexsync.h"
+#endif
+
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
 #endif
@@ -1194,7 +1198,7 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
 #endif // ENABLE_WALLET
 
     if(masternodeSync.IsSynced()) {
-        progressBarLabel->setVisible(false);
+        progressBarLabel->setVisible(false); // WARNING: check affter merge branches
         progressBar->setVisible(false);
         labelBlocksIcon->setPixmap(QIcon(":/icons/" + theme + "/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
     } else {
