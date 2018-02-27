@@ -207,7 +207,7 @@ void CDexManager::initDB()
 
 void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
 {
-    LogPrintf("dex", "DEXOFFBCST -- get new offer from = %s\n", pfrom->addr.ToString());
+    LogPrint("dex", "DEXOFFBCST -- get new offer from = %s\n", pfrom->addr.ToString());
 
     CDexOffer offer;
     vRecv >> offer;
@@ -240,7 +240,7 @@ void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
                     }
                 }
             }
-            LogPrintf("dex", "DEXOFFBCST --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
+            LogPrint("dex", "DEXOFFBCST --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
         } else {
             if (!uncOffers->isExistOffer(offer.hash)) {
                 uncOffers->setOffer(offer);
@@ -251,18 +251,18 @@ void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
                         pNode->PushMessage(NetMsgType::DEXOFFBCST, offer);
                     }
                 }
-                LogPrintf("dex", "DEXOFFBCST --check offer tx fail(%s)\n", offer.idTransaction.GetHex().c_str());
+                LogPrint("dex", "DEXOFFBCST --check offer tx fail(%s)\n", offer.idTransaction.GetHex().c_str());
             }
         }
     } else {
-        LogPrintf("dex", "DEXOFFBCST -- offer check fail\n");
+        LogPrint("dex", "DEXOFFBCST -- offer check fail\n");
     }
 }
 
 
 void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv)
 {
-    LogPrintf("dex", "DEXDELOFFER -- receive request on delete offer from = %s\n", pfrom->addr.ToString());
+    LogPrint("dex", "DEXDELOFFER -- receive request on delete offer from = %s\n", pfrom->addr.ToString());
 
     std::vector<unsigned char> vchSign;
     CDexOffer offer;
@@ -303,12 +303,12 @@ void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv)
                     }
                 }
             }
-            LogPrintf("dex", "DEXDELOFFER --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
+            LogPrint("dex", "DEXDELOFFER --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
         } else {
-            LogPrintf("dex", "DEXDELOFFER --check offer sign fail(%s)\n", offer.hash.GetHex().c_str());
+            LogPrint("dex", "DEXDELOFFER --check offer sign fail(%s)\n", offer.hash.GetHex().c_str());
         }
     } else {
-        LogPrintf("dex", "DEXDELOFFER -- offer check fail\n");
+        LogPrint("dex", "DEXDELOFFER -- offer check fail\n");
     }
 }
 
@@ -316,7 +316,7 @@ void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv)
 
 void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
 {
-    LogPrintf("dex", "DEXOFFEDIT -- receive request on edited offer from = %s\n", pfrom->addr.ToString());
+    LogPrint("dex", "DEXOFFEDIT -- receive request on edited offer from = %s\n", pfrom->addr.ToString());
 
     std::vector<unsigned char> vchSign;
     CDexOffer offer;
@@ -353,7 +353,7 @@ void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
                     isActual = true;
                 }
             }
-            LogPrintf("dex", "DEXOFFEDIT --\n%s\nactual %d\n", offer.dump().c_str(), isActual);
+            LogPrint("dex", "DEXOFFEDIT --\n%s\nactual %d\n", offer.dump().c_str(), isActual);
         } else {
             if (uncOffers->isExistOffer(offer.hash)) {
                 OfferInfo existOffer = uncOffers->getOffer(offer.hash);
@@ -366,7 +366,7 @@ void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
                 uncOffers->setOffer(offer);
                 isActual = true;
             }
-            LogPrintf("dex", "DEXOFFEDIT --check offer tx fail(%s)\n", offer.idTransaction.GetHex().c_str());
+            LogPrint("dex", "DEXOFFEDIT --check offer tx fail(%s)\n", offer.idTransaction.GetHex().c_str());
         }
         if (isActual) {
             LOCK2(cs_main, cs_vNodes);
@@ -381,7 +381,7 @@ void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
             LogPrintf("DEXOFFEDIT --check offer tx fail(%s)\n", offer.idTransaction.GetHex().c_str());
         }
     } else {
-        LogPrintf("dex", "DEXOFFEDIT -- offer check fail\n");
+        LogPrint("dex", "DEXOFFEDIT -- offer check fail\n");
     }
 }
 
@@ -470,19 +470,19 @@ void ThreadDexManager()
     }
 
         if (step % stepCheckUnc == 0) {
-            LogPrintf("dex", "ThreadDexManager -- check unconfirmed offers\n");
+            LogPrint("dex", "ThreadDexManager -- check unconfirmed offers\n");
             dexman.checkUncOffers();
         }
 
         if (step % stepDeleteOldUnc == 0) {
-            LogPrintf("dex", "ThreadDexManager -- delete old unconfirmed offers\n");
+            LogPrint("dex", "ThreadDexManager -- delete old unconfirmed offers\n");
             dexman.deleteOldUncOffers();
         }
 
         if (step % stepDeleteOld == 0) {
-            LogPrintf("dex", "ThreadDexManager -- delete old offers\n");
+            LogPrint("dex", "ThreadDexManager -- delete old offers\n");
             dexman.deleteOldOffers();
-            LogPrintf("dex", "ThreadDexManager -- set status expired for MyOffers\n");
+            LogPrint("dex", "ThreadDexManager -- set status expired for MyOffers\n");
             dexman.setStatusExpiredForMyOffers();
         }
 
