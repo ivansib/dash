@@ -202,6 +202,7 @@ BITCOIN_CORE_H = \
   zmq/zmqpublishnotifier.h \
   dex/dex.h \
   dex/dexmanager.h \
+  dex/dexsync.h \
   dex/dexoffer.h \
   dex/callbackdbforrpc.h \
   dex/dextransaction.h \
