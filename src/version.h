@@ -44,4 +44,7 @@ static const int DIP0001_PROTOCOL_VERSION = 70208;
 //! short-id-based block download starts with this version
 static const int SHORT_IDS_BLOCKS_VERSION = 70209;
 
+//! don't send dex messages older that this version
+static const int MIN_DEX_VERSION = 70207;
+
 #endif // BITCOIN_VERSION_H
