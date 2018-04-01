@@ -168,6 +168,8 @@ public:
     bool Get(const COutPoint& outpoint, CMasternode& masternodeRet);
     bool Has(const COutPoint& outpoint);
 
+    bool isExist(const CNode *node) const;
+
     bool GetMasternodeInfo(const COutPoint& outpoint, masternode_info_t& mnInfoRet);
     bool GetMasternodeInfo(const CPubKey& pubKeyMasternode, masternode_info_t& mnInfoRet);
     bool GetMasternodeInfo(const CScript& payee, masternode_info_t& mnInfoRet);

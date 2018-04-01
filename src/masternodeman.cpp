@@ -484,6 +484,19 @@ bool CMasternodeMan::GetMasternodeInfo(const CPubKey& pubKeyMasternode, masterno
     return false;
 }
 
+bool CMasternodeMan::isExist(const CNode *node) const
+{
+    LOCK(cs);
+
+    for (auto mn : vMasternodes) {
+        if (node->addr == mn.addr) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 bool CMasternodeMan::GetMasternodeInfo(const CScript& payee, masternode_info_t& mnInfoRet)
 {
     LOCK(cs);
