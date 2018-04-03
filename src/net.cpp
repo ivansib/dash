@@ -1759,15 +1759,6 @@ void CConnman::ThreadOpenConnections()
             }
         }
 
-        if (nDex < MIN_NUMBER_DEX_NODE && (MAX_OUTBOUND_CONNECTIONS - nOutbound) < (MIN_NUMBER_DEX_NODE - nDex)) {
-            for (auto pnode : vNodes) {
-                if (!pnode->fInbound && !pnode->fMasternode && pnode->nVersion < MIN_DEX_VERSION) {
-                    pnode->fDisconnect = true;
-                    break;
-                }
-            }
-        }
-
         assert(nOutbound <= (MAX_OUTBOUND_CONNECTIONS + MAX_FEELER_CONNECTIONS));
 
         // Feeler Connections
