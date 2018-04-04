@@ -6,6 +6,7 @@
 #include "util.h"
 #include "utilstrencodings.h"
 #include "masternodeman.h"
+#include "masternode-sync.h"
 
 #include "dex/db/dexdb.h"
 #include "dexsync.h"
@@ -33,16 +34,12 @@ CDexManager::~CDexManager()
     delete uncOffers;
 }
 
-
-
-void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv)
+void CDexManager::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
 {
     initDB();
 
     if (strCommand == NetMsgType::DEXOFFBCST) {
         getAndSendNewOffer(pfrom, vRecv);
-    } else if (strCommand == NetMsgType::DEXOFFEDIT) {
-        getAndSendEditedOffer(vRecv);
     } else if (strCommand == NetMsgType::DEXDELOFFER) {
         getAndDelOffer(pfrom, vRecv);
     } else if (strCommand == NetMsgType::DEXOFFEDIT) {
@@ -400,10 +397,6 @@ void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
                     pNode->PushMessage(NetMsgType::DEXOFFEDIT, offer, vchSign);
                 }
             }
-
-            LogPrintf("DEXOFFEDIT --\n%s\nactual %d\n", offer.dump().c_str(), isActual);
-        } else {
-            LogPrintf("DEXOFFEDIT --check offer tx fail(%s)\n", offer.idTransaction.GetHex().c_str());
         }
     } else {
         LogPrint("dex", "DEXOFFEDIT -- offer check fail\n");
@@ -475,22 +468,13 @@ void ThreadDexManager()
     while (true) {
         MilliSleep(minPeriod);
 
-        if (masternodeSync.IsSynced()) {
-            LogPrintf("ThreadDexManager -- start synchronization offers\n");
-            std::vector<CNode*> vNodesCopy = CopyNodeVector();
+        if (masternodeSync.IsSynced() && dexsync.statusSync() == CDexSync::NoStarted) {
+            CheckDexMasternode();
+            dexman.startSyncDex();
+        }
 
-            for (auto node : vNodesCopy) {
-                
-                if(node->nVersion < MIN_DEX_PROTO_VERSION) continue;
-                
-                if(node->fMasternode || (fMasterNode && node->fInbound)) {
-                    continue;
-                }
-
-                node->PushMessage(NetMsgType::DEXSYNCGETALLHASH);
-            }
-
-            break;
+        if (!dexsync.isSynced()) {
+            continue;
         }
     }
 
