@@ -32,6 +32,7 @@
 
 #include "evo/specialtx.h"
 #include "evo/providertx.h"
+#include "evo/cbtx.h"
 
 #include <stdint.h>
 
@@ -158,6 +159,13 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, UniValue& entry)
             UniValue proTxObj;
             proTx.ToJson(proTxObj);
             entry.push_back(Pair("proUpRevTx", proTxObj));
+        }
+    } else if (tx.nType == TRANSACTION_COINBASE) {
+        CCbTx cbTx;
+        if (GetTxPayload(tx, cbTx)) {
+            UniValue proTxObj;
+            cbTx.ToJson(proTxObj);
+            entry.push_back(Pair("cbTx", proTxObj));
         }
     }
 
