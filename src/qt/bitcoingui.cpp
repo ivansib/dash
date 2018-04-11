@@ -1192,13 +1192,13 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
     QString strSyncStatus;
     tooltip = tr("Up to date") + QString(".<br>") + tooltip;
 
-#ifdef ENABLE_WALLET
-    if(walletFrame)
-        walletFrame->showOutOfSyncWarning(false);
-#endif // ENABLE_WALLET
+    bool finishProgress = masternodeSync.IsSynced();
+#ifdef ENABLE_DEX
+    finishProgress = (masternodeSync.IsSynced() && dexsync.isSynced());
+#endif
 
-    if(masternodeSync.IsSynced()) {
-        progressBarLabel->setVisible(false); // WARNING: check affter merge branches
+    if(finishProgress) {
+        progressBarLabel->setVisible(false);  // WARNING: check affter merge branches
         progressBar->setVisible(false);
         labelBlocksIcon->setPixmap(QIcon(":/icons/" + theme + "/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
     } else {
@@ -1208,12 +1208,22 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
             .pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
         spinnerFrame = (spinnerFrame + 1) % SPINNER_FRAMES;
 
+#ifdef ENABLE_WALLET
+        if(walletFrame)
+            walletFrame->showOutOfSyncWarning(false);
+#endif // ENABLE_WALLET
+
         progressBar->setFormat(tr("Synchronizing additional data: %p%"));
         progressBar->setMaximum(1000000000);
         progressBar->setValue(nSyncProgress * 1000000000.0 + 0.5);
     }
 
     strSyncStatus = QString(masternodeSync.GetSyncStatus().c_str());
+#ifdef ENABLE_DEX
+    if (masternodeSync.IsSynced() && !dexsync.isSynced()) {
+        strSyncStatus = QString(dexsync.getSyncStatus().c_str());
+    }
+#endif
     progressBarLabel->setText(strSyncStatus);
     tooltip = strSyncStatus + QString("<br>") + tooltip;
 
