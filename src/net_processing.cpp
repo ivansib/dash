@@ -2848,8 +2848,8 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
             masternodeSync.ProcessMessage(pfrom, strCommand, vRecv);
             governance.ProcessMessage(pfrom, strCommand, vRecv, connman);
 #ifdef ENABLE_DEX
-//            dexman.ProcessMessage(pfrom, strCommand, vRecv); // WARNING: check affter merge branches
-            dexsync.ProcessMessage(pfrom, strCommand, vRecv);
+//            dex::dexman.ProcessMessage(pfrom, strCommand, vRecv); // WARNING: check affter merge branches
+            dex::dexsync.ProcessMessage(pfrom, strCommand, vRecv);
 #endif
         }
         else

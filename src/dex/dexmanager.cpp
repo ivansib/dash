@@ -14,6 +14,7 @@
 #include "base58.h"
 
 
+namespace dex {
 
 
 CDexManager dexman;
@@ -466,8 +467,9 @@ void CDexManager::saveMyOffer(const MyOfferInfo &info)
     }
 }
 
+}
 
-
+using namespace dex;
 
 void ThreadDexManager()
 {
