@@ -68,7 +68,9 @@ b'libX11.so.6', # part of X11
 b'libxcb.so.1', # part of X11
 b'libfontconfig.so.1', # font support
 b'libfreetype.so.6', # font parsing
-b'libdl.so.2' # programming interface to dynamic linker
+b'libdl.so.2', # programming interface to dynamic linker
+# dex
+b'libsqlite3.so.0'
 }
 
 class CPPFilt(object):
