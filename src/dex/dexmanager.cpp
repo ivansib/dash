@@ -280,6 +280,7 @@ void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
         }
     } else {
         LogPrint("dex", "DEXOFFBCST -- offer check fail\n");
+        Misbehaving(pfrom->GetId(), 20);
     }
 }
 
@@ -339,6 +340,7 @@ void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv)
         }
     } else {
         LogPrint("dex", "DEXDELOFFER -- offer check fail\n");
+        Misbehaving(pfrom->GetId(), 20);
     }
 }
 
@@ -414,6 +416,7 @@ void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
         }
     } else {
         LogPrint("dex", "DEXOFFEDIT -- offer check fail\n");
+        Misbehaving(pfrom->GetId(), 20);
     }
 }
 
