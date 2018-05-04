@@ -1013,7 +1013,7 @@ std::list<OfferInfo> DexDB::getOffers(const std::string &tableName, const std::s
 
 OfferInfo DexDB::getOffer(const std::string &tableName, const uint256 &idTransaction)
 {
-    std::string str = "SELECT hash, idTransaction, pubKey, countryIso, currencyIso, "
+    std::string str = "SELECT idTransaction, hash, pubKey, countryIso, currencyIso, "
                       "paymentMethod, price, minAmount, timeCreate, timeToExpiration, shortInfo, details, editingVersion, editsign FROM " + tableName
                       + " WHERE idTransaction = \"" + idTransaction.GetHex() + "\"";
 
@@ -1032,7 +1032,7 @@ OfferInfo DexDB::getOffer(const std::string &tableName, const uint256 &idTransac
 
 OfferInfo DexDB::getOfferByHash(const std::string &tableName, const uint256 &hash)
 {
-    std::string str = "SELECT hash, idTransaction, pubKey, countryIso, currencyIso, "
+    std::string str = "SELECT idTransaction, hash, pubKey, countryIso, currencyIso, "
                       "paymentMethod, price, minAmount, timeCreate, timeToExpiration, shortInfo, details, editingVersion, editsign FROM " + tableName
                       + " WHERE hash = \"" + hash.GetHex() + "\"";
 
@@ -1062,8 +1062,8 @@ OfferInfo DexDB::getOffer(const std::string &guery, int &status)
 
 OfferInfo DexDB::getOffer(sqlite3pp::query::iterator &it)
 {
-    std::string hash;
     std::string idTransaction;
+    std::string hash;
     std::string pubKey;
     std::string countryIso;
     std::string currencyIso;
@@ -1076,7 +1076,7 @@ OfferInfo DexDB::getOffer(sqlite3pp::query::iterator &it)
     std::string details;
     int editingVersion;
     std::string editsign;
-    std::tie(hash, idTransaction, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount,
+    std::tie(idTransaction, hash, pubKey, countryIso, currencyIso, paymentMethod, price, minAmount,
              timeCreate, timeToExpiration, shortInfo, details, editingVersion, editsign)
             = (*it).get_columns<std::string, std::string, std::string, std::string, std::string, uint8_t,
             long long int, long long int, long long int, long long int, std::string, std::string, int, std::string>
