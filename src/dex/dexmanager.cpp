@@ -48,7 +48,7 @@ void CDexManager::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStr
     }
 }
 
-void CDexManager::addOrEditDraftMyOffer(MyOfferInfo &myOffer)
+void CDexManager::addOrEditDraftMyOffer(MyOfferInfo &myOffer, bool usethread)
 {
     initDB();
 
@@ -64,10 +64,10 @@ void CDexManager::addOrEditDraftMyOffer(MyOfferInfo &myOffer)
 
     myOffer.setOfferInfo(dexOffer);
 
-    saveMyOffer(myOffer);
+    saveMyOffer(myOffer, usethread);
 }
 
-void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error)
+void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error, bool usethread)
 {
     initDB();
 
@@ -78,7 +78,11 @@ void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error
         dexOffer.Create(myOffer);
 
         if (oldHash != dexOffer.hash) {
-            db->deleteMyOfferByHash(oldHash);
+            if (usethread) {
+                db->deleteMyOfferByHash(oldHash);
+            } else {
+                db->deleteMyOfferByHashNoThr(oldHash);
+            }
         }
     } else if (myOffer.status == Active) {
         myOffer.editingVersion++;
@@ -104,10 +108,18 @@ void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error
         dexman.sendEditedOffer(dex.offer);
 
         if (dex.offer.isBuy()) {
-            db->editOfferBuy(dex.offer);
+            if (usethread) {
+                db->editOfferBuy(dex.offer);
+            } else {
+                db->editOfferBuyNoThr(dex.offer);
+            }
         }
         if (dex.offer.isSell()) {
-            db->editOfferSell(dex.offer);
+            if (usethread) {
+                db->editOfferSell(dex.offer);
+            } else {
+                db->editOfferSellNoThr(dex.offer);
+            }
         }
     } else if (dex.PayForOffer(tx, error)) {
         dexman.sendNewOffer(dex.offer);
@@ -115,15 +127,23 @@ void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error
         myOffer.setOfferInfo(dex.offer);
         myOffer.status = Active;
         if (dex.offer.isBuy()) {
-            db->addOfferBuy(dex.offer);
+            if (usethread) {
+                db->addOfferBuy(dex.offer);
+            } else {
+                db->addOfferBuyNoThr(dex.offer);
+            }
         }
         if (dex.offer.isSell()) {
-            db->addOfferSell(dex.offer);
+            if (usethread) {
+                db->addOfferSell(dex.offer);
+            } else {
+                db->addOfferSellNoThr(dex.offer);
+            }
         }
     }
 
     if (error.empty()) {
-        saveMyOffer(myOffer);
+        saveMyOffer(myOffer, usethread);
     }
 }
 
@@ -466,12 +486,20 @@ UnconfirmedOffers *CDexManager::getUncOffers() const
     return uncOffers;
 }
 
-void CDexManager::saveMyOffer(const MyOfferInfo &info)
+void CDexManager::saveMyOffer(const MyOfferInfo &info, bool usethread)
 {
     if (db->isExistMyOfferByHash(info.hash)) {
-        db->editMyOffer(info);
+        if (usethread) {
+            db->editMyOffer(info);
+        } else {
+            db->editMyOfferNoThr(info);
+        }
     } else {
-        db->addMyOffer(info);
+        if (usethread) {
+            db->addMyOffer(info);
+        } else {
+            db->addMyOfferNoThr(info);
+        }
     }
 }
 
