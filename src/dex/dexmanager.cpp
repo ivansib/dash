@@ -78,11 +78,7 @@ void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error
         dexOffer.Create(myOffer);
 
         if (oldHash != dexOffer.hash) {
-            if (usethread) {
-                db->deleteMyOfferByHash(oldHash);
-            } else {
-                db->deleteMyOfferByHashNoThr(oldHash);
-            }
+            db->deleteMyOfferByHash(oldHash, usethread);
         }
     } else if (myOffer.status == Active) {
         myOffer.editingVersion++;
@@ -108,18 +104,10 @@ void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error
         dexman.sendEditedOffer(dex.offer);
 
         if (dex.offer.isBuy()) {
-            if (usethread) {
-                db->editOfferBuy(dex.offer);
-            } else {
-                db->editOfferBuyNoThr(dex.offer);
-            }
+            db->editOfferBuy(dex.offer, usethread);
         }
         if (dex.offer.isSell()) {
-            if (usethread) {
-                db->editOfferSell(dex.offer);
-            } else {
-                db->editOfferSellNoThr(dex.offer);
-            }
+            db->editOfferSell(dex.offer, usethread);
         }
     } else if (dex.PayForOffer(tx, error)) {
         dexman.sendNewOffer(dex.offer);
@@ -127,18 +115,10 @@ void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error
         myOffer.setOfferInfo(dex.offer);
         myOffer.status = Active;
         if (dex.offer.isBuy()) {
-            if (usethread) {
-                db->addOfferBuy(dex.offer);
-            } else {
-                db->addOfferBuyNoThr(dex.offer);
-            }
+            db->addOfferBuy(dex.offer, usethread);
         }
         if (dex.offer.isSell()) {
-            if (usethread) {
-                db->addOfferSell(dex.offer);
-            } else {
-                db->addOfferSellNoThr(dex.offer);
-            }
+            db->addOfferSell(dex.offer, usethread);
         }
     }
 
@@ -189,13 +169,13 @@ void CDexManager::checkUncOffers()
         if (dex.CheckOfferTx(error)) {
             if (offer.isBuy())  {
                 if (!db->isExistOfferBuy(offer.idTransaction)) {
-                    db->addOfferBuy(offer);
+                    db->addOfferBuy(offer, false);
                 }
             }
 
             if (offer.isSell())  {
                 if (!db->isExistOfferSell(offer.idTransaction)) {
-                    db->addOfferSell(offer);
+                    db->addOfferSell(offer, false);
                 }
             }
 
@@ -213,7 +193,7 @@ void CDexManager::setStatusExpiredForMyOffers()
     for (auto item : offers) {
         if (item.timeToExpiration < currentTime) {
             item.status = dex::Expired;
-            db->editMyOffer(item);
+            db->editMyOffer(item, false);
         }
     }
 }
@@ -225,8 +205,8 @@ void CDexManager::deleteOldUncOffers()
 
 void CDexManager::deleteOldOffers()
 {
-    db->deleteOldOffersBuy();
-    db->deleteOldOffersSell();
+    db->deleteOldOffersBuy(false);
+    db->deleteOldOffersSell(false);
 }
 
 void CDexManager::initDB()
@@ -251,7 +231,7 @@ void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
                 if (db->isExistOfferBuy(offer.idTransaction)) {
                   bFound = true;
                 } else {
-                    db->addOfferBuy(offer);
+                    db->addOfferBuy(offer, false);
                 }
             }
 
@@ -259,7 +239,7 @@ void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
                 if (db->isExistOfferSell(offer.idTransaction)) {
                   bFound = true;
                 } else {
-                    db->addOfferSell(offer);
+                    db->addOfferSell(offer, false);
                 }
             }
 
@@ -321,14 +301,14 @@ void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv)
             bool bFound = false;
             if (offer.isBuy())  {
                 if (db->isExistOfferBuy(offer.idTransaction)) {
-                    db->deleteOfferBuy(offer.idTransaction);
+                    db->deleteOfferBuy(offer.idTransaction, false);
                     bFound = true;
                 }
             }
 
             if (offer.isSell())  {
                 if (db->isExistOfferSell(offer.idTransaction)) {
-                    db->deleteOfferSell(offer.idTransaction);
+                    db->deleteOfferSell(offer.idTransaction, false);
                     bFound = true;
                 }
             }
@@ -385,11 +365,11 @@ void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
                     if (db->isExistOfferBuy(offer.idTransaction)) {
                         OfferInfo existOffer = db->getOfferBuy(offer.idTransaction);
                         if (offer.editingVersion > existOffer.editingVersion) {
-                            db->editOfferBuy(offer);
+                            db->editOfferBuy(offer, false);
                             isActual = true;
                         }
                     } else {
-                        db->addOfferBuy(offer);
+                        db->addOfferBuy(offer, false);
                         isActual = true;
                     }
                 }
@@ -398,11 +378,11 @@ void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
                     if (db->isExistOfferSell(offer.idTransaction)) {
                         OfferInfo existOffer = db->getOfferSell(offer.idTransaction);
                         if (offer.editingVersion > existOffer.editingVersion) {
-                            db->editOfferSell(offer);
+                            db->editOfferSell(offer, false);
                             isActual = true;
                         }
                     } else {
-                        db->addOfferSell(offer);
+                        db->addOfferSell(offer, false);
                         isActual = true;
                     }
                 }
@@ -489,17 +469,9 @@ UnconfirmedOffers *CDexManager::getUncOffers() const
 void CDexManager::saveMyOffer(const MyOfferInfo &info, bool usethread)
 {
     if (db->isExistMyOfferByHash(info.hash)) {
-        if (usethread) {
-            db->editMyOffer(info);
-        } else {
-            db->editMyOfferNoThr(info);
-        }
+        db->editMyOffer(info, usethread);
     } else {
-        if (usethread) {
-            db->addMyOffer(info);
-        } else {
-            db->addMyOfferNoThr(info);
-        }
+        db->addMyOffer(info, usethread);
     }
 }
 
