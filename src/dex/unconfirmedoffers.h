@@ -16,8 +16,6 @@ struct UnconfirmedOffersComparator {
 
 };
 
-}
-
 class UnconfirmedOffers {
 public:
     UnconfirmedOffers();
@@ -40,5 +38,6 @@ private:
     boost::shared_mutex smOfferMutex;
 };
 
+}
 
 #endif
