@@ -10,6 +10,7 @@
 #include "dexoffer.h"
 #include "unconfirmedoffers.h"
 
+
 namespace dex {
 
 class CDexManager;
