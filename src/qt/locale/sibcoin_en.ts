@@ -2272,6 +2272,10 @@ p, li { white-space: pre-wrap; }
         <translation>Edit</translation>
     </message>
     <message>
+        <source>Delete</source>
+        <translation>Delete</translation>
+    </message>
+    <message>
         <source>Active</source>
         <translation>Active</translation>
     </message>
@@ -6464,6 +6468,17 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <location line="+49"/>
         <source>Show</source>
         <translation>Show</translation>
+    </message>
+</context>
+<context>
+    <name>TableOffersEditor</name>
+    <message>
+        <source>Delete offer</source>
+        <translation>Delete offer</translation>
+    </message>
+    <message>
+        <source>Confirm delete offer?</source>
+        <translation>Confirm delete offer?</translation>
     </message>
 </context>
 <context>
