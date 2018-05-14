@@ -30,6 +30,11 @@
 #include "masternodeman.h"
 #include "privatesend.h"
 
+#ifdef ENABLE_DEX
+#include "dex/dexmanager.h"
+#include "dex/dexsync.h"
+#endif
+
 #ifdef WIN32
 #include <string.h>
 #else
@@ -2387,6 +2392,12 @@ bool CConnman::Start(CScheduler& scheduler, std::string& strNodeError, Options c
 
     // Process messages
     threadMessageHandler = std::thread(&TraceThread<std::function<void()> >, "msghand", std::function<void()>(std::bind(&CConnman::ThreadMessageHandler, this)));
+
+#ifdef ENABLE_DEX
+   threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dexmanager", &ThreadDexManager));
+   threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dexuncmanager", &ThreadDexUncManager));
+   dex::DexConnectSignals();
+#endif
 
     // Dump network addresses
     scheduler.scheduleEvery(boost::bind(&CConnman::DumpData, this), DUMP_ADDRESSES_INTERVAL);

@@ -464,8 +464,6 @@ void ThreadDexManager()
     int step = 0;
     int minPeriod = 60000;
 
-    const int stepCheckUnc = 1;
-    const int stepDeleteOldUnc = 30;
     const int stepDeleteOld = 60;
 
     while (true) {
@@ -483,6 +481,36 @@ void ThreadDexManager()
 
         CheckDexMasternode();
 
+        if (step % stepDeleteOld == 0) {
+            LogPrint("dex", "ThreadDexManager -- delete old offers\n");
+            dexman.deleteOldOffers();
+            LogPrint("dex", "ThreadDexManager -- set status expired for MyOffers\n");
+            dexman.setStatusExpiredForMyOffers();
+        }
+
+        if (step == 60) {
+            step = 0;
+        } else {
+            step++;
+        }
+    }
+}
+
+void ThreadDexUncManager()
+{
+    int step = 0;
+    int minPeriod = 60000;
+
+    const int stepCheckUnc = 1;
+    const int stepDeleteOldUnc = 30;
+
+    while (true) {
+        MilliSleep(minPeriod);
+
+        if (!dexsync.isSynced()) {
+            continue;
+        }
+
         if (step % stepCheckUnc == 0) {
             LogPrint("dex", "ThreadDexManager -- check unconfirmed offers\n");
             dexman.checkUncOffers();
@@ -491,13 +519,6 @@ void ThreadDexManager()
         if (step % stepDeleteOldUnc == 0) {
             LogPrint("dex", "ThreadDexManager -- delete old unconfirmed offers\n");
             dexman.deleteOldUncOffers();
-        }
-
-        if (step % stepDeleteOld == 0) {
-            LogPrint("dex", "ThreadDexManager -- delete old offers\n");
-            dexman.deleteOldOffers();
-            LogPrint("dex", "ThreadDexManager -- set status expired for MyOffers\n");
-            dexman.setStatusExpiredForMyOffers();
         }
 
         if (step == 60) {
