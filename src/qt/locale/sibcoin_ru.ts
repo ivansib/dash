@@ -5434,6 +5434,32 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
 </context>
 <context>
+    <name>TableOffersEditor</name>
+    <message>
+        <source>Delete offer</source>
+        <translation>Удалить предложение</translation>
+    </message>
+    <message>
+        <source>Confirm delete offer?</source>
+        <translation>Удалить предложение?</translation>
+    </message>
+</context>
+<context>
+    <name>TableOffersSubDialog</name>
+    <message>
+        <source>All</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <source>Buy</source>
+        <translation>Покупка</translation>
+    </message>
+    <message>
+        <source>Sell</source>
+        <translation>Продажа</translation>
+    </message>
+</context>
+<context>
     <name>TrafficGraphWidget</name>
     <message>
         <source>KB/s</source>
