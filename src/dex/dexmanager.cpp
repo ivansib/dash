@@ -469,7 +469,7 @@ void ThreadDexManager()
     while (true) {
         MilliSleep(minPeriod);
 
-        if (masternodeSync.IsSynced() && (dexsync.statusSync() == CDexSync::NoStarted || dexsync.statusSync() == CDexSync::NoRestarted)) {
+        if (masternodeSync.IsSynced() && dexsync.statusSync() == CDexSync::NoStarted) {
             CheckDexMasternode();
             dexman.startSyncDex();
         }
