@@ -75,6 +75,8 @@ const char *DEXSYNCGETALLHASH = "dxsgethashs";
 const char *DEXSYNCPARTHASH = "dxsparthashs";
 const char *DEXSYNCGETOFFER = "dxsgetoffer";
 const char *DEXSYNCOFFER = "dxsoffer";
+const char *DEXSYNCNOOFFERS = "dxsnooffers";
+const char *DEXSYNCNOHASH = "dxsnohash";
 const char *DEXDELOFFER = "dexdeloffer";
 };
 
@@ -168,6 +170,8 @@ const static std::string allNetMessageTypes[] = {
     NetMsgType::DEXSYNCPARTHASH,
     NetMsgType::DEXSYNCGETOFFER,
     NetMsgType::DEXSYNCOFFER,
+    NetMsgType::DEXSYNCNOOFFERS,
+    NetMsgType::DEXSYNCNOHASH,
     NetMsgType::DEXDELOFFER
 };
 const static std::vector<std::string> allNetMessageTypesVec(allNetMessageTypes, allNetMessageTypes+ARRAYLEN(allNetMessageTypes));
