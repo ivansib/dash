@@ -430,6 +430,8 @@ libsibcoin_common_a_SOURCES = \
 libsibcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libsibcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libsibcoin_util_a_SOURCES = \
+  crypto/bls_ies.cpp \
+  crypto/bls_ies.h \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
