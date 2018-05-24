@@ -108,6 +108,7 @@ BITCOIN_CORE_H = \
   core_io.h \
   core_memusage.h \
   cuckoocache.h \
+  evo/evodb.h \
   evo/specialtx.h \
   privatesend.h \
   privatesend-client.h \
@@ -221,6 +222,7 @@ libsibcoin_server_a_SOURCES = \
   chain.cpp \
   checkpoints.cpp \
   dsnotificationinterface.cpp \
+  evo/evodb.cpp \
   evo/specialtx.cpp \
   httprpc.cpp \
   httpserver.cpp \
