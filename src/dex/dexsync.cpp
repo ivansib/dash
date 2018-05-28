@@ -283,7 +283,7 @@ void CDexSync::sendHashOffers(CNode *pfrom, CDataStream &vRecv) const
 
         subHvs.splice(subHvs.begin(), hvs, hvs.begin(), end);
 
-        LogPrint("dex", "DEXSYNCGETALLHASH -- send list pairs hashe and version\n");
+        LogPrint("dex", "DEXSYNCGETALLHASH -- send list pairs of hash and version\n");
         pfrom->PushMessage(NetMsgType::DEXSYNCPARTHASH, subHvs, cPart, maxPart);
         cPart++;
     }
@@ -406,7 +406,7 @@ void CDexSync::getOfferAndSaveInDb(CNode* pfrom, CDataStream &vRecv)
             }
         }
     } else {
-        LogPrint("dex", "DEXSYNCOFFER -- offer check fail\n");
+        LogPrint("DEXSYNCOFFER -- offer check fail, hash: %s\n", offer.hash.GetHex().c_str());
         Misbehaving(pfrom->GetId(), fine);
     }
 
