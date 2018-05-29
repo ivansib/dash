@@ -278,6 +278,7 @@ extern const char *DEXSYNCGETOFFER;
 extern const char *DEXSYNCOFFER;
 extern const char *DEXSYNCNOOFFERS;
 extern const char *DEXSYNCNOHASH;
+extern const char *DEXSYNCNEEDSYNC;
 extern const char *DEXDELOFFER;
 
 };
