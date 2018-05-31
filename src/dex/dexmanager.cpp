@@ -508,11 +508,6 @@ void ThreadDexManager()
             dexman.startSyncDex();
         }
 
-        if (!dexsync.isSynced() && step != 0) {
-            continue;
-        }
-    }
-
         CheckDexMasternode();
 
         if (step % stepDeleteOld == 0) {
