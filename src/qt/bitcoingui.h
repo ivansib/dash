@@ -91,6 +91,9 @@ private:
     QLabel *labelWalletHDStatusIcon;
     QLabel *labelConnectionsIcon;
     QLabel *labelBlocksIcon;
+#ifdef ENABLE_DEX
+    QLabel *labelOffersIcon;
+#endif
     QLabel *progressBarLabel;
     QProgressBar *progressBar;
     QProgressDialog *progressDialog;
