@@ -1421,7 +1421,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
             if (!strWarning.empty())
                 InitWarning(strWarning);
             if (!strError.empty())
-                return InitError(strError);
+                InitError(strError);
         }
 
         LogPrintf("Using dex DB %s\n", strDexDbFile.c_str());
@@ -1430,9 +1430,9 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
         try {
             dex::DexDB::instance();
         } catch (sqlite3pp::database_error e) {
-            fprintf(stderr, "Sibcoin DEX: Can`t open dex database: %s\n",strDexDbFile.c_str());
-            return EXIT_FAILURE;
+            return InitError(strprintf("DEX db (%s) - %s\n",strDexDbFile.c_str(), e.what()));
         }
+
         int nAutoVacuum = GetArg("-dex_vacuum_on_startup", DEFAULT_DEX_VACUUM_ON_STARTUP);
         if (nAutoVacuum != 0) {
             uiInterface.InitMessage(_("Vacuum dex DB..."));
