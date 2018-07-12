@@ -433,6 +433,7 @@ libsibcoin_util_a_SOURCES = \
 
 if GLIBC_BACK_COMPAT
 libsibcoin_util_a_SOURCES += compat/glibc_compat.cpp
+AM_LDFLAGS += -Wl,--wrap=log2f -Wl,--wrap=__divmoddi4
 endif
 
 # cli: shared between sibcoin-cli and sibcoin-qt
