@@ -28,7 +28,7 @@ Drag Sibcoin-Qt to your applications folder, and then run Sibcoin-Qt.
 
 ### Need Help?
 
-* See the [Dash documentation](https://dashpay.atlassian.net/wiki/display/DOC)
+* See the [Dash documentation](https://docs.dash.org)
 for help and more information.
 * Ask for help on [Dash Nation Discord](http://dashchat.org)
 * Ask for help on the [Dash Forum](https://dash.org/forum)
