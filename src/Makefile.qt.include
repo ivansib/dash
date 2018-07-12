@@ -12,7 +12,6 @@ QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
   qt/forms/askpassphrasedialog.ui \
   qt/forms/coincontroldialog.ui \
-  qt/forms/darksendconfig.ui \
   qt/forms/editaddressdialog.ui \
   qt/forms/genandprintdialog.ui \
   qt/forms/goodsdialog.ui \
@@ -45,7 +44,6 @@ QT_MOC_CPP = \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
   qt/moc_csvmodelwriter.cpp \
-  qt/moc_darksendconfig.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_genandprintdialog.cpp \
   qt/moc_goodsdialog.cpp \
@@ -128,7 +126,6 @@ BITCOIN_QT_H = \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
-  qt/darksendconfig.h \
   qt/editaddressdialog.h \
   qt/genandprintdialog.h \
   qt/goodsdialog.h \
@@ -494,7 +491,6 @@ BITCOIN_QT_CPP += \
   qt/askpassphrasedialog.cpp \
   qt/coincontroldialog.cpp \
   qt/coincontroltreewidget.cpp \
-  qt/darksendconfig.cpp \
   qt/editaddressdialog.cpp \
   qt/masternodelist.cpp \
   qt/genandprintdialog.cpp \
