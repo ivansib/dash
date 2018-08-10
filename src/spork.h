@@ -89,6 +89,7 @@ public:
 class CSporkManager
 {
 private:
+    CCriticalSection cs;
     std::vector<unsigned char> vchSig;
     std::map<int, CSporkMessage> mapSporksActive;
 
