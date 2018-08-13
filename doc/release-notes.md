@@ -85,11 +85,10 @@ anymore. Because of this fact, it's also no longer reasonable to update and test
 this feature, so it's completely removed now. If for some reason you were still
 using it, please follow one of the guides and setup a remote masternode instead.
 
+Python Support
+--------------
 
-Dash 0.12.3.3 Change log
-===================
-
-See detailed [set of changes](https://github.com/dashpay/dash/compare/v0.12.3.2...dashpay:v0.12.3.3).
+Support for Python 2 has been discontinued for all test files and tools.
 
 Credits
 =======
