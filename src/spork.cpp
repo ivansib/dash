@@ -15,7 +15,6 @@
 
 CSporkManager sporkManager;
 
-std::map<uint256, CSporkMessage> mapSporks;
 std::map<int, int64_t> mapSporkDefaults = {
     {SPORK_2_INSTANTSEND_ENABLED,            0},             // ON
     {SPORK_3_INSTANTSEND_BLOCK_FILTERING,    0},             // ON
@@ -28,6 +27,15 @@ std::map<int, int64_t> mapSporkDefaults = {
     {SPORK_14_REQUIRE_SENTINEL_FLAG,         4070908800ULL}, // OFF
     {SPORK_15_REJECT_OLD_BLOCKS,             4070908800ULL}, // OFF
 };
+
+void CSporkManager::Clear()
+{
+    LOCK(cs);
+    mapSporksActive.clear();
+    mapSporksByHash.clear();
+    sporkPubKeyID.SetNull();
+    sporkPrivKey = CKey();
+}
 
 void CSporkManager::ProcessSpork(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman& connman)
 {
@@ -70,7 +78,7 @@ void CSporkManager::ProcessSpork(CNode* pfrom, const std::string& strCommand, CD
 
         {
             LOCK(cs); // make sure to not lock this together with cs_main
-            mapSporks[hash] = spork;
+            mapSporksByHash[hash] = spork;
             mapSporksActive[spork.nSporkID] = spork;
         }
         spork.Relay(connman);
@@ -123,7 +131,7 @@ bool CSporkManager::UpdateSpork(int nSporkID, int64_t nValue, CConnman& connman)
     if(spork.Sign(sporkPrivKey)) {
         spork.Relay(connman);
         LOCK(cs);
-        mapSporks[spork.GetHash()] = spork;
+        mapSporksByHash[spork.GetHash()] = spork;
         mapSporksActive[nSporkID] = spork;
         return true;
     }
@@ -200,6 +208,20 @@ std::string CSporkManager::GetSporkNameByID(int nSporkID)
     }
 }
 
+bool CSporkManager::GetSporkByHash(const uint256& hash, CSporkMessage &sporkRet)
+{
+    LOCK(cs);
+
+    const auto it = mapSporksByHash.find(hash);
+
+    if (it == mapSporksByHash.end())
+        return false;
+
+    sporkRet = it->second;
+
+    return true;
+}
+
 bool CSporkManager::SetSporkAddress(const std::string& strAddress) {
     LOCK(cs);
     CBitcoinAddress address(strAddress);
@@ -237,6 +259,13 @@ bool CSporkManager::SetPrivKey(const std::string& strPrivKey)
         return false;
     }
 }
+
+std::string CSporkManager::ToString() const
+{
+    LOCK(cs);
+    return strprintf("Sporks: %llu", mapSporksActive.size());
+}
+
 
 uint256 CSporkMessage::GetHash() const
 {

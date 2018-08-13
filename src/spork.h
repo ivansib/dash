@@ -34,7 +34,6 @@ static const int SPORK_END                                              = SPORK_
 static const int SPORK_15_REJECT_NUMBER = 36;
 
 extern std::map<int, int64_t> mapSporkDefaults;
-extern std::map<uint256, CSporkMessage> mapSporks;
 extern CSporkManager sporkManager;
 
 //
@@ -89,8 +88,8 @@ public:
 class CSporkManager
 {
 private:
-    CCriticalSection cs;
-    std::vector<unsigned char> vchSig;
+    mutable CCriticalSection cs;
+    std::map<uint256, CSporkMessage> mapSporksByHash;
     std::map<int, CSporkMessage> mapSporksActive;
 
     CKeyID sporkPubKeyID;
@@ -99,6 +98,20 @@ private:
 public:
 
     CSporkManager() {}
+
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action) {
+        READWRITE(sporkPubKeyID);
+        READWRITE(mapSporksByHash);
+        READWRITE(mapSporksActive);
+        // we don't serialize private key to prevent its leakage
+    }
+
+    void Clear();
+    /// Dummy implementation for CFlatDB
+    void CheckAndRemove() {}
 
     void ProcessSpork(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman& connman);
     void ExecuteSpork(int nSporkID, int nValue);
@@ -109,8 +122,12 @@ public:
     int GetSporkIDByName(const std::string& strName);
     std::string GetSporkNameByID(int nSporkID);
 
+    bool GetSporkByHash(const uint256& hash, CSporkMessage &sporkRet);
+
     bool SetSporkAddress(const std::string& strAddress);
     bool SetPrivKey(const std::string& strPrivKey);
+
+    std::string ToString() const;
 };
 
 #endif
