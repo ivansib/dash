@@ -203,6 +203,8 @@ UniValue getrawtransaction(const JSONRPCRequest& request)
             "     }\n"
             "     ,...\n"
             "  ],\n"
+            "  \"extraPayloadSize\" : n    (numeric) Size of DIP2 extra payload. Only present if it's a special TX\n"
+            "  \"extraPayload\" : \"hex\"    (string) Hex encoded DIP2 extra payload data. Only present if it's a special TX\n"
             "  \"blockhash\" : \"hash\",   (string) the block hash\n"
             "  \"confirmations\" : n,      (numeric) The confirmations\n"
             "  \"time\" : ttt,             (numeric) The transaction time in seconds since epoch (Jan 1 1970 GMT)\n"
@@ -538,6 +540,8 @@ UniValue decoderawtransaction(const JSONRPCRequest& request)
             "     }\n"
             "     ,...\n"
             "  ],\n"
+            "  \"extraPayloadSize\" : n           (numeric) Size of DIP2 extra payload. Only present if it's a special TX\n"
+            "  \"extraPayload\" : \"hex\"           (string) Hex encoded DIP2 extra payload data. Only present if it's a special TX\n"
             "}\n"
 
             "\nExamples:\n"
