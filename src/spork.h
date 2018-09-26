@@ -89,6 +89,8 @@ public:
 class CSporkManager
 {
 private:
+    static const std::string SERIALIZATION_VERSION_STRING;
+
     mutable CCriticalSection cs;
     std::map<uint256, CSporkMessage> mapSporksByHash;
     std::map<int, CSporkMessage> mapSporksActive;
@@ -104,6 +106,16 @@ public:
 
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action) {
+        std::string strVersion;
+        if(ser_action.ForRead()) {
+            READWRITE(strVersion);
+            if (strVersion != SERIALIZATION_VERSION_STRING) {
+                return;
+            }
+        } else {
+            strVersion = SERIALIZATION_VERSION_STRING;
+            READWRITE(strVersion);
+        }
         READWRITE(sporkPubKeyID);
         READWRITE(mapSporksByHash);
         READWRITE(mapSporksActive);
@@ -111,8 +123,7 @@ public:
     }
 
     void Clear();
-    /// Dummy implementation for CFlatDB
-    void CheckAndRemove() {}
+    void CheckAndRemove();
 
     void ProcessSpork(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman& connman);
     void ExecuteSpork(int nSporkID, int nValue);
