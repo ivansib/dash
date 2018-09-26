@@ -1997,7 +1997,8 @@ bool CWalletTx::RelayWalletTransaction(CConnman* connman, const std::string& str
             uint256 hash = GetHash();
             LogPrintf("Relaying wtx %s\n", hash.ToString());
 
-            if (strCommand == NetMsgType::TXLOCKREQUEST) {
+            if ((strCommand == NetMsgType::TXLOCKREQUEST) ||
+                ((CTxLockRequest(*this).IsSimple()) && CInstantSend::CanAutoLock())) {
                 if (instantsend.ProcessTxLockRequest((CTxLockRequest)*this, *connman)) {
                     instantsend.AcceptLockRequest((CTxLockRequest)*this);
                 } else {

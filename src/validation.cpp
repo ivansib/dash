@@ -1845,7 +1845,7 @@ int32_t ComputeBlockVersion(const CBlockIndex* pindexPrev, const Consensus::Para
                 // unknown masternode
                 continue;
             }
-            if (mnInfo.nProtocolVersion < DIP0001_PROTOCOL_VERSION) {
+            if (mnInfo.nProtocolVersion < MIN_INSTANTSEND_WITHOUT_FEE_PROTO_VERSION) {
                 // masternode is not upgraded yet
                 continue;
             }
@@ -3438,8 +3438,8 @@ static bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state
             return error("%s: CheckIndexAgainstCheckpoint(): %s", __func__, state.GetRejectReason().c_str());
 
         // SIB specific
-        if (sporkManager.IsSporkActive(SPORK_16_REJECT_OLD_BLOCKS)) {
-            if ( chainActive.Height() - pindexPrev->nHeight > SPORK_17_REJECT_NUMBER) {
+        if (sporkManager.IsSporkActive(SPORK_17_REJECT_OLD_BLOCKS)) {
+            if ( chainActive.Height() - pindexPrev->nHeight > SPORK_18_REJECT_NUMBER) {
                 return state.Invalid(error("CheckBlockHeader(): block height is too far in the past"),
                                  REJECT_INVALID, "too-old");
             }
