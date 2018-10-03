@@ -74,6 +74,8 @@
 #include <stdio.h>
 #include <memory>
 
+#include "crypto/bls.h"
+
 #ifndef WIN32
 #include <signal.h>
 #endif
@@ -833,6 +835,9 @@ bool InitSanityCheck(void)
         return false;
     }
     if (!glibc_sanity_test() || !glibcxx_sanity_test())
+        return false;
+
+    if (!BLSInit())
         return false;
 
     return true;
