@@ -74,7 +74,7 @@
 #include <stdio.h>
 #include <memory>
 
-#include "crypto/bls.h"
+#include "bls/bls.h"
 
 #ifndef WIN32
 #include <signal.h>
