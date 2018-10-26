@@ -334,6 +334,10 @@ void PrepareShutdown()
         UnregisterValidationInterface(activeMasternodeManager);
     }
 
+    // make sure to clean up BLS keys before global destructors are called (they have allocated from the secure memory pool)
+    activeMasternodeInfo.blsKeyOperator.reset();
+    activeMasternodeInfo.blsPubKeyOperator.reset();
+
 #ifndef WIN32
     try {
         boost::filesystem::remove(GetPidFile());
