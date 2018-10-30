@@ -1431,7 +1431,6 @@ void CConnman::WakeMessageHandler()
 
 
 
-
 #ifdef USE_UPNP
 void ThreadMapPort()
 {

@@ -244,6 +244,8 @@ void PrepareShutdown()
         psibDB->Close();
     //GenerateBitcoins(false, NULL, 0);
 #endif
+    GenerateBitcoins(false, 0, Params());
+
     MapPort(false);
     UnregisterValidationInterface(peerLogic.get());
     peerLogic.reset();

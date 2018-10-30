@@ -62,6 +62,7 @@ public:
     boost::signals2::signal<std::string (const char* psz)> Translate;
 };
 
+extern std::map<std::string, std::string> mapArgs;
 extern const std::map<std::string, std::vector<std::string> >& mapMultiArgs;
 extern bool fDebug;
 extern bool fPrintToConsole;
@@ -234,6 +235,8 @@ std::string HelpMessageOpt(const std::string& option, const std::string& message
  * when boost is newer than 1.56.
  */
 int GetNumCores();
+
+void SetThreadPriority(int nPriority);
 
 void RenameThread(const char* name);
 std::string GetThreadName();

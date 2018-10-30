@@ -394,6 +394,7 @@ public:
     unsigned int GetReceiveFloodSize() const;
 
     void WakeMessageHandler();
+
 private:
     struct ListenSocket {
         SOCKET socket;
