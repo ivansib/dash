@@ -64,6 +64,7 @@ libconftest.dylib*
 *.o
 *.o-*
 *.patch
+!depends/patches/*/*.patch
 .dash
 *.a
 *.pb.cc
