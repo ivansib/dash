@@ -367,13 +367,8 @@ bool CPrivateSend::IsCollateralValid(const CTransaction& txCollateral)
 
 bool CPrivateSend::IsCollateralAmount(CAmount nInputAmount)
 {
-    if (mnpayments.GetMinMasternodePaymentsProto() > 70208) {
-        // collateral input can be anything between 1x and "max" (including both)
-        return (nInputAmount >= GetCollateralAmount() && nInputAmount <= GetMaxCollateralAmount());
-    } else { // <= 70208
-        // collateral input can be anything between 2x and "max" (including both)
-        return (nInputAmount >= GetCollateralAmount() * 2 && nInputAmount <= GetMaxCollateralAmount());
-    }
+    // collateral input can be anything between 1x and "max" (including both)
+    return (nInputAmount >= GetCollateralAmount() && nInputAmount <= GetMaxCollateralAmount());
 }
 
 /*  Create a nice string to show the denominations
