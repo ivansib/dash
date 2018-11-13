@@ -141,7 +141,7 @@ public:
         consensus.BIP34Hash = uint256S("0x0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9");
         consensus.BIP65Height = 397152; // 00000000007f533c388f14f335132643d4cb53996959faa7e648341d8500c553
         consensus.BIP66Height = 951; // 0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9
-        consensus.DIP0001Height = 201423000; // Not activated in sibcoin network yet, so set it to 1000 years in the future in this build
+        consensus.DIP0001Height = 710000; // Activate it on 27th November
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
