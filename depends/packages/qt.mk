@@ -80,9 +80,6 @@ $(package)_config_opts += -silent
 $(package)_config_opts += -v
 
 ifneq ($(build_os),darwin)
-$(package)_config_opts += -no-feature-printer
-$(package)_config_opts += -no-feature-printdialog
-
 $(package)_config_opts_darwin = -xplatform macx-clang-linux
 $(package)_config_opts_darwin += -device-option MAC_SDK_PATH=$(OSX_SDK)
 $(package)_config_opts_darwin += -device-option MAC_SDK_VERSION=$(OSX_SDK_VERSION)
