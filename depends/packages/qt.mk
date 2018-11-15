@@ -87,6 +87,8 @@ $(package)_config_opts_darwin += -device-option CROSS_COMPILE="$(host)-"
 $(package)_config_opts_darwin += -device-option MAC_MIN_VERSION=$(OSX_MIN_VERSION)
 $(package)_config_opts_darwin += -device-option MAC_TARGET=$(host)
 $(package)_config_opts_darwin += -device-option MAC_LD64_VERSION=$(LD64_VERSION)
+$(package)_config_opts_darwin += -no-feature-printer                                                                                                                                       
+$(package)_config_opts_darwin += -no-feature-printdialog
 endif
 
 $(package)_config_opts_linux  = -qt-xkbcommon
