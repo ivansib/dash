@@ -3,7 +3,6 @@
 #define __DEX_BROARCAST_H__
 
 #include "key.h"
-#include "main.h"
 #include "net.h"
 #include "timedata.h"
 #include "dex/dexdto.h"

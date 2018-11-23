@@ -43,12 +43,6 @@
 #include "masternodeman.h"
 #include "masternode-payments.h"
 
-
-#ifdef ENABLE_DEX
-  #include "dex/dexmanager.h"
-#endif
-
-
 #include <atomic>
 #include <sstream>
 

@@ -44,6 +44,10 @@
 
 #include <boost/thread.hpp>
 
+#ifdef ENABLE_DEX
+#include "dex/dexmanager.h"
+#endif
+
 #if defined(NDEBUG)
 # error "Sibcoin Core cannot be compiled without assertions."
 #endif
@@ -2842,6 +2846,9 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
             sporkManager.ProcessSpork(pfrom, strCommand, vRecv, connman);
             masternodeSync.ProcessMessage(pfrom, strCommand, vRecv);
             governance.ProcessMessage(pfrom, strCommand, vRecv, connman);
+#ifdef ENABLE_DEX
+//            dexman.ProcessMessage(pfrom, strCommand, vRecv);
+#endif
         }
         else
         {

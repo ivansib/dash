@@ -32,7 +32,7 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action) {
         LOCK(cs);
         READWRITE(offer.idTransaction);
         READWRITE(offer.hash);
@@ -42,7 +42,7 @@ public:
         READWRITE(offer.price);
         READWRITE(offer.minAmount);
         READWRITE(offer.timeCreate);
-        READWRITE(offer.timeExpiration);
+//        READWRITE(offer.timeExpiration);
         READWRITE(offer.shortInfo);
         READWRITE(offer.details);
     }

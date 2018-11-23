@@ -17,7 +17,7 @@ CDexManager::CDexManager()
 
 
 
-void CDexManager::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
+void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv)
 {
     if (strCommand == NetMsgType::DEXOFFBCST) {
 

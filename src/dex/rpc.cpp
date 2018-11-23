@@ -1,8 +1,7 @@
 
-#include "rpcserver.h"
+#include "rpc/server.h"
 
 #include "clientversion.h"
-#include "main.h"
 #include "net.h"
 #include "netbase.h"
 #include "protocol.h"
@@ -17,10 +16,10 @@
 using namespace std;
 
 
-UniValue dexoffer(const UniValue& params, bool fHelp)
+UniValue dexoffer(const JSONRPCRequest& request)
 {
 
-    if (fHelp)
+    if (request.fHelp)
         throw runtime_error(
             "dexoffer \n"
             "Create TEST dex offer and broadcast it.\n"
@@ -29,4 +28,14 @@ UniValue dexoffer(const UniValue& params, bool fHelp)
     return NullUniValue;
 }
 
+static const CRPCCommand commands[] =
+{ //  category              name                        actor (function)           okSafeMode
+    //  --------------------- ------------------------    -----------------------    ----------
+    { "dex",    "dexoffer",       &dexoffer,       true,  {} }
+};
 
+void RegisterDexRPCCommands(CRPCTable &t)
+{
+    for (unsigned int vcidx = 0; vcidx < ARRAYLEN(commands); vcidx++)
+        t.appendCommand(commands[vcidx].name, &commands[vcidx]);
+}
