@@ -73,7 +73,7 @@ public:
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action) {
         LOCK(cs);
-        if (!(s.GetType() & SER_GETHASH))
+        if (!(s.GetType() & SER_GETHASH)) {
             READWRITE(hash);
             READWRITE(idTransaction);
         }

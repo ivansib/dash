@@ -7,6 +7,7 @@
 #include "timedata.h"
 #include "dex/dexdto.h"
 #include "dexoffer.h"
+#include "primitives/transaction.h"
 
 
 #define PAYOFFER_RETURN_FEE     10000

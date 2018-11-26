@@ -41,7 +41,7 @@ void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CD
                 bool bFound = false;
                 if (offer.isBuy())  {
                     if (db.isExistOfferBuy(offer.idTransaction)) {
-                      bFound = true;
+                        bFound = true;
                     } else {
                         db.addOfferBuy(offer);
                     }
@@ -49,19 +49,20 @@ void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CD
 
                 if (offer.isSell())  {
                     if (db.isExistOfferSell(offer.idTransaction)) {
-                      bFound = true;
+                        bFound = true;
                     } else {
                         db.addOfferSell(offer);
                     }
                 }
 
-            if (!bFound) { // need to save and relay
-                auto vNodes = g_connman->CopyNodeVector(CConnman::FullyConnectedOnly);
-                for (auto pNode : vNodes) {
-                    CNetMsgMaker msgMaker(pNode->GetSendVersion());
-                    g_connman->PushMessage(pNode, msgMaker.Make(NetMsgType::DEXOFFBCST, offer));
+                if (!bFound) { // need to save and relay
+                    auto vNodes = g_connman->CopyNodeVector(CConnman::FullyConnectedOnly);
+                    for (auto pNode : vNodes) {
+                        CNetMsgMaker msgMaker(pNode->GetSendVersion());
+                        g_connman->PushMessage(pNode, msgMaker.Make(NetMsgType::DEXOFFBCST, offer));
+                    }
+                    g_connman->ReleaseNodeVector(vNodes);
                 }
-                g_connman->ReleaseNodeVector(vNodes);
                 LogPrintf("DEXOFFBCST --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
             } else {
                 LogPrintf("DEXOFFBCST --check offer tx fail(%s)\n", offer.idTransaction.GetHex().c_str());

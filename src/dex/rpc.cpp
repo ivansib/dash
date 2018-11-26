@@ -57,10 +57,10 @@ UniValue dexoffer(const JSONRPCRequest& request)
 
 
 
-UniValue payoffertx(const UniValue& params, bool fHelp)
+UniValue payoffertx(const JSONRPCRequest& request)
 {
 
-    if (fHelp)
+    if (request.fHelp)
         throw runtime_error(
             "payoffertx  \n"
             "WARNING!!! Create TEST payoffer transaction \n"
@@ -87,7 +87,8 @@ UniValue payoffertx(const UniValue& params, bool fHelp)
 static const CRPCCommand commands[] =
 { //  category              name                        actor (function)           okSafeMode
     //  --------------------- ------------------------    -----------------------    ----------
-    { "dex",    "dexoffer",       &dexoffer,       true,  {} }
+    { "dex",    "dexoffer",       &dexoffer,       true,  {} },
+    { "dex",    "payoffertx",     &payoffertx,     true,  {} }
 };
 
 void RegisterDexRPCCommands(CRPCTable &t)
