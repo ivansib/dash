@@ -12,6 +12,7 @@
 #include "version.h"
 #include <univalue.h>
 #include "streams.h"
+#include "netmessagemaker.h"
 
 #include "dexoffer.h"
 #include "random.h"
@@ -40,10 +41,12 @@ UniValue dexoffer(const JSONRPCRequest& request)
     if (!dex.CreateOffer(type, tr_id, "RU", "RUB", 1, 10000, 20000 , 10, "test shortinfo", "test details"))
         throw runtime_error("dexoffer not create\n someting wrong\n");
 
-    LOCK2(cs_main, cs_vNodes);
-    BOOST_FOREACH(CNode* pNode, vNodes) {
-        pNode->PushMessage(NetMsgType::DEXOFFBCST, dex.offer);
+    auto vNodes = g_connman->CopyNodeVector(CConnman::FullyConnectedOnly);
+    for (auto pNode : vNodes) {
+        CNetMsgMaker msgMaker(pNode->GetSendVersion());
+        g_connman->PushMessage(pNode, msgMaker.Make(NetMsgType::DEXOFFBCST, dex.offer));
     }
+    g_connman->ReleaseNodeVector(vNodes);
 
 
     return NullUniValue;

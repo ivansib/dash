@@ -1,5 +1,6 @@
 
 #include "dexmanager.h"
+#include "netmessagemaker.h"
 
 #include "init.h"
 #include "util.h"
@@ -44,10 +45,12 @@ void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CD
             }
 
             if (!bFound) { // need to save and relay
-                LOCK2(cs_main, cs_vNodes);
-                BOOST_FOREACH(CNode* pNode, vNodes) {
-                    pNode->PushMessage(NetMsgType::DEXOFFBCST, offer);
+                auto vNodes = g_connman->CopyNodeVector(CConnman::FullyConnectedOnly);
+                for (auto pNode : vNodes) {
+                    CNetMsgMaker msgMaker(pNode->GetSendVersion());
+                    g_connman->PushMessage(pNode, msgMaker.Make(NetMsgType::DEXOFFBCST, offer));
                 }
+                g_connman->ReleaseNodeVector(vNodes);
             }
             LogPrintf("DEXOFFBCST --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
         }
