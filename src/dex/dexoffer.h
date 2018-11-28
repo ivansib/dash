@@ -95,8 +95,6 @@ public:
             std::vector<unsigned char> vch = ParseHex(pubKey);
             READWRITE(vch);
         }
-
-        READWRITE(pubKey);
         READWRITE(type);
         READWRITE(countryIso);
         READWRITE(currencyIso);

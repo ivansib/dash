@@ -2,7 +2,6 @@
 #define __DEX_CRC_H__
 
 #include "uint256.h"
-#include "main.h"
 #include "dexoffer.h"
 
 
