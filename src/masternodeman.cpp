@@ -201,7 +201,7 @@ void CMasternodeMan::CheckAndRemove(CConnman& connman)
                 // erase all of the broadcasts we've seen from this txin, ...
                 mapSeenMasternodeBroadcast.erase(hash);
                 mWeAskedForMasternodeListEntry.erase(it->first);
-		sMasternodeAddrs.erase((*it).addr);
+                sMasternodeAddrs.erase(it->second.addr);
 
                 // and finally remove it from the list
                 it->second.FlagGovernanceItemsAsDirty();

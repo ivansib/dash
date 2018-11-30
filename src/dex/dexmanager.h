@@ -24,7 +24,7 @@ public:
     CDexManager();
     ~CDexManager();
 
-    void ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
+    void ProcessMessage(CNode* pfrom, const std::string &strCommand, CDataStream& vRecv, CConnman& connman);
 
     void addOrEditDraftMyOffer(MyOfferInfo &myOffer);
     void prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error);
@@ -50,9 +50,9 @@ private:
     UnconfirmedOffers *uncBcstOffers;
 
     void initDB();
-    void getAndSendNewOffer(CNode* pfrom, CDataStream& vRecv);
-    void getAndDelOffer(CNode* pfrom, CDataStream& vRecv);
-    void getAndSendEditedOffer(CNode* pfrom, CDataStream& vRecv);
+    void getAndSendNewOffer(CNode* pfrom, CDataStream& vRecv, CConnman &connman);
+    void getAndDelOffer(CNode* pfrom, CDataStream& vRecv, CConnman &connman);
+    void getAndSendEditedOffer(CNode* pfrom, CDataStream& vRecv, CConnman &connman);
     void checkUncBcstOffers();
 
     void saveMyOffer(const MyOfferInfo &info, bool usethread = true);
@@ -60,8 +60,8 @@ private:
 
 }
 
-void ThreadDexManager();
-void ThreadDexUncManager();
+//void ThreadDexManager();
+//void ThreadDexUncManager();
 void CheckDexMasternode();
 
 #endif // __DEX_MANAGER_H__

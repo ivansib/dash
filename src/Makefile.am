@@ -204,6 +204,7 @@ BITCOIN_CORE_H = \
   dex/dexmanager.h \
   dex/dexsync.h \
   dex/dexoffer.h \
+  dex/dexcrc.h \
   dex/dextransaction.h \
   dex/parserjsonoffer.h \
   dex/unconfirmedoffers.h \
@@ -289,6 +290,21 @@ libsibcoin_server_a_SOURCES = \
   validation.cpp \
   validationinterface.cpp \
   versionbits.cpp \
+  dex/dex.cpp \
+  dex/dexmanager.cpp \
+  dex/dexsync.cpp \
+  dex/dexoffer.cpp \
+  dex/dexcrc.cpp \
+  dex/dextransaction.cpp \
+  dex/parserjsonoffer.cpp \
+  dex/unconfirmedoffers.cpp \
+  dex/db/dexdb.cpp \
+  dex/db/countryiso.cpp \
+  dex/db/currencyiso.cpp \
+  dex/db/defaultdatafordb.cpp \
+  dex/db/paymentmethodtype.cpp \
+  sqlite/sqlite3pp/sqlite3pp.cpp \
+  sqlite/sqlite3pp/sqlite3ppext.cpp \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ

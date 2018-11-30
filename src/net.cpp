@@ -33,6 +33,8 @@
 #ifdef ENABLE_DEX
 #include "dex/dexmanager.h"
 #include "dex/dexsync.h"
+
+using namespace dex;
 #endif
 
 #ifdef WIN32
@@ -1764,8 +1766,6 @@ void CConnman::ThreadOpenConnections()
             }
         }
 
-        assert(nOutbound <= (MAX_OUTBOUND_CONNECTIONS + MAX_FEELER_CONNECTIONS));
-
         // Feeler Connections
         //
         // Design goals:
@@ -1991,6 +1991,73 @@ void CConnman::ThreadOpenMasternodeConnections()
         });
     }
 }
+
+#ifdef ENABLE_DEX
+void CConnman::ThreadDexManager()
+{
+    int step = 0;
+    int minPeriod = 60000;
+
+    const int stepDeleteOld = 60;
+
+    while (true) {
+        MilliSleep(minPeriod);
+
+        if (masternodeSync.IsSynced() && dexsync.statusSync() == CDexSync::Status::NoStarted) {
+            CheckDexMasternode();
+            dexman.startSyncDex();
+        }
+
+        CheckDexMasternode();
+
+        if (dexsync.statusSync() == CDexSync::Status::Failed) {
+            dexsync.resetAfterFailed();
+        }
+
+        if (step % stepDeleteOld == 0) {
+            LogPrint("dex", "ThreadDexManager -- delete old offers\n");
+            dexman.deleteOldOffers();
+            LogPrint("dex", "ThreadDexManager -- set status expired for MyOffers\n");
+            dexman.setStatusExpiredForMyOffers();
+        }
+
+        if (step == 60) {
+            step = 0;
+        } else {
+            step++;
+        }
+    }
+}
+
+void CConnman::ThreadDexUncManager()
+{
+    int step = 0;
+    int minPeriod = 60000;
+
+    const int stepCheckUnc = 1;
+    const int stepDeleteOldUnc = 30;
+
+    while (true) {
+        MilliSleep(minPeriod);
+
+        if (step % stepCheckUnc == 0) {
+            LogPrint("dex", "ThreadDexManager -- check unconfirmed offers\n");
+            dexman.checkUncOffers();
+        }
+
+        if (step % stepDeleteOldUnc == 0) {
+            LogPrint("dex", "ThreadDexManager -- delete old unconfirmed offers\n");
+            dexman.deleteOldUncOffers();
+        }
+
+        if (step == 60) {
+            step = 0;
+        } else {
+            step++;
+        }
+    }
+}
+#endif
 
 // if successful, this moves the passed grant to the constructed node
 bool CConnman::OpenNetworkConnection(const CAddress& addrConnect, bool fCountFailure, CSemaphoreGrant *grantOutbound, const char *pszDest, bool fOneShot, bool fFeeler, bool fAddnode, bool fConnectToMasternode)
@@ -2394,8 +2461,10 @@ bool CConnman::Start(CScheduler& scheduler, std::string& strNodeError, Options c
     threadMessageHandler = std::thread(&TraceThread<std::function<void()> >, "msghand", std::function<void()>(std::bind(&CConnman::ThreadMessageHandler, this)));
 
 #ifdef ENABLE_DEX
-   threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dexmanager", &ThreadDexManager));
-   threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dexuncmanager", &ThreadDexUncManager));
+    threadDexManager = std::thread(&TraceThread<std::function<void()> >, "dexmanager", std::function<void()>(std::bind(&CConnman::ThreadDexManager, this)));
+    threadDexUncManager = std::thread(&TraceThread<std::function<void()> >, "dexuncmanager", std::function<void()>(std::bind(&CConnman::ThreadDexUncManager, this)));
+ //  threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dexmanager", &ThreadDexManager));
+ //  threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dexuncmanager", &ThreadDexUncManager));
    dex::DexConnectSignals();
 #endif
 

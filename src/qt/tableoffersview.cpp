@@ -17,7 +17,7 @@ TableOffersView::TableOffersView(DexDB *db, const TypeOffer &type, const CommonS
     tableView->setColumnWidth(2, 150);
     tableView->setColumnWidth(3, 150);
 
-    columnResizingFixer = new GUIUtil::TableViewLastColumnResizingFixer(tableView, 150, 150, 1);
+    columnResizingFixer = new GUIUtil::TableViewLastColumnResizingFixer(tableView, 150, 150, 1, this);
 
     connect(pDelegate, SIGNAL(clicked(int)), this, SLOT(clickedButton(int)));
     connect(pModel, SIGNAL(layoutChanged()), this, SLOT(resizeTable()));

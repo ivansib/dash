@@ -2,6 +2,7 @@
 #define __DEX_CRC_H__
 
 #include "uint256.h"
+#include "serialize.h"
 #include "dexoffer.h"
 
 
@@ -53,13 +54,20 @@ public:
     CDexCrc& operator+=(const std::list<MyOfferInfo> &offlist);
     CDexCrc& operator+=(const std::list<CDexOffer> &offlist);
 
-    ADD_SERIALIZE_METHODS;
-    template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
-        LOCK(cs);
-        READWRITE(hashsum);
-        READWRITE(hashxor);
-        READWRITE(editingVersionSum);
+//    ADD_SERIALIZE_METHODS;
+//    template <typename Stream, typename Operation>
+//    inline void SerializationOp(Stream& s, Operation ser_action) {
+//        READWRITE(hashsum);
+//        READWRITE(hashxor);
+//        READWRITE(editingVersionSum);
+//    }
+
+    template<typename Stream> // WARNING: realize
+    void Serialize(Stream &s) const {
+    }
+
+    template<typename Stream> // WARNING: realize
+    void Unserialize(Stream &s) {
     }
 
 private:

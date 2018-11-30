@@ -53,6 +53,10 @@
 #include <boost/math/distributions/poisson.hpp>
 #include <boost/thread.hpp>
 
+#ifdef ENABLE_DEX
+  #include "dex/dex.h"
+#endif
+
 #if defined(NDEBUG)
 # error "Sibcoin cannot be compiled without assertions."
 #endif
@@ -832,15 +836,20 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
         }
 
 #ifdef ENABLE_DEX
-        if (fRejectAbsurdFee && nFees > std::max((int64_t)(::minRelayTxFee.GetFee(nSize) * 10000), (int64_t)MAX_DEX_TRANSACTION_FEE))
+        if (nAbsurdFee && nFees > std::max((int64_t)(::minRelayTxFee.GetFee(nSize) * 10000), (int64_t)MAX_DEX_TRANSACTION_FEE))
             return state.Invalid(false,
                 REJECT_HIGHFEE, "absurdly-high-fee",
                 strprintf("%d > %d", nFees, std::max((int64_t)::minRelayTxFee.GetFee(nSize) * 10000, (int64_t)MAX_DEX_TRANSACTION_FEE)));
 #else
-        if (fRejectAbsurdFee && nFees > nAbsurdFee)
+        if (nAbsurdFee && nFees > nAbsurdFee)
             return state.Invalid(false,
-                REJECT_HIGHFEE, "absurdly-high-fee",
-                strprintf("%d > %d", nFees, ::minRelayTxFee.GetFee(nSize) * 10000));
+                                 REJECT_HIGHFEE, "absurdly-high-fee",
+                                 strprintf("%d > %d", nFees, nAbsurdFee));
+
+//        if (fRejectAbsurdFee && nFees > nAbsurdFee)
+//            return state.Invalid(false,
+//                REJECT_HIGHFEE, "absurdly-high-fee",
+//               strprintf("%d > %d", nFees, ::minRelayTxFee.GetFee(nSize) * 10000));
 #endif
 
         // Calculate in-mempool ancestors, up to a limit.

@@ -14,6 +14,7 @@
 #include "ui_interface.h"
 #include "util.h"
 #include "utilstrencodings.h"
+#include "validation.h"
 
 #include <univalue.h>
 
@@ -186,7 +187,7 @@ std::string CRPCTable::help(const std::string& strCommand) const
 
 #ifdef ENABLE_DEX
     bool txindex = GetBoolArg("-txindex", DEFAULT_TXINDEX);
-    for (map<string, const CRPCCommand*>::const_iterator mi = mapCommands.begin(); mi != mapCommands.end(); ++mi) {
+    for (auto mi = mapCommands.begin(); mi != mapCommands.end(); ++mi) {
         if (!txindex && mi->second->category == "dex")
             continue;
         vCommands.push_back(make_pair(mi->second->category + mi->first, mi->second));

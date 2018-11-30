@@ -126,9 +126,9 @@ public:
         READWRITE(mapSeenMasternodeBroadcast);
         READWRITE(mapSeenMasternodePing);
 
-	if (vMasternodes.size() > 0) {
-            for (auto pNode : vMasternodes) {
-                sMasternodeAddrs.insert(pNode.addr);
+    if (mapMasternodes.size() > 0) {
+            for (const auto& mnpair : mapMasternodes) {
+                sMasternodeAddrs.insert(mnpair.second.addr);
             }
         }
 

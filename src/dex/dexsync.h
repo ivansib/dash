@@ -40,7 +40,7 @@ public:
     CDexSync();
     ~CDexSync();
 
-    void ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
+    void ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman& connman);
 
     void startSyncDex();
     void finishSyncDex();
@@ -73,9 +73,9 @@ private:
     DexDB *db;
 
     void initDB();
-    void sendHashOffers(CNode* pfrom, CDataStream& vRecv, bool isCheck) const;
-    void getHashs(CNode* pfrom, CDataStream& vRecv);
-    void sendOffer(CNode* pfrom, CDataStream& vRecv) const;
+    void sendHashOffers(CNode* pfrom, CDataStream& vRecv, bool isCheck, CConnman &connman) const;
+    void getHashs(CNode* pfrom, CDataStream& vRecv, CConnman &connman);
+    void sendOffer(CNode* pfrom, CDataStream& vRecv, CConnman &connman) const;
     void getOfferAndSaveInDb(CNode* pfrom, CDataStream& vRecv);
     void noOffersList(CNode* pfrom, CDataStream& vRecv);
     void noHash(CNode* pfrom, CDataStream& vRecv);

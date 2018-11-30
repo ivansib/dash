@@ -7,6 +7,7 @@
 #include "timedata.h"
 #include "dex/db/dexdto.h"
 #include "dexoffer.h"
+#include "serialize.h"
 #include "primitives/transaction.h"
 
 
@@ -69,19 +70,18 @@ public:
     const CTransaction & getPayTx() const;
 
     // проверка транзакции на оплату в бродкасте
-    bool CheckBRCSTOfferTx(const CTransaction &tx, std::string &sError);
+    bool CheckBRCSTOfferTx(const CTransactionRef &tx, std::string &sError);
 
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action) {
-        LOCK(cs);
         READWRITE(offer);
     }
 
 private:
 
-    bool CheckTx(const CTransaction &tx, std::string &sError);
+    bool CheckTx(const CTransactionRef &tx, std::string &sError);
 
 
 };

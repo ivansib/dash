@@ -23,6 +23,7 @@
 #include "platformstyle.h"
 #include "rpcconsole.h"
 #include "utilitydialog.h"
+#include "validation.h"
 
 #ifdef ENABLE_WALLET
 #include "walletframe.h"

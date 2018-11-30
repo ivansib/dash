@@ -74,7 +74,7 @@ bool CDex::CheckOfferTx(std::string &sError)
         CHECK(!offer.IsNull(), "offer is NULL", offer.idTransaction.ToString());
         CHECK(offer.Check(true), "offer check fail", offer.idTransaction.ToString());
 
-        CTransaction tx;
+        CTransactionRef tx;
         uint256 hashBlock;
         CHECK (GetTransaction(offer.idTransaction, tx, Params().GetConsensus(), hashBlock, true), "Transaction not found", offer.idTransaction.ToString());
 
@@ -99,38 +99,38 @@ bool CDex::CheckOfferTx(std::string &sError)
 }
 
 
-bool CDex::CheckTx(const CTransaction &tx, std::string &sError)
+bool CDex::CheckTx(const CTransactionRef &tx, std::string &sError)
 {
     do {
-        CHECK(tx.vin.size() > 0, "vin empty", offer.idTransaction.ToString());
-        CHECK(tx.vout.size() > 0, "vout empty", offer.idTransaction.ToString());
-        CHECK(tx.vout[0].nValue == PAYOFFER_RETURN_FEE, "bad op_return fee", offer.idTransaction.ToString());
-        CHECK(tx.vout[0].scriptPubKey.IsUnspendable(), "not op_return", offer.idTransaction.ToString());
+        CHECK(tx->vin.size() > 0, "vin empty", offer.idTransaction.ToString());
+        CHECK(tx->vout.size() > 0, "vout empty", offer.idTransaction.ToString());
+        CHECK(tx->vout[0].nValue == PAYOFFER_RETURN_FEE, "bad op_return fee", offer.idTransaction.ToString());
+        CHECK(tx->vout[0].scriptPubKey.IsUnspendable(), "not op_return", offer.idTransaction.ToString());
 
         {
             uint256 hash;
             opcodetype opcode;
             std::vector<unsigned char> vch;
-            CScript::const_iterator pc = tx.vout[0].scriptPubKey.begin();
-            while (pc < tx.vout[0].scriptPubKey.end()) {
-                CHECK(tx.vout[0].scriptPubKey.GetOp(pc, opcode, vch), "fail to getop from script", offer.idTransaction.ToString());
+            CScript::const_iterator pc = tx->vout[0].scriptPubKey.begin();
+            while (pc < tx->vout[0].scriptPubKey.end()) {
+                CHECK(tx->vout[0].scriptPubKey.GetOp(pc, opcode, vch), "fail to getop from script", offer.idTransaction.ToString());
                 if (0 <= opcode && opcode <= OP_PUSHDATA4) hash.SetHex(HexStr(vch));
             }
             CHECK(offer.hash == hash, "offer hash not equal", offer.idTransaction.ToString());
         }
 
         CAmount credit = 0;
-        for (size_t i = 0; i < tx.vout.size(); i++) {
-            credit += tx.vout[i].nValue;
+        for (size_t i = 0; i < tx->vout.size(); i++) {
+            credit += tx->vout[i].nValue;
         }
 
         CAmount debit = 0;
-        for (auto i : tx.vin) {
-            CTransaction prevtx;
+        for (auto i : tx->vin) {
+            CTransactionRef prevtx;
             uint256 hashBlock;
             CHECK (GetTransaction(i.prevout.hash, prevtx, Params().GetConsensus(), hashBlock, true), "vin tx not found", offer.idTransaction.ToString());
-            CHECK (prevtx.vout.size() > i.prevout.n, "prev tx out error", offer.idTransaction.ToString());
-            debit += prevtx.vout[i.prevout.n].nValue;
+            CHECK (prevtx->vout.size() > i.prevout.n, "prev tx out error", offer.idTransaction.ToString());
+            debit += prevtx->vout[i.prevout.n].nValue;
         }
 
         int days = ((offer.timeExpiration - offer.timeCreate - 1) / 86400) + 1;
@@ -144,15 +144,15 @@ bool CDex::CheckTx(const CTransaction &tx, std::string &sError)
 
 
 
-bool CDex::CheckBRCSTOfferTx(const CTransaction &tx, std::string &sError)
+bool CDex::CheckBRCSTOfferTx(const CTransactionRef &tx, std::string &sError)
 {
     do {
-        CHECK(offer.idTransaction == tx.GetHash(), "transactions not equal", offer.idTransaction.ToString());
+        CHECK(offer.idTransaction == tx->GetHash(), "transactions not equal", offer.idTransaction.ToString());
 
         // check transaction size
         CSizeComputer sc(SER_NETWORK, PROTOCOL_VERSION);
         sc << tx;
-        CHECK(sc.size() <= MAX_TRANSACTION_SIZE, "transaction too large", tx.ToString());
+        CHECK(sc.size() <= MAX_TRANSACTION_SIZE, "transaction too large", tx->ToString());
 
         if (!CheckTx(tx, sError)) break;
 

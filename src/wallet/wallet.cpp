@@ -156,11 +156,6 @@ CPubKey CWallet::GenerateNewKey(uint32_t nAccountIndex, bool fInternal)
     return pubkey;
 }
 
-bool CWallet::HaveKey(const CKeyID &address) const
-{
-    return CCryptoKeyStore::HaveKey(address);
-}
-
 void CWallet::DeriveNewChildKey(const CKeyMetadata& metadata, CKey& secretRet, uint32_t nAccountIndex, bool fInternal)
 {
     CHDChain hdChainTmp;

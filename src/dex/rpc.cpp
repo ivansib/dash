@@ -2,6 +2,8 @@
 #include "rpc/server.h"
 
 #include "clientversion.h"
+#include "validation.h"
+#include "netmessagemaker.h"
 #include "net.h"
 #include "init.h"
 #include "netbase.h"
@@ -37,10 +39,8 @@
 
 
 using namespace std;
-using namespace dex;
 
-
-UniValue dexoffers(const UniValue& params, bool fHelp)
+UniValue dexoffers(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -54,7 +54,7 @@ UniValue dexoffers(const UniValue& params, bool fHelp)
         );
     }
 
-    if (fHelp || params.size() < 1 || params.size() > 8)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 8)
         throw runtime_error(
             "dexoffers [buy|sell|all] [country] [currency] [payment_method] [limit N] [offset N]\n"
             "Get DEX offers list.\n"
@@ -106,54 +106,54 @@ UniValue dexoffers(const UniValue& params, bool fHelp)
     int limit = 0;
     int offset = 0;
 
-    for (size_t i = 0; i < params.size(); i++) {
-        if (params[i].get_str() == "limit") {
-            if (i == 0 || params.size() <= i+1) {
+    for (size_t i = 0; i < request.params.size(); i++) {
+        if (request.params[i].get_str() == "limit") {
+            if (i == 0 || request.params.size() <= i+1) {
                 throw runtime_error("\nnot enough parameters\n");
             }
 
-            std::string maxStr = params[i+1].get_str();
+            std::string maxStr = request.params[i+1].get_str();
             limit = std::stoi(maxStr);
 
-            if (params.size() > i+2) {
+            if (request.params.size() > i+2) {
                 i++;
                 continue;
             } else {
                 break;
             }
         }
-        if (params[i].get_str() == "offset" && limit > 0) {
-            if (i == 0 || params.size() <= i+1) {
+        if (request.params[i].get_str() == "offset" && limit > 0) {
+            if (i == 0 || request.params.size() <= i+1) {
                 throw runtime_error("\nnot enough parameters\n");
             }
 
-            std::string maxStr = params[i+1].get_str();
+            std::string maxStr = request.params[i+1].get_str();
             offset = std::stoi(maxStr);
             break;
         }
         if (i == 0 && typefilter.empty()) {
-            if (std::find(words.begin(), words.end(), params[0].get_str()) != words.end()) {
-                typefilter = params[0].get_str();
+            if (std::find(words.begin(), words.end(), request.params[0].get_str()) != words.end()) {
+                typefilter = request.params[0].get_str();
                 continue;
             } else {
                 typefilter = "all";
             }
         }
         if (i < 2 && countryfilter.empty()) {
-            if (countryiso.isValid(params[i].get_str())) {
-                countryfilter = params[i].get_str();
+            if (countryiso.isValid(request.params[i].get_str())) {
+                countryfilter = request.params[i].get_str();
                 continue;
             }
         }
         if (i < 3 && currencyfilter.empty()) {
-            if (currencyiso.isValid(params[i].get_str())) {
-                currencyfilter = params[i].get_str();
+            if (currencyiso.isValid(request.params[i].get_str())) {
+                currencyfilter = request.params[i].get_str();
                 continue;
             }
         }
         {
             methodfilter.clear();
-            std::string methodname = boost::algorithm::to_lower_copy(params[i].get_str());
+            std::string methodname = boost::algorithm::to_lower_copy(request.params[i].get_str());
             std::list<dex::PaymentMethodInfo> pms = dex::DexDB::self()->getPaymentMethodsInfo();
             for (auto j : pms) {
                 std::string name = boost::algorithm::to_lower_copy(j.name);
@@ -164,7 +164,7 @@ UniValue dexoffers(const UniValue& params, bool fHelp)
             }
 
             if (methodfilter.empty()) {
-                throw runtime_error("\nwrong parameter: " + params[i].get_str() + "\n");
+                throw runtime_error("\nwrong parameter: " + request.params[i].get_str() + "\n");
             }
         }
     }
@@ -188,14 +188,14 @@ UniValue dexoffers(const UniValue& params, bool fHelp)
     }
 
     if (limit == 0) {
-        limit = maxOutput();
+        limit = dex::maxOutput();
     }
     int step = 0;
 
     if (typefilter == "buy" || typefilter == "all") {
         std::list<dex::OfferInfo> offers = dex::DexDB::self()->getOffersBuy(countryfilter, currencyfilter, methodfiltertype, limit, offset);
         for (auto i : offers) {
-            CDexOffer o(i, dex::Buy);
+            dex::CDexOffer o(i, dex::Buy);
             result.push_back(o.getUniValue());
 
             if (limit > 0) {
@@ -211,7 +211,7 @@ UniValue dexoffers(const UniValue& params, bool fHelp)
     if ((typefilter == "sell" || typefilter == "all") && !(limit > 0 && step == limit)) {
         std::list<dex::OfferInfo> offers = dex::DexDB::self()->getOffersSell(countryfilter, currencyfilter, methodfiltertype, limit-step, offset);
         for (auto i : offers) {
-            CDexOffer o(i, dex::Sell);
+            dex::CDexOffer o(i, dex::Sell);
             result.push_back(o.getUniValue());
         }
     }
@@ -222,7 +222,7 @@ UniValue dexoffers(const UniValue& params, bool fHelp)
 
 
 
-UniValue dexmyoffers(const UniValue& params, bool fHelp)
+UniValue dexmyoffers(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -234,7 +234,7 @@ UniValue dexmyoffers(const UniValue& params, bool fHelp)
             "DexDB is not initialized.\n"
         );
     }
-    if (fHelp || params.size() < 1 || params.size() > 9)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 9)
         throw runtime_error(
             "dexmyoffers [buy|sell|all] [country] [currency] [payment_method] [status] [limit N] [offset N]\n"
             "Return a list of  DEX own offers.\n"
@@ -294,51 +294,51 @@ UniValue dexmyoffers(const UniValue& params, bool fHelp)
     int limit = 0;
     int offset = 0;
 
-    for (size_t i = 0; i < params.size(); i++) {
-        if (params[i].get_str() == "limit") {
-            if (i == 0 || params.size() <= i+1) {
+    for (size_t i = 0; i < request.params.size(); i++) {
+        if (request.params[i].get_str() == "limit") {
+            if (i == 0 || request.params.size() <= i+1) {
                 throw runtime_error("\nnot enough parameters\n");
             }
 
-            std::string maxStr = params[i+1].get_str();
+            std::string maxStr = request.params[i+1].get_str();
             limit = std::stoi(maxStr);
 
-            if (params.size() > i+2) {
+            if (request.params.size() > i+2) {
                 i++;
                 continue;
             } else {
                 break;
             }
-        } else if (params[i].get_str() == "offset" && limit > 0) {
-            if (i == 0 || params.size() <= i+1) {
+        } else if (request.params[i].get_str() == "offset" && limit > 0) {
+            if (i == 0 || request.params.size() <= i+1) {
                 throw runtime_error("\nnot enough parameters\n");
             }
 
-            std::string maxStr = params[i+1].get_str();
+            std::string maxStr = request.params[i+1].get_str();
             offset = std::stoi(maxStr);
             break;
         } else {
             if (typefilter.empty()) {
-                std::string key = boost::algorithm::to_lower_copy(params[i].get_str());
+                std::string key = boost::algorithm::to_lower_copy(request.params[i].get_str());
                 if (words.find(key) != words.end()) {
                     typefilter = key;
                     continue;
                 }
             }
             if (countryfilter.empty()) {
-                if (countryiso.isValid(params[i].get_str())) {
-                    countryfilter = params[i].get_str();
+                if (countryiso.isValid(request.params[i].get_str())) {
+                    countryfilter = request.params[i].get_str();
                     continue;
                 }
             }
             if (currencyfilter.empty()) {
-                if (currencyiso.isValid(params[i].get_str())) {
-                    currencyfilter = params[i].get_str();
+                if (currencyiso.isValid(request.params[i].get_str())) {
+                    currencyfilter = request.params[i].get_str();
                     continue;
                 }
             }
             if (methodfilter.empty()) {
-                std::string methodname = boost::algorithm::to_lower_copy(params[i].get_str());
+                std::string methodname = boost::algorithm::to_lower_copy(request.params[i].get_str());
                 std::list<dex::PaymentMethodInfo> pms = dex::DexDB::self()->getPaymentMethodsInfo();
                 for (auto j : pms) {
                     std::string name = boost::algorithm::to_lower_copy(j.name);
@@ -350,7 +350,7 @@ UniValue dexmyoffers(const UniValue& params, bool fHelp)
                 }
             }
             if (statusfilter == dex::Indefined) {
-                status.set(params[i].get_str());
+                status.set(request.params[i].get_str());
                 if (status != dex::Indefined) {
                     statusfilter = status;
                 }
@@ -377,13 +377,13 @@ UniValue dexmyoffers(const UniValue& params, bool fHelp)
     }
 
     if (limit == 0) {
-        limit = maxOutput();
+        limit = dex::maxOutput();
     }
 
     std::list<dex::MyOfferInfo> myoffers = dex::DexDB::self()->getMyOffers(countryfilter, currencyfilter, methodfiltertype, words[typefilter], status, limit, offset);
 
     for (auto i : myoffers) {
-        CDexOffer o(i.getOfferInfo(), i.type);
+        dex::CDexOffer o(i.getOfferInfo(), i.type);
         UniValue v = o.getUniValue();
         v.push_back(Pair("status", i.status));
         v.push_back(Pair("statusStr", status.status2str(i.status)));
@@ -393,7 +393,7 @@ UniValue dexmyoffers(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue dexofferscount(const UniValue& params, bool fHelp)
+UniValue dexofferscount(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -407,7 +407,7 @@ UniValue dexofferscount(const UniValue& params, bool fHelp)
         );
     }
 
-    if (fHelp || params.size() < 1 || params.size() > 8)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 8)
         throw runtime_error(
             "dexofferscount [buy|sell|all] [country] [currency] [payment_method]\n"
             "Get DEX offers count.\n"
@@ -433,30 +433,30 @@ UniValue dexofferscount(const UniValue& params, bool fHelp)
     dex::CountryIso  countryiso;
     dex::CurrencyIso currencyiso;
 
-    for (size_t i = 0; i < params.size(); i++) {
+    for (size_t i = 0; i < request.params.size(); i++) {
         if (i == 0 && typefilter.empty()) {
-            if (std::find(words.begin(), words.end(), params[0].get_str()) != words.end()) {
-                typefilter = params[0].get_str();
+            if (std::find(words.begin(), words.end(), request.params[0].get_str()) != words.end()) {
+                typefilter = request.params[0].get_str();
                 continue;
             } else {
                 typefilter = "all";
             }
         }
         if (i < 2 && countryfilter.empty()) {
-            if (countryiso.isValid(params[i].get_str())) {
-                countryfilter = params[i].get_str();
+            if (countryiso.isValid(request.params[i].get_str())) {
+                countryfilter = request.params[i].get_str();
                 continue;
             }
         }
         if (i < 3 && currencyfilter.empty()) {
-            if (currencyiso.isValid(params[i].get_str())) {
-                currencyfilter = params[i].get_str();
+            if (currencyiso.isValid(request.params[i].get_str())) {
+                currencyfilter = request.params[i].get_str();
                 continue;
             }
         }
         {
             methodfilter.clear();
-            std::string methodname = boost::algorithm::to_lower_copy(params[i].get_str());
+            std::string methodname = boost::algorithm::to_lower_copy(request.params[i].get_str());
             std::list<dex::PaymentMethodInfo> pms = dex::DexDB::self()->getPaymentMethodsInfo();
             for (auto j : pms) {
                 std::string name = boost::algorithm::to_lower_copy(j.name);
@@ -467,7 +467,7 @@ UniValue dexofferscount(const UniValue& params, bool fHelp)
             }
 
             if (methodfilter.empty()) {
-                throw runtime_error("\nwrong parameter: " + params[i].get_str() + "\n");
+                throw runtime_error("\nwrong parameter: " + request.params[i].get_str() + "\n");
             }
         }
     }
@@ -505,7 +505,7 @@ UniValue dexofferscount(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue dexmyofferscount(const UniValue& params, bool fHelp)
+UniValue dexmyofferscount(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -517,7 +517,7 @@ UniValue dexmyofferscount(const UniValue& params, bool fHelp)
             "DexDB is not initialized.\n"
         );
     }
-    if (fHelp || params.size() < 1 || params.size() > 9)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 9)
         throw runtime_error(
             "dexmyoffers [buy|sell|all] [country] [currency] [payment_method] [status] [limit N] [offset N]\n"
             "Return count DEX own offers.\n"
@@ -549,28 +549,28 @@ UniValue dexmyofferscount(const UniValue& params, bool fHelp)
     dex::CountryIso  countryiso;
     dex::CurrencyIso currencyiso;
 
-    for (size_t i = 0; i < params.size(); i++) {
+    for (size_t i = 0; i < request.params.size(); i++) {
         if (typefilter.empty()) {
-            std::string key = boost::algorithm::to_lower_copy(params[i].get_str());
+            std::string key = boost::algorithm::to_lower_copy(request.params[i].get_str());
             if (words.find(key) != words.end()) {
                 typefilter = key;
                 continue;
             }
         }
         if (countryfilter.empty()) {
-            if (countryiso.isValid(params[i].get_str())) {
-                countryfilter = params[i].get_str();
+            if (countryiso.isValid(request.params[i].get_str())) {
+                countryfilter = request.params[i].get_str();
                 continue;
             }
         }
         if (currencyfilter.empty()) {
-            if (currencyiso.isValid(params[i].get_str())) {
-                currencyfilter = params[i].get_str();
+            if (currencyiso.isValid(request.params[i].get_str())) {
+                currencyfilter = request.params[i].get_str();
                 continue;
             }
         }
         if (methodfilter.empty()) {
-            std::string methodname = boost::algorithm::to_lower_copy(params[i].get_str());
+            std::string methodname = boost::algorithm::to_lower_copy(request.params[i].get_str());
             std::list<dex::PaymentMethodInfo> pms = dex::DexDB::self()->getPaymentMethodsInfo();
             for (auto j : pms) {
                 std::string name = boost::algorithm::to_lower_copy(j.name);
@@ -582,7 +582,7 @@ UniValue dexmyofferscount(const UniValue& params, bool fHelp)
             }
         }
         if (statusfilter == dex::Indefined) {
-            status.set(params[i].get_str());
+            status.set(request.params[i].get_str());
             if (status != dex::Indefined) {
                 statusfilter = status;
             }
@@ -615,7 +615,7 @@ UniValue dexmyofferscount(const UniValue& params, bool fHelp)
 }
 
 
-UniValue deldexoffer(const UniValue& params, bool fHelp)
+UniValue deldexoffer(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -627,7 +627,7 @@ UniValue deldexoffer(const UniValue& params, bool fHelp)
             "DexDB is not initialized.\n"
         );
     }
-    if (fHelp || params.size() != 1)
+    if (request.fHelp || request.params.size() != 1)
         throw runtime_error(
             "deldexoffer <hash>\n\n"
             "Delete offer from local DB and broadcast message.\n"
@@ -640,7 +640,7 @@ UniValue deldexoffer(const UniValue& params, bool fHelp)
             + HelpExampleCli("deldexoffer", "AABB...CCDD")
         );
 
-    std::string strOfferHash = params[0].get_str();
+    std::string strOfferHash = request.params[0].get_str();
     if (strOfferHash.empty()) {
         throw runtime_error("\nERROR: offer hash is empty");
     }
@@ -652,19 +652,19 @@ UniValue deldexoffer(const UniValue& params, bool fHelp)
 
     //dex::DexDB db(strDexDbFile);
 
-    CDexOffer offer;
+    dex::CDexOffer offer;
     if (dex::DexDB::self()->isExistMyOfferByHash(hash)) {
         dex::MyOfferInfo myoffer = dex::DexDB::self()->getMyOfferByHash(hash);
-        offer = CDexOffer(myoffer);
+        offer = dex::CDexOffer(myoffer);
     } else if (dex::DexDB::self()->isExistOfferBuyByHash(hash)) {
-        offer = CDexOffer(dex::DexDB::self()->getOfferBuyByHash(hash), dex::Buy);
+        offer = dex::CDexOffer(dex::DexDB::self()->getOfferBuyByHash(hash), dex::Buy);
     } else if (dex::DexDB::self()->isExistOfferSellByHash(hash)) {
-        offer = CDexOffer(dex::DexDB::self()->getOfferSellByHash(hash), dex::Sell);
+        offer = dex::CDexOffer(dex::DexDB::self()->getOfferSellByHash(hash), dex::Sell);
     } else {
         throw runtime_error("\nERROR: offer not found in DB\n");
     }
 
-    CDex dex(offer);
+    dex::CDex dex(offer);
     std::string error;
     CKey key;
     if (!dex.FindKey(key, error)) {
@@ -678,14 +678,14 @@ UniValue deldexoffer(const UniValue& params, bool fHelp)
 
     int sended = 0;
     if (offer.status != dex::Draft) {
-        auto vNodesCopy = CopyNodeVector();
+        auto vNodesCopy = g_connman->CopyNodeVector();
         for (auto pNode : vNodesCopy) {
             uint64_t bytes = pNode->nSendBytes;
-            pNode->PushMessage(NetMsgType::DEXDELOFFER, offer, vchSign);
+            g_connman->PushMessage(pNode, CNetMsgMaker(pNode->GetSendVersion()).Make(NetMsgType::DEXDELOFFER, offer, vchSign));
             if (pNode->nSendBytes > bytes) sended++;
         }
 
-        ReleaseNodeVector(vNodesCopy);
+        g_connman->ReleaseNodeVector(vNodesCopy);
     }
 
     if (sended > 1 || offer.status == dex::Draft || offer.status == dex::Indefined) {
@@ -701,7 +701,7 @@ UniValue deldexoffer(const UniValue& params, bool fHelp)
 
 
 
-UniValue adddexoffer(const UniValue& params, bool fHelp)
+UniValue adddexoffer(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -713,7 +713,7 @@ UniValue adddexoffer(const UniValue& params, bool fHelp)
             "DexDB is not initialized.\n"
         );
     }
-    if (fHelp || params.size() != 1)
+    if (request.fHelp || request.params.size() != 1)
         throw runtime_error(
 
             "adddexoffer <json-data>\n\n"
@@ -746,18 +746,18 @@ UniValue adddexoffer(const UniValue& params, bool fHelp)
                                             "}\"")
         );
 
-    std::string jsonData = params[0].get_str();
+    std::string jsonData = request.params[0].get_str();
     std::string error;
 
-    MyOfferInfo offer = jsonToMyOfferInfo(jsonData, error);
-    offer.status = Draft;
+    dex::MyOfferInfo offer = dex::jsonToMyOfferInfo(jsonData, error);
+    offer.status = dex::Draft;
     offer.editingVersion = 0;
 
     if (error.length() > 0) {
         throw runtime_error("\nERROR: " + error);
     }
 
-    CDexOffer cOffer;
+    dex::CDexOffer cOffer;
     CKey key = pwalletMain->GeneratePrivKey();
     CPubKey pkey = key.GetPubKey();
     if (!pwalletMain->AddKeyPubKey(key, pkey)) {
@@ -770,7 +770,7 @@ UniValue adddexoffer(const UniValue& params, bool fHelp)
         throw runtime_error("\nERROR: error create offer");
     }
 
-    dex::DexDB::self()->addMyOffer(MyOfferInfo(cOffer));
+    dex::DexDB::self()->addMyOffer(dex::MyOfferInfo(cOffer));
 
     if (!dex::DexDB::self()->isExistMyOfferByHash(cOffer.hash)) {
         throw runtime_error("\nERROR: the operation failed");
@@ -781,7 +781,7 @@ UniValue adddexoffer(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue editdexoffer(const UniValue& params, bool fHelp)
+UniValue editdexoffer(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -793,7 +793,7 @@ UniValue editdexoffer(const UniValue& params, bool fHelp)
             "DexDB is not initialized.\n"
         );
     }
-    if (fHelp || params.size() != 2)
+    if (request.fHelp || request.params.size() != 2)
         throw runtime_error(
 
             "editdexoffer <hash> <json-data>\n\n"
@@ -829,7 +829,7 @@ UniValue editdexoffer(const UniValue& params, bool fHelp)
                                             "}\"")
         );
 
-    std::string strOfferHash = params[0].get_str();
+    std::string strOfferHash = request.params[0].get_str();
     if (strOfferHash.empty()) {
         throw runtime_error("\nERROR: offer hash is empty");
     }
@@ -843,20 +843,20 @@ UniValue editdexoffer(const UniValue& params, bool fHelp)
         throw runtime_error("\nERROR: offer not found in DB\n");
     }
 
-    std::string jsonData = params[1].get_str();
+    std::string jsonData = request.params[1].get_str();
     std::string error;
-    MyOfferInfo offer = jsonToMyOfferInfo(jsonData, error);
+    dex::MyOfferInfo offer = dex::jsonToMyOfferInfo(jsonData, error);
 
     if (error.length() > 0) {
         throw runtime_error("\nERROR: " + error);
     }
 
-    MyOfferInfo currentMyOffer = dex::DexDB::self()->getMyOfferByHash(hash);
-    if (currentMyOffer.status == Draft) {
-        offer.status = Draft;
+    dex::MyOfferInfo currentMyOffer = dex::DexDB::self()->getMyOfferByHash(hash);
+    if (currentMyOffer.status == dex::Draft) {
+        offer.status = dex::Draft;
         offer.editingVersion = 0;
 
-        dexman.addOrEditDraftMyOffer(offer);
+        dex::dexman.addOrEditDraftMyOffer(offer);
         if (!dex::DexDB::self()->isExistMyOfferByHash(offer.hash)) {
             throw runtime_error("\nERROR: the operation failed");
         }
@@ -864,7 +864,7 @@ UniValue editdexoffer(const UniValue& params, bool fHelp)
         UniValue result(UniValue::VOBJ);
         result.push_back(Pair("new hash", offer.hash.GetHex()));
         return result;
-    } else if (currentMyOffer.status == Active) {
+    } else if (currentMyOffer.status == dex::Active) {
         if (currentMyOffer.type != offer.type) {
             throw runtime_error("\nERROR: unchanged data doesn't match");
         }
@@ -897,7 +897,7 @@ UniValue editdexoffer(const UniValue& params, bool fHelp)
         currentMyOffer.details = offer.details;
 
         std::string error;
-        dexman.prepareAndSendMyOffer(currentMyOffer, error);
+        dex::dexman.prepareAndSendMyOffer(currentMyOffer, error);
 
         if (!dex::DexDB::self()->isExistMyOfferByHash(currentMyOffer.hash)) {
             throw runtime_error("\nERROR: the operation failed");
@@ -911,7 +911,7 @@ UniValue editdexoffer(const UniValue& params, bool fHelp)
     return NullUniValue;
 }
 
-UniValue senddexoffer(const UniValue& params, bool fHelp)
+UniValue senddexoffer(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -925,7 +925,7 @@ UniValue senddexoffer(const UniValue& params, bool fHelp)
         );
     }
 
-    if (fHelp || params.size() != 1)
+    if (request.fHelp || request.params.size() != 1)
         throw runtime_error(
 
             "senddexoffer <hash>\n\n"
@@ -937,7 +937,7 @@ UniValue senddexoffer(const UniValue& params, bool fHelp)
             + HelpExampleCli("senddexoffer", "AABB...CCDD")
         );
 
-    std::string strOfferHash = params[0].get_str();
+    std::string strOfferHash = request.params[0].get_str();
     if (strOfferHash.empty()) {
         throw runtime_error("\nERROR: offer hash is empty");
     }
@@ -951,11 +951,11 @@ UniValue senddexoffer(const UniValue& params, bool fHelp)
         throw runtime_error("\nERROR: offer not found in DB\n");
     }
 
-    MyOfferInfo myOffer = dex::DexDB::self()->getMyOfferByHash(hash);
+    dex::MyOfferInfo myOffer = dex::DexDB::self()->getMyOfferByHash(hash);
 
     std::string error;
     //myOffer.timeCreate = GetTime(); error with change hash!!!!
-    dexman.prepareAndSendMyOffer(myOffer, error);
+    dex::dexman.prepareAndSendMyOffer(myOffer, error);
 
     if (!error.empty()) {
         throw runtime_error("\nERROR: " + error + "\n");
@@ -966,7 +966,7 @@ UniValue senddexoffer(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue dexsync(const UniValue& params, bool fHelp)
+UniValue dexsync(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -980,7 +980,7 @@ UniValue dexsync(const UniValue& params, bool fHelp)
         );
     }
 
-    if (fHelp || params.size() != 1)
+    if (request.fHelp || request.params.size() != 1)
         throw runtime_error(
                 "dexsync [status|reset]\n"
                 "if status that returns status synchronization dex\n"
@@ -991,7 +991,7 @@ UniValue dexsync(const UniValue& params, bool fHelp)
 
     UniValue result(UniValue::VOBJ);
 
-    std::string key = params[0].get_str();
+    std::string key = request.params[0].get_str();
     if (key == "status") {
         auto status =  dex::dexsync.getSyncStatus();
         result.push_back(Pair("status", status));
@@ -1011,7 +1011,7 @@ UniValue dexsync(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue dexsettings(const UniValue& params, bool fHelp)
+UniValue dexsettings(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -1025,7 +1025,7 @@ UniValue dexsettings(const UniValue& params, bool fHelp)
         );
     }
 
-    if (fHelp || params.size() < 1 || params.size() > 2)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 2)
         throw runtime_error(
                 "dexsettings [maxoutput num]\n"
                 "maxoutput return max number output offer dex\n"
@@ -1037,14 +1037,14 @@ UniValue dexsettings(const UniValue& params, bool fHelp)
 
     UniValue result(UniValue::VOBJ);
 
-    std::string key = params[0].get_str();
+    std::string key = request.params[0].get_str();
     if (key == "maxoutput") {
         int num;
-        if (params.size() == 2) {
-            num = params[1].get_int();
-            changedMaxOutput(num);
+        if (request.params.size() == 2) {
+            num = request.params[1].get_int();
+            dex::changedMaxOutput(num);
         } else {
-            num = maxOutput();
+            num = dex::maxOutput();
         }
 
         if (num == 0) {
@@ -1061,7 +1061,7 @@ UniValue dexsettings(const UniValue& params, bool fHelp)
 
 
 
-UniValue getdexinfo(const UniValue& params, bool fHelp)
+UniValue getdexinfo(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -1075,7 +1075,7 @@ UniValue getdexinfo(const UniValue& params, bool fHelp)
         );
     }
 
-    if (fHelp)
+    if (request.fHelp)
         throw runtime_error(
             "getdexinfo\n"
             "Return short info about offers count in DB."
@@ -1086,12 +1086,12 @@ UniValue getdexinfo(const UniValue& params, bool fHelp)
     result.push_back(Pair("offersSell", static_cast<uint64_t>(dex::DexDB::self()->countOffersSell())));
     result.push_back(Pair("offersBuy", static_cast<uint64_t>(dex::DexDB::self()->countOffersBuy())));
     result.push_back(Pair("myOffers", static_cast<uint64_t>(dex::DexDB::self()->countMyOffers())));
-    result.push_back(Pair("uncOffers", static_cast<uint64_t>(dexman.getUncOffers()->getSize())));
-    result.push_back(Pair("uncBcstOffers", static_cast<uint64_t>(dexman.getBcstUncOffers()->getSize())));
+    result.push_back(Pair("uncOffers", static_cast<uint64_t>(dex::dexman.getUncOffers()->getSize())));
+    result.push_back(Pair("uncBcstOffers", static_cast<uint64_t>(dex::dexman.getBcstUncOffers()->getSize())));
     return result;
 }
 
-UniValue dexunconfirmed(const UniValue& params, bool fHelp)
+UniValue dexunconfirmed(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -1105,7 +1105,7 @@ UniValue dexunconfirmed(const UniValue& params, bool fHelp)
         );
     }
 
-    if (fHelp)
+    if (request.fHelp)
         throw runtime_error(
             "dexunconfirmed\n"
             "Return list pair{hash, idTransaction} unconfirmed offers.\n"
@@ -1113,8 +1113,8 @@ UniValue dexunconfirmed(const UniValue& params, bool fHelp)
 
     UniValue result(UniValue::VARR);
 
-    auto bunc = dexman.getBcstUncOffers()->getAllOffers();
-    auto unc  = dexman.getUncOffers()->getAllOffers();
+    auto bunc = dex::dexman.getBcstUncOffers()->getAllOffers();
+    auto unc  = dex::dexman.getUncOffers()->getAllOffers();
 
     for (auto i : bunc) {
         UniValue v(UniValue::VOBJ);
@@ -1134,7 +1134,7 @@ UniValue dexunconfirmed(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue getdexoffer(const UniValue& params, bool fHelp)
+UniValue getdexoffer(const JSONRPCRequest& request)
 {
     if (!fTxIndex) {
         throw runtime_error(
@@ -1148,7 +1148,7 @@ UniValue getdexoffer(const UniValue& params, bool fHelp)
         );
     }
 
-    if (fHelp)
+    if (request.fHelp)
         throw runtime_error(
             "getdexoffer <hash>\n"
             "Return detail info about offer.\n"
@@ -1177,7 +1177,7 @@ UniValue getdexoffer(const UniValue& params, bool fHelp)
             + HelpExampleCli("getdexoffer", "AABB...CCDD")
         );
 
-    std::string strOfferHash = params[0].get_str();
+    std::string strOfferHash = request.params[0].get_str();
     if (strOfferHash.empty()) {
         throw runtime_error("\nERROR: offer hash is empty");
     }
@@ -1187,17 +1187,17 @@ UniValue getdexoffer(const UniValue& params, bool fHelp)
         throw runtime_error("\nERROR: offer hash error\n");
     }
 
-    CDexOffer offer;
+    dex::CDexOffer offer;
     if (dex::DexDB::self()->isExistOfferSellByHash(hash)) {
         auto info = dex::DexDB::self()->getOfferSellByHash(hash);
-        offer = CDexOffer(info, dex::TypeOffer::Sell);
+        offer = dex::CDexOffer(info, dex::TypeOffer::Sell);
     } else if (dex::DexDB::self()->isExistOfferBuyByHash(hash)) {
         auto info = dex::DexDB::self()->getOfferBuyByHash(hash);
-        offer = CDexOffer(info, dex::TypeOffer::Buy);
+        offer = dex::CDexOffer(info, dex::TypeOffer::Buy);
     } else {
-        offer = dexman.getBcstUncOffers()->getOfferByHash(hash);
+        offer = dex::dexman.getBcstUncOffers()->getOfferByHash(hash);
         if (offer.IsNull()) {
-            offer = dexman.getUncOffers()->getOfferByHash(hash);
+            offer = dex::dexman.getUncOffers()->getOfferByHash(hash);
         }
     }
 
@@ -1211,10 +1211,8 @@ UniValue getdexoffer(const UniValue& params, bool fHelp)
 
 
 static const CRPCCommand commands[] = // WARNING: check affter merge branches (add parameters if need)
-{ //  category              name                        actor (function)           okSafeMode
-    //  --------------------- ------------------------    -----------------------    ----------
-    { "dex",    "dexoffer",               &dexoffer,               true,  {} },
-    { "dex",    "payoffertx",             &payoffertx,             true,  {} },
+{ //  category  name                      actor (function)         okSafeMode
+  //  --------  ----------------------    ---------------------    ----------
     { "dex",    "dexoffers",              &dexoffers,              true,  {} },
     { "dex",    "dexmyoffers",            &dexmyoffers,            true,  {} },
     { "dex",    "dexofferscount",         &dexofferscount,         true,  {} },

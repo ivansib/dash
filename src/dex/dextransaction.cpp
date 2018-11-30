@@ -9,7 +9,7 @@
 #include "policy/policy.h"
 #include "consensus/validation.h"
 #include "core_io.h"
-#include "coincontrol.h"
+#include "wallet/coincontrol.h"
 
 #include "dextransaction.h"
 #include "dexoffer.h"
@@ -50,7 +50,8 @@ bool CreatePayOfferTransaction(const CDexOffer &offer, CTransaction &newTx, std:
         CCoinControl ccoin;
         ccoin.nMinimumTotalFee = PAYOFFER_TX_FEE * coef;
         CHECK(pwalletMain->CreateTransaction(vecSend, wtxNew, reservekey, nFeeRequired, nChangePosRet, strError, &ccoin), strError);
-        CHECK(pwalletMain->CommitTransaction(wtxNew, reservekey), "Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.");
+        CValidationState state;
+        CHECK(pwalletMain->CommitTransaction(wtxNew, reservekey, g_connman.get(), state), "Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.");
         newTx = wtxNew;
         return true;
     } while(false);

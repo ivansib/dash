@@ -22,6 +22,7 @@
 #include "transactionview.h"
 #include "walletmodel.h"
 #include "sibmodel.h"
+#include "validation.h"
 
 #ifdef ENABLE_DEX
 #include "exchangedialog.h"
@@ -440,6 +441,11 @@ void WalletView::showProgress(const QString &title, int nProgress)
     }
     else if (progressDialog)
         progressDialog->setValue(nProgress);
+}
+
+void WalletView::requestedSyncWarningInfo()
+{
+    Q_EMIT outOfSyncWarningClicked();
 }
 
 /** Update wallet with the sum of the selected transactions */

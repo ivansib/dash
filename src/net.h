@@ -414,6 +414,11 @@ private:
     void ThreadDNSAddressSeed();
     void ThreadOpenMasternodeConnections();
 
+#ifdef ENABLE_DEX
+    void ThreadDexManager();
+    void ThreadDexUncManager();
+#endif
+
     uint64_t CalculateKeyedNetGroup(const CAddress& ad) const;
 
     CNode* FindNode(const CNetAddr& ip);
@@ -519,6 +524,11 @@ private:
     std::thread threadOpenConnections;
     std::thread threadOpenMasternodeConnections;
     std::thread threadMessageHandler;
+
+#ifdef ENABLE_DEX
+    std::thread threadDexManager;
+    std::thread threadDexUncManager;
+#endif
 };
 extern std::unique_ptr<CConnman> g_connman;
 void Discover(boost::thread_group& threadGroup);

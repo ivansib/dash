@@ -5,10 +5,13 @@
 #include "dexcrc.h"
 #include "masternode-sync.h"
 #include "masternodeman.h"
+#include "netmessagemaker.h"
 #include "init.h"
+#include "util.h"
 #include "ui_interface.h"
 #include "pubkey.h"
-#include "wallet.h"
+#include "wallet/wallet.h"
+#include "net_processing.h"
 
 namespace dex {
 
@@ -41,16 +44,16 @@ CDexSync::~CDexSync()
     }
 }
 
-void CDexSync::ProcessMessage(CNode *pfrom, std::string &strCommand, CDataStream &vRecv)
+void CDexSync::ProcessMessage(CNode *pfrom, const std::string &strCommand, CDataStream &vRecv, CConnman &connman)
 {
     initDB();
 
     if (strCommand == NetMsgType::DEXSYNCGETALLHASH) {
-        sendHashOffers(pfrom, vRecv, false);
+        sendHashOffers(pfrom, vRecv, false, connman);
     } else if (strCommand == NetMsgType::DEXSYNCPARTHASH) {
-        getHashs(pfrom, vRecv);
+        getHashs(pfrom, vRecv, connman);
     } else if (strCommand == NetMsgType::DEXSYNCGETOFFER) {
-        sendOffer(pfrom, vRecv);
+        sendOffer(pfrom, vRecv, connman);
     } else if (strCommand == NetMsgType::DEXSYNCOFFER) {
         getOfferAndSaveInDb(pfrom, vRecv);
     } else if (strCommand == NetMsgType::DEXSYNCNOOFFERS) {
@@ -60,7 +63,7 @@ void CDexSync::ProcessMessage(CNode *pfrom, std::string &strCommand, CDataStream
     } else if (strCommand == NetMsgType::DEXSYNCNEEDSYNC) { // NODE: delete it if it won't use
         reset();
     } else if (strCommand == NetMsgType::DEXSYNCCHECK) {
-         sendHashOffers(pfrom, vRecv, true);
+         sendHashOffers(pfrom, vRecv, true, connman);
     }
 }
 
@@ -93,7 +96,7 @@ void CDexSync::startSyncDex()
 
     uiInterface.NotifyAdditionalDataSyncProgressChanged(statusPercent + 0.01);
 
-    auto vNodesCopy = CopyNodeVector();
+    auto vNodesCopy = g_connman->CopyNodeVector();
 
     initSetWaitAnswerFromNodes(vNodesCopy);
 
@@ -108,17 +111,17 @@ void CDexSync::startSyncDex()
             continue;
         }
 
-        if(node->fMasternode || (fMasterNode && node->fInbound)) {
+        if(node->fMasternode || (fMasternodeMode && node->fInbound)) {
             continue;
         }
 
-        node->PushMessage(NetMsgType::DEXSYNCGETALLHASH, dsInfo);
+        g_connman->PushMessage(node, CNetMsgMaker(node->GetSendVersion()).Make(NetMsgType::DEXSYNCGETALLHASH, dsInfo));
     }
 
     status = Status::Initial;
     uiInterface.NotifyAdditionalDataSyncProgressChanged(statusPercent + 0.1);
 
-    ReleaseNodeVector(vNodesCopy);
+    g_connman->ReleaseNodeVector(vNodesCopy);
 
     startTimer();
     startTimerForAnswer();
@@ -305,7 +308,7 @@ void CDexSync::initDB()
     }
 }
 
-void CDexSync::sendHashOffers(CNode *pfrom, CDataStream &vRecv, bool isCheck) const
+void CDexSync::sendHashOffers(CNode *pfrom, CDataStream &vRecv, bool isCheck, CConnman &connman) const
 {
     std::string tag = "DEXSYNCGETALLHASH";
     if (isCheck) {
@@ -313,9 +316,10 @@ void CDexSync::sendHashOffers(CNode *pfrom, CDataStream &vRecv, bool isCheck) co
     }
     LogPrint("dex", "%s -- receive request on send list pairs hashe and version from %s\n", tag, pfrom->addr.ToString());
 
+    CNetMsgMaker msgMaker(pfrom->GetSendVersion());
     if (!isSynced()) {
         LogPrint("dex", "%s -- offers no synchonized\n", tag);
-        pfrom->PushMessage(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::NoSync));
+        connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::NoSync)));
         return;
     }
 
@@ -332,7 +336,7 @@ void CDexSync::sendHashOffers(CNode *pfrom, CDataStream &vRecv, bool isCheck) co
         if (isCheck) {
             if (dsInfoOther == dsInfo) {
                 LogPrint("dex", "%s -- offers actual\n", tag);
-                pfrom->PushMessage(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::Actual));
+                connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::Actual)));
                 return;
             }
         } else {
@@ -343,7 +347,7 @@ void CDexSync::sendHashOffers(CNode *pfrom, CDataStream &vRecv, bool isCheck) co
 
                 if (hvs.size() == 0) {
                     LogPrint("dex", "%s -- offers actual\n", tag);
-                    pfrom->PushMessage(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::Actual));
+                    connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::Actual)));
                     return;
                 }
             } else {
@@ -358,11 +362,11 @@ void CDexSync::sendHashOffers(CNode *pfrom, CDataStream &vRecv, bool isCheck) co
     if (hvs.size() == 0) {
         if (isCheck) {
             LogPrint("dex", "%s -- offers actual\n", tag);
-            pfrom->PushMessage(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::Actual));
+            connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::Actual)));
             return;
         } else {
             LogPrint("dex", "%s -- offers not found\n", tag);
-            pfrom->PushMessage(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::Empty));
+            connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::Empty)));
         }
     }
 
@@ -383,12 +387,12 @@ void CDexSync::sendHashOffers(CNode *pfrom, CDataStream &vRecv, bool isCheck) co
         subHvs.splice(subHvs.begin(), hvs, hvs.begin(), end);
 
         LogPrint("dex", "%s -- send list pairs of hash and version\n", tag);
-        pfrom->PushMessage(NetMsgType::DEXSYNCPARTHASH, subHvs, cPart, maxPart);
+        connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCPARTHASH, subHvs, cPart, maxPart));
         cPart++;
     }
 }
 
-void CDexSync::getHashs(CNode *pfrom, CDataStream &vRecv)
+void CDexSync::getHashs(CNode *pfrom, CDataStream &vRecv, CConnman &connman)
 {
     addAddrToStatusNode(pfrom->addr, StatusNode::Good);
 
@@ -435,7 +439,7 @@ void CDexSync::getHashs(CNode *pfrom, CDataStream &vRecv)
     if (cPart == maxPart) {
         if (statusNodes[pfrom->addr] == StatusNode::Good) {
             DexSyncInfo dsInfo = dexSyncInfo(timeStart);
-            pfrom->PushMessage(NetMsgType::DEXSYNCCHECK, dsInfo);
+            connman.PushMessage(pfrom, CNetMsgMaker(pfrom->GetSendVersion()).Make(NetMsgType::DEXSYNCCHECK, dsInfo));
         }
 
         status = Status::SyncStepSecond;
@@ -444,13 +448,14 @@ void CDexSync::getHashs(CNode *pfrom, CDataStream &vRecv)
     }
 }
 
-void CDexSync::sendOffer(CNode *pfrom, CDataStream &vRecv) const
+void CDexSync::sendOffer(CNode *pfrom, CDataStream &vRecv, CConnman &connman) const
 {
     LogPrint("dex", "DEXSYNCGETOFFER -- receive request on send offer from %s\n", pfrom->addr.ToString());
+    CNetMsgMaker msgMaker(pfrom->GetSendVersion());
 
     if (!isSynced()) {
         LogPrint("dex", "DEXSYNCGETOFFER -- offers no synchonized\n");
-        pfrom->PushMessage(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::NoSync));
+        connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCNOOFFERS, static_cast<int>(StatusOffers::NoSync)));
         return;
     }
 
@@ -461,10 +466,10 @@ void CDexSync::sendOffer(CNode *pfrom, CDataStream &vRecv) const
 
     if (!offer.IsNull()) {
         LogPrint("dex", "DEXSYNCGETOFFER -- send offer info with hash = %s\n", hash.GetHex().c_str());
-        pfrom->PushMessage(NetMsgType::DEXSYNCOFFER, offer);
+        connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCOFFER, offer));
     } else {
         LogPrint("dex", "DEXSYNCGETOFFER -- offer with hash = %s not found\n", hash.GetHex().c_str());
-        pfrom->PushMessage(NetMsgType::DEXSYNCNOHASH, hash);
+        connman.PushMessage(pfrom, msgMaker.Make(NetMsgType::DEXSYNCNOHASH, hash));
     }
 }
 
@@ -567,7 +572,7 @@ void CDexSync::eraseItemFromOffersNeedDownload(const uint256 &hash)
 
 bool CDexSync::canStart()
 {
-    auto vNodesCopy = CopyNodeVector();
+    auto vNodesCopy = g_connman->CopyNodeVector();
     int nDex = 0;
     for (auto pNode : vNodesCopy) {
         if (!pNode->fInbound && !pNode->fMasternode) {
@@ -577,7 +582,7 @@ bool CDexSync::canStart()
         }
     }
 
-    ReleaseNodeVector(vNodesCopy);
+    g_connman->ReleaseNodeVector(vNodesCopy);
 
     if (nDex >= minNumDexNode()) {
         return true;
@@ -651,24 +656,24 @@ uint64_t CDexSync::lastTimeModOffers() const
 
 void CDexSync::sendCheckNodes() const
 {
-    auto vNodesCopy = CopyNodeVector();
+    auto vNodesCopy = g_connman->CopyNodeVector();
 
     DexSyncInfo dsInfo = dexSyncInfo(timeStart);
     for (auto node : vNodesCopy) {
         auto sn = statusNodes.find(node->addr);
         if (sn != statusNodes.end()) {
             if (sn->second == StatusNode::Good) {
-                node->PushMessage(NetMsgType::DEXSYNCCHECK, dsInfo);
+                g_connman->PushMessage(node, CNetMsgMaker(node->GetSendVersion()).Make(NetMsgType::DEXSYNCCHECK, dsInfo));
             }
         }
     }
 
-    ReleaseNodeVector(vNodesCopy);
+    g_connman->ReleaseNodeVector(vNodesCopy);
 }
 
 void CDexSync::sendRequestForGetOffers() const
 {
-    auto vNodesCopy = CopyNodeVector();
+    auto vNodesCopy = g_connman->CopyNodeVector();
 
     std::vector<CNode*> useNodes;
 
@@ -681,7 +686,7 @@ void CDexSync::sendRequestForGetOffers() const
             continue;
         }
 
-        if(node->fMasternode || (fMasterNode && node->fInbound)) {
+        if(node->fMasternode || (fMasternodeMode && node->fInbound)) {
             continue;
         }
 
@@ -690,7 +695,7 @@ void CDexSync::sendRequestForGetOffers() const
             if (sn->second == StatusNode::Good || sn->second == StatusNode::Process) {
                 if (sn->second == StatusNode::Good) {
                     DexSyncInfo dsInfo = dexSyncInfo(lastModOffers - 3600);
-                    node->PushMessage(NetMsgType::DEXSYNCGETALLHASH, dsInfo);
+                    g_connman->PushMessage(node, CNetMsgMaker(node->GetSendVersion()).Make(NetMsgType::DEXSYNCGETALLHASH, dsInfo));
                 }
 
                 useNodes.push_back(node);
@@ -725,11 +730,11 @@ void CDexSync::sendRequestForGetOffers() const
                 ++it;
             }
 
-            node->PushMessage(NetMsgType::DEXSYNCGETOFFER, hash);
+            g_connman->PushMessage(node, CNetMsgMaker(node->GetSendVersion()).Make(NetMsgType::DEXSYNCGETOFFER, hash));
         }
     }
 
-    ReleaseNodeVector(vNodesCopy);
+    g_connman->ReleaseNodeVector(vNodesCopy);
 }
 
 void CDexSync::checkUnconfirmedMyOffers()

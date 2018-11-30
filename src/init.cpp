@@ -48,6 +48,7 @@
 #endif
 #ifdef ENABLE_DEX
 #include "dex/dexmanager.h"
+//#include "dex/db/dexdb.h"
 #endif
 
 #include "activemasternode.h"
@@ -1861,14 +1862,15 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     if(fLiteMode) {
         InitWarning(_("You are starting in lite mode, all Sibcoin-specific functionality is disabled."));
+    }
 
 #ifdef ENABLE_DEX
-    if (fMasterNode && !GetBoolArg("-txindex", false)) {
+    if (fMasternodeMode && !GetBoolArg("-txindex", false)) {
         return InitError("Enabling Masternode support requires turning on transaction indexing. "
                   "Please add txindex=1 to your configuration and start with -reindex");
     }
 #else 
-    if (fMasterNode) {
+    if (fMasternodeMode) {
         return InitError("Enabling Masternode support requires DEX feature. "
                   "Please rebuild client with DEX support (--with-dex).");
     }

@@ -2,19 +2,22 @@
 #ifndef __DEX_OFFER_H__
 #define __DEX_OFFER_H__
 
+#include "primitives/transaction.h"
 #include "key.h"
 #include "net.h"
 #include "utilstrencodings.h"
 #include "timedata.h"
+#include "serialize.h"
 #include "dex/db/dexdto.h"
 #include <univalue.h>
+
 
 namespace dex {
 
 class CDexOffer
 {
 private:
-    mutable CCriticalSection cs;
+//    mutable CCriticalSection cs;
 
 public:
    enum Type { BUY, SELL };
@@ -38,7 +41,7 @@ public:
 
     bool myoffer_;
     dex::StatusOffer status;
-    CTransaction bcst_tx;
+    CTransactionRef bcst_tx;
 
 public:
 
@@ -78,43 +81,51 @@ public:
 
     CPubKey getPubKeyObject() const;
 
-    ADD_SERIALIZE_METHODS;
-
-    template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action) {
-        LOCK(cs);
-        if (!(s.GetType() & SER_GETHASH)) {
-            READWRITE(hash);
-            READWRITE(idTransaction);
-        }
-        if (ser_action.ForRead()) {
-            std::vector<unsigned char> vch;
-            READWRITE(vch);
-            pubKey = HexStr(vch);
-        } else {
-            std::vector<unsigned char> vch = ParseHex(pubKey);
-            READWRITE(vch);
-        }
-        READWRITE(type);
-        READWRITE(countryIso);
-        READWRITE(currencyIso);
-        READWRITE(paymentMethod);
-
-        if (!(nType & SER_GETHASH)) {
-            READWRITE(price);
-        }
-
-        READWRITE(minAmount);
-        READWRITE(timeCreate);
-        READWRITE(timeExpiration);
-
-        if (!(nType & SER_GETHASH)) {
-            READWRITE(shortInfo);
-            READWRITE(details);
-            READWRITE(editingVersion);
-            READWRITE(timeModification);
-        }
+    template<typename Stream> // WARNING: realize
+    void Serialize(Stream &s) const {
     }
+
+    template<typename Stream> // WARNING: realize
+    void Unserialize(Stream &s) {
+    }
+
+
+//    ADD_SERIALIZE_METHODS;
+
+//    template <typename Stream, typename Operation>
+//    inline void SerializationOp(Stream& s, Operation ser_action) {
+//        if (!(s.GetType() & SER_GETHASH)) {
+//            READWRITE(hash);
+//            READWRITE(idTransaction);
+//        }
+//        if (ser_action.ForRead()) {
+//            std::vector<unsigned char> vch;
+//            READWRITE(vch);
+//            pubKey = HexStr(vch);
+//        } else {
+//            std::vector<unsigned char> vch = ParseHex(pubKey);
+//            READWRITE(vch);
+//        }
+//        READWRITE(type);
+//        READWRITE(countryIso);
+//        READWRITE(currencyIso);
+//        READWRITE(paymentMethod);
+
+//        if (!(s.GetType() & SER_GETHASH)) {
+//            READWRITE(price);
+//        }
+
+//        READWRITE(minAmount);
+//        READWRITE(timeCreate);
+//        READWRITE(timeExpiration);
+
+//        if (!(s.GetType() & SER_GETHASH)) {
+//            READWRITE(shortInfo);
+//            READWRITE(details);
+//            READWRITE(editingVersion);
+//            READWRITE(timeModification);
+//        }
+//    }
 
     uint256 MakeHash();
     uint256 MakeEditHash();

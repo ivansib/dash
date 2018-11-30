@@ -1,13 +1,15 @@
 
 #include "dexmanager.h"
 
+#include "consensus/validation.h"
+#include "net_processing.h"
 #include "init.h"
-#include "wallet.h"
+#include "wallet/wallet.h"
 #include "util.h"
 #include "utilstrencodings.h"
 #include "masternodeman.h"
 #include "masternode-sync.h"
-#include "consensus/validation.h"
+#include "netmessagemaker.h"
 
 #include "dexsync.h"
 #include "txmempool.h"
@@ -36,16 +38,16 @@ CDexManager::~CDexManager()
     delete uncBcstOffers;
 }
 
-void CDexManager::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
+void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman &connman)
 {
     initDB();
 
     if (strCommand == NetMsgType::DEXOFFBCST) {
-        getAndSendNewOffer(pfrom, vRecv);
+        getAndSendNewOffer(pfrom, vRecv, connman);
     } else if (strCommand == NetMsgType::DEXDELOFFER) {
-        getAndDelOffer(pfrom, vRecv);
+        getAndDelOffer(pfrom, vRecv, connman);
     } else if (strCommand == NetMsgType::DEXOFFEDIT) {
-        getAndSendEditedOffer(pfrom, vRecv);
+        getAndSendEditedOffer(pfrom, vRecv, connman);
     }
 }
 
@@ -136,34 +138,34 @@ void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error
 
 void CDexManager::sendNewOffer(const CDexOffer &offer, const CTransaction &tx)
 {
-    auto vNodesCopy = CopyNodeVector();
+    auto vNodesCopy = g_connman->CopyNodeVector();
 
     for (auto pNode : vNodesCopy) {
         if (pNode->nVersion < MIN_DEX_VERSION) {
             continue;
         }
 
-        pNode->PushMessage(NetMsgType::DEXOFFBCST, offer, tx);
+        g_connman->PushMessage(pNode, CNetMsgMaker(pNode->GetSendVersion()).Make(NetMsgType::DEXOFFBCST, offer, tx));
     }
 
-    ReleaseNodeVector(vNodesCopy);
+    g_connman->ReleaseNodeVector(vNodesCopy);
 }
 
 void CDexManager::sendEditedOffer(const CDexOffer &offer)
 {
     std::vector<unsigned char> vchSign = ParseHex(offer.editsign);
 
-    auto vNodesCopy = CopyNodeVector();
+    auto vNodesCopy = g_connman->CopyNodeVector();
 
     for (auto pNode : vNodesCopy) {
         if (pNode->nVersion < MIN_DEX_VERSION) {
             continue;
         }
 
-        pNode->PushMessage(NetMsgType::DEXOFFEDIT, offer, vchSign);
+        g_connman->PushMessage(pNode, CNetMsgMaker(pNode->GetSendVersion()).Make(NetMsgType::DEXOFFEDIT, offer, vchSign));
     }
 
-    ReleaseNodeVector(vNodesCopy);
+    g_connman->ReleaseNodeVector(vNodesCopy);
 }
 
 void CDexManager::checkUncOffers()
@@ -243,12 +245,12 @@ void CDexManager::initDB()
     }
 }
 
-void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
+void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv, CConnman &connman)
 {
     LogPrint("dex", "DEXOFFBCST -- get new offer from = %s\n", pfrom->addr.ToString());
 
     CDexOffer offer;
-    CTransaction tx;
+    CTransactionRef tx;
     vRecv >> offer >> tx;
     int fine = 0;
     if (offer.Check(true, fine)) {
@@ -272,17 +274,17 @@ void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
                     offer.bcst_tx = tx;
                     if (uncBcstOffers->putOffer(offer)) {
                         LogPrint("dex", "DEXOFFBCST -- added in uncOffes and send a offer: %s\n", offer.hash.GetHex().c_str());
-                        auto vNodesCopy = CopyNodeVector();
+                        auto vNodesCopy = connman.CopyNodeVector();
                         for (auto pNode : vNodesCopy) {
                             if (pNode->nVersion < MIN_DEX_VERSION) {
                                 continue;
                             }
 
                             if (pNode->addr != pfrom->addr) {
-                                pNode->PushMessage(NetMsgType::DEXOFFBCST, offer, tx);
+                                connman.PushMessage(pNode, CNetMsgMaker(pNode->GetSendVersion()).Make(NetMsgType::DEXOFFBCST, offer, tx));
                             }
                         }
-                        ReleaseNodeVector(vNodesCopy);
+                        connman.ReleaseNodeVector(vNodesCopy);
                     }
 
                 } else {
@@ -297,7 +299,7 @@ void CDexManager::getAndSendNewOffer(CNode *pfrom, CDataStream &vRecv)
     }
 }
 
-void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv)
+void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv, CConnman &connman)
 {
     LogPrint("dex", "DEXDELOFFER -- receive request on delete offer from = %s\n", pfrom->addr.ToString());
 
@@ -333,18 +335,18 @@ void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv)
             }
 
             if (bFound) { // need to delete and relay
-                auto vNodesCopy = CopyNodeVector();
+                auto vNodesCopy = connman.CopyNodeVector();
                 for (auto pNode : vNodesCopy) {
                     if (pNode->nVersion < MIN_DEX_VERSION) {
                         continue;
                     }
 
                     if (pNode->addr != pfrom->addr) {
-                        pNode->PushMessage(NetMsgType::DEXDELOFFER, offer, vchSign);
+                        connman.PushMessage(pNode, CNetMsgMaker(pNode->GetSendVersion()).Make(NetMsgType::DEXDELOFFER, offer, vchSign));
                     }
                 }
 
-                ReleaseNodeVector(vNodesCopy);
+                connman.ReleaseNodeVector(vNodesCopy);
             }
             LogPrint("dex", "DEXDELOFFER --\n%s\nfound %d\n", offer.dump().c_str(), bFound);
         } else {
@@ -358,7 +360,7 @@ void CDexManager::getAndDelOffer(CNode *pfrom, CDataStream &vRecv)
 
 
 
-void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
+void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv, CConnman &connman)
 {
     LogPrint("dex", "DEXOFFEDIT -- receive request on edited offer from = %s\n", pfrom->addr.ToString());
 
@@ -407,18 +409,18 @@ void CDexManager::getAndSendEditedOffer(CNode *pfrom, CDataStream& vRecv)
                 LogPrint("dex", "DEXOFFEDIT --check offer tx fail(%s)\n", offer.idTransaction.GetHex().c_str());
             }
             if (isActual) {
-                auto vNodesCopy = CopyNodeVector();
+                auto vNodesCopy = connman.CopyNodeVector();
                 for (auto pNode : vNodesCopy) {
                     if (pNode->nVersion < MIN_DEX_VERSION) {
                         continue;
                     }
 
                     if (pNode->addr != pfrom->addr) {
-                        pNode->PushMessage(NetMsgType::DEXOFFEDIT, offer, vchSign);
+                        connman.PushMessage(pNode, CNetMsgMaker(pNode->GetSendVersion()).Make(NetMsgType::DEXOFFEDIT, offer, vchSign));
                     }
                 }
 
-                ReleaseNodeVector(vNodesCopy);
+                connman.ReleaseNodeVector(vNodesCopy);
             }
         } else {
             LogPrint("DEXOFFEDIT -- invalid signature, hash: %s \n", offer.hash.GetHex().c_str());
@@ -436,14 +438,15 @@ void CDexManager::checkUncBcstOffers()
     std::vector<CDexOffer> voffers;
 
     for (auto i : list) {
-        if (!i.bcst_tx.IsNull()) {
-            CTransaction tx;
+        if (!i.bcst_tx->IsNull()) {
+            CTransactionRef ptx;
             uint256 hashBlock;
-            if (!GetTransaction(i.bcst_tx.GetHash(), tx, Params().GetConsensus(), hashBlock, true)) {
+            if (!GetTransaction(i.bcst_tx->GetHash(), ptx, Params().GetConsensus(), hashBlock, true)) {
                 CValidationState state;
                 bool fMissingInputs = false;
                 if (AcceptToMemoryPool(mempool, state, i.bcst_tx, true, &fMissingInputs)) {
-                    RelayTransaction(tx);
+                    const CTransaction& tx = *ptx;
+                    g_connman->RelayTransaction(tx);
                 } else {
                     LogPrint("dex", "Add broadcast tx to mempool error: %s\n", FormatStateMessage(state).c_str());
                     continue;
@@ -545,71 +548,6 @@ void CDexManager::saveMyOffer(const MyOfferInfo &info, bool usethread)
 
 using namespace dex;
 
-void ThreadDexManager()
-{
-    int step = 0;
-    int minPeriod = 60000;
-
-    const int stepDeleteOld = 60;
-
-    while (true) {
-        MilliSleep(minPeriod);
-
-        if (masternodeSync.IsSynced() && dexsync.statusSync() == CDexSync::Status::NoStarted) {
-            CheckDexMasternode();
-            dexman.startSyncDex();
-        }
-
-        CheckDexMasternode();
-
-        if (dexsync.statusSync() == CDexSync::Status::Failed) {
-            dexsync.resetAfterFailed();
-        }
-
-        if (step % stepDeleteOld == 0) {
-            LogPrint("dex", "ThreadDexManager -- delete old offers\n");
-            dexman.deleteOldOffers();
-            LogPrint("dex", "ThreadDexManager -- set status expired for MyOffers\n");
-            dexman.setStatusExpiredForMyOffers();
-        }
-
-        if (step == 60) {
-            step = 0;
-        } else {
-            step++;
-        }
-    }
-}
-
-void ThreadDexUncManager()
-{
-    int step = 0;
-    int minPeriod = 60000;
-
-    const int stepCheckUnc = 1;
-    const int stepDeleteOldUnc = 30;
-
-    while (true) {
-        MilliSleep(minPeriod);
-
-        if (step % stepCheckUnc == 0) {
-            LogPrint("dex", "ThreadDexManager -- check unconfirmed offers\n");
-            dexman.checkUncOffers();
-        }
-
-        if (step % stepDeleteOldUnc == 0) {
-            LogPrint("dex", "ThreadDexManager -- delete old unconfirmed offers\n");
-            dexman.deleteOldUncOffers();
-        }
-
-        if (step == 60) {
-            step = 0;
-        } else {
-            step++;
-        }
-    }
-}
-
 void CheckDexMasternode()
 {
     int nOutbound = 0;
@@ -617,7 +555,7 @@ void CheckDexMasternode()
     std::vector<CNode *> nodeToRemove;
     std::set<std::vector<unsigned char> > setConnected;
 
-    auto vNodesCopy = CopyNodeVector();
+    auto vNodesCopy = g_connman->CopyNodeVector();
 
     for (auto pNode : vNodesCopy) {
         if (!pNode->fInbound && !pNode->fMasternode) {
@@ -648,5 +586,5 @@ void CheckDexMasternode()
         }
     }
 
-    ReleaseNodeVector(vNodesCopy);
+    g_connman->ReleaseNodeVector(vNodesCopy);
 }

@@ -43,7 +43,7 @@ TableOffersEditor::TableOffersEditor(DexDB *db, QDialog *parent)
     tableView->setColumnWidth(4, 150);
     tableView->setColumnWidth(5, 100);
 
-    columnResizingFixer = new GUIUtil::TableViewLastColumnResizingFixer(tableView, 100, 150, 2);
+    columnResizingFixer = new GUIUtil::TableViewLastColumnResizingFixer(tableView, 100, 150, 2, this);
     connect(pModel, SIGNAL(layoutChanged()), this, SLOT(resizeTable()));
 }
 
