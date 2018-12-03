@@ -45,7 +45,7 @@
 #include <boost/thread.hpp>
 
 #ifdef ENABLE_DEX
-//#include "dex/dexmanager.h"
+#include "dex/dexmanager.h"
 #include "dex/dexsync.h"
 #endif
 
@@ -2848,7 +2848,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
             masternodeSync.ProcessMessage(pfrom, strCommand, vRecv);
             governance.ProcessMessage(pfrom, strCommand, vRecv, connman);
 #ifdef ENABLE_DEX
-//            dex::dexman.ProcessMessage(pfrom, strCommand, vRecv, connman);
+            dex::dexman.ProcessMessage(pfrom, strCommand, vRecv, connman);
             dex::dexsync.ProcessMessage(pfrom, strCommand, vRecv, connman);
 #endif
         }

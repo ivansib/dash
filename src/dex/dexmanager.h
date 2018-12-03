@@ -34,6 +34,7 @@ public:
     void setStatusExpiredForMyOffers();
     void deleteOldUncOffers();
     void deleteOldOffers();
+    void initDB();
 
     std::list<std::pair<uint256, uint32_t> > availableOfferHashAndVersion() const;
     std::list<std::pair<uint256, uint32_t> > availableOfferHashAndVersionFromBD(const DexDB::OffersPeriod &from, const uint64_t &timeMod) const;
@@ -49,7 +50,6 @@ private:
     UnconfirmedOffers *uncOffers;
     UnconfirmedOffers *uncBcstOffers;
 
-    void initDB();
     void getAndSendNewOffer(CNode* pfrom, CDataStream& vRecv, CConnman &connman);
     void getAndDelOffer(CNode* pfrom, CDataStream& vRecv, CConnman &connman);
     void getAndSendEditedOffer(CNode* pfrom, CDataStream& vRecv, CConnman &connman);

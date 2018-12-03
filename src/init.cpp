@@ -48,7 +48,6 @@
 #endif
 #ifdef ENABLE_DEX
 #include "dex/dexmanager.h"
-//#include "dex/db/dexdb.h"
 #endif
 
 #include "activemasternode.h"
@@ -1441,6 +1440,8 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
                 LogPrintf("Can`t vacuum dex database: %s\n", dex::DexDB::self()->getErrMsg().c_str());
             }
         }
+
+        dex::dexman.initDB();
     }
 #endif // ENABLE_DEX
 

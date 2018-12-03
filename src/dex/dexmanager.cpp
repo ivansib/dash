@@ -40,8 +40,6 @@ CDexManager::~CDexManager()
 
 void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman &connman)
 {
-    initDB();
-
     if (strCommand == NetMsgType::DEXOFFBCST) {
         getAndSendNewOffer(pfrom, vRecv, connman);
     } else if (strCommand == NetMsgType::DEXDELOFFER) {
@@ -53,8 +51,6 @@ void CDexManager::ProcessMessage(CNode* pfrom, const std::string& strCommand, CD
 
 void CDexManager::addOrEditDraftMyOffer(MyOfferInfo &myOffer)
 {
-    initDB();
-
     myOffer.status = Draft;
 
     CDexOffer dexOffer;
@@ -72,8 +68,6 @@ void CDexManager::addOrEditDraftMyOffer(MyOfferInfo &myOffer)
 
 void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error)
 {
-    initDB();
-
     CDexOffer dexOffer;
 
     if (myOffer.status == Indefined || myOffer.status == Draft) {
