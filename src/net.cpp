@@ -2000,15 +2000,17 @@ void CConnman::ThreadDexManager()
 
     const int stepDeleteOld = 60;
 
-    while (true) {
+    while (!interruptNet) {
         MilliSleep(minPeriod);
 
+        LOCK(cs_vNodes);
+
         if (masternodeSync.IsSynced() && dexsync.statusSync() == CDexSync::Status::NoStarted) {
-            CheckDexMasternode();
+            CheckDexMasternode(vNodes);
             dexman.startSyncDex();
         }
 
-        CheckDexMasternode();
+        CheckDexMasternode(vNodes);
 
         if (dexsync.statusSync() == CDexSync::Status::Failed) {
             dexsync.resetAfterFailed();
@@ -2037,7 +2039,7 @@ void CConnman::ThreadDexUncManager()
     const int stepCheckUnc = 1;
     const int stepDeleteOldUnc = 30;
 
-    while (true) {
+    while (!interruptNet) {
         MilliSleep(minPeriod);
 
         if (step % stepCheckUnc == 0) {
@@ -2541,6 +2543,13 @@ void CConnman::Stop()
         threadDNSAddressSeed.join();
     if (threadSocketHandler.joinable())
         threadSocketHandler.join();
+
+#ifdef ENABLE_DEX
+    if (threadDexManager.joinable())
+        threadDexManager.join();
+    if (threadDexUncManager.joinable())
+        threadDexUncManager.join();
+#endif
 
     if (fAddressesInitialized)
     {

@@ -62,6 +62,6 @@ private:
 
 //void ThreadDexManager();
 //void ThreadDexUncManager();
-void CheckDexMasternode();
+void CheckDexMasternode(const std::vector<CNode *> &vNodes);
 
 #endif // __DEX_MANAGER_H__

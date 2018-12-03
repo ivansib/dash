@@ -548,16 +548,14 @@ void CDexManager::saveMyOffer(const MyOfferInfo &info, bool usethread)
 
 using namespace dex;
 
-void CheckDexMasternode()
+void CheckDexMasternode(const std::vector<CNode*> &vNodes)
 {
     int nOutbound = 0;
     int nDex = 0;
     std::vector<CNode *> nodeToRemove;
     std::set<std::vector<unsigned char> > setConnected;
 
-    auto vNodesCopy = g_connman->CopyNodeVector();
-
-    for (auto pNode : vNodesCopy) {
+    for (auto pNode : vNodes) {
         if (!pNode->fInbound && !pNode->fMasternode) {
             nOutbound++;
 
@@ -585,6 +583,4 @@ void CheckDexMasternode()
             }
         }
     }
-
-    g_connman->ReleaseNodeVector(vNodesCopy);
 }
