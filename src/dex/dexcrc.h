@@ -54,20 +54,12 @@ public:
     CDexCrc& operator+=(const std::list<MyOfferInfo> &offlist);
     CDexCrc& operator+=(const std::list<CDexOffer> &offlist);
 
-//    ADD_SERIALIZE_METHODS;
-//    template <typename Stream, typename Operation>
-//    inline void SerializationOp(Stream& s, Operation ser_action) {
-//        READWRITE(hashsum);
-//        READWRITE(hashxor);
-//        READWRITE(editingVersionSum);
-//    }
-
-    template<typename Stream> // WARNING: realize
-    void Serialize(Stream &s) const {
-    }
-
-    template<typename Stream> // WARNING: realize
-    void Unserialize(Stream &s) {
+    ADD_SERIALIZE_METHODS;
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action) {
+        READWRITE(hashsum);
+        READWRITE(hashxor);
+        READWRITE(editingVersionSum);
     }
 
 private:
