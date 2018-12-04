@@ -298,6 +298,7 @@ libsibcoin_server_a_SOURCES = \
   dex/dextransaction.cpp \
   dex/parserjsonoffer.cpp \
   dex/unconfirmedoffers.cpp \
+  dex/rpc.cpp \
   dex/db/dexdb.cpp \
   dex/db/countryiso.cpp \
   dex/db/currencyiso.cpp \

@@ -156,7 +156,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "getaddressutxos", 0, "addresses" },
     { "getaddressmempool", 0, "addresses" },
     // Dex
-    { "dexsettings", 1},
+    { "dexsettings", 1, "num"},
     // Echo with conversion (For testing only)
     { "echojson", 0, "arg0" },
     { "echojson", 1, "arg1" },

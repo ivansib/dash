@@ -1213,19 +1213,19 @@ UniValue getdexoffer(const JSONRPCRequest& request)
 static const CRPCCommand commands[] = // WARNING: check affter merge branches (add parameters if need)
 { //  category  name                      actor (function)         okSafeMode
   //  --------  ----------------------    ---------------------    ----------
-    { "dex",    "dexoffers",              &dexoffers,              true,  {} },
-    { "dex",    "dexmyoffers",            &dexmyoffers,            true,  {} },
-    { "dex",    "dexofferscount",         &dexofferscount,         true,  {} },
-    { "dex",    "dexmyofferscount",       &dexmyofferscount,       true,  {} },
-    { "dex",    "deldexoffer",            &deldexoffer,            true,  {} },
-    { "dex",    "adddexoffer",            &adddexoffer,            true,  {} },
-    { "dex",    "editdexoffer",           &editdexoffer,           true,  {} },
-    { "dex",    "senddexoffer",           &senddexoffer,           true,  {} },
+    { "dex",    "dexoffers",              &dexoffers,              true,  {"country","currency","payment_method","limit","offset"} },
+    { "dex",    "dexmyoffers",            &dexmyoffers,            true,  {"country","currency","payment_method","status","limit","offset"} },
+    { "dex",    "dexofferscount",         &dexofferscount,         true,  {"country","currency","payment_method"} },
+    { "dex",    "dexmyofferscount",       &dexmyofferscount,       true,  {"country","currency","payment_method","status"} },
+    { "dex",    "deldexoffer",            &deldexoffer,            true,  {"hash"} },
+    { "dex",    "adddexoffer",            &adddexoffer,            true,  {"type","countryIso","currencyIso","paymentMethod","price","minAmount","timeToExpiration","shortInfo","details"} },
+    { "dex",    "editdexoffer",           &editdexoffer,           true,  {"type","countryIso","currencyIso","paymentMethod","price","minAmount","timeToExpiration","shortInfo","details"} },
+    { "dex",    "senddexoffer",           &senddexoffer,           true,  {"hash"} },
     { "dex",    "dexsync",                &dexsync,                true,  {} },
-    { "dex",    "dexsettings",            &dexsettings,            true,  {} },
+    { "dex",    "dexsettings",            &dexsettings,            true,  {"maxoutput","num"} },
     { "dex",    "getdexinfo",             &getdexinfo,             true,  {} },
     { "dex",    "dexunconfirmed",         &dexunconfirmed,         true,  {} },
-    { "dex",    "getdexoffer",            &getdexoffer,            true,  {} }
+    { "dex",    "getdexoffer",            &getdexoffer,            true,  {"hash"} }
 };
 
 void RegisterDexRPCCommands(CRPCTable &t)
