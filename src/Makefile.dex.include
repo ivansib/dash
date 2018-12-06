@@ -12,25 +12,50 @@ SQLITE_CPPFLAGS += -I$(srcdir)/dex/db
 
 dex_libdexdb_a_CPPFLAGS = $(SQLITE_CPPFLAGS)
 
-dex_libdexdb_a_SOURCES =
+DEX_H = \
+  dex/dex.h \
+  dex/dexmanager.h \
+  dex/dexsync.h \
+  dex/dexoffer.h \
+  dex/dexcrc.h \
+  dex/dextransaction.h \
+  dex/parserjsonoffer.h \
+  dex/unconfirmedoffers.h \
+  dex/db/dexdb.h \
+  dex/db/dexdto.h \
+  dex/db/callbackdb.h \
+  dex/db/countryiso.h \
+  dex/db/currencyiso.h \
+  dex/db/defaultdatafordb.h \
+  dex/db/paymentmethodtype.h \
+  sqlite/sqlite3pp/sqlite3pp.h \
+  sqlite/sqlite3pp/sqlite3ppext.h
 
-dex_libdexdb_a_SOURCES += sqlite/sqlite3pp/sqlite3pp.cpp
-dex_libdexdb_a_SOURCES += sqlite/sqlite3pp/sqlite3ppext.cpp
+dexdb_cpp = \
+  dex/db/dexdb.cpp \
+  dex/db/countryiso.cpp \
+  dex/db/currencyiso.cpp \
+  dex/db/defaultdatafordb.cpp \
+  dex/db/paymentmethodtype.cpp \
+  sqlite/sqlite3pp/sqlite3pp.cpp \
+  sqlite/sqlite3pp/sqlite3ppext.cpp
 
-dex_libdexdb_a_SOURCES += dex/db/dexdb.cpp
-dex_libdexdb_a_SOURCES += dex/db/countryiso.cpp
-dex_libdexdb_a_SOURCES += dex/db/currencyiso.cpp
-dex_libdexdb_a_SOURCES += dex/db/paymentmethodtype.cpp
-dex_libdexdb_a_SOURCES += dex/db/defaultdatafordb.cpp
-
-dex_libdex_a_CPPFLAGS = -I$(srcdir)/univalue/include -I$(srcdir)/dex/db -I$(srcdir)/wallet  $(BDB_CPPFLAGS)
-dex_libdex_a_SOURCES = \
+dex_cpp = \
   dex/dex.cpp \
   dex/dexmanager.cpp \
-  dex/rpc.cpp \
-  dex/dexoffer.cpp \
-  dex/dextransaction.cpp \
-  dex/unconfirmedoffers.cpp \
-  dex/parserjsonoffer.cpp \
   dex/dexsync.cpp \
-  dex/dexcrc.cpp
+  dex/dexoffer.cpp \
+  dex/dexcrc.cpp \
+  dex/dextransaction.cpp \
+  dex/parserjsonoffer.cpp \
+  dex/unconfirmedoffers.cpp \
+  dex/rpc.cpp
+
+dex_libdexdb_a_SOURCES = $(dexdb_cpp)
+
+dex_libdex_a_CPPFLAGS = -I$(srcdir)/univalue/include -I$(srcdir)/dex/db -I$(srcdir)/wallet  $(BDB_CPPFLAGS)
+dex_libdex_a_SOURCES = $(dex_cpp)
+
+DEX_CPP = \
+  $(dex_cpp) \
+  $(dexdb_cpp)

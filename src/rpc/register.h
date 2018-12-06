@@ -23,8 +23,11 @@ void RegisterRawTransactionRPCCommands(CRPCTable &tableRPC);
 void RegisterMasternodeRPCCommands(CRPCTable &tableRPC);
 /** Register governance RPC commands */
 void RegisterGovernanceRPCCommands(CRPCTable &tableRPC);
+
+#ifdef ENABLE_DEX
 /** Register dex RPC commands */
 void RegisterDexRPCCommands(CRPCTable &tableRPC);
+#endif
 
 static inline void RegisterAllCoreRPCCommands(CRPCTable &t)
 {
@@ -35,7 +38,9 @@ static inline void RegisterAllCoreRPCCommands(CRPCTable &t)
     RegisterRawTransactionRPCCommands(t);
     RegisterMasternodeRPCCommands(t);
     RegisterGovernanceRPCCommands(t);
+#ifdef ENABLE_DEX
     RegisterDexRPCCommands(t);
+#endif
 }
 
 #endif
