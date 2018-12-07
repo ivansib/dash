@@ -159,8 +159,10 @@ namespace GUIUtil
         Q_OBJECT
 
         public:
-            TableViewLastColumnResizingFixer(QTableView* table, int lastColMinimumWidth, int allColsMinimumWidth, QObject *parent);
-            TableViewLastColumnResizingFixer(QTableView* table, int lastColMinimumWidth, int allColsMinimumWidth, int interactiveColIndex, QObject *parent); // WARNING: check affter merge branches
+            TableViewLastColumnResizingFixer(QTableView* table, int lastColMinimumWidth, int allColsMinimumWidth, QObject *parent)
+                : TableViewLastColumnResizingFixer(table, lastColMinimumWidth, allColsMinimumWidth, -1, parent) {}
+
+            TableViewLastColumnResizingFixer(QTableView* table, int lastColMinimumWidth, int allColsMinimumWidth, int interactiveColIndex, QObject *parent);
             void stretchColumnWidth(int column);
 
         private:
