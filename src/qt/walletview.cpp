@@ -100,13 +100,15 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
 #endif
 
     QSettings settings;
-    if (settings.value("fShowMasternodesTab").toBool()) {
+    if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
         masternodeListPage = new MasternodeList(platformStyle);
         addWidget(masternodeListPage);
     }
 
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
+
+    connect(overviewPage, SIGNAL(outOfSyncWarningClicked()), this, SLOT(requestedSyncWarningInfo()));
 
     // Double-clicking on a transaction on the transaction history page shows details
     connect(transactionView, SIGNAL(doubleClicked(QModelIndex)), transactionView, SLOT(showDetails()));
@@ -144,6 +146,9 @@ void WalletView::setBitcoinGUI(BitcoinGUI *gui)
         // Pass through transaction notifications
         connect(this, SIGNAL(incomingTransaction(QString,int,CAmount,QString,QString,QString)), gui, SLOT(incomingTransaction(QString,int,CAmount,QString,QString,QString)));
 
+        // Connect HD enabled state signal
+        connect(this, SIGNAL(hdEnabledStatusChanged(int)), gui, SLOT(setHDStatus(int)));
+
         // Follow new URI
         connect(this, SIGNAL(receivedURI(QString)), gui, SIGNAL(receivedURI(QString)));
     }
@@ -156,7 +161,7 @@ void WalletView::setClientModel(ClientModel *clientModel)
     overviewPage->setClientModel(clientModel);
     sendCoinsPage->setClientModel(clientModel);
     QSettings settings;
-    if (settings.value("fShowMasternodesTab").toBool()) {
+    if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
         masternodeListPage->setClientModel(clientModel);
     }
 }
@@ -175,7 +180,7 @@ void WalletView::setWalletModel(WalletModel *walletModel)
     transactionView->setModel(walletModel);
     overviewPage->setWalletModel(walletModel);
     QSettings settings;
-    if (settings.value("fShowMasternodesTab").toBool()) {
+    if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
         masternodeListPage->setWalletModel(walletModel);
     }
     receiveCoinsPage->setModel(walletModel);
@@ -196,6 +201,9 @@ void WalletView::setWalletModel(WalletModel *walletModel)
         // Handle changes in encryption status
         connect(walletModel, SIGNAL(encryptionStatusChanged(int)), this, SIGNAL(encryptionStatusChanged(int)));
         updateEncryptionStatus();
+
+        // update HD status
+        Q_EMIT hdEnabledStatusChanged(walletModel->hdEnabled());
 
         // Balloon pop-up for new transaction
         connect(walletModel->getTransactionTableModel(), SIGNAL(rowsInserted(QModelIndex,int,int)),
@@ -242,7 +250,7 @@ void WalletView::gotoHistoryPage()
 void WalletView::gotoMasternodePage()
 {
     QSettings settings;
-    if (settings.value("fShowMasternodesTab").toBool()) {
+    if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
         setCurrentWidget(masternodeListPage);
     }
 }
@@ -396,7 +404,8 @@ void WalletView::genAndPrintAddresses()
 {
     if(!walletModel)
         return;
-    
+
+#ifdef ENABLE_PRINTSUPPORT
     GenAndPrintDialog dlg(GenAndPrintDialog::Export, this);
     dlg.setModel(walletModel);
     if (dlg.exec())
@@ -408,6 +417,9 @@ void WalletView::genAndPrintAddresses()
         QString uri = dlg.getURI();
         Q_EMIT receivedURI(uri);
     }
+#else
+   QMessageBox::warning(this, tr(""), tr("Print support is disabled!"));
+#endif
 }
 
 void WalletView::loadFromPaper()
