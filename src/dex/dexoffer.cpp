@@ -46,6 +46,7 @@ CDexOffer::CDexOffer(const CDexOffer &off)
     type             = off.type;
     editsign         = off.editsign;
     myoffer_         = off.myoffer_;
+    bcst_tx          = off.bcst_tx;
 }
 
 
@@ -278,6 +279,7 @@ CDexOffer& CDexOffer::operator=(const CDexOffer& off)
     myoffer_         = off.myoffer_;
     status           = off.status;
     editsign         = off.editsign;
+    bcst_tx          = off.bcst_tx;
     return *this;
 }
 

@@ -439,8 +439,7 @@ void CDexManager::checkUncBcstOffers()
                 CValidationState state;
                 bool fMissingInputs = false;
                 if (AcceptToMemoryPool(mempool, state, i.bcst_tx, true, &fMissingInputs)) {
-                    const CTransaction& tx = *ptx;
-                    g_connman->RelayTransaction(tx);
+                    g_connman->RelayTransaction(*ptx);
                 } else {
                     LogPrint("dex", "Add broadcast tx to mempool error: %s\n", FormatStateMessage(state).c_str());
                     continue;
