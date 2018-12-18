@@ -24,7 +24,7 @@ void UnconfirmedOffers::putOffers(std::vector<CDexOffer> &voffers)
 {
     boost::lock_guard<boost::mutex> lock(mOfferMutex);
     for (auto i : voffers) {
-        offers.insert(std::make_pair(i, std::time(NULL)));
+        auto t = offers.insert(std::make_pair(i, std::time(NULL)));
     }
 }
 

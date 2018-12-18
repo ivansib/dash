@@ -122,6 +122,8 @@ void CDexManager::prepareAndSendMyOffer(MyOfferInfo &myOffer, std::string &error
         if (!uncOffers->putOffer(dex.offer)) {
             error = "Error adding to unconfirmed offers";
             return;
+        } else {
+            LogPrint("dex", "test prepare %s\n", dex.offer.hash.GetHex().c_str());
         }
     }
 
@@ -165,7 +167,6 @@ void CDexManager::sendEditedOffer(const CDexOffer &offer)
 void CDexManager::checkUncOffers()
 {
     checkUncBcstOffers();
-
     auto list = uncOffers->getAllOffers();
 
     for (auto it = list.cbegin(); it != list.cend(); ) {
@@ -177,15 +178,14 @@ void CDexManager::checkUncOffers()
             CDex dex((*it));
             std::string error;
             if (dex.CheckOfferTx(error)) {
-                if ((*it).isBuy())  {
+                if ((*it).isBuy()) {
                     if (!db->isExistOfferBuyByHash((*it).hash)) {
-                      offersBuy.push_back(it);
+                        offersBuy.push_back(it);
                     }
                 }
-
-                if ((*it).isSell())  {
+                if ((*it).isSell()) {
                     if (!db->isExistOfferSellByHash((*it).hash)) {
-                      offersSell.push_back(it);
+                        offersSell.push_back(it);
                     }
                 }
 
@@ -213,7 +213,6 @@ void CDexManager::checkUncOffers()
             uncOffers->removeOffers(offersRemove);
         }
     }
-
 }
 
 void CDexManager::setStatusExpiredForMyOffers()
@@ -430,7 +429,6 @@ void CDexManager::checkUncBcstOffers()
 {
     auto list = uncBcstOffers->getAllOffers();
     std::vector<CDexOffer> voffers;
-
     for (auto i : list) {
         if (!i.bcst_tx->IsNull()) {
             CTransactionRef ptx;
@@ -439,18 +437,22 @@ void CDexManager::checkUncBcstOffers()
                 CValidationState state;
                 bool fMissingInputs = false;
                 if (AcceptToMemoryPool(mempool, state, i.bcst_tx, true, &fMissingInputs)) {
-                    g_connman->RelayTransaction(*ptx);
+                    if (ptx) {
+                        g_connman->RelayTransaction(*ptx);
+                    } else {
+                        LogPrint("dex", "Does not find transaction with hash: %s\n", i.bcst_tx->GetHash().ToString());
+                        continue;
+                    }
                 } else {
                     LogPrint("dex", "Add broadcast tx to mempool error: %s\n", FormatStateMessage(state).c_str());
                     continue;
                 }
             }
-
             voffers.push_back(i);
         }
     }
     uncOffers->putOffers(voffers);
-    uncBcstOffers->removeOffers(list);
+    uncBcstOffers->removeOffers(voffers);
 }
 
 std::list<std::pair<uint256, uint32_t>> CDexManager::availableOfferHashAndVersion() const

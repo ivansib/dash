@@ -2000,7 +2000,7 @@ void CConnman::ThreadDexManager()
 
     const int stepDeleteOld = 60;
 
-    while (!interruptNet) {
+    while (true) {
         MilliSleep(minPeriod);
 
         LOCK(cs_vNodes);
@@ -2039,7 +2039,7 @@ void CConnman::ThreadDexUncManager()
     const int stepCheckUnc = 1;
     const int stepDeleteOldUnc = 30;
 
-    while (!interruptNet) {
+    while (true) {
         MilliSleep(minPeriod);
 
         if (step % stepCheckUnc == 0) {
@@ -2465,9 +2465,7 @@ bool CConnman::Start(CScheduler& scheduler, std::string& strNodeError, Options c
 #ifdef ENABLE_DEX
     threadDexManager = std::thread(&TraceThread<std::function<void()> >, "dexmanager", std::function<void()>(std::bind(&CConnman::ThreadDexManager, this)));
     threadDexUncManager = std::thread(&TraceThread<std::function<void()> >, "dexuncmanager", std::function<void()>(std::bind(&CConnman::ThreadDexUncManager, this)));
- //  threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dexmanager", &ThreadDexManager));
- //  threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dexuncmanager", &ThreadDexUncManager));
-   dex::DexConnectSignals();
+    dex::DexConnectSignals();
 #endif
 
     // Dump network addresses

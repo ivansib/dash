@@ -16,9 +16,6 @@ namespace dex {
 
 class CDexOffer
 {
-private:
-//    mutable CCriticalSection cs;
-
 public:
    enum Type { BUY, SELL };
 
@@ -39,7 +36,7 @@ public:
     uint32_t editingVersion;
     std::string editsign;
 
-    bool myoffer_;
+    bool myoffer_{Indefined};
     dex::StatusOffer status;
     CTransactionRef bcst_tx;
 
