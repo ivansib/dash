@@ -1210,7 +1210,7 @@ UniValue getdexoffer(const JSONRPCRequest& request)
 }
 
 
-static const CRPCCommand commands[] = // WARNING: check affter merge branches (add parameters if need)
+static const CRPCCommand commands[] =
 { //  category  name                      actor (function)         okSafeMode
   //  --------  ----------------------    ---------------------    ----------
     { "dex",    "dexoffers",              &dexoffers,              true,  {"country","currency","payment_method","limit","offset"} },

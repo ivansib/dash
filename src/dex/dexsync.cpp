@@ -143,9 +143,6 @@ void CDexSync::finishSyncDex()
         status = Status::Finished;
         uiInterface.NotifyAdditionalDataSyncProgressChanged(1);
         syncFinished();
-    } else {
-        status = Status::NoStarted;
-        reset(true);
     }
 }
 
@@ -612,7 +609,7 @@ void CDexSync::addAddrToStatusNode(const CAddress &addr, StatusNode status, cons
         waitAnswerFromNodes.erase(it);
     }
 
-    if (!(statusNodes[addr] == StatusNode::Process && status == StatusNode::Good)) {
+    if (!(statusNodes[addr] == StatusNode::Process && status == StatusNode::Good && statusNodes[addr] == StatusNode::Actual)) {
         statusNodes[addr] = status;
     }
 }
