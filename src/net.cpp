@@ -2001,7 +2001,8 @@ void CConnman::ThreadDexManager()
     const int stepDeleteOld = 60;
 
     while (true) {
-        MilliSleep(minPeriod);
+        if (!interruptNet.sleep_for(std::chrono::seconds(minPeriod)))
+            return;
 
         LOCK(cs_vNodes);
 
@@ -2040,7 +2041,8 @@ void CConnman::ThreadDexUncManager()
     const int stepDeleteOldUnc = 30;
 
     while (true) {
-        MilliSleep(minPeriod);
+        if (!interruptNet.sleep_for(std::chrono::seconds(minPeriod)))
+            return;
 
         if (step % stepCheckUnc == 0) {
             LogPrint("dex", "ThreadDexManager -- check unconfirmed offers\n");
