@@ -8,71 +8,84 @@ void checkPutOffers()
 {
     UnconfirmedOffers unc;
 
-    CDexOffer offer;
-    offer.pubKey = GetRandHash().GetHex();
-    offer.hash = GetRandHash();
-    offer.idTransaction = GetRandHash();
-    offer.type = Buy;
-    offer.status = Active;
-    offer.price = 1234567;
-    offer.minAmount = 10000;
-    offer.shortInfo = "first info";
-    offer.countryIso = "RU";
-    offer.currencyIso = "RUB";
-    offer.paymentMethod = 1;
-    offer.timeCreate = 1025668989;
-    offer.timeExpiration = 1027778989;
-    offer.timeModification = 1027770000;
-    offer.editingVersion = 5;
-    offer.bcst_tx = MakeTransactionRef();
+    std::vector<CDexOffer> listOffers;
+    for (int i = 0; i < 10; i++) {
+        CDexOffer offer;
+        offer.pubKey = GetRandHash().GetHex();
+        offer.hash = GetRandHash();
+        offer.idTransaction = GetRandHash();
+        offer.type = Buy;
+        offer.status = Active;
+        offer.price = 1234567;
+        offer.minAmount = 10000;
+        offer.shortInfo = "first info";
+        offer.countryIso = "RU";
+        offer.currencyIso = "RUB";
+        offer.paymentMethod = 1;
+        offer.timeCreate = 1025668989;
+        offer.timeExpiration = 1027778989;
+        offer.timeModification = 1027770000;
+        offer.editingVersion = 5;
+        offer.bcst_tx = MakeTransactionRef();
 
-    unc.putOffer(offer);
+        listOffers.push_back(offer);
+    }
 
-    CDexOffer offer1 = offer;
-    offer1.price = 1234568;
-    offer1.idTransaction = GetRandHash();
-    offer1.bcst_tx = MakeTransactionRef();
+    unc.putOffer(listOffers[0]);
+    unc.putOffer(listOffers[0]);
 
-    unc.putOffer(offer1);
+    unc.putOffer(listOffers[1]);
+    unc.putOffer(listOffers[1]);
 
+    unc.putOffer(listOffers[2]);
+    unc.putOffer(listOffers[2]);
+
+    auto size = unc.getSize();
+
+    BOOST_CHECK(size == 3);
+
+    unc.putOffers(listOffers);
+    size = unc.getSize();
+
+    BOOST_CHECK(size == 10);
+
+    bool isRemove = unc.removeOffer(listOffers[5]);
+
+    BOOST_CHECK(isRemove);
+
+    size = unc.getSize();
     auto uncList = unc.getAllOffers();
 
-    BOOST_CHECK(uncList.size() == 1);
+    BOOST_CHECK(size == 9);
+    BOOST_CHECK(uncList.size() == size);
 
-    std::vector<CDexOffer> vec;
-    vec.push_back(offer);
-    vec.push_back(offer1);
+    auto offer1 = listOffers[7];
 
-    unc.putOffers(vec);
+    BOOST_CHECK(unc.hasOfferWithHash(offer1.hash));
 
-    uncList = unc.getAllOffers();
+    auto offer2 = unc.getOfferByHash(offer1.hash);
 
-    BOOST_CHECK(uncList.size() == 1);
+    BOOST_CHECK(offer1.pubKey == offer2.pubKey);
+    BOOST_CHECK(offer1.idTransaction == offer2.idTransaction);
+    BOOST_CHECK(offer1.hash == offer2.hash);
+    BOOST_CHECK(offer1.type == offer2.type);
+    BOOST_CHECK(offer1.status == offer2.status);
+    BOOST_CHECK(offer1.price == offer2.price);
+    BOOST_CHECK(offer1.minAmount == offer2.minAmount);
+    BOOST_CHECK(offer1.shortInfo == offer2.shortInfo);
+    BOOST_CHECK(offer1.countryIso == offer2.countryIso);
+    BOOST_CHECK(offer1.currencyIso == offer2.currencyIso);
+    BOOST_CHECK(offer1.paymentMethod == offer2.paymentMethod);
+    BOOST_CHECK(offer1.timeCreate == offer2.timeCreate);
+    BOOST_CHECK(offer1.timeExpiration == offer2.timeExpiration);
+    BOOST_CHECK(offer1.timeModification == offer2.timeModification);
+    BOOST_CHECK(offer1.editingVersion == offer2.editingVersion);
+    BOOST_CHECK(offer1.bcst_tx == offer2.bcst_tx);
 
-    CDexOffer offer2;
-    offer2.pubKey = GetRandHash().GetHex();
-    offer2.hash = GetRandHash();
-    offer2.idTransaction = GetRandHash();
-    offer2.type = Buy;
-    offer2.status = Active;
-    offer2.price = 1234567;
-    offer2.minAmount = 10000;
-    offer2.shortInfo = "first info";
-    offer2.countryIso = "RU";
-    offer2.currencyIso = "RUB";
-    offer2.paymentMethod = 1;
-    offer2.timeCreate = 1025668989;
-    offer2.timeExpiration = 1027778989;
-    offer2.timeModification = 1027770000;
-    offer2.editingVersion = 5;
-    offer2.bcst_tx = MakeTransactionRef();
+    unc.removeOffers(listOffers);
+    size = unc.getSize();
 
-
-    unc.putOffer(offer2);
-
-    uncList = unc.getAllOffers();
-
-    BOOST_CHECK(uncList.size() == 2);
+    BOOST_CHECK(size == 0);
 }
 
 

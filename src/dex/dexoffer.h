@@ -36,8 +36,8 @@ public:
     uint32_t editingVersion;
     std::string editsign;
 
-    bool myoffer_{Indefined};
-    dex::StatusOffer status;
+    bool myoffer_{false};
+    dex::StatusOffer status{Indefined};
     CTransactionRef bcst_tx;
 
 public:
