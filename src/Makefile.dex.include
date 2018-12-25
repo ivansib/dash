@@ -16,12 +16,15 @@ DEX_H = \
   dex/dex.h \
   dex/dexmanager.h \
   dex/dexsync.h \
+  dex/dexsyncinfo.h \
   dex/dexoffer.h \
   dex/dexcrc.h \
   dex/dextransaction.h \
   dex/parserjsonoffer.h \
+  dex/timer.h \
   dex/unconfirmedoffers.h \
   dex/db/dexdb.h \
+  dex/db/dexdbexception.h \
   dex/db/dexdto.h \
   dex/db/callbackdb.h \
   dex/db/countryiso.h \
