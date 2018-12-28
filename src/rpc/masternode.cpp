@@ -228,7 +228,7 @@ UniValue masternode_count(const JSONRPCRequest& request)
 
     int nCount;
     int total = mnodeman.CountMasternodes(0);
-    if (deterministicMNManager->IsDeterministicMNsSporkActive()) {
+    if (deterministicMNManager->IsDIP3Active()) {
         nCount = mnodeman.CountEnabled();
     } else {
         masternode_info_t mnInfo;
@@ -285,7 +285,7 @@ UniValue GetNextMasternodeForPayment(int heightShift)
     mnodeman.UpdateLastPaid(pindex);
 
     CScript payeeScript;
-    if (deterministicMNManager->IsDeterministicMNsSporkActive()) {
+    if (deterministicMNManager->IsDIP3Active()) {
         auto payee = deterministicMNManager->GetListAtChainTip().GetMNPayee();
         if (!payee || !mnodeman.GetMasternodeInfo(payee->proTxHash, mnInfo))
             return "unknown";
@@ -361,7 +361,7 @@ UniValue masternode_start_alias(const JSONRPCRequest& request)
 {
     if (request.fHelp || request.params.size() < 2)
         masternode_start_alias_help();
-    if (deterministicMNManager->IsDeterministicMNsSporkActive())
+    if (deterministicMNManager->IsDIP3Active())
         throw JSONRPCError(RPC_MISC_ERROR, "start-alias is not supported when deterministic masternode list is active (DIP3)");
 
     if (!EnsureWalletIsAvailable(request.fHelp))
@@ -463,7 +463,7 @@ UniValue masternode_start_all(const JSONRPCRequest& request)
 {
     if (request.fHelp)
         masternode_start_all_help();
-    if (deterministicMNManager->IsDeterministicMNsSporkActive())
+    if (deterministicMNManager->IsDIP3Active())
         throw JSONRPCError(RPC_MISC_ERROR, strprintf("start-all is not supported when deterministic masternode list is active (DIP3)"));
 
     if (!EnsureWalletIsAvailable(request.fHelp))
@@ -664,7 +664,7 @@ UniValue masternode_status(const JSONRPCRequest& request)
     mnObj.push_back(Pair("outpoint", activeMasternodeInfo.outpoint.ToStringShort()));
     mnObj.push_back(Pair("service", activeMasternodeInfo.service.ToString()));
 
-    if (deterministicMNManager->IsDeterministicMNsSporkActive()) {
+    if (deterministicMNManager->IsDIP3Active()) {
         auto dmn = activeMasternodeManager->GetDMN();
         if (dmn) {
             mnObj.push_back(Pair("proTxHash", dmn->proTxHash.ToString()));
@@ -890,7 +890,7 @@ UniValue masternodelist(const JSONRPCRequest& request)
             std::string strOutpoint = mnpair.first.ToStringShort();
 
             CScript payeeScript;
-            if (deterministicMNManager->IsDeterministicMNsSporkActive()) {
+            if (deterministicMNManager->IsDIP3Active()) {
                 auto dmn = deterministicMNManager->GetListAtChainTip().GetMNByCollateral(mn.outpoint);
                 if (dmn) {
                     payeeScript = dmn->pdmnState->scriptPayout;
