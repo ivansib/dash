@@ -150,7 +150,6 @@ BITCOIN_CORE_H = \
   masternode-payments.h \
   masternode-sync.h \
   masternodeman.h \
-  masternodeconfig.h \
   memusage.h \
   merkleblock.h \
   messagesigner.h \
@@ -260,7 +259,6 @@ libsibcoin_server_a_SOURCES = \
   masternode.cpp \
   masternode-payments.cpp \
   masternode-sync.cpp \
-  masternodeconfig.cpp \
   masternodeman.cpp \
   merkleblock.cpp \
   messagesigner.cpp \
