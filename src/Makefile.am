@@ -145,6 +145,7 @@ BITCOIN_CORE_H = \
   limitedmap.h \
   llmq/quorums_blockprocessor.h \
   llmq/quorums_commitment.h \
+  llmq/quorums_debug.h \
   llmq/quorums_dkgsessionhandler.h \
   llmq/quorums_dkgsessionmgr.h \
   llmq/quorums_dkgsession.h \
@@ -258,6 +259,7 @@ libsibcoin_server_a_SOURCES = \
   governance-votedb.cpp \
   llmq/quorums_blockprocessor.cpp \
   llmq/quorums_commitment.cpp \
+  llmq/quorums_debug.cpp \
   llmq/quorums_dkgsessionhandler.cpp \
   llmq/quorums_dkgsessionmgr.cpp \
   llmq/quorums_dkgsession.cpp \
@@ -288,6 +290,7 @@ libsibcoin_server_a_SOURCES = \
   rpc/net.cpp \
   rpc/rawtransaction.cpp \
   rpc/rpcevo.cpp \
+  rpc/rpcquorums.cpp \
   rpc/server.cpp \
   script/sigcache.cpp \
   script/ismine.cpp \
