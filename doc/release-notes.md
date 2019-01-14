@@ -85,6 +85,20 @@ anymore. Because of this fact, it's also no longer reasonable to update and test
 this feature, so it's completely removed now. If for some reason you were still
 using it, please follow one of the guides and setup a remote masternode instead.
 
+Mining
+------
+Please note that masternode payments in `getblocktemplate` rpc are now returned as an array and not as
+a single object anymore. Make sure to apply corresponding changes to your pool software.
+
+Also, deterministic masternodes can now set their payout address to a P2SH address. The most common use
+case for P2SH is multisig but script can be pretty much anything. If your pool software doesn't recognize
+P2SH addresses, the simplest way to fix it is to use `script` field which shows scriptPubKey for each
+entry of masternode payments array in `getblocktemplate`.
+
+And finally, after DIP0003 activation your pool software must be able to produce Coinbase Special
+Transaction https://github.com/dashpay/dips/blob/master/dip-0004.md#coinbase-special-transaction.
+Use `coinbase_payload` from `getblocktemplate` to get extra payload needed to construct this transaction.
+
 PrivateSend
 -----------
 With further refactoring of PrivateSend code it became possible to implement mixing in few parallel
@@ -173,6 +187,7 @@ There are a few changes in existing RPC interfaces in this release:
 - `masternode status` and `masternode list` show some DIP0003 related info now;
 - `previousbits` and `coinbase_payload` fields were added in `getblocktemplate`;
 - `getblocktemplate` now returns an array for masternode payments instead of a single object (miners and mining pools have to upgrade their software to support multiple masternode payees);
+- masternode and superblock payments in `getblocktemplate` show payee scriptPubKey in `script` field in addition to payee address in `payee`;
 - `getblockchaininfo` shows BIP9 deployment progress;
 - `help command subCommand` should give detailed help for subcommands e.g. `help protx list`;
 - `compressed` option in `masternode genkey`;
