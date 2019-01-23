@@ -288,7 +288,8 @@ int CSporkManager::GetSporkIDByName(const std::string& strName)
     if (strName == "SPORK_16_INSTANTSEND_AUTOLOCKS")            return SPORK_16_INSTANTSEND_AUTOLOCKS;
     if (strName == "SPORK_17_QUORUM_DKG_ENABLED")               return SPORK_17_QUORUM_DKG_ENABLED;
     if (strName == "SPORK_18_QUORUM_DEBUG_ENABLED")             return SPORK_18_QUORUM_DEBUG_ENABLED;
-    if (strName == "SPORK_19_REJECT_OLD_BLOCKS")                return SPORK_19_REJECT_OLD_BLOCKS;
+    if (strName == "SPORK_19_CHAINLOCKS_ENABLED")               return SPORK_19_CHAINLOCKS_ENABLED;
+    if (strName == "SPORK_20_REJECT_OLD_BLOCKS")                return SPORK_19_REJECT_OLD_BLOCKS;
 
     LogPrint("spork", "CSporkManager::GetSporkIDByName -- Unknown Spork name '%s'\n", strName);
     return -1;
@@ -306,7 +307,8 @@ std::string CSporkManager::GetSporkNameByID(int nSporkID)
         case SPORK_16_INSTANTSEND_AUTOLOCKS:            return "SPORK_16_INSTANTSEND_AUTOLOCKS";
         case SPORK_17_QUORUM_DKG_ENABLED:               return "SPORK_17_QUORUM_DKG_ENABLED";
         case SPORK_18_QUORUM_DEBUG_ENABLED:             return "SPORK_18_QUORUM_DEBUG_ENABLED";
-        case SPORK_19_REJECT_OLD_BLOCKS:                return "SPORK_18_REJECT_OLD_BLOCKS";
+        case SPORK_19_CHAINLOCKS_ENABLED:               return "SPORK_19_CHAINLOCKS_ENABLED";
+        case SPORK_20_REJECT_OLD_BLOCKS:                return "SPORK_18_REJECT_OLD_BLOCKS";
         default:
             LogPrint("spork", "CSporkManager::GetSporkNameByID -- Unknown Spork ID %d\n", nSporkID);
             return "Unknown";
