@@ -14,7 +14,7 @@
 #ifdef ENABLE_WALLET
 #include "wallet/coincontrol.h"
 #include "wallet/wallet.h"
-#include "wallet/rpcwallet.h" 
+#include "wallet/rpcwallet.h"
 #endif//ENABLE_WALLET
 
 #include "netbase.h"
@@ -828,15 +828,14 @@ UniValue BuildDMNListEntry(CWallet* pwallet, const CDeterministicMNCPtr& dmn, bo
 
 UniValue protx_list(const JSONRPCRequest& request)
 {
-    CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
     if (request.fHelp) {
         protx_list_help();
     }
 
 #ifdef ENABLE_WALLET
-    bool hasWallet = pwallet != nullptr;
+    CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
 #else
-    bool hasWallet = false;
+    CWallet* const pwallet = nullptr;
 #endif
 
     std::string type = "registered";
@@ -849,7 +848,7 @@ UniValue protx_list(const JSONRPCRequest& request)
     LOCK(cs_main);
 
     if (type == "wallet") {
-        if (!hasWallet) {
+        if (!pwallet) {
             throw std::runtime_error("\"protx list wallet\" not supported when wallet is disabled");
         }
 #ifdef ENABLE_WALLET
@@ -922,10 +921,15 @@ void protx_info_help()
 
 UniValue protx_info(const JSONRPCRequest& request)
 {
-    CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
     if (request.fHelp || request.params.size() != 2) {
         protx_info_help();
     }
+
+#ifdef ENABLE_WALLET
+    CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
+#else
+    CWallet* const pwallet = nullptr;
+#endif
 
     uint256 proTxHash = ParseHashV(request.params[1], "proTxHash");
     auto mnList = deterministicMNManager->GetListAtChainTip();
@@ -1010,7 +1014,6 @@ UniValue protx_diff(const JSONRPCRequest& request)
 
 UniValue protx(const JSONRPCRequest& request)
 {
-    CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
     if (request.fHelp && request.params.empty()) {
         protx_help();
     }
@@ -1021,13 +1024,13 @@ UniValue protx(const JSONRPCRequest& request)
     }
 
 #ifdef ENABLE_WALLET
-    bool hasWallet = pwallet != nullptr;
+    CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
 #else
-    bool hasWallet = false;
+    CWallet* const pwallet = nullptr;
 #endif
 
     auto checkWallet = [&](const std::string& command) {
-        if (!hasWallet) {
+        if (!pwallet) {
             throw std::runtime_error(strprintf("%s not supported when wallet is disabled", command));
         }
     };
