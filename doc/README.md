@@ -30,6 +30,8 @@ Drag Sibcoin-Qt to your applications folder, and then run Sibcoin-Qt.
 
 * See the [Dash documentation](https://docs.dash.org)
 for help and more information.
+* See the [Dash Developer Documentation](https://dash-docs.github.io/) 
+for technical specifications and implementation details.
 * Ask for help on [Dash Nation Discord](http://dashchat.org)
 * Ask for help on the [Dash Forum](https://dash.org/forum)
 
