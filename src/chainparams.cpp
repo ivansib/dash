@@ -675,6 +675,10 @@ public:
         consensus.nHighSubsidyBlocks = nHighSubsidyBlocks;
         consensus.nHighSubsidyFactor = nHighSubsidyFactor;
     }
+
+    void UpdateLLMQChainLocks(Consensus::LLMQType llmqType) {
+        consensus.llmqChainLocks = llmqType;
+    }
 };
 static CDevNetParams *devNetParams;
 
@@ -875,4 +879,10 @@ void UpdateDevnetSubsidyAndDiffParams(int nMinimumDifficultyBlocks, int nHighSub
 {
     assert(devNetParams);
     devNetParams->UpdateSubsidyAndDiffParams(nMinimumDifficultyBlocks, nHighSubsidyBlocks, nHighSubsidyFactor);
+}
+
+void UpdateDevnetLLMQChainLocks(Consensus::LLMQType llmqType)
+{
+    assert(devNetParams);
+    devNetParams->UpdateLLMQChainLocks(llmqType);
 }
