@@ -473,7 +473,7 @@ struct secure_user_allocator {
 // LockedPool is destroyed. This means that all worker threads must finish before static destruction begins
 // we use sizeof(relic::bn_t) as the pool request size as this is what Chia's BLS library will request in most cases
 // In case something larger is requested, we directly call into LockedPool and accept the slowness
-thread_local static boost::pool<secure_user_allocator> securePool(sizeof(relic::bn_t) + sizeof(size_t));
+thread_local static boost::pool<secure_user_allocator> securePool(sizeof(bn_t) + sizeof(size_t));
 
 static void* secure_allocate(size_t n)
 {
