@@ -5593,11 +5593,6 @@ Diese Papiergeldbörse wurde erfolgreich gedruckt!</translation>
         <translation>Obsolete Option -whitelistalwaysrelay wird ignoriert, benutzen Sie -whitelistrelay und/oder -whitelistforcerelay.</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Use N separate masternodes for each denominated input to mix funds (%u-%u, default: %u)</source>
-        <translation>N unterschiedliche Masternodes benutzen, um Münzen überweisen möchten</translation>
-    </message>
-    <message>
         <location line="+1"/>
         <source>Choose the address to receive coins with</source>
         <translation>Wählen Sie die Adresse aus, über die Sie Münzen empfangen wollen</translation>
