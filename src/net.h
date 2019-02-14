@@ -408,6 +408,7 @@ public:
     unsigned int GetReceiveFloodSize() const;
 
     void WakeMessageHandler();
+    void WakeSelect();
 
 private:
     struct ListenSocket {
@@ -525,6 +526,11 @@ private:
     std::atomic<bool> flagInterruptMsgProc;
 
     CThreadInterrupt interruptNet;
+
+#ifndef WIN32
+    /** a pipe which is added to select() calls to wakeup before the timeout */
+    int wakeupPipe[2]{-1,-1};
+#endif
 
     std::thread threadDNSAddressSeed;
     std::thread threadSocketHandler;
