@@ -618,14 +618,10 @@ int main(int argc, char *argv[])
 #if QT_VERSION >= 0x050500
     // Because of the POODLE attack it is recommended to disable SSLv3 (https://disablessl3.com/),
     // so set SSL protocols to TLS1.0+.
-    QSslSocket::sslLibraryVersionString(); // sibcoin-qt stops while switching SSLv3 to TLS on Arch Linux (Qt 5.11.2)
-    Q_ASSERT( QSslSocket::supportsSsl() );
 
     QSslConfiguration sslconf = QSslConfiguration::defaultConfiguration();
     sslconf.setProtocol(QSsl::TlsV1_0OrLater);
     QSslConfiguration::setDefaultConfiguration(sslconf);
-
-    Q_ASSERT(QSslConfiguration::defaultConfiguration().protocol() == QSsl::TlsV1_0OrLater);
 #endif
 
     // Register meta types used for QMetaObject::invokeMethod
