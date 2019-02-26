@@ -203,6 +203,7 @@ BITCOIN_CORE_H = \
   rpc/protocol.h \
   rpc/server.h \
   rpc/register.h \
+  saltedhasher.h \
   scheduler.h \
   script/sigcache.h \
   script/sign.h \
@@ -471,6 +472,7 @@ libsibcoin_common_a_SOURCES = \
   netaddress.cpp \
   netbase.cpp \
   protocol.cpp \
+  saltedhasher.cpp \
   scheduler.cpp \
   script/sign.cpp \
   script/standard.cpp \
