@@ -10,6 +10,11 @@ QStatusBar {
 background-color:#ffffff;
 }
 
+QTextBrowser {
+background: #ffffff;
+color:#333;
+}
+
 .QFrame {
 background-color:transparent;
 border:0px solid #fff;
