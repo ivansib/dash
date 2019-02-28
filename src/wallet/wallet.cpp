@@ -38,6 +38,8 @@
 
 #include "evo/providertx.h"
 
+#include "llmq/quorums_instantsend.h"
+
 #include <assert.h>
 
 #include <boost/algorithm/string/replace.hpp>
@@ -5444,7 +5446,7 @@ int CMerkleTx::GetDepthInMainChain(const CBlockIndex* &pindexRet) const
 
 bool CMerkleTx::IsLockedByInstantSend() const
 {
-    return instantsend.IsLockedInstantSendTransaction(GetHash());
+    return instantsend.IsLockedInstantSendTransaction(GetHash()) || llmq::quorumInstantSendManager->IsLocked(GetHash());
 }
 
 int CMerkleTx::GetBlocksToMaturity() const
