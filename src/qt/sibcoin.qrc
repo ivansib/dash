@@ -351,6 +351,10 @@
         <file alias="drkblue_rightArrow_small">res/images/light/drkblue_rightArrow_small.png</file>
         <file alias="drkblue_qtreeview_selected">res/images/light/drkblue_qtreeview_selected.png</file>
         <file alias="drkblue_walletFrame_bg">res/images/light/drkblue_walletFrame_bg.png</file>
+        <file alias="radio_checked">res/images/light/radio_checked.png</file>
+        <file alias="radio_checked_disabled">res/images/light/radio_checked_disabled.png</file>
+        <file alias="radio_unchecked">res/images/light/radio_unchecked.png</file>
+        <file alias="radio_unchecked_disabled">res/images/light/radio_unchecked_disabled.png</file>
         <file alias="splash">res/images/light/splash.png</file>
         <file alias="splash_testnet">res/images/light/splash_testnet.png</file>
     </qresource>

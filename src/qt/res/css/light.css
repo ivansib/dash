@@ -241,6 +241,8 @@ QAbstractSpinBox::down-arrow {
 image:url(':/images/light/drkblue_downArrow_small');
 }
 
+/*QCheckBox*/
+
 QCheckBox {
 spacing: 5px;
 }
@@ -280,6 +282,49 @@ image:url(':/images/light/unchecked');
 
 QCheckBox::indicator:indeterminate:pressed {
 image:url(':/images/light/checked');
+}
+
+/*QRadioButton*/
+
+QRadioButton {
+spacing: 5px;
+}
+
+QRadioButton::indicator {
+width: 16px;
+height: 16px;
+}
+
+QRadioButton::indicator:unchecked {
+image:url(':/images/light/radio_unchecked');
+}
+
+QRadioButton::indicator:unchecked:hover {
+image:url(':/images/light/radio_unchecked');
+}
+
+QRadioButton::indicator:unchecked:pressed {
+image:url(':/images/light/radio_checked');
+}
+
+QRadioButton::indicator:checked {
+image:url(':/images/light/radio_checked');
+}
+
+QRadioButton::indicator:checked:hover {
+image:url(':/images/light/radio_checked');
+}
+
+QRadioButton::indicator:checked:pressed {
+image:url(':/images/light/radio_unchecked');
+}
+
+QRadioButton::indicator:checked:disabled {
+image:url(':/images/light/radio_checked_disabled');
+}
+
+QRadioButton::indicator:unchecked:disabled {
+image:url(':/images/light/radio_unchecked_disabled');
 }
 
 /*******************************************************/
