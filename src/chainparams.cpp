@@ -141,7 +141,8 @@ public:
         consensus.BIP34Hash = uint256S("0x0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9");
         consensus.BIP65Height = 397152; // 00000000007f533c388f14f335132643d4cb53996959faa7e648341d8500c553
         consensus.BIP66Height = 951; // 0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9
-        consensus.DIP0001Height = 710000; // Activate it on 27th November
+        consensus.DIP0001Height = 717696; // Activate it on 27th November ///need to change to actual value
+        consensus.RemoveDependencyRewardOnDiffHeight = 99999999; // not set yet
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
@@ -173,7 +174,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1572168000; // Oct 26th, 2019
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nWindowSize = 4032;
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226; // 80% of 4032
-
+        
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000244f9127d33cdf52"); // 672000
 
@@ -296,7 +297,8 @@ public:
         consensus.BIP34Hash = uint256S("0x00000243719923dcc244bbb0e81bd5b03e3ce4fd3fe408358503ae5856ce3b40");
         consensus.BIP65Height = 66528; // 0000009d43b7778b3057c232afd3c7ce424a17adf8375b8b3ecc0578a4e0f272
         consensus.BIP66Height = 76; // 00000243719923dcc244bbb0e81bd5b03e3ce4fd3fe408358503ae5856ce3b40
-        consensus.DIP0001Height = 339400; // Not activated in sibcoin network yet, so set it to 1000 years in the future in this build
+        consensus.DIP0001Height = 340100; 
+        consensus.RemoveDependencyRewardOnDiffHeight = 404001;       
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
@@ -430,6 +432,7 @@ public:
         consensus.BIP65Height = 1; // BIP65 activated immediately on devnet
         consensus.BIP66Height = 1; // BIP66 activated immediately on devnet
         consensus.DIP0001Height = 2; // DIP0001 activated immediately on devnet
+        consensus.RemoveDependencyRewardOnDiffHeight = 10; // activated immediately on devnet       
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
@@ -557,6 +560,7 @@ public:
         consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in rpc activation tests)
         consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
         consensus.DIP0001Height = 2000;
+        consensus.RemoveDependencyRewardOnDiffHeight = 2100;        
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
