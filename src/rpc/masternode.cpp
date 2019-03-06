@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2014-2019 The Dash Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -488,7 +488,7 @@ UniValue masternodelist(const JSONRPCRequest& request)
 
     if (request.fHelp || (
                 strMode != "addr" && strMode != "full" && strMode != "info" && strMode != "json" &&
-                strMode != "keyidowner" && strMode != "keyidvoting" &&
+                strMode != "owneraddress" && strMode != "votingaddress" &&
                 strMode != "lastpaidtime" && strMode != "lastpaidblock" &&
                 strMode != "payee" && strMode != "pubkeyoperator" &&
                 strMode != "status"))
@@ -520,10 +520,18 @@ UniValue masternodelist(const JSONRPCRequest& request)
 
     mnList.ForEachMN(false, [&](const CDeterministicMNCPtr& dmn) {
         std::string strOutpoint = dmn->collateralOutpoint.ToStringShort();
+        Coin coin;
+        std::string collateralAddressStr = "UNKNOWN";
+        if (GetUTXOCoin(dmn->collateralOutpoint, coin)) {
+            CTxDestination collateralDest;
+            if (ExtractDestination(coin.out.scriptPubKey, collateralDest)) {
+                collateralAddressStr = CBitcoinAddress(collateralDest).ToString();
+            }
+        }
 
         CScript payeeScript = dmn->pdmnState->scriptPayout;
         CTxDestination payeeDest;
-        std::string payeeStr = "UNKOWN";
+        std::string payeeStr = "UNKNOWN";
         if (ExtractDestination(payeeScript, payeeDest)) {
             payeeStr = CBitcoinAddress(payeeDest).ToString();
         }
@@ -550,7 +558,7 @@ UniValue masternodelist(const JSONRPCRequest& request)
             streamInfo << std::setw(18) <<
                            dmnToStatus(dmn) << " " <<
                            payeeStr << " " <<
-                                           dmn->pdmnState->addr.ToString();
+                           dmn->pdmnState->addr.ToString();
             std::string strInfo = streamInfo.str();
             if (strFilter !="" && strInfo.find(strFilter) == std::string::npos &&
                 strOutpoint.find(strFilter) == std::string::npos) return;
@@ -558,19 +566,27 @@ UniValue masternodelist(const JSONRPCRequest& request)
         } else if (strMode == "json") {
             std::ostringstream streamInfo;
             streamInfo <<  dmn->pdmnState->addr.ToString() << " " <<
-                           CBitcoinAddress(dmn->pdmnState->scriptPayout).ToString() << " " <<
+                           payeeStr << " " <<
                            dmnToStatus(dmn) << " " <<
                            dmnToLastPaidTime(dmn) << " " <<
-                           dmn->pdmnState->nLastPaidHeight;
+                           dmn->pdmnState->nLastPaidHeight << " " <<
+                           CBitcoinAddress(dmn->pdmnState->keyIDOwner).ToString() << " " <<
+                           CBitcoinAddress(dmn->pdmnState->keyIDVoting).ToString() << " " <<
+                           collateralAddressStr << " " <<
+                           dmn->pdmnState->pubKeyOperator.ToString();
             std::string strInfo = streamInfo.str();
             if (strFilter !="" && strInfo.find(strFilter) == std::string::npos &&
                 strOutpoint.find(strFilter) == std::string::npos) return;
             UniValue objMN(UniValue::VOBJ);
             objMN.push_back(Pair("address", dmn->pdmnState->addr.ToString()));
-            objMN.push_back(Pair("payee", CBitcoinAddress(dmn->pdmnState->scriptPayout).ToString()));
+            objMN.push_back(Pair("payee", payeeStr));
             objMN.push_back(Pair("status", dmnToStatus(dmn)));
             objMN.push_back(Pair("lastpaidtime", dmnToLastPaidTime(dmn)));
             objMN.push_back(Pair("lastpaidblock", dmn->pdmnState->nLastPaidHeight));
+            objMN.push_back(Pair("owneraddress", CBitcoinAddress(dmn->pdmnState->keyIDOwner).ToString()));
+            objMN.push_back(Pair("votingaddress", CBitcoinAddress(dmn->pdmnState->keyIDVoting).ToString()));
+            objMN.push_back(Pair("collateraladdress", collateralAddressStr));
+            objMN.push_back(Pair("pubkeyoperator", dmn->pdmnState->pubKeyOperator.ToString()));
             obj.push_back(Pair(strOutpoint, objMN));
         } else if (strMode == "lastpaidblock") {
             if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) return;
@@ -582,9 +598,9 @@ UniValue masternodelist(const JSONRPCRequest& request)
             if (strFilter !="" && payeeStr.find(strFilter) == std::string::npos &&
                 strOutpoint.find(strFilter) == std::string::npos) return;
             obj.push_back(Pair(strOutpoint, payeeStr));
-        } else if (strMode == "keyidowner") {
+        } else if (strMode == "owneraddress") {
             if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) return;
-            obj.push_back(Pair(strOutpoint, HexStr(dmn->pdmnState->keyIDOwner)));
+            obj.push_back(Pair(strOutpoint, CBitcoinAddress(dmn->pdmnState->keyIDOwner).ToString()));
         } else if (strMode == "pubkeyoperator") {
             if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) return;
             obj.push_back(Pair(strOutpoint, dmn->pdmnState->pubKeyOperator.ToString()));
@@ -596,6 +612,9 @@ UniValue masternodelist(const JSONRPCRequest& request)
             if (strFilter !="" && strStatus.find(strFilter) == std::string::npos &&
                 strOutpoint.find(strFilter) == std::string::npos) return;
             obj.push_back(Pair(strOutpoint, strStatus));
+        } else if (strMode == "votingaddress") {
+            if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) return;
+            obj.push_back(Pair(strOutpoint, CBitcoinAddress(dmn->pdmnState->keyIDVoting).ToString()));
         }
     });
 
