@@ -142,7 +142,7 @@ public:
         consensus.BIP65Height = 397152; // 00000000007f533c388f14f335132643d4cb53996959faa7e648341d8500c553
         consensus.BIP66Height = 951; // 0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9
         consensus.DIP0001Height = 717696; // Activate it on 27th November ///need to change to actual value
-        consensus.RemoveDependencyRewardOnDiffHeight = 99999999; // not set yet
+        consensus.RemoveDependencyRewardOnDiffHeight = 780000; // approx. on 4-5th of April
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
