@@ -350,11 +350,15 @@ bool BlockAssembler::TestPackage(uint64_t packageSize, unsigned int packageSigOp
 
 // Perform transaction-level checks before adding to block:
 // - transaction finality (locktime)
+// - safe TXs in regard to ChainLocks
 bool BlockAssembler::TestPackageTransactions(const CTxMemPool::setEntries& package)
 {
     BOOST_FOREACH (const CTxMemPool::txiter it, package) {
         if (!IsFinalTx(it->GetTx(), nHeight, nLockTimeCutoff))
             return false;
+        if (!llmq::chainLocksHandler->IsTxSafeForMining(it->GetTx().GetHash())) {
+            return false;
+        }
     }
     return true;
 }
@@ -395,6 +399,10 @@ bool BlockAssembler::TestForBlock(CTxMemPool::txiter iter)
     // as long as reorgs keep the mempool consistent.
     if (!IsFinalTx(iter->GetTx(), nHeight, nLockTimeCutoff))
         return false;
+
+    if (!llmq::chainLocksHandler->IsTxSafeForMining(iter->GetTx().GetHash())) {
+        return false;
+    }
 
     return true;
 }
@@ -517,12 +525,6 @@ void BlockAssembler::addPackageTxs(int &nPackagesSelected, int &nDescendantsUpda
             continue;
         }
 
-        if (mi != mempool.mapTx.get<ancestor_score>().end() &&
-                !llmq::chainLocksHandler->IsTxSafeForMining(mi->GetTx().GetHash())) {
-            ++mi;
-            continue;
-        }
-
         // Now that mi is not stale, determine which transaction to evaluate:
         // the next entry from mapTx, or the best from mapModifiedTx?
         bool fUsingModified = false;
@@ -593,7 +595,7 @@ void BlockAssembler::addPackageTxs(int &nPackagesSelected, int &nDescendantsUpda
         onlyUnconfirmed(ancestors);
         ancestors.insert(iter);
 
-        // Test if all tx's are Final
+        // Test if all tx's are Final and safe
         if (!TestPackageTransactions(ancestors)) {
             if (fUsingModified) {
                 mapModifiedTx.get<ancestor_score>().erase(modit);
@@ -668,10 +670,6 @@ void BlockAssembler::addPriorityTxs()
         // then put it in the waitSet
         if (isStillDependent(iter)) {
             waitPriMap.insert(std::make_pair(iter, actualPriority));
-            continue;
-        }
-
-        if (!llmq::chainLocksHandler->IsTxSafeForMining(iter->GetTx().GetHash())) {
             continue;
         }
 
