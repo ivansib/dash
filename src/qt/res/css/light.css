@@ -1,12 +1,12 @@
 WalletFrame { 
-border-image: url(':/images/light/drkblue_walletFrame_bg') 0 0 0 0 stretch stretch;
+background-image: url(':/images/light/drkblue_walletFrame_bg');
 border-top:0px solid #000;
 margin:0;
 padding-top:20px;
 padding-bottom: 20px;
 }
 
-QStatusBar {
+QDialog, QStatusBar {
 background-color:#ffffff;
 }
 
@@ -73,6 +73,10 @@ QMessageBox {
 background-color:#F8F6F6;
 }
 
+QGroupBox {
+background: #fff;
+}
+
 /*******************************************************/
 
 QLabel { /* Base Text Size & Color */
@@ -94,13 +98,21 @@ background-color:transparent;
 background-color:transparent;
 }
 
-.QValidatedLineEdit, .QLineEdit { /* Text Entry Fields */
+QTextEdit {
+border: 1px solid #5a5ae7;
+font-size:12px;
+background-color:#fcfcfc;
+color: #333333
+}
+
+QValidatedLineEdit, QLineEdit { /* Text Entry Fields */
 border: 1px solid #5a5ae7;
 font-size:11px;
 min-height:25px;
 outline:0;
 padding:3px;
 background-color:#fcfcfc;
+color: #333333
 }
 
 .QLineEdit:!focus {
@@ -373,8 +385,12 @@ background:transparent;
 border:1px solid #5a5ae7;
 }*/
 
-QTabWidget {
+.QTabWidget {
 background: #ffffff;
+}
+
+.QTabWidget::pane {
+border: 0;
 }
 
 QTabBar::tab {
@@ -1233,7 +1249,7 @@ background-color:transparent;
 }
 
 QWidget#contentWidget { /* The actual content with the text/buttons/etc... */
-border-image: url(':/images/light/drkblue_walletFrame_bg') 0 0 0 0 stretch stretch;
+background-image: url(':/images/light/drkblue_walletFrame_bg');
 border-top:0px solid #000;
 margin:0;
 padding-top:20px;
