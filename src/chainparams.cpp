@@ -259,11 +259,12 @@ public:
             ( 637760, uint256S("0x000000000001f142d35353e50bd9364908e0e667fadf55b4c8ae35f2863d2ec9"))
             ( 647000, uint256S("0x00000000000d3f6c21168be6a1ca0897dc61369b9d6268c4e63b9ef701d27ae7"))
             ( 672000, uint256S("0x000000000006e6dca5c8a1e46caad2013efb1e8385d3a36fbbf95bb0742509f4"))
+            ( 763500, uint256S("0x00000000000fb544de6ba3d0a5651924e69b54edfe8c83b28803d96ad4a0e118"))
         };
 
         chainTxData = ChainTxData{
-            1537273662, // * UNIX timestamp of last known number of transactions
-            1124680,    // * total number of transactions between genesis and that timestamp
+            1551801567, // * UNIX timestamp of last known number of transactions
+            1231992,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.1         // * estimated number of transactions per second after that timestamp
         };
@@ -393,11 +394,12 @@ public:
             (215000, uint256S("0x00000000a50ef507c030e0cfdc5fde9048a3f530a8b59f1aa39c4c90e59ded14"))
             (281300, uint256S("0x00000171a0345828a41ec12e28eccf74febc1de247c4f865a06bc563bcf4ddb2"))
             (315000, uint256S("0x000000c752cac0d65096cde88731d0710969b187e1edbca18a86dd3baf0324db"))
+            (405000, uint256S("0x00000149121e607fc7653cf1030bfb5d13fc7c9839ee5915fca2cfffacd06af1"))
             };
 
         chainTxData = ChainTxData{        
-            1537308700, // * UNIX timestamp of last known number of transactions
-            633944,    // * total number of transactions between genesis and that timestamp
+            1551708108, // * UNIX timestamp of last known number of transactions
+            740144,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.01        // * estimated number of transactions per second after that timestamp
         };
