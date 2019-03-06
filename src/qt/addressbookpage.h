@@ -75,6 +75,8 @@ private Q_SLOTS:
     void onCopyPrivkeyAction();
     /** Edit currently selected address entry (no button) */
     void onEditAction();
+    /** Show QR code for the currently selected address */
+    void on_showAddressQRCode_clicked();
     /** Export button clicked */
     void on_exportButton_clicked();
 
