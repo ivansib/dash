@@ -107,12 +107,12 @@ static CBlock FindDevNetGenesisBlock(const Consensus::Params& params, const CBlo
 }
 
 // this one is for testing only
-static Consensus::LLMQParams llmq10_60 = {
-        .type = Consensus::LLMQ_10_60,
-        .name = "llmq_10",
-        .size = 10,
-        .minSize = 6,
-        .threshold = 6,
+static Consensus::LLMQParams llmq5_60 = {
+        .type = Consensus::LLMQ_5_60,
+        .name = "llmq_5_60",
+        .size = 5,
+        .minSize = 3,
+        .threshold = 3,
 
         .dkgInterval = 24, // one DKG per hour
         .dkgPhaseBlocks = 2,
@@ -203,6 +203,8 @@ public:
         consensus.nMasternodePaymentsIncreasePeriod = 576*30; // 17280 - actual historical value
         consensus.nInstantSendConfirmationsRequired = 6;
         consensus.nInstantSendKeepLock = 24;
+        consensus.nInstantSendSigsRequired = 6;
+        consensus.nInstantSendSigsTotal = 10;
         consensus.nBudgetPaymentsStartBlock = 328008; // actual historical value
         consensus.nBudgetPaymentsCycleBlocks = 16616; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
         consensus.nBudgetPaymentsWindowBlocks = 100;
@@ -378,6 +380,8 @@ public:
         consensus.nMasternodePaymentsIncreasePeriod = 10;
         consensus.nInstantSendConfirmationsRequired = 2;
         consensus.nInstantSendKeepLock = 6;
+        consensus.nInstantSendSigsRequired = 6;
+        consensus.nInstantSendSigsTotal = 10;
         consensus.nBudgetPaymentsStartBlock = 57500;
         consensus.nBudgetPaymentsCycleBlocks = 50;
         consensus.nBudgetPaymentsWindowBlocks = 10;
@@ -534,6 +538,8 @@ public:
         consensus.nMasternodePaymentsIncreasePeriod = 10;
         consensus.nInstantSendConfirmationsRequired = 2;
         consensus.nInstantSendKeepLock = 6;
+        consensus.nInstantSendSigsRequired = 6;
+        consensus.nInstantSendSigsTotal = 10;
         consensus.nBudgetPaymentsStartBlock = 4100;
         consensus.nBudgetPaymentsCycleBlocks = 50;
         consensus.nBudgetPaymentsWindowBlocks = 10;
@@ -691,6 +697,8 @@ public:
         consensus.nMasternodePaymentsIncreasePeriod = 10;
         consensus.nInstantSendConfirmationsRequired = 2;
         consensus.nInstantSendKeepLock = 6;
+        consensus.nInstantSendSigsRequired = 3;
+        consensus.nInstantSendSigsTotal = 5;
         consensus.nBudgetPaymentsStartBlock = 1000;
         consensus.nBudgetPaymentsCycleBlocks = 50;
         consensus.nBudgetPaymentsWindowBlocks = 10;
@@ -795,10 +803,10 @@ public:
         nExtCoinType = 1;
 
         // long living quorum params
-        consensus.llmqs[Consensus::LLMQ_10_60] = llmq10_60;
+        consensus.llmqs[Consensus::LLMQ_5_60] = llmq5_60;
         consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
-        consensus.llmqChainLocks = Consensus::LLMQ_10_60;
-        consensus.llmqForInstantSend = Consensus::LLMQ_10_60;
+        consensus.llmqChainLocks = Consensus::LLMQ_5_60;
+        consensus.llmqForInstantSend = Consensus::LLMQ_5_60;
     }
 
     void UpdateBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout, int64_t nWindowSize, int64_t nThreshold)
@@ -864,6 +872,11 @@ void SelectParams(const std::string& network)
 void UpdateRegtestBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout, int64_t nWindowSize, int64_t nThreshold)
 {
     regTestParams.UpdateBIP9Parameters(d, nStartTime, nTimeout, nWindowSize, nThreshold);
+}
+
+void UpdateRegtestDIP3EnforcementHeight(int nHeight)
+{
+    regTestParams.UpdateDIP3EnforcementHeight(nHeight);
 }
 
 void UpdateRegtestBudgetParameters(int nMasternodePaymentsStartBlock, int nBudgetPaymentsStartBlock, int nSuperblockStartBlock)
