@@ -31,12 +31,14 @@ public:
 static const CRPCConvertParam vRPCConvertParams[] =
 {
     { "setmocktime", 0, "timestamp" },
+#if ENABLE_MINER
     { "generate", 0, "nblocks" },
     { "generate", 1, "maxtries" },
     { "setgenerate", 0, "generate"},
     { "setgenerate", 1, "genproclimit"},
     { "generatetoaddress", 0, "nblocks" },
     { "generatetoaddress", 2, "maxtries" },
+#endif // ENABLE_MINER
     { "getnetworkhashps", 0, "nblocks" },
     { "getnetworkhashps", 1, "height" },
     { "sendtoaddress", 1, "amount" },
