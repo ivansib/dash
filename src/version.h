@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2014-2018 The Dash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -47,5 +47,8 @@ static const int SHORT_IDS_BLOCKS_VERSION = 70209;
 
 //! introduction of DIP3/deterministic masternodes
 static const int DMN_PROTO_VERSION = 70213;
+
+//! introduction of LLMQs
+static const int LLMQS_PROTO_VERSION = 70214;
 
 #endif // BITCOIN_VERSION_H
