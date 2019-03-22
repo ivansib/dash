@@ -136,12 +136,13 @@ BITCOIN_CORE_H = \
   cuckoocache.h \
   ctpl.h \
   cxxtimer.hpp \
-  evo/evodb.h \
-  evo/specialtx.h \
-  evo/providertx.h \
-  evo/deterministicmns.h \
   evo/cbtx.h \
+  evo/deterministicmns.h \
+  evo/evodb.h \
+  evo/mnauth.h \
+  evo/providertx.h \
   evo/simplifiedmns.h \
+  evo/specialtx.h \
   privatesend.h \
   privatesend-client.h \
   privatesend-server.h \
@@ -271,12 +272,13 @@ libsibcoin_server_a_SOURCES = \
   chain.cpp \
   checkpoints.cpp \
   dsnotificationinterface.cpp \
-  evo/evodb.cpp \
-  evo/specialtx.cpp \
-  evo/providertx.cpp \
-  evo/deterministicmns.cpp \
   evo/cbtx.cpp \
+  evo/deterministicmns.cpp \
+  evo/evodb.cpp \
+  evo/mnauth.cpp \
+  evo/providertx.cpp \
   evo/simplifiedmns.cpp \
+  evo/specialtx.cpp \
   httprpc.cpp \
   httpserver.cpp \
   init.cpp \
