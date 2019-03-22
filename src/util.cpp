@@ -282,13 +282,16 @@ bool LogAcceptCategory(const char* category)
                 // thread_specific_ptr automatically deletes the set when the thread ends.
                 // "sibcoin" is a composite category enabling all Sibcoin-related debug output
                 if(ptrCategory->count(std::string("sibcoin"))) {
-                    ptrCategory->insert(std::string("privatesend"));
-                    ptrCategory->insert(std::string("instantsend"));
-                    ptrCategory->insert(std::string("masternode"));
-                    ptrCategory->insert(std::string("spork"));
-                    ptrCategory->insert(std::string("keepass"));
-                    ptrCategory->insert(std::string("mnpayments"));
+                    ptrCategory->insert(std::string("chainlocks"));
                     ptrCategory->insert(std::string("gobject"));
+                    ptrCategory->insert(std::string("instantsend"));
+                    ptrCategory->insert(std::string("keepass"));
+                    ptrCategory->insert(std::string("llmq"));
+                    ptrCategory->insert(std::string("masternode"));
+                    ptrCategory->insert(std::string("mnpayments"));
+                    ptrCategory->insert(std::string("mnsync"));
+                    ptrCategory->insert(std::string("spork"));
+                    ptrCategory->insert(std::string("privatesend"));
                 }
             } else {
                 ptrCategory.reset(new std::set<std::string>());
