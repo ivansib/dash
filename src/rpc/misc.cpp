@@ -142,6 +142,8 @@ UniValue debug(const JSONRPCRequest& request)
 
     fDebug = GetArg("-debug", "") != "0";
 
+    ResetLogAcceptCategoryCache();
+
     return "Debug mode: " + (fDebug ? strMode : "off");
 }
 

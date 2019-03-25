@@ -217,6 +217,7 @@ static boost::once_flag debugPrintInitFlag = BOOST_ONCE_INIT;
 static FILE* fileout = NULL;
 static boost::mutex* mutexDebugLog = NULL;
 static std::list<std::string>* vMsgsBeforeOpenLog;
+static std::atomic<int> logAcceptCategoryCacheCounter(0);
 
 static int FileWriteStr(const std::string &str, FILE *fp)
 {
@@ -261,6 +262,7 @@ bool LogAcceptCategory(const char* category)
         // where mapMultiArgs might be deleted before another
         // global destructor calls LogPrint()
         static boost::thread_specific_ptr<std::set<std::string> > ptrCategory;
+        static boost::thread_specific_ptr<int> cacheCounter;
 
         if (!fDebug) {
             if (ptrCategory.get() != NULL) {
@@ -270,8 +272,11 @@ bool LogAcceptCategory(const char* category)
             return false;
         }
 
-        if (ptrCategory.get() == NULL)
+        if (ptrCategory.get() == NULL || *cacheCounter != logAcceptCategoryCacheCounter.load())
         {
+            cacheCounter.reset(new int(logAcceptCategoryCacheCounter.load()));
+
+            LOCK(cs_args);
             if (mapMultiArgs.count("-debug")) {
                 std::string strThreadName = GetThreadName();
                 LogPrintf("debug turned on:\n");
@@ -308,6 +313,11 @@ bool LogAcceptCategory(const char* category)
             return false;
     }
     return true;
+}
+
+void ResetLogAcceptCategoryCache()
+{
+    logAcceptCategoryCacheCounter++;
 }
 
 /**
