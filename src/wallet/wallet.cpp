@@ -5423,6 +5423,11 @@ bool CMerkleTx::IsLockedByInstantSend() const
     return instantsend.IsLockedInstantSendTransaction(GetHash()) || llmq::quorumInstantSendManager->IsLocked(GetHash());
 }
 
+bool CMerkleTx::IsLockedByLLMQInstantSend() const
+{
+    return llmq::quorumInstantSendManager->IsLocked(GetHash());
+}
+
 bool CMerkleTx::IsChainLocked() const
 {
     AssertLockHeld(cs_main);
