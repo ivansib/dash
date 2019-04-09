@@ -503,7 +503,7 @@ bool CDeterministicMNManager::ProcessBlock(const CBlock& block, const CBlockInde
 
     // Don't hold cs while calling signals
     if (!diff.addedMNs.empty() || !diff.removedMns.empty()) {
-        GetMainSignals().NotifyMasternodeListChanged(newList);
+        GetMainSignals().NotifyMasternodeListChanged(false, oldList, diff);
     }
 
     const auto& consensusParams = Params().GetConsensus();
@@ -527,10 +527,18 @@ bool CDeterministicMNManager::UndoBlock(const CBlock& block, const CBlockIndex* 
     int nHeight = pindex->nHeight;
     uint256 blockHash = block.GetHash();
 
+    CDeterministicMNList curList;
+    CDeterministicMNList prevList;
     CDeterministicMNListDiff diff;
     {
         LOCK(cs);
         evoDb.Read(std::make_pair(DB_LIST_DIFF, blockHash), diff);
+
+        if (diff.HasChanges()) {
+            // need to call this before erasing
+            curList = GetListForBlock(blockHash);
+            prevList = GetListForBlock(pindex->pprev->GetBlockHash());
+        }
 
         evoDb.Erase(std::make_pair(DB_LIST_DIFF, blockHash));
         evoDb.Erase(std::make_pair(DB_LIST_SNAPSHOT, blockHash));
@@ -539,8 +547,8 @@ bool CDeterministicMNManager::UndoBlock(const CBlock& block, const CBlockIndex* 
     }
 
     if (!diff.addedMNs.empty() || !diff.removedMns.empty()) {
-        auto prevList = GetListForBlock(pindex->pprev->GetBlockHash());
-        GetMainSignals().NotifyMasternodeListChanged(prevList);
+        auto inversedDiff = curList.BuildDiff(prevList);
+        GetMainSignals().NotifyMasternodeListChanged(true, curList, inversedDiff);
     }
 
     const auto& consensusParams = Params().GetConsensus();
