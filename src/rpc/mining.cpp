@@ -416,7 +416,6 @@ UniValue getwork(const JSONRPCRequest& request)
 
     typedef std::map<uint256, std::pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;    // FIXME: thread safety
-    static std::vector<std::unique_ptr<CBlockTemplate>> vNewBlockTemplate;
 
     if (request.params.size() == 0)
     {
@@ -444,7 +443,6 @@ UniValue getwork(const JSONRPCRequest& request)
             {
                 // Deallocate old blocks since they're obsolete now
                 mapNewBlock.clear();
-                vNewBlockTemplate.clear();
             }
 
             // Clear pindexPrev so future getworks make a new block, despite any failures from here on
@@ -459,7 +457,6 @@ UniValue getwork(const JSONRPCRequest& request)
             pblocktemplate = BlockAssembler(Params()).CreateNewBlock(coinbaseScript->reserveScript);
             if (!pblocktemplate)
                 throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
-            vNewBlockTemplate.push_back(std::move(pblocktemplate));
 
             // Need to update only after we know CreateNewBlock succeeded
             pindexPrev = pindexPrevNew;
