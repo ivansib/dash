@@ -230,6 +230,7 @@ public:
     bool hdEnabled() const;
 
     int getDefaultConfirmTarget() const;
+    int getNumISLocks() const;
 
 private:
     CWallet *wallet;
@@ -254,7 +255,7 @@ private:
     CAmount cachedWatchImmatureBalance;
     EncryptionStatus cachedEncryptionStatus;
     int cachedNumBlocks;
-    int cachedTxLocks;
+    int cachedNumISLocks;
     int cachedPrivateSendRounds;
 
     QTimer *pollTimer;
@@ -293,6 +294,10 @@ public Q_SLOTS:
     void updateStatus();
     /* New transaction, or transaction changed status */
     void updateTransaction();
+    /* IS-Lock received */
+    void updateNumISLocks();
+    /* ChainLock received */
+    void updateChainLockHeight(int chainLockHeight);
     /* New, updated or removed address book entry */
     void updateAddressBook(const QString &address, const QString &label, bool isMine, const QString &purpose, int status);
     /* Watch-only added */
