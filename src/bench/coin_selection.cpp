@@ -4,7 +4,6 @@
 
 #include "bench.h"
 #include "wallet/wallet.h"
-#include "masternode.h"
 
 #include <boost/foreach.hpp>
 #include <set>
