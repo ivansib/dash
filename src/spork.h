@@ -30,7 +30,7 @@ static const int SPORK_19_CHAINLOCKS_ENABLED                            = 10018;
 static const int SPORK_20_REJECT_OLD_BLOCKS                             = 10019; // SIB
 
 static const int SPORK_START                                            = SPORK_2_INSTANTSEND_ENABLED;
-static const int SPORK_END                                              = SPORK_19_REJECT_OLD_BLOCKS;
+static const int SPORK_END                                              = SPORK_20_REJECT_OLD_BLOCKS;
 
 static const int SPORK_21_REJECT_NUMBER = 36; // SIB
 

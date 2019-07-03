@@ -1340,10 +1340,6 @@ bool AppInitParameterInteraction()
         }
     }
 
-    if (IsArgSet("-dip3enforcementheight")) {
-        UpdateRegtestDIP3EnforcementHeight(GetArg("-dip3enforcementheight", 0));
-    }
-
     if (IsArgSet("-budgetparams")) {
         // Allow overriding budget parameters for testing
         if (!chainparams.MineBlocksOnDemand()) {

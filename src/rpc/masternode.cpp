@@ -10,7 +10,6 @@
 #include "validation.h"
 #include "masternode-payments.h"
 #include "masternode-sync.h"
-#include "masternodeman.h"
 #ifdef ENABLE_WALLET
 #include "privatesend-client.h"
 #endif // ENABLE_WALLET
@@ -321,7 +320,7 @@ UniValue masternode_outputs(const JSONRPCRequest& request)
 
     // Find possible candidates
     std::vector<COutput> vPossibleCoins;
-    pwallet->AvailableCoins(vPossibleCoins, true, NULL, false, ONLY_1000);
+    pwallet->AvailableCoins(vPossibleCoins, true, NULL, false, ONLY_MNCOLLATERAL);
 
     UniValue obj(UniValue::VOBJ);
     for (const auto& out : vPossibleCoins) {
