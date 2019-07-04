@@ -29,10 +29,10 @@ static const int SPORK_17_QUORUM_DKG_ENABLED                            = 10016;
 static const int SPORK_18_QUORUM_DEBUG_ENABLED                          = 10017;
 static const int SPORK_19_CHAINLOCKS_ENABLED                            = 10018;
 static const int SPORK_20_INSTANTSEND_LLMQ_BASED                        = 10019;
-static const int SPORK_21_REJECT_OLD_BLOCKS                             = 10019; // SIB
+static const int SPORK_21_REJECT_OLD_BLOCKS                             = 10020; // SIB
 
 static const int SPORK_START                                            = SPORK_2_INSTANTSEND_ENABLED;
-static const int SPORK_END                                              = SPORK_20_REJECT_OLD_BLOCKS;
+static const int SPORK_END                                              = SPORK_21_REJECT_OLD_BLOCKS;
 
 static const int SPORK_22_REJECT_NUMBER = 36; // SIB
 
