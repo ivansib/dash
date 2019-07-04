@@ -7,7 +7,7 @@
 #include "random.h"
 #include "util.h"
 
-#include "dash-config.h"
+#include "sibcoin-config.h"
 
 #include <mutex>
 #include <map>

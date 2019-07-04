@@ -16,6 +16,7 @@
 #include "ctpl.h"
 #include "random.h"
 #include "serialize.h"
+#include "stacktraces.h"
 #include "sync.h"
 #include "utilstrencodings.h"
 #include "utiltime.h"
