@@ -2013,7 +2013,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
 //#endif // ENABLE_WALLET
 
     LogPrintf("fLiteMode %d\n", fLiteMode);
-#ifdef ENABLE_WALLET
+
     LogPrintf("PrivateSend liquidityprovider: %d\n", privateSendClient.nLiquidityProvider);
     LogPrintf("PrivateSend rounds: %d\n", privateSendClient.nPrivateSendRounds);
     LogPrintf("PrivateSend amount: %d\n", privateSendClient.nPrivateSendAmount);
