@@ -2221,7 +2221,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     // the peer who sent us this block is missing some data and wasn't able
     // to recognize that block is actually invalid.
 
-    // DASH : CHECK TRANSACTIONS FOR INSTANTSEND
+    // SIBCOIN : CHECK TRANSACTIONS FOR INSTANTSEND
 
     if (sporkManager.IsSporkActive(SPORK_3_INSTANTSEND_BLOCK_FILTERING)) {
         // Require other nodes to comply, send them some data in case they are missing it.
