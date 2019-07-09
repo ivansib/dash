@@ -180,7 +180,6 @@ RES_ICONS = \
   qt/res/icons/cash_icon.png \
   qt/res/icons/che_cash_print.png \
   qt/res/icons/import.png \
-  qt/res/icons/shopping_cart.png \
   qt/res/icons/bitcoin.png \
   qt/res/icons/chevron.png \
   qt/res/icons/warning.png \
@@ -331,6 +330,7 @@ RES_ICONS = \
   qt/res/icons/light/receive.png \
   qt/res/icons/light/remove.png \
   qt/res/icons/light/send.png \
+  qt/res/icons/light/shopping_cart.png \
   qt/res/icons/light/synced.png \
   qt/res/icons/light/transaction0.png \
   qt/res/icons/light/transaction2.png \
@@ -439,6 +439,7 @@ RES_ICONS = \
   qt/res/icons/trad/receive.png \
   qt/res/icons/trad/remove.png \
   qt/res/icons/trad/send.png \
+  qt/res/icons/trad/shopping_cart.png \
   qt/res/icons/trad/synced.png \
   qt/res/icons/trad/transaction0.png \
   qt/res/icons/trad/transaction2.png \
@@ -549,7 +550,6 @@ RES_IMAGES = \
   qt/res/images/light/about.png \
   qt/res/images/light/splash.png \
   qt/res/images/light/splash_testnet.png \
-  qt/res/images/light/dash_logo_horizontal.png \
   qt/res/images/light/unchecked.png \
   qt/res/images/light/checked.png \
   qt/res/images/light/drkblue_downArrow.png \
@@ -559,6 +559,10 @@ RES_IMAGES = \
   qt/res/images/light/drkblue_rightArrow_small.png \
   qt/res/images/light/drkblue_qtreeview_selected.png \
   qt/res/images/light/drkblue_walletFrame_bg.png \
+  qt/res/images/light/radio_checked.png \
+  qt/res/images/light/radio_checked_disabled.png \
+  qt/res/images/light/radio_unchecked.png \
+  qt/res/images/light/radio_unchecked_disabled.png \
   qt/res/images/light-retro/about.png \
   qt/res/images/light-retro/splash.png \
   qt/res/images/light-retro/splash_testnet.png \
