@@ -6,7 +6,6 @@
         <file alias="che_cash_print">res/icons/che_cash_print.png</file>
         <file alias="cash_icon">res/icons/cash_icon.png</file>
         <file alias="import">res/icons/import.png</file>
-        <file alias="shopping_cart">res/icons/shopping_cart.png</file>               
     </qresource>
     <qresource prefix="/icons/drkblue">
         <file alias="address-book">res/icons/drkblue/address-book.png</file>
@@ -124,6 +123,7 @@
         <file alias="address-book">res/icons/light/address-book.png</file>
         <file alias="quit">res/icons/light/quit.png</file>
         <file alias="send">res/icons/light/send.png</file>
+        <file alias="shopping_cart">res/icons/light/shopping_cart.png</file>
         <file alias="connect_0">res/icons/light/connect0_16.png</file>
         <file alias="connect_1">res/icons/light/connect1_16.png</file>
         <file alias="connect_2">res/icons/light/connect2_16.png</file>
@@ -236,6 +236,7 @@
         <file alias="address-book">res/icons/trad/address-book.png</file>
         <file alias="quit">res/icons/trad/quit.png</file>
         <file alias="send">res/icons/trad/send.png</file>
+        <file alias="shopping_cart">res/icons/trad/shopping_cart.png</file>
         <file alias="connect_0">res/icons/trad/connect0_16.png</file>
         <file alias="connect_1">res/icons/trad/connect1_16.png</file>
         <file alias="connect_2">res/icons/trad/connect2_16.png</file>
@@ -341,7 +342,6 @@
     </qresource>
     <qresource prefix="/images/light">
         <file alias="about">res/images/light/about.png</file>
-        <file alias="dash_logo_horizontal">res/images/light/dash_logo_horizontal.png</file>
         <file alias="unchecked">res/images/light/unchecked.png</file>
         <file alias="checked">res/images/light/checked.png</file>
         <file alias="drkblue_downArrow">res/images/light/drkblue_downArrow.png</file>
@@ -351,6 +351,10 @@
         <file alias="drkblue_rightArrow_small">res/images/light/drkblue_rightArrow_small.png</file>
         <file alias="drkblue_qtreeview_selected">res/images/light/drkblue_qtreeview_selected.png</file>
         <file alias="drkblue_walletFrame_bg">res/images/light/drkblue_walletFrame_bg.png</file>
+        <file alias="radio_checked">res/images/light/radio_checked.png</file>
+        <file alias="radio_checked_disabled">res/images/light/radio_checked_disabled.png</file>
+        <file alias="radio_unchecked">res/images/light/radio_unchecked.png</file>
+        <file alias="radio_unchecked_disabled">res/images/light/radio_unchecked_disabled.png</file>
         <file alias="splash">res/images/light/splash.png</file>
         <file alias="splash_testnet">res/images/light/splash_testnet.png</file>
     </qresource>
