@@ -53,25 +53,8 @@ script: |
   mkdir -p ${WRAP_DIR}
   if test -n "$GBUILD_CACHE_ENABLED"; then
     export SOURCES_PATH=${GBUILD_COMMON_CACHE}
-    export BASE_CACHE=${GBUILD_PACKAGE_CACHE}/depends
+    export BASE_CACHE=${GBUILD_PACKAGE_CACHE}
     mkdir -p ${BASE_CACHE} ${SOURCES_PATH}
-
-    # Setup ccache to use correct cache directories and fix the compiler check of ccache
-    CONFIGFLAGS="${CONFIGFLAGS} --enable-ccache"
-    export CCACHE_DIR=${GBUILD_PACKAGE_CACHE}/ccache
-    # As we later wrap the gcc binaries, this is fast
-    export CCACHE_COMPILERCHECK="content"
-    if [ -f ${GBUILD_PACKAGE_CACHE}/ccache.tar ]; then
-      pushd ${GBUILD_PACKAGE_CACHE}
-      tar xf ccache.tar
-      rm ccache.tar
-      popd
-    fi
-    # instead of compressing ccache.tar, we let ccache handle it by itself
-    # Otherwise we end up uncompressing/compressing a lot of cache files which we actually never use
-    export CCACHE_COMPRESS=1
-  else
-    CONFIGFLAGS="${CONFIGFLAGS} --disable-ccache"
   fi
 
   # We include the GCC version in all wrappers so that ccache can detect compiler upgrades when hashing the wrappers
