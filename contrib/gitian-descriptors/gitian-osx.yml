@@ -49,23 +49,8 @@ script: |
   mkdir -p ${WRAP_DIR}
   if test -n "$GBUILD_CACHE_ENABLED"; then
     export SOURCES_PATH=${GBUILD_COMMON_CACHE}
-    export BASE_CACHE=${GBUILD_PACKAGE_CACHE}/depends
+    export BASE_CACHE=${GBUILD_PACKAGE_CACHE}
     mkdir -p ${BASE_CACHE} ${SOURCES_PATH}
-
-    # Setup ccache to use correct cache directories
-    CONFIGFLAGS="${CONFIGFLAGS} --enable-ccache"
-    export CCACHE_DIR=${GBUILD_PACKAGE_CACHE}/ccache
-    if [ -f ${GBUILD_PACKAGE_CACHE}/ccache.tar ]; then
-      pushd ${GBUILD_PACKAGE_CACHE}
-      tar xf ccache.tar
-      rm ccache.tar
-      popd
-    fi
-    # instead of compressing ccache.tar, we let ccache handle it by itself
-    # Otherwise we end up uncompressing/compressing a lot of cache files which we actually never use
-    export CCACHE_COMPRESS=1
-  else
-    CONFIGFLAGS="${CONFIGFLAGS} --disable-ccache"
   fi
 
   export ZERO_AR_DATE=1
@@ -175,11 +160,3 @@ script: |
   mkdir -p $OUTDIR/src
   mv $SOURCEDIST $OUTDIR/src
   mv ${OUTDIR}/${DISTNAME}-x86_64-*.tar.gz ${OUTDIR}/${DISTNAME}-osx64.tar.gz
-
-  # Compress ccache (otherwise the assert file will get too huge)
-  if [ "$CCACHE_DIR" != "" ]; then
-    pushd ${GBUILD_PACKAGE_CACHE}
-    tar cf ccache.tar ccache
-    rm -rf ccache
-    popd
-  fi
