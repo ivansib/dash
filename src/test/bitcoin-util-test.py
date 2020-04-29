@@ -42,4 +42,4 @@ if __name__ == '__main__':
     # Add the format/level to the logger
     logging.basicConfig(format = formatter, level=level)
 
-    bctest.bctester(srcdir + "/test/data", "bitcoin-util-test.json", buildenv)
+#    bctest.bctester(srcdir + "/test/data", "bitcoin-util-test.json", buildenv)
