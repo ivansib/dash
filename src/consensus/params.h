@@ -129,6 +129,8 @@ struct Params {
     int BIP66Height;
     /** Block height at which DIP0001 becomes active */
     int DIP0001Height;
+    /** Block height at which reward dependency on difficulty will be removed */
+    int RemoveDependencyRewardOnDiffHeight;
     /**
      * Minimum blocks including miner confirmation of the total of nMinerConfirmationWindow blocks in a retargeting period,
      * (nPowTargetTimespan / nPowTargetSpacing) which is also used for BIP9 deployments.

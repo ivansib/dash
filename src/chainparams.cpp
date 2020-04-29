@@ -196,7 +196,8 @@ public:
         consensus.BIP34Hash = uint256S("0x0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9");
         consensus.BIP65Height = 397152; // 00000000007f533c388f14f335132643d4cb53996959faa7e648341d8500c553
         consensus.BIP66Height = 951; // 0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9
-        consensus.DIP0001Height = 710000; // Activate it on 27th November
+        consensus.DIP0001Height = 717696; // Activate it on 27th November ///need to change to actual value
+        consensus.RemoveDependencyRewardOnDiffHeight = 780000; // approx. on 4-5th of April
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
@@ -329,11 +330,12 @@ public:
             ( 637760, uint256S("0x000000000001f142d35353e50bd9364908e0e667fadf55b4c8ae35f2863d2ec9"))
             ( 647000, uint256S("0x00000000000d3f6c21168be6a1ca0897dc61369b9d6268c4e63b9ef701d27ae7"))
             ( 672000, uint256S("0x000000000006e6dca5c8a1e46caad2013efb1e8385d3a36fbbf95bb0742509f4"))
+            ( 763500, uint256S("0x00000000000fb544de6ba3d0a5651924e69b54edfe8c83b28803d96ad4a0e118"))
         };
 
         chainTxData = ChainTxData{
-            1537273662, // * UNIX timestamp of last known number of transactions
-            1124680,    // * total number of transactions between genesis and that timestamp
+            1551801567, // * UNIX timestamp of last known number of transactions
+            1231992,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.1         // * estimated number of transactions per second after that timestamp
         };
@@ -367,7 +369,8 @@ public:
         consensus.BIP34Hash = uint256S("0x00000243719923dcc244bbb0e81bd5b03e3ce4fd3fe408358503ae5856ce3b40");
         consensus.BIP65Height = 66528; // 0000009d43b7778b3057c232afd3c7ce424a17adf8375b8b3ecc0578a4e0f272
         consensus.BIP66Height = 76; // 00000243719923dcc244bbb0e81bd5b03e3ce4fd3fe408358503ae5856ce3b40
-        consensus.DIP0001Height = 339400; // Not activated in sibcoin network yet, so set it to 1000 years in the future in this build
+        consensus.DIP0001Height = 340100; 
+        consensus.RemoveDependencyRewardOnDiffHeight = 405151;       
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
@@ -480,11 +483,12 @@ public:
             (215000, uint256S("0x00000000a50ef507c030e0cfdc5fde9048a3f530a8b59f1aa39c4c90e59ded14"))
             (281300, uint256S("0x00000171a0345828a41ec12e28eccf74febc1de247c4f865a06bc563bcf4ddb2"))
             (315000, uint256S("0x000000c752cac0d65096cde88731d0710969b187e1edbca18a86dd3baf0324db"))
+            (405000, uint256S("0x00000149121e607fc7653cf1030bfb5d13fc7c9839ee5915fca2cfffacd06af1"))
             };
 
         chainTxData = ChainTxData{        
-            1537308700, // * UNIX timestamp of last known number of transactions
-            633944,    // * total number of transactions between genesis and that timestamp
+            1551708108, // * UNIX timestamp of last known number of transactions
+            740144,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.01        // * estimated number of transactions per second after that timestamp
         };
@@ -519,6 +523,7 @@ public:
         consensus.BIP65Height = 1; // BIP65 activated immediately on devnet
         consensus.BIP66Height = 1; // BIP66 activated immediately on devnet
         consensus.DIP0001Height = 2; // DIP0001 activated immediately on devnet
+        consensus.RemoveDependencyRewardOnDiffHeight = 10; // activated immediately on devnet       
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
@@ -669,6 +674,7 @@ public:
         consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in rpc activation tests)
         consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
         consensus.DIP0001Height = 2000;
+        consensus.RemoveDependencyRewardOnDiffHeight = 2100;        
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
