@@ -208,7 +208,7 @@ class RawTransactionsTest(BitcoinTestFramework):
             self.nodes[2].fundrawtransaction(rawtx, {'changeAddress': 'foobar'})
             raise AssertionError("Accepted invalid dash address")
         except JSONRPCException as e:
-            assert("changeAddress must be a valid dash address" in e.error['message'])
+            assert("changeAddress must be a valid sibcoin address" in e.error['message'])
 
 
         ############################################################

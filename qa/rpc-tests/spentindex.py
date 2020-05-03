@@ -47,7 +47,7 @@ class SpentIndexTest(BitcoinTestFramework):
         print("Testing spent index...")
 
         privkey = "cU4zhap7nPJAWeMFu4j6jLrfPmqakDAzy8zn8Fhb3oEevdm4e5Lc"
-        address = "yeMpGzMj3rhtnz48XsfpB8itPHhHtgxLc3"
+        address = "scHmWMtQQ9kkXUxqAag2uFe5wiq9EWGU8n"
         addressHash = binascii.unhexlify("C5E4FB9171C22409809A3E8047A29C83886E325D")
         scriptPubKey = CScript([OP_DUP, OP_HASH160, addressHash, OP_EQUALVERIFY, OP_CHECKSIG])
         unspent = self.nodes[0].listunspent()
@@ -85,7 +85,7 @@ class SpentIndexTest(BitcoinTestFramework):
 
         # Check that verbose raw transaction includes address values and input values
         privkey2 = "cU4zhap7nPJAWeMFu4j6jLrfPmqakDAzy8zn8Fhb3oEevdm4e5Lc"
-        address2 = "yeMpGzMj3rhtnz48XsfpB8itPHhHtgxLc3"
+        address2 = "scHmWMtQQ9kkXUxqAag2uFe5wiq9EWGU8n"
         addressHash2 = binascii.unhexlify("C5E4FB9171C22409809A3E8047A29C83886E325D")
         scriptPubKey2 = CScript([OP_DUP, OP_HASH160, addressHash2, OP_EQUALVERIFY, OP_CHECKSIG])
         tx2 = CTransaction()

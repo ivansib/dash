@@ -24,7 +24,7 @@ class SignMessagesTest(BitcoinTestFramework):
 
         # Test the signing with a privkey
         privKey = "cU4zhap7nPJAWeMFu4j6jLrfPmqakDAzy8zn8Fhb3oEevdm4e5Lc"
-        address = "yeMpGzMj3rhtnz48XsfpB8itPHhHtgxLc3"
+        address = "scHmWMtQQ9kkXUxqAag2uFe5wiq9EWGU8n"
         signature = self.nodes[0].signmessagewithprivkey(privKey, message)
 
         # Verify the message

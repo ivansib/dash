@@ -270,7 +270,7 @@ def initialize_chain(test_dir, num_nodes, cachedir, extra_args=None, redirect_st
         # Create cache directories, run dashds:
         for i in range(MAX_NODES):
             datadir=initialize_datadir(cachedir, i)
-            args = [ os.getenv("SIBCOIND", "sibcond"), "-server", "-keypool=1", "-datadir="+datadir, "-discover=0", "-mocktime="+str(GENESISTIME) ]
+            args = [ os.getenv("SIBCOIND", "sibcoind"), "-server", "-keypool=1", "-datadir="+datadir, "-discover=0", "-mocktime="+str(GENESISTIME) ]
             if i > 0:
                 args.append("-connect=127.0.0.1:"+str(p2p_port(0)))
             if extra_args is not None:
