@@ -38,7 +38,7 @@ import logging
 import copy
 from test_framework.siphash import siphash256
 
-import dash_hash
+import x11_gost_hash
 
 BIP0031_VERSION = 60000
 MY_VERSION = 70210  # MIN_PEER_PROTO_VERSION
@@ -76,7 +76,7 @@ def hash256(s):
     return sha256(sha256(s))
 
 def dashhash(s):
-    return dash_hash.getPoWHash(s)
+    return x11_gost_hash.getPoWHash(s)
 
 def ser_compact_size(l):
     r = b""
