@@ -493,10 +493,10 @@ public:
         vSeeds.clear();
         //vSeeds.push_back(CDNSSeedData("dashevo.org",  "devnet-seed.dashevo.org"));
 
-        // Testnet Sibcon addresses start with 'y'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Testnet Sibcon script addresses start with '8' or '9'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
+        // Testnet Sibcon addresses start with 's'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,125);
+        // Testnet Sibcon script addresses start with 'h' 
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,100);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
         // Testnet Sibcon BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
@@ -517,7 +517,7 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        strSporkAddress = "yjPtiKh2uwk3bDutTEA2q9mCtXyiZRWn55";
+        strSporkAddress = "sW32oM17DLsTfyB93ibYKwaXwnmprKSJeq";
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
@@ -615,8 +615,8 @@ public:
 
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        // privKey: cP4EKFyJsHT39LDqgdcB43Y3YXjNyjb5Fuas1GQSeAtjnZWmZEQK
-        strSporkAddress = "yj949n1UH6fDhw6HtVE5VMj2iSTaSWBMcW";
+        // privKey: cS7h4AVtDr5sCWQZAnr3sW3MJMmkFeNi46CB1mZ39nN82PfXyWui
+        strSporkAddress = "sTe8sdC4HameYtDWX9MMu24bbvvesJPxvw";
 
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
