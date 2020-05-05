@@ -22,7 +22,7 @@ class SporkTest(BitcoinTestFramework):
         disable_mocktime()
         self.nodes = []
         self.nodes.append(start_node(0, self.options.tmpdir,
-                                     ["-debug", "-sporkkey=cP4EKFyJsHT39LDqgdcB43Y3YXjNyjb5Fuas1GQSeAtjnZWmZEQK"]))
+                                     ["-debug", "-sporkkey=cS7h4AVtDr5sCWQZAnr3sW3MJMmkFeNi46CB1mZ39nN82PfXyWui"]))
         self.nodes.append(start_node(1, self.options.tmpdir,
                                      ["-debug"]))
         self.nodes.append(start_node(2, self.options.tmpdir,

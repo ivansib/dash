@@ -23,7 +23,7 @@ class DIP3Test(BitcoinTestFramework):
         self.setup_clean_chain = True
 
         self.extra_args = ["-budgetparams=240:100:240"]
-        self.extra_args += ["-sporkkey=cP4EKFyJsHT39LDqgdcB43Y3YXjNyjb5Fuas1GQSeAtjnZWmZEQK"]
+        self.extra_args += ["-sporkkey=cS7h4AVtDr5sCWQZAnr3sW3MJMmkFeNi46CB1mZ39nN82PfXyWui"]
 
     def setup_network(self):
         disable_mocktime()

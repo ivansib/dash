@@ -285,7 +285,7 @@ class DashTestFramework(BitcoinTestFramework):
         self.prepare_masternodes()
         self.write_mn_config()
         stop_node(self.nodes[0], 0)
-        args = ["-sporkkey=cP4EKFyJsHT39LDqgdcB43Y3YXjNyjb5Fuas1GQSeAtjnZWmZEQK"] + \
+        args = ["-sporkkey=cS7h4AVtDr5sCWQZAnr3sW3MJMmkFeNi46CB1mZ39nN82PfXyWui"] + \
                self.extra_args
         self.nodes[0] = start_node(0, self.options.tmpdir,
                                    args)
