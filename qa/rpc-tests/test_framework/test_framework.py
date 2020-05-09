@@ -203,7 +203,7 @@ class BitcoinTestFramework(object):
             sys.exit(1)
 
 
-MASTERNODE_COLLATERAL = 1000
+MASTERNODE_COLLATERAL = 4000
 
 
 class MasternodeInfo:

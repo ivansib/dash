@@ -93,7 +93,7 @@ class AutoInstantSendTest(DashTestFramework):
     def send_regular_IX(self):
         receiver_addr = self.nodes[self.receiver_idx].getnewaddress()
         txid = self.nodes[0].instantsendtoaddress(receiver_addr, 1.0)
-        MIN_FEE = satoshi_round(-0.0001)
+        MIN_FEE = satoshi_round(-0.001)
         fee = self.nodes[0].gettransaction(txid)['fee']
         expected_fee = MIN_FEE * len(self.nodes[0].getrawtransaction(txid, True)['vin'])
         assert_equal(fee, expected_fee)
@@ -126,7 +126,7 @@ class AutoInstantSendTest(DashTestFramework):
             self.nodes[0].generate(1)
             
         self.enforce_masternode_payments()  # required for bip9 activation
-        assert(self.get_autoix_bip9_status() == 'defined')
+        assert(self.get_autoix_bip9_status() == 'started')
         assert(not self.get_autoix_spork_state())
 
         assert(self.send_regular_IX())

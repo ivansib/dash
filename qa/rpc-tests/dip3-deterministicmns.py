@@ -9,7 +9,7 @@
 
 from test_framework.blocktools import create_block, create_coinbase, get_masternode_payment
 from test_framework.mininode import CTransaction, ToHex, FromHex, CTxOut, COIN, CCbTx
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import BitcoinTestFramework, MASTERNODE_COLLATERAL
 from test_framework.util import *
 
 class Masternode(object):
@@ -52,15 +52,15 @@ class DIP3Test(BitcoinTestFramework):
 
     def run_test(self):
         print("funding controller node")
-        while self.nodes[0].getbalance() < (self.num_initial_mn + 3) * 1000:
+        while self.nodes[0].getbalance() < (self.num_initial_mn + 3) * MASTERNODE_COLLATERAL:
             self.nodes[0].generate(1) # generate enough for collaterals
         print("controller node has {} dash".format(self.nodes[0].getbalance()))
 
-        # Make sure we're below block 143 (which activates dip3)
+        # Make sure we're below block 287 (which lock in dip3)
         print("testing rejection of ProTx before dip3 activation")
-        assert(self.nodes[0].getblockchaininfo()['blocks'] < 143)
+        assert(self.nodes[0].getblockchaininfo()['blocks'] < 287)
         dip3_deployment = self.nodes[0].getblockchaininfo()['bip9_softforks']['dip0003']
-        assert_equal(dip3_deployment['status'], 'defined')
+        #assert_equal(dip3_deployment['status'], 'started')
 
         self.test_fail_create_protx(self.nodes[0])
 
@@ -393,12 +393,12 @@ class DIP3Test(BitcoinTestFramework):
         mn.legacyMnkey = node.masternode('genkey')
         mn.blsMnkey = blsKey['secret']
         mn.collateral_address = node.getnewaddress()
-        mn.collateral_txid = node.sendtoaddress(mn.collateral_address, 1000)
+        mn.collateral_txid = node.sendtoaddress(mn.collateral_address, MASTERNODE_COLLATERAL)
         rawtx = node.getrawtransaction(mn.collateral_txid, 1)
 
         mn.collateral_vout = -1
         for txout in rawtx['vout']:
-            if txout['value'] == Decimal(1000):
+            if txout['value'] == Decimal(MASTERNODE_COLLATERAL):
                 mn.collateral_vout = txout['n']
                 break
         assert(mn.collateral_vout != -1)
@@ -427,7 +427,7 @@ class DIP3Test(BitcoinTestFramework):
     # create a protx MN and also fund it (using collateral inside ProRegTx)
     def create_mn_protx_fund(self, node, idx, alias, legacy_mn_key=None):
         mn = self.create_mn_protx_base(node, idx, alias, legacy_mn_key=legacy_mn_key)
-        node.sendtoaddress(mn.fundsAddr, 1000.001)
+        node.sendtoaddress(mn.fundsAddr, MASTERNODE_COLLATERAL + 0.001)
 
         mn.collateral_address = node.getnewaddress()
 
@@ -437,7 +437,7 @@ class DIP3Test(BitcoinTestFramework):
 
         rawtx = node.getrawtransaction(mn.collateral_txid, 1)
         for txout in rawtx['vout']:
-            if txout['value'] == Decimal(1000):
+            if txout['value'] == Decimal(MASTERNODE_COLLATERAL):
                 mn.collateral_vout = txout['n']
                 break
         assert(mn.collateral_vout != -1)
@@ -470,7 +470,7 @@ class DIP3Test(BitcoinTestFramework):
         self.sync_all()
 
     def spend_mn_collateral(self, mn, with_dummy_input_output=False):
-        return self.spend_input(mn.collateral_txid, mn.collateral_vout, 1000, with_dummy_input_output)
+        return self.spend_input(mn.collateral_txid, mn.collateral_vout, MASTERNODE_COLLATERAL, with_dummy_input_output)
 
     def upgrade_mn_protx(self, mn, refund):
         if refund:
@@ -741,7 +741,7 @@ class DIP3Test(BitcoinTestFramework):
         # Try to create ProTx (should still fail)
         fund_address = node.getnewaddress()
         address = node.getnewaddress()
-        node.sendtoaddress(fund_address, 1000.001) # +0.001 for fees
+        node.sendtoaddress(fund_address, MASTERNODE_COLLATERAL + 0.001) # +0.001 for fees
         key = node.getnewaddress()
         blsKey = node.bls('generate')
         assert_raises_jsonrpc(None, "bad-tx-type", node.protx, 'register_fund', address, '127.0.0.1:10000', key, blsKey['public'], key, 0, address, fund_address)
@@ -749,7 +749,7 @@ class DIP3Test(BitcoinTestFramework):
     def test_success_create_protx(self, node):
         fund_address = node.getnewaddress()
         address = node.getnewaddress()
-        txid = node.sendtoaddress(fund_address, 1000.001) # +0.001 for fees
+        txid = node.sendtoaddress(fund_address, MASTERNODE_COLLATERAL + 0.001) # +0.001 for fees
         key = node.getnewaddress()
         blsKey = node.bls('generate')
         node.protx('register_fund', address, '127.0.0.1:10000', key, blsKey['public'], key, 0, address, fund_address)
