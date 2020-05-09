@@ -16,6 +16,7 @@
 #include "streams.h"
 #include "univalue.h"
 #include "validation.h"
+#include "masternode.h"
 
 template <typename ProTx>
 static bool CheckService(const uint256& proTxHash, const ProTx& proTx, CValidationState& state)
@@ -137,7 +138,7 @@ bool CheckProRegTx(const CTransaction& tx, const CBlockIndex* pindexPrev, CValid
 
     if (!ptx.collateralOutpoint.hash.IsNull()) {
         Coin coin;
-        if (!GetUTXOCoin(ptx.collateralOutpoint, coin) || coin.out.nValue != 1000 * COIN) {
+        if (!GetUTXOCoin(ptx.collateralOutpoint, coin) || coin.out.nValue != MASTERNODE_COLLATERAL_AMOUNT * COIN) {
             return state.DoS(10, false, REJECT_INVALID, "bad-protx-collateral");
         }
 
@@ -156,7 +157,7 @@ bool CheckProRegTx(const CTransaction& tx, const CBlockIndex* pindexPrev, CValid
         if (ptx.collateralOutpoint.n >= tx.vout.size()) {
             return state.DoS(10, false, REJECT_INVALID, "bad-protx-collateral-index");
         }
-        if (tx.vout[ptx.collateralOutpoint.n].nValue != 1000 * COIN) {
+        if (tx.vout[ptx.collateralOutpoint.n].nValue != MASTERNODE_COLLATERAL_AMOUNT * COIN) {
             return state.DoS(10, false, REJECT_INVALID, "bad-protx-collateral");
         }
 
