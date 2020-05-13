@@ -82,7 +82,7 @@ elif [ "$BUILD_TARGET" = "linux64_release" ]; then
 elif [ "$BUILD_TARGET" = "mac" ]; then
   export HOST=x86_64-apple-darwin11
   export PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools"
-  export BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --disable-miner"
+  export BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --disable-miner --without-printsupport"
   export OSX_SDK=10.11
   export GOAL="deploy"
 fi
