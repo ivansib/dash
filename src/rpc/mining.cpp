@@ -179,6 +179,7 @@ UniValue getgenerate(const JSONRPCRequest& request)
     return GetBoolArg("-gen", DEFAULT_GENERATE);
 }
 
+#if ENABLE_WALLET
 UniValue generate(const JSONRPCRequest& request)
 {
     if (request.fHelp || request.params.size() < 1 || request.params.size() > 2)
@@ -258,6 +259,7 @@ UniValue setgenerate(const JSONRPCRequest& request)
 
     return NullUniValue;
 }
+#endif
 
 UniValue generatetoaddress(const JSONRPCRequest& request)
 {
@@ -1187,10 +1189,12 @@ static const CRPCCommand commands[] =
 
 #if ENABLE_MINER
     { "generating",         "getgenerate",            &getgenerate,            true,  {} },
+    { "generating",         "generatetoaddress",      &generatetoaddress,      true,  {"nblocks","address","maxtries"} },
+#if ENABLE_WALLET
     { "generating",         "setgenerate",            &setgenerate,            true,  {"generate","genproclimit"} },
     { "generating",         "generate",               &generate,               true,  {"nblocks","maxtries"} },
-    { "generating",         "generatetoaddress",      &generatetoaddress,      true,  {"nblocks","address","maxtries"} },
     { "generating",         "getwork",                &getwork,                true,  {} },
+#endif
 #endif // ENABLE_MINER
     { "util",               "estimatefee",            &estimatefee,            true,  {"nblocks"} },
     { "util",               "estimatepriority",       &estimatepriority,       true,  {"nblocks"} },

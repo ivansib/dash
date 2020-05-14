@@ -62,12 +62,13 @@ public:
     */
     void setClientModel(ClientModel *clientModel);
 
+    void setSibModel(SibModel *sibModel);    
+    
 #ifdef ENABLE_WALLET
     /** Set the wallet model.
         The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
-    void setSibModel(SibModel *sibModel);
     bool addWallet(const QString& name, WalletModel *walletModel);
     bool setCurrentWallet(const QString& name);
     void removeAllWallets();
