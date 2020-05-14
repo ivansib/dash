@@ -46,7 +46,6 @@ QT_MOC_CPP = \
   qt/moc_csvmodelwriter.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_genandprintdialog.cpp \
-  qt/moc_goodsdialog.cpp \
   qt/moc_guiutil.cpp \
   qt/moc_intro.cpp \
   qt/moc_macdockiconhandler.cpp \
@@ -69,7 +68,6 @@ QT_MOC_CPP = \
   qt/moc_rpcconsole.cpp \
   qt/moc_sendcoinsdialog.cpp \
   qt/moc_sendcoinsentry.cpp \
-  qt/moc_sibmodel.cpp \
   qt/moc_signverifymessagedialog.cpp \
   qt/moc_splashscreen.cpp \
   qt/moc_trafficgraphwidget.cpp \
@@ -82,6 +80,12 @@ QT_MOC_CPP = \
   qt/moc_walletframe.cpp \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp
+
+if ENABLE_WALLET
+QT_MOC_CPP += \
+  qt/moc_sibmodel.cpp \
+  qt/moc_goodsdialog.cpp
+endif
 
 BITCOIN_MM = \
   qt/macdockiconhandler.mm \

@@ -291,7 +291,6 @@ libsibcoin_server_a_SOURCES = \
   timedata.cpp \
   torcontrol.cpp \
   txdb.cpp \
-  sibdb.cpp \
   txmempool.cpp \
   ui_interface.cpp \
   validation.cpp \
@@ -318,6 +317,7 @@ libsibcoin_wallet_a_SOURCES = \
   keepass.cpp \
   privatesend-client.cpp \
   privatesend-util.cpp \
+  sibdb.cpp \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/rpcdump.cpp \

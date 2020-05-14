@@ -17,7 +17,9 @@ namespace boost
 class thread_group;
 } // namespace boost
 
+#ifdef ENABLE_WALLET
 extern CSibDB* psibDB;
+#endif ENABLE_WALLET
 
 void StartShutdown();
 void StartRestart();

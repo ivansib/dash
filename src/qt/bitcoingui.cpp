@@ -723,12 +723,12 @@ void BitcoinGUI::setClientModel(ClientModel *_clientModel)
 }
 
 
+#ifdef ENABLE_WALLET
 void BitcoinGUI::setSibModel(SibModel *sibModel)
 {
     this->sibModel = sibModel;
 }
 
-#ifdef ENABLE_WALLET
 bool BitcoinGUI::addWallet(const QString& name, WalletModel *walletModel)
 {
     if(!walletFrame)
