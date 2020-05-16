@@ -263,9 +263,6 @@ public:
 
         vSeeds.push_back(CDNSSeedData("sibcoin.net", "dnsseed.sibcoin.net"));
         vSeeds.push_back(CDNSSeedData("chervonec.info", "dnsseed.chervonec.info"));
-        vSeeds.push_back(CDNSSeedData("darknode1", "dnsseed1.darknode.ru"));
-        vSeeds.push_back(CDNSSeedData("darknode2", "dnsseed2.darknode.ru"));
-        vSeeds.push_back(CDNSSeedData("darknode3", "dnsseed3.darknode.ru"));
 
         // Sibcoin addresses start with 'S'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);
