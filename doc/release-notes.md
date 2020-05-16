@@ -130,7 +130,7 @@ with no additional cost to end users or any additional effort from wallet develo
 providers.
 
 This feature is going to be activated via combination of a BIP9-like deployment (we are reusing bit 3)
-and new spork (`SPORK_16_INSTANTSEND_AUTOLOCKS`).
+and new spork (`SPORK_17_INSTANTSEND_AUTOLOCKS`).
 
 Historically, InstantSend transactions were shown in GUI and RPC with more confirmations than regular ones,
 which caused quite a bit of confusion. This will no longer be the case, instead we are going to show real
@@ -152,8 +152,8 @@ via InstantSend - `zmqpubrawinstantsenddoublespend` and `zmqpubhashinstantsenddo
 
 Sporks
 ------
-There are a couple of new sporks introduced in this version `SPORK_15_DETERMINISTIC_MNS_ENABLED` (block
-based) and `SPORK_16_INSTANTSEND_AUTOLOCKS` (timestamp based). There is aslo `SPORK_17_QUORUM_DKG_ENABLED`
+There are a couple of new sporks introduced in this version `SPORK_16_DETERMINISTIC_MNS_ENABLED` (block
+based) and `SPORK_17_INSTANTSEND_AUTOLOCKS` (timestamp based). There is aslo `SPORK_18_QUORUM_DKG_ENABLED`
 (timestamp based) which is going to be used on testnet only for now.
 
 Spork data is stored in a new cache file (`sporks.dat`) now.
