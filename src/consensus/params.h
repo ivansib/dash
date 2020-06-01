@@ -43,12 +43,12 @@ enum LLMQType : uint8_t
 {
     LLMQ_NONE = 0xff,
 
-    LLMQ_50_60 = 1, // 50 members, 30 (60%) threshold, one per hour
-    LLMQ_400_60 = 2, // 400 members, 240 (60%) threshold, one every 12 hours
-    LLMQ_400_85 = 3, // 400 members, 340 (85%) threshold, one every 24 hours
+    LLMQ_40_60 = 1, // 40 members, 30 (60%) threshold, one per hour
+    LLMQ_200_60 = 2, // 200 members, 120 (60%) threshold, one every 12 hours
+    LLMQ_200_85 = 3, // 200 members, 170 (85%) threshold, one every 24 hours
 
     // for testing only
-    LLMQ_10_60 = 100, // 10 members, 6 (60%) threshold, one per hour
+    LLMQ_5_60 = 100, // 5 members, 3 (60%) threshold, one per hour
 };
 
 // Configures a LLMQ and its DKG
@@ -59,7 +59,7 @@ struct LLMQParams {
     // not consensus critical, only used in logging, RPC and UI
     std::string name;
 
-    // the size of the quorum, e.g. 50 or 400
+    // the size of the quorum, e.g. 40 or 200
     int size;
 
     // The minimum number of valid members after the DKK. If less members are determined valid, no commitment can be
