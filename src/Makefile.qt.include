@@ -6,7 +6,8 @@ QT_TS = \
   qt/locale/sibcoin_ru.ts \
   qt/locale/sibcoin_en.ts \
   qt/locale/sibcoin_de.ts \
-  qt/locale/sibcoin_es.ts
+  qt/locale/sibcoin_es.ts \
+  qt/locale/sibcoin_uk.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -686,7 +687,7 @@ qt/sibcoinstrings.cpp: $(libsibcoin_server_a_SOURCES) $(libsibcoin_wallet_a_SOUR
 
 translate: qt/sibcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/sibcoin_en.ts qt/locale/sibcoin_ru.ts qt/locale/sibcoin_de.ts qt/locale/sibcoin_es.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/sibcoin_en.ts qt/locale/sibcoin_ru.ts qt/locale/sibcoin_de.ts qt/locale/sibcoin_es.ts qt/locale/sibcoin_uk.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
