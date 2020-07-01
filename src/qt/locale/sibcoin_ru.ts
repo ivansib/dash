@@ -1354,12 +1354,12 @@ p, li { white-space: pre-wrap; }
         <translation>Sentinel</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK15 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK16 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Примечание: Этот список показывает старые недетерминированные мастерноды. Он будет активным до тех пор, пока DIP3 не будет полностью активирован. После активации SPORK16 этот список будет обнулен.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>DIP3 Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>DIP3 мастерноды</translation>
     </message>
     <message>
         <source>Show only masternodes this wallet has keys for.</source>
@@ -1390,8 +1390,8 @@ p, li { white-space: pre-wrap; }
         <translation>Награда оператора</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK15 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK15 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK16 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK16 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Примечание: Этот список еще не активен и пока что служит только для информационных целей. Сеть все еще работает в режиме совместимости, что означает, что старый список недетерминированных мастернод все еще активен. Этот список станет активным только после активации SPORK16. Также обратите внимание, что хотя значения в платежных полях и обновляются с каждым новым блоком, но на данный момент они не используются. Пожалуйста, игнорируйте их до активации SPORK16.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Copy ProTx Hash</source>

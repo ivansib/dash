@@ -271,7 +271,7 @@
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SIBCOINS&lt;/b&gt;!</source>
-        <translation type="unfinished"></translation>
+        <translation>Advertencia: Si cifra su billetera y pierde su contraseña, ¡&lt;b&gt;PERDERÁ TODOS SUS SIB&lt;/b&gt;!</translation>
     </message>
 </context>
 <context>
@@ -733,7 +733,7 @@
     </message>
     <message>
         <source>Open Masternode configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir archivo de configuración de Masternode</translation>
     </message>
     <message>
         <source>&amp;Print sibcoins...</source>
@@ -753,7 +753,7 @@
     </message>
     <message>
         <source>Open a sibcoin: URI or payment request</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir un sibcoin: URI o petición de pago</translation>
     </message>
     <message>
         <source>&amp;Howto</source>
@@ -765,18 +765,18 @@
     </message>
     <message>
         <source>A fatal error occurred. Sibcoin can no longer continue safely and will quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se produjo un error fatal. Sibcoin no puede continuar de forma segura y se cerrará.</translation>
     </message>
 </context>
 <context>
     <name>ClientModel</name>
     <message>
         <source>Total: %1 (PS compatible: %2 / Enabled: %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Total: %1 (PS Compatible: %2 / Habilitado: %3)</translation>
     </message>
     <message>
         <source>Network Alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Alerta de red</translation>
     </message>
 </context>
 <context>
@@ -1040,19 +1040,19 @@
     <name>GenAndPrintDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-        <translation type="unfinished">Diálogo de contraseña</translation>
+        <translation>Diálogo de contraseña</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
-        <translation type="unfinished">Introducir contraseña</translation>
+        <translation>Introducir contraseña</translation>
     </message>
     <message>
         <source>New passphrase</source>
-        <translation type="unfinished">Nueva contraseña</translation>
+        <translation>Nueva contraseña</translation>
     </message>
     <message>
         <source>Repeat new passphrase</source>
-        <translation type="unfinished">Repita la nueva contraseña</translation>
+        <translation>Repita la nueva contraseña</translation>
     </message>
     <message>
         <source>Generate addresses and print QR codes</source>
@@ -1072,11 +1072,11 @@
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de la cuenta</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <source>Repeat password</source>
@@ -1092,7 +1092,7 @@
     </message>
     <message>
         <source>Private key</source>
-        <translation type="unfinished"></translation>
+        <translation>Llave Privada</translation>
     </message>
     <message>
         <source>Key password</source>
@@ -1273,7 +1273,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>%1 will download and store a copy of the Sibcoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 se descargara y almacenara una copia de la cadena de bloques de Sibcoin. Por lo menos %2GB de datos se almacenaran en este directorio, y crecerá con el tiempo. La billetera también se almacenara en este directorio.</translation>
     </message>
 </context>
 <context>
@@ -1392,15 +1392,15 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>My Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Mis Masternodes</translation>
     </message>
     <message>
         <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see &quot;ENABLED&quot; in &quot;Status&quot; field.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: El estado de sus masternodes en la billetera local puede estar ligeramente incorrecto.&lt;br /&gt;Siempre espere a que la billetera sincronice los datos adicionales y luego vuelva a verificar desde otro nodo&lt;br /&gt;Si su masternode debería estar ejecutándose pero aún no ve "HABILITADO" en el campo "Estado".</translation>
     </message>
     <message>
         <source>Alias</source>
-        <translation type="unfinished"></translation>
+        <translation>Alias</translation>
     </message>
     <message>
         <source>Address</source>
@@ -1408,131 +1408,131 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Protocolo</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished"></translation>
+        <translation>Activo</translation>
     </message>
     <message>
         <source>Last Seen</source>
-        <translation type="unfinished"></translation>
+        <translation>Visto por ultima vez</translation>
     </message>
     <message>
         <source>Payee</source>
-        <translation type="unfinished"></translation>
+        <translation>Beneficiario</translation>
     </message>
     <message>
         <source>S&amp;tart alias</source>
-        <translation type="unfinished"></translation>
+        <translation>I&amp;niciar alias</translation>
     </message>
     <message>
         <source>Start &amp;all</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar &amp;todo</translation>
     </message>
     <message>
         <source>Start &amp;MISSING</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar &amp;FALTANTE</translation>
     </message>
     <message>
         <source>&amp;Update status</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Actualizar estado</translation>
     </message>
     <message>
         <source>Show additional Masternode information</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar informacion de Masternode adicional</translation>
     </message>
     <message>
         <source>Show &amp;Info...</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar &amp;Información</translation>
     </message>
     <message>
         <source>Status will be updated automatically in (sec):</source>
-        <translation type="unfinished"></translation>
+        <translation>Su estado será actualizado automáticamente en (seg):</translation>
     </message>
     <message>
         <source>All Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Todos los Masternodes</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK15 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK16 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nota: Esta lista representa la lista de masternodes heredada y no determinista. Solo está activoa mientras DIP3 no se haya activado completamente. Después de la activación de SPORK16, esta lista estará vacía.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>DIP3 Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>DIP3 Masternodes</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK15 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK15 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK16 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK16 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nota: Esta lista aún no está activa y es solo para fines informativos. La red todavía se está ejecutando en el modo de compatibilidad, lo que significa que la lista de masternodes no determinista aún está activa. Solo después de la activación de SPORK16, esta lista se convertirá en la activa. Además, los valores en los campos relacionados con el pago no se utilizan en este momento, pero aún se actualizan para cada bloque. Por favor ignore esto hasta la activación de SPORK16.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Start alias</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar alias</translation>
     </message>
     <message>
         <source>Confirm masternode start</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmar incio de Masternode</translation>
     </message>
     <message>
         <source>Are you sure you want to start masternode %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Está seguro que desea iniciar el Masternode %1?</translation>
     </message>
     <message>
         <source>Confirm all masternodes start</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmar que todos los Masternodes inicien</translation>
     </message>
     <message>
         <source>Are you sure you want to start ALL masternodes?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Está seguro que desea iniciar TODOS los Masternodes?</translation>
     </message>
     <message>
         <source>Command is not available right now</source>
-        <translation type="unfinished"></translation>
+        <translation>El Comando no está disponible en estos momentos</translation>
     </message>
     <message>
         <source>You can&apos;t use this command until masternode list is synced</source>
-        <translation type="unfinished"></translation>
+        <translation>No puede usar este comando hasta que la lista de Masternodes esté sincronizada</translation>
     </message>
     <message>
         <source>Confirm missing masternodes start</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmar que los masternodes faltantes inicien</translation>
     </message>
     <message>
         <source>Are you sure you want to start MISSING masternodes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmar que los masternodes faltantes inicien</translation>
     </message>
     <message>
         <source>Additional information for Masternode %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Informacion adicional para Masternode %1</translation>
     </message>
     <message>
         <source>Masternode Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Llave Privada del Masternode</translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Llave Privada</translation>
     </message>
     <message>
         <source>Collateral</source>
-        <translation type="unfinished"></translation>
+        <translation>Colateral</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Dirección IP</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versión</translation>
+        <translation>Versión</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">Desconocido</translation>
+        <translation>Desconocido</translation>
     </message>
     <message>
         <source>Sentinel</source>
-        <translation type="unfinished"></translation>
+        <translation>Centinela</translation>
     </message>
 </context>
 <context>
@@ -1915,19 +1915,19 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta configuración determina la cantidad de masternodes individuales a través de las cuales una entrada sera anonimizada.&lt;br/&gt;Cuantas más rondas de anonimizacion, mayor será el grado de privacidad, pero a su vez cuesta más en comisiones.</translation>
     </message>
     <message>
         <source>Amount of Sibcoin to keep anonymized</source>
-        <translation type="unfinished"></translation>
+        <translation>Cantidad de Sibcoin a mantener anónima</translation>
     </message>
     <message>
         <source>Automatically open the Sibcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir automáticamente el puerto del cliente Sibcoin Core en el enrutador. Esto solo funciona cuando su enrutador admite UPnP y está habilitado.</translation>
     </message>
     <message>
         <source>Shows, if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar, si el proxy SOCKS5 predeterminado suministrado se utiliza para llegar a los pares a través de este tipo de red.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
@@ -2179,35 +2179,35 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Try to manually submit a PrivateSend request.</source>
-        <translation type="unfinished"></translation>
+        <translation>Intente enviar manualmente una solicitud de PrivateSend.</translation>
     </message>
     <message>
         <source>Try Mix</source>
-        <translation type="unfinished"></translation>
+        <translation>Probar Mezcla</translation>
     </message>
     <message>
         <source>Reset the current status of PrivateSend (can interrupt PrivateSend if it&apos;s in the process of Mixing, which can cost you money!)</source>
-        <translation type="unfinished"></translation>
+        <translation>Restablezca el estado actual de PrivateSend (¡puede interrumpir PrivateSend si está en proceso de mezcla, lo que puede costar le dinero!).</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Reiniciar</translation>
     </message>
     <message>
         <source>Information about PrivateSend and Mixing</source>
-        <translation type="unfinished"></translation>
+        <translation>Información sobre PrivateSend y Mezclado</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Información</translation>
     </message>
     <message>
         <source>Anonymized</source>
-        <translation type="unfinished"></translation>
+        <translation>Anónimas</translation>
     </message>
     <message>
         <source>PrivateSend was successfully reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>PrivateSend se reinició con éxito.</translation>
     </message>
 </context>
 <context>
@@ -2302,7 +2302,7 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Cannot start sibcoin: click-to-pay handler</source>
-        <translation type="unfinished"></translation>
+        <translation>No se pudo iniciar sibcoin: manejador de pago-por-clic</translation>
     </message>
 </context>
 <context>
@@ -2418,11 +2418,11 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Sibcoin</source>
-        <translation type="unfinished"></translation>
+        <translation>Sibcoin</translation>
     </message>
     <message>
         <source>Error reading masternode configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al leer el archivo de configuración del Mastermode: %1</translation>
     </message>
 </context>
 <context>
@@ -2877,15 +2877,15 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>&amp;Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Limpiar</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use las flechas arriba y abajo para navegar por el historial y &lt;b&gt;Control+L&lt;/b&gt; para vaciar la pantalla.</translation>
     </message>
     <message>
         <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramification of a command.</source>
-        <translation type="unfinished"></translation>
+        <translation>ADVERTENCIA: Estafadores han estado activos, diciendo a los usuarios que escriban comandos aquí, robando el contenido de su billetera. No use esta consola sin un completo entendimiento de la ramificación de un comando.</translation>
     </message>
 </context>
 <context>
@@ -2980,7 +2980,7 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Request InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>Solicitar InstantSend</translation>
     </message>
 </context>
 <context>
@@ -3039,15 +3039,15 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Sí</translation>
+        <translation>Sí</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translation>No</translation>
     </message>
 </context>
 <context>
@@ -3387,11 +3387,11 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until your have validated the complete chain.</source>
-        <translation type="unfinished"></translation>
+        <translation>Usando el fallbackfee puede resultar en enviar una transacción que tome varias horas o días (o nunca) para confirmar. Considere elegir su comisión manualmente o espere hasta que haya validado la cadena completa.</translation>
     </message>
     <message>
         <source>Warning: Fee estimation is currently not possible.</source>
-        <translation type="unfinished"></translation>
+        <translation>Advertencia: En este momento no se puede estimar la comision.</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 duffs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 duffs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 duffs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
@@ -3399,19 +3399,19 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>total at least</source>
-        <translation type="unfinished"></translation>
+        <translation>total al menos</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for sibcoin transactions than the network can process.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagar sólo la comisión mínima está bien mientras el volumen de transacciones sea menor al espacio en los bloques.&lt;br /&gt;No obstante, tenga en cuenta que esto puede acabar en una transacción que nunca se confirme una vez haya más demanda de transacciones Sibcoin que lo que la red puede procesar.</translation>
     </message>
     <message>
         <source>normal</source>
-        <translation type="unfinished"></translation>
+        <translation>normal</translation>
     </message>
     <message>
         <source>fast</source>
-        <translation type="unfinished"></translation>
+        <translation>rápida</translation>
     </message>
     <message>
         <source>InstantSend</source>
@@ -3419,25 +3419,25 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>anonymous funds</source>
-        <translation type="unfinished"></translation>
+        <translation>fondos anónimos</translation>
     </message>
     <message>
         <source>(privatesend requires this amount to be rounded up to the nearest %1).</source>
-        <translation type="unfinished"></translation>
+        <translation>(privatesend requiere redondear esta cantidad al %1 más cercano).</translation>
     </message>
     <message>
         <source>any available funds (not anonymous)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cualquier fondo disponible (no anónimo)</translation>
     </message>
     <message>
         <source>and InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>e InstantSend</translation>
     </message>
     <message numerus="yes">
         <source>%n block(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n bloques</numerusform>
+            <numerusform>%n bloques</numerusform>
         </translation>
     </message>
 </context>
@@ -3529,7 +3529,7 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>A message that was attached to the sibcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Sibcoin network.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un mensaje que se adjuntó al Sibcoin: URI que será almacenada con la transacción para su referencia. Nota: Este mensaje no se enviará a través de la red Sibcoin.</translation>
     </message>
 </context>
 <context>
@@ -3690,11 +3690,11 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>The address to sign the message with (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</source>
-        <translation type="unfinished"></translation>
+        <translation>La dirección Sibcoin con la cual se firma el mensaje (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</translation>
     </message>
     <message>
         <source>The Sibcoin address the message was signed with (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</source>
-        <translation type="unfinished"></translation>
+        <translation>La dirección Sibcoin con la cual se firmó el mensaje (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4</translation>
     </message>
 </context>
 <context>
@@ -3908,15 +3908,15 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>verified via InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>verificado a través de InstantSend</translation>
     </message>
     <message>
         <source>InstantSend verification in progress - %1 of %2 signatures</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificación de InstantSend en progreso - %1 firmas de %2 </translation>
     </message>
     <message>
         <source>InstantSend verification failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha fallado la verificación de InstantSend</translation>
     </message>
 </context>
 <context>
@@ -4293,11 +4293,11 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 SIB.</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend aun no soporta el envio de valores tan altos. Las transacciones estan limitadas acualmente a %1 SIB.</translation>
     </message>
     <message>
         <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizado demasiadas entradas (&gt;%1) para esta transacción InstantSend, las tarifas podrían ser enormes.</translation>
     </message>
 </context>
 <context>
@@ -5860,55 +5860,55 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect/-noconnect)</source>
-        <translation type="unfinished"></translation>
+        <translation>Aceptar conexiones externas (predeterminado: 1 si no -proxy o -connect/-noconnect)</translation>
     </message>
     <message>
         <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vincular a la dirección dada para escuchar conexiones JSON-RPC. Use la notación [host]:puerto para IPv6. Esta opción se puede indicar múltiples veces (predeterminado: vincular a todos los interfaces)</translation>
     </message>
     <message>
         <source>Connect only to the specified node(s); -noconnect or -connect=0 alone to disable automatic connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Conectese solo al nodo(s) especificado; -noconnect o -connect=0 solo para deshabilitar las conexiones automáticas.</translation>
     </message>
     <message>
         <source>Enable InstantSend, show confirmations for locked transactions (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitar InstantSend, muestra las confirmaciones para bloquear transacciones (0-1, predeterminado: %u)</translation>
     </message>
     <message>
         <source>Enable use of automated PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitar uso de PrivateSend automatizado para almacenar fundos en esta billetera (0-1, predeterminado: %u)</translation>
     </message>
     <message>
         <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Error cargando %s: No puede habilitar HD  en una billetera non-HD existente.</translation>
     </message>
     <message>
         <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 SIB.</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend aun no soporta enviar valores tan altos. Las transacciones están actualmente limitadas a %1 SIB.</translation>
     </message>
     <message>
         <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend requiere entradas con al menos %d confirmaciones, puede que necesite esperar algunos minutos e intentar de nuevo.</translation>
     </message>
     <message>
         <source>Make sure to encrypt your wallet and delete all non-encrypted backups after you verified that wallet works!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Asegúrese de encriptar su billetera y borrar todas las copias de seguridad no encriptadas después de verificar que su billetera funciona!</translation>
     </message>
     <message>
         <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
-        <translation type="unfinished"></translation>
+        <translation>PrivateSend usa cantidades denominadas exactas para enviar fondos, puede necesitar simplemente anonimizar algunas monedas mas.</translation>
     </message>
     <message>
         <source>Provide liquidity to PrivateSend by infrequently mixing coins on a continual basis (%u-%u, default: %u, 1=very frequent, high fees, %u=very infrequent, low fees)</source>
-        <translation type="unfinished"></translation>
+        <translation>Proporciona liquidez a PrivateSend mezclando monedas con poca frecuencia sobre una base continua (%u-%u, predeterminado: %u, 1=muy frecuente, altas comisiones, %u=muy infrecuente, bajas comisiones)</translation>
     </message>
     <message>
         <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect/-noconnect)</source>
-        <translation type="unfinished"></translation>
+        <translation>Consultar por direcciones de pares a través de la búsqueda DNS, si hay pocas direcciones (predeterminado:1 a menos que -connect/-noconnect)</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Establecer tamaño máximo de las transacciones de alta prioridad/baja comisión en bytes (predeterminado: %d)</translation>
     </message>
     <message>
         <source>Show N confirmations for a successfully locked transaction (%u-%u, default: %u)</source>
@@ -5916,11 +5916,11 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <source>Warning: At least %d of %d masternodes are running on a newer software version. Please check latest releases, you might need to update too.</source>
-        <translation type="unfinished"></translation>
+        <translation>Advertencia: por lo menos %d de %d de masternodes se están ejecutando en una versión de software mas reciente. Por favor verifique las ultimas versiones, puede que tenga que actualizar también.</translation>
     </message>
     <message>
         <source>Warning: Every masternode (out of %d known ones) is running on a newer software version. Please check latest releases, it&apos;s very likely that you missed a major/critical update.</source>
-        <translation type="unfinished"></translation>
+        <translation>Advertencia: cada masternode (fuera de %d de conocidos) se esta ejecutando en una versión de software mas reciente. Por favor verifique las ultimas versiones, es muy probable que haya perdido una actualización importante/critica.</translation>
     </message>
     <message>
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong %s will not work properly.</source>
@@ -5928,35 +5928,35 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <source>You are starting in lite mode, all Sibcoin-specific functionality is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Estás iniciando en modo lite, toda la funcionalidad Sibcoin-specific está deshabilitada.</translation>
     </message>
     <message>
         <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
-        <translation type="unfinished"></translation>
+        <translation>Debe especificar una masternodeprivkey en la configuración. Por favor, consulte la documentación para obtener ayuda</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation type="unfinished"></translation>
+        <translation>Necesita reconstruir la base de datos usando -reindex-chainstate para cambiar -txindex</translation>
     </message>
     <message>
         <source>(%d could be used only on mainnet)</source>
-        <translation type="unfinished"></translation>
+        <translation>(%d puede ser usado solo en la mainnet)</translation>
     </message>
     <message>
         <source>(must be %d for mainnet)</source>
-        <translation type="unfinished"></translation>
+        <translation>(debe ser %d para la mainnet)</translation>
     </message>
     <message>
         <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir un nodo al que conectarse y tratar de mantener la conexión abierta</translation>
     </message>
     <message>
         <source>Could not parse masternode.conf</source>
-        <translation type="unfinished"></translation>
+        <translation>No se pudo interpretar masternode.conf</translation>
     </message>
     <message>
         <source>Enable the client to act as a masternode (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitar el cliente para que se comporte como un masternode (0-1, predeterminado: %u)</translation>
     </message>
     <message>
         <source>Enable transaction replacement in the memory pool (default: %u)</source>
@@ -5964,23 +5964,23 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Error cargando %s: No puede deshabilitar HD en una billetera HD existente</translation>
     </message>
     <message>
         <source>Failed to load masternode payments cache from</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al cargar los pagos en memoria cache del masternode</translation>
     </message>
     <message>
         <source>Failed to parse host:port string</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al interpretar linea host:port</translation>
     </message>
     <message>
         <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Dirección -onion inválida: '%s'</translation>
     </message>
     <message>
         <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Dirección -proxy inválida: '%s'</translation>
     </message>
     <message>
         <source>Invalid input count.</source>
@@ -5988,91 +5988,91 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <source>Invalid masternodeprivkey. Please see documenation.</source>
-        <translation type="unfinished"></translation>
+        <translation>La clave privada del masternode -masternodeprivkey- no es válida. Por favor, consulte la  documentación.</translation>
     </message>
     <message>
         <source>Invalid port detected in masternode.conf</source>
-        <translation type="unfinished"></translation>
+        <translation>Puerto no válido detectado en masternode.conf</translation>
     </message>
     <message>
         <source>Keep N SIB anonymized (%u-%u, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantener N SIB anonimos (%u-%u, predeterminado: %u)</translation>
     </message>
     <message>
         <source>Line: %d</source>
-        <translation type="unfinished"></translation>
+        <translation>Línea: %d</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargando direcciones...</translation>
     </message>
     <message>
         <source>Loading masternode payment cache...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargando memoria caché de pago del masternode...</translation>
     </message>
     <message>
         <source>Lock masternodes from masternode configuration file (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloquear masternodes desde el archivo de configuración del masternode (predeterminado: %u)</translation>
     </message>
     <message>
         <source>Masternode cache is empty, skipping payments and governance cache...</source>
-        <translation type="unfinished"></translation>
+        <translation>Memoria cache del Masternode esta vacía, omitiendo memoria cache de pagos y de gobernanza...</translation>
     </message>
     <message>
         <source>Not enough funds to anonymize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fondos insuficientes para anonimizar.</translation>
     </message>
     <message>
         <source>Port: %d</source>
-        <translation type="unfinished"></translation>
+        <translation>Puerto: %d</translation>
     </message>
     <message>
         <source>Receive and display P2P network alerts (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Recibir y mostrar avisos de la red P2P (predeterminado: %u)</translation>
     </message>
     <message>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar las transacciones como transacciones con cero comisiones si es posible (predeterminado: %u)</translation>
     </message>
     <message>
         <source>Set the masternode private key</source>
-        <translation type="unfinished"></translation>
+        <translation>Establezca la llave privada del masternode</translation>
     </message>
     <message>
         <source>Specify masternode configuration file (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Indicar archivo de configuración del masternode (predeterminado: %s)</translation>
     </message>
     <message>
         <source>Submitted following entries to masternode: %u / %d</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviando las siguientes entradas al masternode: %u / %d</translation>
     </message>
     <message>
         <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviado al masternode, esperando más entradas ( %u / %d ) %s</translation>
     </message>
     <message>
         <source>Synchroning blockchain...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sincronizando cadena de bloques...</translation>
     </message>
     <message>
         <source>Synchronizing masternode payments...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sincronizando pagos de masternodo...</translation>
     </message>
     <message>
         <source>Synchronizing masternodes...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sincronizando masternodes...</translation>
     </message>
     <message>
         <source>This is not a Masternode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esto no es un Masternode.</translation>
     </message>
     <message>
         <source>Verifying wallet...</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificando billetera...</translation>
     </message>
     <message>
         <source>Your transaction was accepted into the pool!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Se admitió su transacción en el grupo!</translation>
     </message>
 </context>
 </TS>
