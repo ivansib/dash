@@ -1,9 +1,9 @@
-Sibcoin 0.16.x BETA
+Sibcoin 0.17.0
 ====================
 
-Copyright (c) 2009-2016 Bitcoin Developers
-Copyright (c) 2014-2017 Dash Core Developers
-Copyright (c) 2015-2017 Sibcoin Developers
+Copyright (c) 2009-2018 Bitcoin Developers
+Copyright (c) 2014-2019 Dash Core Developers
+Copyright (c) 2015-2020 Sibcoin Developers
 
 This is the official reference wallet for Sibcoin digital currency and comprises the backbone of the Sibcoin peer-to-peer network. You can [download Sibcoin Core](https://www.sibcoin.org/downloads/) or [build it yourself](#building) using the guides below.
 

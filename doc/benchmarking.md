@@ -1,10 +1,10 @@
 Benchmarking
 ============
 
-Dash Core has an internal benchmarking framework, with benchmarks
+Sibcoin Core has an internal benchmarking framework, with benchmarks
 for cryptographic algorithms such as SHA1, SHA256, SHA512 and RIPEMD160. As well as the rolling bloom filter.
 
-After compiling Dash Core, the benchmarks can be run with:
+After compiling Sibcoin Core, the benchmarks can be run with:
 `src/bench/bench_sibcoin`
 
 The output will look similar to:

@@ -1,4 +1,4 @@
-Sibcoin Core 0.16.1
+Sibcoin Core 0.17.0
 =====================
 
 Intro
@@ -11,7 +11,7 @@ with each other, with the help of a P2P network to check for double-spending.
 
 Setup
 -----
-Unpack the files into a directory and run dash-qt.exe.
+Unpack the files into a directory and run sibcoin-qt.exe.
 
 Sibcoin Core is the original Sibcoin client and it builds the backbone of the network.
 However, it downloads and stores the entire history of Sibcoin transactions;

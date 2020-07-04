@@ -1,8 +1,8 @@
-Cross-compiliation of Dash Core
+Cross-compiliation of Sibcoin Core
 ===============================
 
-Dash Core can be cross-compiled on Linux to all other supported host systems. This is done by changing
-the `HOST` parameter when building the dependencies and then specifying another `--prefix` directory when building Dash.
+Sibcoin Core can be cross-compiled on Linux to all other supported host systems. This is done by changing
+the `HOST` parameter when building the dependencies and then specifying another `--prefix` directory when building Sibcoin.
 
 The following instructions are only tested on Debian Stretch and Ubuntu Bionic.
 
@@ -29,7 +29,7 @@ When building the dependencies, as described in [build-generic](build-generic.md
 $ make HOST=x86_64-apple-darwin11 -j4
 ```
 
-When building Dash Core, use
+When building Sibcoin Core, use
 
 ```bash
 $ ./configure --prefix `pwd`/depends/x86_64-apple-darwin11
@@ -65,7 +65,7 @@ When building the dependencies, as described in [build-generic](build-generic.md
 $ make HOST=x86_64-w64-mingw32 -j4
 ```
 
-When building Dash Core, use
+When building Sibcoin Core, use
 
 ```bash
 $ ./configure --prefix `pwd`/depends/x86_64-w64-mingw32

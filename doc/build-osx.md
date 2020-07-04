@@ -37,15 +37,15 @@ Sibcoin Core is now available at `./src/sibcoind`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=sibcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/DashCore/dash.conf"
+    echo -e "rpcuser=sibcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Sibcoin/sibcoin.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/SibcoinCore/dash.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/SibcoinCore/sibcoin.conf"
 
 The first time you run sibcoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/SibcoinCore/debug.log
+    tail -f $HOME/Library/Application\ Support/Sibcoin/debug.log
 
 Other commands:
 -------
