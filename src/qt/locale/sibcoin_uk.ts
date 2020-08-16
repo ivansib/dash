@@ -113,7 +113,7 @@
     </message>
     <message>
         <source>Copy P&amp;rivate Key</source>
-        <translation>Копіювати Публічний Ключ</translation>
+        <translation>Копіювати Приватний Ключ</translation>
     </message>
     <message>
         <source>Can&apos;t copy public key to clipboard</source>
@@ -283,7 +283,7 @@
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SIBCOINS&lt;/b&gt;!</source>
-        <translation>Попередження: якщо ви зашифруєте свій гаманець і втратите ваш пароль, ви втратите усі свої SIBCOINS</translation>
+        <translation>Попередження: якщо ви зашифруєте свій гаманець і втратите ваш пароль, ви втратите усі свої червонці</translation>
     </message>
     <message>
         <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your funds from being stolen by malware infecting your computer.</source>
@@ -813,7 +813,7 @@
     </message>
     <message>
         <source>&amp;Print sibcoins...</source>
-        <translation>&amp;Роздрукувати sibcoins...</translation>
+        <translation>&amp;Роздрукувати червонці...</translation>
     </message>
     <message>
         <source>Generate address and print</source>
