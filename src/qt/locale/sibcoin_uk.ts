@@ -5,7 +5,7 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-        <translation>Клікніть правою кнопкою для редагування адреси чи мітки</translation>
+        <translation>Натисніть праву клавішу мишки для редагування адреси чи мітки</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -105,31 +105,31 @@
     </message>
     <message>
         <source>These are your Sibcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation type="unfinished"></translation>
+        <translation>Це ваші адреси Sibcoin для отримання платежів. Рекомендується використовувати нову адресу отримувача для кожної транзакції.</translation>
     </message>
     <message>
         <source>Copy &amp;Public Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати Публічний Ключ</translation>
     </message>
     <message>
         <source>Copy P&amp;rivate Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати Приватний Ключ</translation>
     </message>
     <message>
         <source>Can&apos;t copy public key to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Неможливо скопіювати публічний ключ до буфара обміну</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати в буфер обміну</translation>
     </message>
     <message>
         <source>Copy private key to clipboard?</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати публічний ключ в буфер обміну? </translation>
     </message>
     <message>
         <source>Can&apos;t copy private key to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Неможливо скопіювати приватний ключ до буфера обміну</translation>
     </message>
 </context>
 <context>
@@ -271,27 +271,27 @@
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введіть новий пароль для гаманця. Будь ласка, використовуйте пароль з десяти або більше випадкових символів, або восьми та більше слів.</translation>
     </message>
     <message>
         <source>Unlock wallet for mixing only</source>
-        <translation type="unfinished"></translation>
+        <translation>Розблокувати гаманець тільки для змішування</translation>
     </message>
     <message>
         <source>Enter the old passphrase and new passphrase to the wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ведіть новий і старий паролі для гаманця.</translation>
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SIBCOINS&lt;/b&gt;!</source>
-        <translation type="unfinished"></translation>
+        <translation>Попередження: якщо ви зашифруєте свій гаманець і втратите ваш пароль, ви втратите усі свої червонці</translation>
     </message>
     <message>
         <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your funds from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 закриється зараз для завершення процесу шифрування. Пам&apos;ятайте, що шифрування Вашого гаманця не може повністю захистити Ваші кошти від кражі за допомогою інфікування Вашого комп&apos;ютера шкідливим ПЗ.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. Previous backups of the unencrypted wallet file contain the same HD seed and still have full access to all your funds just like the new, encrypted wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Важливо: усі попередні резервні копії Вашого гаманця повинні бути замінені новим зашифрованим файлом. Попередні резервні копії незашифрованого гаманця містять ту ж HD фразу та все ще містять повний доступ до Ваших коштів, так само як і новий зашифрований гаманець.</translation>
     </message>
 </context>
 <context>
@@ -665,7 +665,7 @@
     </message>
     <message>
         <source>Sent transaction</source>
-        <translation>Надіслані транзакції</translation>
+        <translation>Надіслана транзакція</translation>
     </message>
     <message>
         <source>Incoming transaction</source>
@@ -697,159 +697,159 @@
     </message>
     <message>
         <source>Wallet</source>
-        <translation type="unfinished">Гаманець</translation>
+        <translation>Гаманець</translation>
     </message>
     <message>
         <source>Node</source>
-        <translation type="unfinished"></translation>
+        <translation>Вузол</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and sibcoin: URIs)</source>
-        <translation type="unfinished"></translation>
+        <translation>Запросити платежі (створити QR коди та sibcoin: URIs)</translation>
     </message>
     <message>
         <source>&amp;Goods&amp;&amp;&amp;Services</source>
-        <translation type="unfinished"></translation>
+        <translation>Товари та послуги</translation>
     </message>
     <message>
         <source>Show links to services that accept sibcoins</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати посилання на сервіси, що приймають червонці</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Мастерноди</translation>
     </message>
     <message>
         <source>Browse masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Переглянути майстерноди</translation>
     </message>
     <message>
         <source>Show information about Sibcoin Core</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати інформацію про  Sibcoin Core</translation>
     </message>
     <message>
         <source>&amp;Unlock Wallet...</source>
-        <translation type="unfinished"></translation>
+        <translation>Розблокувати гаманець</translation>
     </message>
     <message>
         <source>Unlock wallet</source>
-        <translation type="unfinished">Розблокувати гаманець</translation>
+        <translation>Розблокувати гаманець</translation>
     </message>
     <message>
         <source>&amp;Lock Wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Заблокувати гаманець</translation>
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation type="unfinished">&amp;Інформація</translation>
+        <translation>&amp;Інформація</translation>
     </message>
     <message>
         <source>Show diagnostic information</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати діагностичну інформацію</translation>
     </message>
     <message>
         <source>&amp;Debug console</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль налагодження</translation>
     </message>
     <message>
         <source>Open debugging console</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити консоль налагодження</translation>
     </message>
     <message>
         <source>&amp;Network Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Монітор мережі</translation>
     </message>
     <message>
         <source>Show network monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати монітор мережі</translation>
     </message>
     <message>
         <source>&amp;Peers list</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Перелік пірів</translation>
     </message>
     <message>
         <source>Show peers info</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати інформацію про піри</translation>
     </message>
     <message>
         <source>Wallet &amp;Repair</source>
-        <translation type="unfinished"></translation>
+        <translation>Ремонт гаманця</translation>
     </message>
     <message>
         <source>Show wallet repair options</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати варіанти ремонту гаманця</translation>
     </message>
     <message>
         <source>Open Wallet &amp;Configuration File</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити файл налаштувань гаманця</translation>
     </message>
     <message>
         <source>Open configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити файл налаштувань</translation>
     </message>
     <message>
         <source>Open &amp;Masternode Configuration File</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити файл налаштувань мастернод</translation>
     </message>
     <message>
         <source>Open Masternode configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити файл налаштувань мастернод</translation>
     </message>
     <message>
         <source>Show Automatic &amp;Backups</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати автоматичні бекапи</translation>
     </message>
     <message>
         <source>Show automatically created wallet backups</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати автоматично створені резервні копії гаманця</translation>
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреси відправлення</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса отримання</translation>
     </message>
     <message>
         <source>&amp;Print sibcoins...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Роздрукувати червонці...</translation>
     </message>
     <message>
         <source>Generate address and print</source>
-        <translation type="unfinished"></translation>
+        <translation>Згенерувати адресу та роздрукувати</translation>
     </message>
     <message>
         <source>&amp;Load sibcoins...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити червонці...</translation>
     </message>
     <message>
         <source>Load sibcoins from paper</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити червонці з паперового носія</translation>
     </message>
     <message>
         <source>Open a sibcoin: URI or payment request</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити sibcoin: URI або платіжний запит</translation>
     </message>
     <message>
         <source>&amp;PrivateSend information</source>
-        <translation type="unfinished"></translation>
+        <translation>Інформація про PrivateSend</translation>
     </message>
     <message>
         <source>Show the PrivateSend basic information</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати коротку інформацяю про PrivateSend</translation>
     </message>
     <message>
         <source>&amp;Howto</source>
-        <translation type="unfinished"></translation>
+        <translation>Як користуватися</translation>
     </message>
     <message>
         <source>How to use Sibcoins</source>
-        <translation type="unfinished"></translation>
+        <translation>Як користуватися Червонцями</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Інструменти</translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -857,26 +857,26 @@
     </message>
     <message>
         <source>Synchronizing additional data: %p%</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронізація додаткових даних</translation>
     </message>
     <message>
         <source>Sibcoin Core</source>
-        <translation type="unfinished"></translation>
+        <translation>Ядро Sibcoin</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for mixing only</source>
-        <translation type="unfinished"></translation>
+        <translation>Гаманець зашифровано і розблоковано лише для змішування.</translation>
     </message>
 </context>
 <context>
     <name>ClientModel</name>
     <message>
         <source>Total: %1 (PS compatible: %2 / Enabled: %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Всього: %1 (Сумісних з  PS: %2 / Активних: %3</translation>
     </message>
     <message>
         <source>Network Alert</source>
-        <translation type="unfinished"></translation>
+        <translation>Сповіщення мережі</translation>
     </message>
 </context>
 <context>
@@ -1031,31 +1031,31 @@
     </message>
     <message>
         <source>toggle lock state</source>
-        <translation type="unfinished"></translation>
+        <translation>Змінити блокування</translation>
     </message>
     <message>
         <source>(1 locked)</source>
-        <translation type="unfinished"></translation>
+        <translation>(1 заблоковано)</translation>
     </message>
     <message>
         <source>PS Rounds</source>
-        <translation type="unfinished"></translation>
+        <translation>Раунди PS</translation>
     </message>
     <message>
         <source>Please switch to &quot;List mode&quot; to use this function.</source>
-        <translation type="unfinished"></translation>
+        <translation>Будь ласка, перемкніться в режим &quot;Список&quot;, щоб користуватись цією функцією</translation>
     </message>
     <message>
         <source>Non-mixed input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-anonymized inputs first and then check the PrivateSend checkbox again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вибрані не міксовані засоби. PrivateSend буде недоступний. Якщо Ви все ще хочете використовувати PrivateSend, будь ласка, зніміть виділення з усіх неанонімізованих засобів і потім заново відмітьте PrivateSend</translation>
     </message>
     <message>
         <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation type="unfinished"></translation>
+        <translation>Може відрізнятися на  +/- %1 duff(ів) на кожен вхід</translation>
     </message>
     <message>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>н/д</translation>
     </message>
 </context>
 <context>
@@ -1168,11 +1168,11 @@
     </message>
     <message>
         <source>New receiving address</source>
-        <translation type="unfinished"></translation>
+        <translation>Нова адреса для отримання</translation>
     </message>
     <message>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введена адреса &quot;%1&quot; вже знаходиться в адресній книзі</translation>
     </message>
 </context>
 <context>
@@ -1202,91 +1202,91 @@
     <name>GenAndPrintDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-        <translation type="unfinished">Діалог введення паролю</translation>
+        <translation>Діалог введення пароля</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
-        <translation type="unfinished">Введіть пароль</translation>
+        <translation>Введіть пароль</translation>
     </message>
     <message>
         <source>New passphrase</source>
-        <translation type="unfinished">Новий пароль</translation>
+        <translation>Новий пароль</translation>
     </message>
     <message>
         <source>Repeat new passphrase</source>
-        <translation type="unfinished">Повторіть пароль</translation>
+        <translation>Повторіть новий пароль</translation>
     </message>
     <message>
         <source>Generate addresses and print QR codes</source>
-        <translation type="unfinished"></translation>
+        <translation>Згенерувати адресу та роздрукувати QR коди</translation>
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Роздрукувати</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Імпортувати</translation>
     </message>
     <message>
         <source>Export key pair</source>
-        <translation type="unfinished"></translation>
+        <translation>Експорт пари ключів</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ім&apos;я акаунта</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторіть пароль</translation>
     </message>
     <message>
         <source>Enter account and passphrase to the encrypt private key</source>
-        <translation type="unfinished"></translation>
+        <translation>Введіть акаунт і пароль для шифрування приватного ключа</translation>
     </message>
     <message>
         <source>Import private key</source>
-        <translation type="unfinished"></translation>
+        <translation>Імпортувати приватний ключ</translation>
     </message>
     <message>
         <source>Private key</source>
-        <translation type="unfinished"></translation>
+        <translation>Приватний ключ</translation>
     </message>
     <message>
         <source>Key password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ключ пароля</translation>
     </message>
     <message>
         <source>Enter private key and passphrase</source>
-        <translation type="unfinished"></translation>
+        <translation>Введіть приватний ключ та пароль</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Помилка</translation>
+        <translation>Помилка</translation>
     </message>
     <message>
         <source>Import error: Incorrect key format</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка імпорту: неправильний формат ключа</translation>
     </message>
     <message>
         <source>Cant import key into locked wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Неможливо імпортувати ключ в заблокований гаманець</translation>
     </message>
     <message>
         <source>Private key imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Приватний ключ імпортовано</translation>
     </message>
     <message>
         <source>Private key import error</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка імпортування приватного ключа</translation>
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
-        <translation type="unfinished">Увага: ввімкнено Caps Lock!</translation>
+        <translation>Увага: увімкнено Caps Lock!</translation>
     </message>
 </context>
 <context>
@@ -1297,7 +1297,7 @@
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;.Lucida Grande UI&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1316,51 +1316,51 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>(%1-bit)</source>
-        <translation type="unfinished"></translation>
+        <translation>(%1-біт)</translation>
     </message>
     <message>
         <source>Usage:</source>
-        <translation type="unfinished"></translation>
+        <translation>Використання:</translation>
     </message>
     <message>
         <source>command-line options</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри командного рядка</translation>
     </message>
     <message>
         <source>UI Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштування інтерфейсу:</translation>
     </message>
     <message>
         <source>Choose data directory on startup (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Виберіть каталог даних при запуску (за замовчуванням:% u)</translation>
     </message>
     <message>
         <source>Set language, for example &quot;de_DE&quot; (default: system locale)</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановіть мову, наприклад &quot;de_DE (за замовчуванням: системна локалізація)</translation>
     </message>
     <message>
         <source>Start minimized</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускати згорнутим</translation>
     </message>
     <message>
         <source>Set SSL root certificates for payment request (default: -system-)</source>
-        <translation type="unfinished"></translation>
+        <translation>Вказати кореневі SSL-сертифікати для запиту платежу (за замовчуванням: -system)</translation>
     </message>
     <message>
         <source>Show splash screen on startup (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати заставку при запуску (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Reset all settings changed in the GUI</source>
-        <translation type="unfinished"></translation>
+        <translation>Скинути всі налаштування змінені через графічний інтерфейс</translation>
     </message>
     <message>
         <source>PrivateSend information</source>
-        <translation type="unfinished"></translation>
+        <translation>Інформація про PrivateSend</translation>
     </message>
     <message>
         <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Sibcoin in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.1 SIB, 1 SIB, 10 SIB and 100 SIB -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href=&quot;http://sibcoin.org/privatesend&quot;&gt;http://sibcoin.org/privatesend&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1447,254 +1447,254 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>%1 will download and store a copy of the Sibcoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation type="unfinished"></translation>
+        <translation>% 1 завантажить і збереже копію ланцюжка блоків. Як мінімум% 2ГБ даних буде зберігатися в цьому каталозі і розмір даних буде з часом зростати.Гаманець буде збережено у цьому ж каталозі.</translation>
     </message>
     <message>
         <source>%1 GB of free space available</source>
-        <translation type="unfinished"></translation>
+        <translation>Доступно %1 ГБ вільного місця </translation>
     </message>
     <message>
         <source>(of %1 GB needed)</source>
-        <translation type="unfinished"></translation>
+        <translation>потрібно з %1 ГБ</translation>
     </message>
 </context>
 <context>
     <name>MasternodeList</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <source>My Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Мої майстерноди</translation>
     </message>
     <message>
         <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see &quot;ENABLED&quot; in &quot;Status&quot; field.</source>
-        <translation type="unfinished"></translation>
+        <translation>Примітка: Статус Ваших майстернод у локальному гаманці може бути не зовсім коректним. &lt;br /&gt;Завжди чекайте закінчення синхронізації даних і повторно перевіряйте з іншої ноди, &lt;br /&gt; якщо Ваша майстернода повинна бути активна, але Ви не бачите статус ENABLED в рядку стану.</translation>
     </message>
     <message>
         <source>Alias</source>
-        <translation type="unfinished"></translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса</translation>
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Протокол</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">Статут</translation>
+        <translation>Статут</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished"></translation>
+        <translation>Активність</translation>
     </message>
     <message>
         <source>Last Seen</source>
-        <translation type="unfinished"></translation>
+        <translation>Останні переглянуті</translation>
     </message>
     <message>
         <source>Payee</source>
-        <translation type="unfinished"></translation>
+        <translation>Отримувач платежу</translation>
     </message>
     <message>
         <source>S&amp;tart alias</source>
-        <translation type="unfinished"></translation>
+        <translation>Запуск по імені</translation>
     </message>
     <message>
         <source>Start &amp;all</source>
-        <translation type="unfinished"></translation>
+        <translation>Запуск всіх</translation>
     </message>
     <message>
         <source>Start &amp;MISSING</source>
-        <translation type="unfinished"></translation>
+        <translation>Запуск MISSING</translation>
     </message>
     <message>
         <source>&amp;Update status</source>
-        <translation type="unfinished"></translation>
+        <translation>Оновити статус</translation>
     </message>
     <message>
         <source>Show additional Masternode information</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати додаткову інформацію про майстерноди</translation>
     </message>
     <message>
         <source>Show &amp;Info...</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати інформацію...</translation>
     </message>
     <message>
         <source>Status will be updated automatically in (sec):</source>
-        <translation type="unfinished"></translation>
+        <translation>Статус буде оновлено автоматично через (секунд)...</translation>
     </message>
     <message>
         <source>0</source>
-        <translation type="unfinished"></translation>
+        <translation>0</translation>
     </message>
     <message>
         <source>All Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Усі майстерноди</translation>
     </message>
     <message>
         <source>Filter List:</source>
-        <translation type="unfinished"></translation>
+        <translation>Фільтрувати список:</translation>
     </message>
     <message>
         <source>Filter masternode list</source>
-        <translation type="unfinished"></translation>
+        <translation>Фільтрувати список майстернод</translation>
     </message>
     <message>
         <source>Node Count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Кількість вузлів:</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK16 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Примітка цей список показує старі недетерміновані майстерноди. Він буде активним до тих пір, поки DIP3 не буде повністю активовано. Після активації SPORK16 цей список буде порожнім.</translation>
     </message>
     <message>
         <source>DIP3 Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>DIP3 майстерноди</translation>
     </message>
     <message>
         <source>Show only masternodes this wallet has keys for.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати тільки майстерноди, ключі від яких є в цьому гаманці.</translation>
     </message>
     <message>
         <source>My masternodes only</source>
-        <translation type="unfinished"></translation>
+        <translation>Лише мої майстерноди</translation>
     </message>
     <message>
         <source>PoSe Score</source>
-        <translation type="unfinished"></translation>
+        <translation>PoSe штраф</translation>
     </message>
     <message>
         <source>Registered</source>
-        <translation type="unfinished"></translation>
+        <translation>Зареєстрована</translation>
     </message>
     <message>
         <source>Last Paid</source>
-        <translation type="unfinished"></translation>
+        <translation>Останній платіж</translation>
     </message>
     <message>
         <source>Next Payment</source>
-        <translation type="unfinished"></translation>
+        <translation>Наступний платіж</translation>
     </message>
     <message>
         <source>Operator Reward</source>
-        <translation type="unfinished"></translation>
+        <translation>Винагорода оператора</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK16 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK16 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Примітка: Цей список ще не активний і поки що служить тільки для інформаційних цілей. Мережа все ще працює в режимі сумісності, що означає, що старий список недетермінірованних майстернод все ще активний. Цей список стане активним тільки після активації SPORK16. Також зверніть увагу, що хоча значення в платіжних полях і оновлюються з кожним новим блоком, але на даний момент вони не використовуються. Будь ласка, ігноруйте їх до активації SPORK16.</translation>
     </message>
     <message>
         <source>Start alias</source>
-        <translation type="unfinished"></translation>
+        <translation>Запуск по імені</translation>
     </message>
     <message>
         <source>Copy ProTx Hash</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати хеш ProTx</translation>
     </message>
     <message>
         <source>Copy Collateral Outpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати вихідну точку застави</translation>
     </message>
     <message>
         <source>ENABLED</source>
-        <translation type="unfinished"></translation>
+        <translation>ENABLED</translation>
     </message>
     <message>
         <source>POSE_BANNED</source>
-        <translation type="unfinished"></translation>
+        <translation>POSE_BANNED</translation>
     </message>
     <message>
         <source>UNKNOWN</source>
-        <translation type="unfinished"></translation>
+        <translation>UNKNOWN</translation>
     </message>
     <message>
         <source>to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>на %1</translation>
     </message>
     <message>
         <source>to UNKNOWN</source>
-        <translation type="unfinished"></translation>
+        <translation>на UNKNOWN</translation>
     </message>
     <message>
         <source>but not claimed</source>
-        <translation type="unfinished"></translation>
+        <translation>, але не затребувано</translation>
     </message>
     <message>
         <source>NONE</source>
-        <translation type="unfinished"></translation>
+        <translation>NONE</translation>
     </message>
     <message>
         <source>Confirm masternode start</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтвердження запуску майстерноди</translation>
     </message>
     <message>
         <source>Are you sure you want to start masternode %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви впевнені, що хочете запустити майстерноду %1?</translation>
     </message>
     <message>
         <source>Confirm all masternodes start</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтвердження запуску всіх майстернод</translation>
     </message>
     <message>
         <source>Are you sure you want to start ALL masternodes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви впевнені, що хочете запустити ВСІ майстерноди? </translation>
     </message>
     <message>
         <source>Command is not available right now</source>
-        <translation type="unfinished"></translation>
+        <translation>Команда в даний момент недоступна</translation>
     </message>
     <message>
         <source>You can&apos;t use this command until masternode list is synced</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви не можете використовувати цю команду до завершення синхронізації списку майстернод</translation>
     </message>
     <message>
         <source>Confirm missing masternodes start</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтвердження запуску відсутніх майстернод</translation>
     </message>
     <message>
         <source>Are you sure you want to start MISSING masternodes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви впевнені, що хочете запустити ВІДСУТНІ майстерноди?</translation>
     </message>
     <message>
         <source>Additional information for Masternode %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Додаткова інформація по майстерноді %1</translation>
     </message>
     <message>
         <source>Masternode Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Закритий ключ майстерноди</translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Закритий ключ</translation>
     </message>
     <message>
         <source>Collateral</source>
-        <translation type="unfinished"></translation>
+        <translation>Забезпечувальна транзакція</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation type="unfinished"></translation>
+        <translation>IP</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Версія</translation>
+        <translation>Версія</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">Невідома</translation>
+        <translation>Невідомо</translation>
     </message>
     <message>
         <source>Sentinel</source>
-        <translation type="unfinished"></translation>
+        <translation>Sentinel</translation>
     </message>
     <message>
         <source>Additional information for DIP3 Masternode %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Додаткова інформація для DIP3 майстерноди %1</translation>
     </message>
 </context>
 <context>
@@ -1757,15 +1757,15 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Sibcoin network, as detailed below.</source>
-        <translation type="unfinished"></translation>
+        <translation>Останні транзакції поки що можуть не відображатися і тому ваш баланс може бути некоректним. Інформація буде коригуватися по мірі синхронізації з мережею Sibcoin, подробиці про хід синхронізації представлені нижче.</translation>
     </message>
     <message>
         <source>Attempting to spend Sibcoin that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation type="unfinished"></translation>
+        <translation>Спроба витратити кошти з ще не відображених транзакцій буде відхилена мережею.</translation>
     </message>
     <message>
         <source>Unknown. Syncing Headers (%1)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Невідомо. Синхронізація заголовків (%1)...</translation>
     </message>
 </context>
 <context>
@@ -1780,19 +1780,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Open URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити URI</translation>
     </message>
     <message>
         <source>Open payment request from URI or file</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити запит платежу з URI або файлу</translation>
     </message>
     <message>
         <source>Select payment request file</source>
-        <translation type="unfinished"></translation>
+        <translation>Вибрати файл запиту платежу</translation>
     </message>
     <message>
         <source>Select payment request file to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Виберіть файл запиту платежу</translation>
     </message>
 </context>
 <context>
@@ -2090,116 +2090,117 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>МБ</translation>
     </message>
     <message>
         <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати додаткову вкладку зі списком своїх майстернод в одній таблиці&lt;br/&gt; і списком всіх майстернод в інший.</translation>
     </message>
     <message>
         <source>Show Masternodes Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати вкладку з майстернодами</translation>
     </message>
     <message>
         <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати додаткову інформацію і кнопки для PrivateSend на оглядовому екрані.</translation>
     </message>
     <message>
         <source>Enable advanced PrivateSend interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввімкнути розширений інтерфейс PrivateSend</translation>
     </message>
     <message>
         <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати спливаючі сповіщення для транзакцій перемішування PrivateSend&lt;br/&gt; так само, як для всіх інших типів транзакцій.</translation>
     </message>
     <message>
         <source>Show popups for PrivateSend transactions</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати спливаючі сповіщення для транзакцій PrivateSend</translation>
     </message>
     <message>
         <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати попередження, коли PrivateSend виявить, що в гаманці залишилося занадто мало ключів.</translation>
     </message>
     <message>
         <source>Warn if PrivateSend is running out of keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Попередити, якщо закінчуються ключі для PrivateSend</translation>
     </message>
     <message>
         <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати чи ні експериментальний режим PrivateSend з множинним перемішуванням за один блок. Примітка: Будьте обережні при користуванні. &lt;br/&gt; Переконайтеся, що у вас завжди є останній (автоматичний) бекап гаманця в безпечному місці!</translation>
     </message>
     <message>
         <source>Enable PrivateSend &amp;multi-session</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввімкнути мультисесійний PrivateSend</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
-        <translation type="unfinished"></translation>
+        <translation>При відключенні витрати непідтвердженої здачі, здача від транзакції&lt;br/&gt; не може бути використана до тих пір, поки у цій транзакції не буде хоча б одне підтвердження.&lt;br/&gt; Це також впливає на те, як розраховується Ваш баланс.</translation>
     </message>
     <message>
         <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
-        <translation type="unfinished"></translation>
+        <translation>Це налаштування визначає кількість окремих майстернод, через які пройде анонімізація&lt;br/&gt; Чим більше раундів, тим вище ступінь конфіденційності, але також вище і сумарна вартість комісій.</translation>
     </message>
     <message>
         <source>PrivateSend rounds to use</source>
-        <translation type="unfinished"></translation>
+        <translation>Кількість раундів PrivateSend</translation>
     </message>
     <message>
         <source>This amount acts as a threshold to turn off PrivateSend once it&apos;s reached.</source>
-        <translation type="unfinished"></translation>
+        <translation>Це граничне значення, при досягненні якого PrivateSend відключається.</translation>
     </message>
     <message>
         <source>Amount of Sibcoin to keep anonymized</source>
-        <translation type="unfinished"></translation>
+        <translation>Сума постійно анонімізованих Sibcoin</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
-        <translation type="unfinished"></translation>
+        <translation>Приймати підключення ззовні</translation>
     </message>
     <message>
         <source>Allow incoming connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволити вхідні підключення</translation>
     </message>
     <message>
         <source>Shows, if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо позначено, показує проксі SOCKS5, який використовується для встановлення підключення до пірів цього типу мережі.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати окремий SOCKS5 проксі для підключення до пірів через приховані сервіси Tor:</translation>
     </message>
     <message>
         <source>&amp;Hide the icon from the system tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Приховати іконку в системному лотку.</translation>
     </message>
     <message>
         <source>Hide tray icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Приховати іконку в системному лотку</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
 https://www.transifex.com/projects/p/sibcoin/</source>
-        <translation type="unfinished"></translation>
+        <translation>Немає потрібної мови або переклад неповний? Допоможіть нам покращити переклад:
+https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <source>User Interface Theme:</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема інтерфейсу:</translation>
     </message>
     <message>
         <source>Decimal digits</source>
-        <translation type="unfinished"></translation>
+        <translation>Знаків після коми</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items.&lt;br/&gt;%s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сторонні URL (наприклад, block explorer), які відображаються на вкладці транзакцій як пункти контекстного меню. .&lt;br/&gt;%s в URL замінюється хешем транзакції. URL відокремлюються один від одного вертикальною рискою |.</translation>
     </message>
     <message>
         <source>Third party transaction URLs</source>
-        <translation type="unfinished"></translation>
+        <translation>Сторонні URL для транзакцій</translation>
     </message>
     <message>
         <source>Active command-line options that override above options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Активні параметри командного рядка, які перекривають вищевказані налаштування:</translation>
     </message>
 </context>
 <context>
@@ -2278,200 +2279,201 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>PrivateSend</source>
-        <translation type="unfinished"></translation>
+        <translation>PrivateSend</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished"></translation>
+        <translation>Статус:</translation>
     </message>
     <message>
         <source>Enabled/Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввімкнений / Вимкнений</translation>
     </message>
     <message>
         <source>Completion:</source>
-        <translation type="unfinished"></translation>
+        <translation>Завершення:</translation>
     </message>
     <message>
         <source>PrivateSend Balance:</source>
-        <translation type="unfinished"></translation>
+        <translation>Баланс PrivateSend:</translation>
     </message>
     <message>
         <source>Amount and Rounds:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сума і раунди:</translation>
     </message>
     <message>
         <source>0 SIB / 0 Rounds</source>
-        <translation type="unfinished"></translation>
+        <translation>0 SIB / 0 раундів</translation>
     </message>
     <message>
         <source>Submitted Denom:</source>
-        <translation type="unfinished"></translation>
+        <translation>Відправлені номінали:</translation>
     </message>
     <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
-        <translation type="unfinished"></translation>
+        <translation>Номінали, надані Вами майстерноді. Для перемішування інші користувачі повинні надати такий самий набір номіналів.</translation>
     </message>
     <message>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>н/д</translation>
     </message>
     <message>
         <source>(Last Message)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Останнє повідомлення)</translation>
     </message>
     <message>
         <source>Start/Stop Mixing</source>
-        <translation type="unfinished"></translation>
+        <translation>Почати/Припинити змішування</translation>
     </message>
     <message>
         <source>Try to manually submit a PrivateSend request.</source>
-        <translation type="unfinished"></translation>
+        <translation>Спробувати відправити запит PrivateSend вручну.</translation>
     </message>
     <message>
         <source>Try Mix</source>
-        <translation type="unfinished"></translation>
+        <translation>Спробувати вручну</translation>
     </message>
     <message>
         <source>Reset the current status of PrivateSend (can interrupt PrivateSend if it&apos;s in the process of Mixing, which can cost you money!)</source>
-        <translation type="unfinished"></translation>
+        <translation>Скинути поточний статус PrivateSend (можна перервати процес перемішування PrivateSend, але це може коштувати Вам трохи грошей!)</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Скинути</translation>
     </message>
     <message>
         <source>Information about PrivateSend and Mixing</source>
-        <translation type="unfinished"></translation>
+        <translation>Інформація про PrivateSend і перемішування</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Інформація</translation>
     </message>
     <message>
         <source>out of sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Не синхронізовано</translation>
     </message>
     <message>
         <source>Automatic backups are disabled, no mixing available!</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматичні бекапи відключені, перемішування недоступне!</translation>
     </message>
     <message>
         <source>Start Mixing</source>
-        <translation type="unfinished"></translation>
+        <translation>Почати перемішування</translation>
     </message>
     <message>
         <source>Stop Mixing</source>
-        <translation type="unfinished"></translation>
+        <translation>Зупинити пермішування</translation>
     </message>
     <message>
         <source>No inputs detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Монети не знайдені</translation>
     </message>
     <message numerus="yes">
         <source>%n Rounds</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n раунд</numerusform>
+            <numerusform>%n раунда</numerusform>
+            <numerusform>%n раундів</numerusform>
         </translation>
     </message>
     <message>
         <source>Found enough compatible inputs to anonymize %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Знайдено достатньо сумісних коштів для анонімізації% 1</translation>
     </message>
     <message>
         <source>Not enough compatible inputs to anonymize &lt;span style=&apos;color:red;&apos;&gt;%1&lt;/span&gt;,&lt;br&gt;will anonymize &lt;span style=&apos;color:red;&apos;&gt;%2&lt;/span&gt; instead</source>
-        <translation type="unfinished"></translation>
+        <translation>Не достатньо сумісних коштів для анонімізації &lt;span style=&apos;color:red;&apos;&gt;%1&lt;/span&gt;,&lt;br&gt;буде анонімізовано лише&lt;span style=&apos;color:red;&apos;&gt;%2&lt;/span&gt;</translation>
     </message>
     <message>
         <source>Overall progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Прогрес в цілому</translation>
     </message>
     <message>
         <source>Denominated</source>
-        <translation type="unfinished"></translation>
+        <translation>Розбито на номінали</translation>
     </message>
     <message>
         <source>Mixed</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемішано</translation>
     </message>
     <message>
         <source>Anonymized</source>
-        <translation type="unfinished"></translation>
+        <translation>Анонімізовано</translation>
     </message>
     <message numerus="yes">
         <source>Denominated inputs have %5 of %n rounds on average</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Номінали пройшли в середньому %5з %n раундів</numerusform>
+            <numerusform>Номінали пройшли в середньому %5з %n раундів</numerusform>
+            <numerusform>Номінали пройшли в середньому %5з %n раундів</numerusform>
         </translation>
     </message>
     <message>
         <source>keys left: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>залишилось ключів: %1</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Вимкнений</translation>
     </message>
     <message>
         <source>Very low number of keys left since last automatic backup!</source>
-        <translation type="unfinished"></translation>
+        <translation>Дуже мало ключів з моменту останнього автоматичного бекапу!</translation>
     </message>
     <message>
         <source>We are about to create a new automatic backup for you, however &lt;span style=&apos;color:red;&apos;&gt; you should always make sure you have backups saved in some safe place&lt;/span&gt;!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ми збираємося створити автоматичний бекап, однак &lt;span style=&apos;color:red;&apos;&gt; завжди перевіряйте, що ви зберігаєте їх в безпечному місці&lt;/span&gt;!</translation>
     </message>
     <message>
         <source>Note: You can turn this message off in options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Примітка: Ви можете відключити це повідомлення у налаштуваннях.</translation>
     </message>
     <message>
         <source>WARNING! Something went wrong on automatic backup</source>
-        <translation type="unfinished"></translation>
+        <translation>УВАГА! Щось пішло не так при створенні автоматичного бекапу.</translation>
     </message>
     <message>
         <source>ERROR! Failed to create automatic backup</source>
-        <translation type="unfinished"></translation>
+        <translation>ПОМИЛКА! Не вдалося створити автоматичний бекап</translation>
     </message>
     <message>
         <source>Mixing is disabled, please close your wallet and fix the issue!</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемішування вимкнено, будь ласка закрийте гаманець і виправте проблему!</translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввімкнений</translation>
     </message>
     <message>
         <source>see debug.log for details.</source>
-        <translation type="unfinished"></translation>
+        <translation>дивіться debug.log для отримання докладної інформації.</translation>
     </message>
     <message>
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
-        <translation type="unfinished"></translation>
+        <translation>УВАГА! Ну вдалося оновити пул ключів, будь ласка, розблокуйте гаманець.</translation>
     </message>
     <message>
         <source>Last PrivateSend message:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Останнє повідомлення PrivateSend:
+</translation>
     </message>
     <message>
         <source>PrivateSend was successfully reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>PrivateSend був успішно перерваний.</translation>
     </message>
     <message>
         <source>If you don&apos;t want to see internal PrivateSend fees/transactions select &quot;Most Common&quot; as Type on the &quot;Transactions&quot; tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо Ви не хочете бачити внутрішні транзакції / комісії від роботи PrivateSend, виберіть Тип &quot;Найбільш загальні&quot; на вкладці &quot;Транзакції&quot;.</translation>
     </message>
     <message>
         <source>PrivateSend requires at least %1 to use.</source>
-        <translation type="unfinished"></translation>
+        <translation>Для роботи PrivateSend потрібно мінімум%1.</translation>
     </message>
     <message>
         <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гаманець заблокований і користувач відмовився його розблокувати. PrivateSend буде вимкнений.</translation>
     </message>
 </context>
 <context>
@@ -2518,71 +2520,71 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Cannot start sibcoin: click-to-pay handler</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдається запустити обробник sibcoin: click-to-pay</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Невірний URL запиту платежу:%1</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неможливо прочитати або розібрати файл запиту платежу! Можливо це некоректний файл.</translation>
     </message>
     <message>
         <source>Payment request rejected</source>
-        <translation type="unfinished"></translation>
+        <translation>Запит платежу відхилений</translation>
     </message>
     <message>
         <source>Payment request network doesn&apos;t match client network.</source>
-        <translation type="unfinished"></translation>
+        <translation>Мережа запиту платежу не відповідає мережі клієнта.</translation>
     </message>
     <message>
         <source>Payment request expired.</source>
-        <translation type="unfinished">Запит платежу прострочено.</translation>
+        <translation>Час запиту платежу минув.</translation>
     </message>
     <message>
         <source>Payment request is not initialized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Запит платежу не ініціалізовано.</translation>
     </message>
     <message>
         <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неперевірені запити платежів з нестандартними платіжними сценаріями не підтримуються.</translation>
     </message>
     <message>
         <source>Invalid payment request.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неправильний запит платежу.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation type="unfinished"></translation>
+        <translation>Затребувана сума платежу%1 занадто мала (вважається &amp;quot;пилом&amp;quot;).</translation>
     </message>
     <message>
         <source>Refund from %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Повернення від%1</translation>
     </message>
     <message>
         <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation type="unfinished"></translation>
+        <translation>Запит платежу%1 занадто великий (%2 байт, дозволено%3 байт).</translation>
     </message>
     <message>
         <source>Error communicating with %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка зв&apos;язку з %1:%2</translation>
     </message>
     <message>
         <source>Payment request cannot be parsed!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не можу розібрати запит платежу!</translation>
     </message>
     <message>
         <source>Bad response from server %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Погана відповідь від сервера%1</translation>
     </message>
     <message>
         <source>Network request error</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка мережевого запиту</translation>
     </message>
     <message>
         <source>Payment acknowledged</source>
-        <translation type="unfinished"></translation>
+        <translation>Платіж прийнято</translation>
     </message>
 </context>
 <context>
@@ -2740,64 +2742,64 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Sibcoin</source>
-        <translation type="unfinished">Sibcoin</translation>
+        <translation>Sibcoin</translation>
     </message>
     <message>
         <source>Error reading masternode configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка читання файлу конфігурації майстернод:% 1</translation>
     </message>
 </context>
 <context>
     <name>QObject::QObject</name>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
-        <translation type="unfinished">Помилка: Вказаного каталогу даних «%1» не існує.</translation>
+        <translation>Помилка: Вказаного каталогу даних «%1» не існує.</translation>
     </message>
     <message>
         <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка: Неможливо прочитати файл налаштувань:%1. Використовуйте для налаштувань синтаксис ключ=значення.</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation type="unfinished">Помилка: %1</translation>
+        <translation>Помилка: %1</translation>
     </message>
 </context>
 <context>
     <name>QRDialog</name>
     <message>
         <source>QR-Code Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок QR-коду</translation>
     </message>
     <message>
         <source>QR Code</source>
-        <translation type="unfinished">QR-Код</translation>
+        <translation>QR-код</translation>
     </message>
     <message>
         <source>&amp;Save Image...</source>
-        <translation type="unfinished">&amp;Зберегти зображення...</translation>
+        <translation>&amp;Зберегти зображення...</translation>
     </message>
     <message>
         <source>Error creating QR Code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка створення QR-коду.</translation>
     </message>
 </context>
 <context>
     <name>QRGeneralImageWidget</name>
     <message>
         <source>&amp;Save Image...</source>
-        <translation type="unfinished">&amp;Зберегти зображення...</translation>
+        <translation>&amp;Зберегти зображення...</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
-        <translation type="unfinished">&amp;Копіювати зображення</translation>
+        <translation>&amp;Копіювати зображення</translation>
     </message>
     <message>
         <source>Save QR Code</source>
-        <translation type="unfinished">Зберегти QR-код</translation>
+        <translation>Зберегти QR-код</translation>
     </message>
     <message>
         <source>PNG Image (*.png)</source>
-        <translation type="unfinished">Зображення PNG (*.png)</translation>
+        <translation>Зображення PNG (*.png)</translation>
     </message>
 </context>
 <context>
@@ -3151,107 +3153,107 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Tools window</source>
-        <translation type="unfinished"></translation>
+        <translation>Вікно інструментів</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Кількість майстернод</translation>
     </message>
     <message>
         <source>&amp;Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистити</translation>
     </message>
     <message>
         <source>&amp;Wallet Repair</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ремонт  гаманця</translation>
     </message>
     <message>
         <source>Salvage wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Рятування гаманця</translation>
     </message>
     <message>
         <source>Rescan blockchain files</source>
-        <translation type="unfinished"></translation>
+        <translation>Пересканувати ланцюжок блоків</translation>
     </message>
     <message>
         <source>Recover transactions 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Відновлення транзакцій 1</translation>
     </message>
     <message>
         <source>Recover transactions 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Відновлення транзакцій 2</translation>
     </message>
     <message>
         <source>Upgrade wallet format</source>
-        <translation type="unfinished"></translation>
+        <translation>Оновити формат гаманця</translation>
     </message>
     <message>
         <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
-        <translation type="unfinished"></translation>
+        <translation>За допомогою цих кнопок Ви можете перезапустити гаманець з додаванням спеціальних команд для відновлення гаманця, виправлення проблем з зіпсованими файлами блокчейну або зниклими / конфліктуючими транзакціями.</translation>
     </message>
     <message>
         <source>-salvagewallet: Attempt to recover private keys from a corrupt wallet.dat.</source>
-        <translation type="unfinished"></translation>
+        <translation>-salvagewallet: Спробувати відновити закриті ключі з пошкодженого wallet.dat.</translation>
     </message>
     <message>
         <source>-rescan: Rescan the block chain for missing wallet transactions.</source>
-        <translation type="unfinished"></translation>
+        <translation>-rescan: Перевірити ще раз ланцюжок блоків на предмет відсутніх в гаманці транзакцій.</translation>
     </message>
     <message>
         <source>-zapwallettxes=1: Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
-        <translation type="unfinished"></translation>
+        <translation>-zapwallettxes = 1: Відновити транзакції з ланцюжка блоків (зберегти мета-дані, наприклад, про власників акаунтів).</translation>
     </message>
     <message>
         <source>-zapwallettxes=2: Recover transactions from blockchain (drop meta-data).</source>
-        <translation type="unfinished"></translation>
+        <translation>-zapwallettxes = 2: Відновити транзакції з ланцюжка блоків (видалити мета-дані).</translation>
     </message>
     <message>
         <source>-upgradewallet: Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself!)</source>
-        <translation type="unfinished"></translation>
+        <translation>-upgradewallet: Оновити формат гаманця при наступному запуску. (Примітка: оновлення безпосередньо клієнт гаманця НЕ виконується!)</translation>
     </message>
     <message>
         <source>Wallet repair options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Варіанти ремонту гаманця.</translation>
     </message>
     <message>
         <source>Rebuild index</source>
-        <translation type="unfinished"></translation>
+        <translation>Перебудувати індекс</translation>
     </message>
     <message>
         <source>-reindex: Rebuild block chain index from current blk000??.dat files.</source>
-        <translation type="unfinished"></translation>
+        <translation>-reindex: Перебудувати індекс ланцюжка блоків з поточних файлів blk000 ??. dat.</translation>
     </message>
     <message>
         <source>Wallet Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Шлях до гаманця</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовуйте стрілки вгору і вниз для перегляду історії і &lt;b&gt;Ctrl-L&lt;/b&gt; для очищення екрану.</translation>
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation type="unfinished"></translation>
+        <translation>Напишіть &lt;b&gt;help&lt;/b&gt; для перегляду доступних команд.</translation>
     </message>
     <message>
         <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramification of a command.</source>
-        <translation type="unfinished"></translation>
+        <translation>УВАГА: Шахраї можуть попросити Вас ввести сюди команди і таким чином вкрасти Ваші кошти. Не використовуйте цю консоль, якщо Ви не до кінця розумієте наслідки команд, що вводяться.</translation>
     </message>
     <message>
         <source>%1 B</source>
-        <translation type="unfinished">%1 Б</translation>
+        <translation>%1 Б</translation>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation type="unfinished">%1 КБ</translation>
+        <translation>%1 КБ</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation type="unfinished">%1 МБ</translation>
+        <translation>%1 МБ</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation type="unfinished">%1 ГБ</translation>
+        <translation>%1 ГБ</translation>
     </message>
 </context>
 <context>
@@ -3350,23 +3352,23 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторно використовувати одну з раніше використаних адрес. Повторне використання адреси несе ризики безпеки і приватності. Не використовуйте цю опцію, якщо ви не створюєте повторно запит платежу, зроблений раніше.</translation>
     </message>
     <message>
         <source>R&amp;euse an existing receiving address (not recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторно використовувати існуючу адресу отримання (не рекомендується)</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Sibcoin network.</source>
-        <translation type="unfinished"></translation>
+        <translation>Необов&apos;язкове повідомлення для запиту платежу, яке буде показано при відкритті запиту.&lt;br&gt;Зверніть увагу: повідомлення не буде відправлено разом з платежем через мережу Sibcoin.</translation>
     </message>
     <message>
         <source>&amp;Request payment</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Запит на оплату</translation>
     </message>
     <message>
         <source>Request InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>Запит InstantSend</translation>
     </message>
 </context>
 <context>
@@ -3421,23 +3423,23 @@ https://www.transifex.com/projects/p/sibcoin/</source>
     </message>
     <message>
         <source>InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Так</translation>
+        <translation>Так</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">Ні</translation>
+        <translation>Ні</translation>
     </message>
     <message>
         <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation type="unfinished">Кінцевий URI занадто довгий, спробуйте зменшити текст для мітки / повідомлення.</translation>
+        <translation>Кінцевий URI занадто довгий, спробуйте зменшити текст для мітки / повідомлення.</translation>
     </message>
     <message>
         <source>Error encoding URI into QR Code.</source>
-        <translation type="unfinished">Помилка кодування URI в QR-код.</translation>
+        <translation>Помилка кодування URI в QR-код.</translation>
     </message>
 </context>
 <context>
@@ -3803,95 +3805,95 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of &quot;100 satos
     </message>
     <message>
         <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until your have validated the complete chain.</source>
-        <translation type="unfinished"></translation>
+        <translation>Використання fallbackfee може привести до того, що для підтвердження транзакції потрібно кілька годин або днів (або вона взагалі ніколи не підтвердиться). Краще вкажіть комісію вручну або дочекайтеся повної синхронізації.</translation>
     </message>
     <message>
         <source>collapse fee-settings</source>
-        <translation type="unfinished"></translation>
+        <translation>згорнути налаштування комісії</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 duffs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 duffs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 duffs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо ручна комісія встановлена в 1000 duff, а транзакція за розміром тільки 250 байт, то&quot; плата за кілобайт&quot; складе лише 250 duff,&lt;br /&gt;в той час як &quot;мінімум&quot; буде дорівнює 1000 duff. Для тразакцій більше кілобайт в будь-якому випадку йде розрахунок за кілобайт.</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 duffs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 duffs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 duffs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо ручна комісія встановлена в 1000 duff, а транзакція за розміром тільки 250 байт, то&quot; плата за кілобайт&quot; складе лише 250 duff,&lt;br /&gt;в той час як &quot;разом мінімум&quot; буде дорівнює 1000 duff. Для тразакцій більше кілобайт в будь-якому випадку йде розрахунок за кілобайт.</translation>
     </message>
     <message>
         <source>total at least</source>
-        <translation type="unfinished"></translation>
+        <translation>разом мінімум</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for sibcoin transactions than the network can process.</source>
-        <translation type="unfinished"></translation>
+        <translation>Оплати тільки мінімальної комісії повинно бути достатньо у всіх випадках, поки в блоках достатньо місця. Однак, будьте готові до того, що транзакція може зовсім не отримати підтвердження, якщо кількість транзакцій буде стабільно більше, ніж мережа здатна обробити.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
-        <translation type="unfinished"></translation>
+        <translation>(прочитайте підказку)</translation>
     </message>
     <message>
         <source>normal</source>
-        <translation type="unfinished"></translation>
+        <translation>нормальний</translation>
     </message>
     <message>
         <source>fast</source>
-        <translation type="unfinished"></translation>
+        <translation>швидкий</translation>
     </message>
     <message>
         <source>PrivateSend</source>
-        <translation type="unfinished"></translation>
+        <translation>PrivateSend</translation>
     </message>
     <message>
         <source>InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend</translation>
     </message>
     <message>
         <source>using</source>
-        <translation type="unfinished"></translation>
+        <translation>, використовуючи</translation>
     </message>
     <message>
         <source>anonymous funds</source>
-        <translation type="unfinished"></translation>
+        <translation>анонімні кошти</translation>
     </message>
     <message>
         <source>(privatesend requires this amount to be rounded up to the nearest %1).</source>
-        <translation type="unfinished"></translation>
+        <translation>(Для роботи PrivateSend потрібно примусово округлити до найближчого%1).</translation>
     </message>
     <message>
         <source>any available funds (not anonymous)</source>
-        <translation type="unfinished"></translation>
+        <translation>будь-які доступні кошти (не анонімно)</translation>
     </message>
     <message>
         <source>and InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>та InstantSend</translation>
     </message>
     <message>
         <source>are added as transaction fee</source>
-        <translation type="unfinished"></translation>
+        <translation>додано в якості комісії транзакції</translation>
     </message>
     <message>
         <source>Total Amount = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Загальна сума = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</translation>
     </message>
     <message>
         <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;(%1 з %2 записів показано)&lt;/b&gt;</translation>
     </message>
     <message>
         <source>The transaction was rejected with the following reason: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Транзакція відхилена з такої причини:%1</translation>
     </message>
     <message numerus="yes">
         <source>%n block(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n блок</numerusform>
+            <numerusform>%n блока</numerusform>
+            <numerusform>%n блоків</numerusform>
         </translation>
     </message>
     <message>
         <source>Pay only the required fee of %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Заплатити тільки необхідну комісію%1</translation>
     </message>
 </context>
 <context>
@@ -3978,30 +3980,30 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of &quot;100 satos
     </message>
     <message>
         <source>This is a normal payment.</source>
-        <translation type="unfinished"></translation>
+        <translation>Це нормальний платіж.</translation>
     </message>
     <message>
         <source>The address to send the payment to (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса, на яку буде вислано платіж (наприклад, SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</translation>
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Sibcoin than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation type="unfinished"></translation>
+        <translation>Комісія буде вирахувана з відправляється суми. Одержувачу прийде менше Sibcoin, ніж зазначено в полі &quot;Сума&quot;. Якщо вказано кілька одержувачів, то комісія буде розділена між ними порівну.</translation>
     </message>
     <message>
         <source>A message that was attached to the sibcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Sibcoin network.</source>
-        <translation type="unfinished"></translation>
+        <translation>До sibcoin URI було прикріплено повідомлення, яке буде збережено разом з транзакцією для вашого відома. Зверніть увагу: повідомлення не буде відправлено через мережу Sibcoin.</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
-        <translation type="unfinished"></translation>
+        <translation>Вкажіть позначку для даної адреси для додавання її в адресну книгу</translation>
     </message>
 </context>
 <context>
     <name>SendConfirmationDialog</name>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Так</translation>
+        <translation>Так</translation>
     </message>
 </context>
 <context>
@@ -4167,26 +4169,26 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of &quot;100 satos
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive Sibcoin sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви можете підписувати повідомлення своїми адресами, щоб довести, що ви можете отримувати Sibcoin на них. Будьте обережні, не підписуйте щось випадкове або невизначене, так як фішингові атаки можуть обманним шляхом змусити вас підписати небажані повідомлення. Підписуйте тільки ті повідомлення, з якими ви згідні аж до дрібниць.</translation>
     </message>
     <message>
         <source>The address to sign the message with (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса, якою Ви хочете підписати повідомлення (наприклад, SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</translation>
     </message>
     <message>
         <source>The Sibcoin address the message was signed with (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса, якою було підписано повідомлення (наприклад, SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
     <message>
         <source>[testnet]</source>
-        <translation type="unfinished"></translation>
+        <translation>[тестова мережа]</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Версія %1</translation>
     </message>
 </context>
 <context>
@@ -4376,34 +4378,34 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of &quot;100 satos
     </message>
     <message>
         <source>conflicted</source>
-        <translation type="unfinished"></translation>
+        <translation>в протиріччі</translation>
     </message>
     <message>
         <source>%1/offline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/вимкнений</translation>
     </message>
     <message>
         <source>verified via InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>перевірено через InstantSend</translation>
     </message>
     <message>
         <source>InstantSend verification in progress - %1 of %2 signatures</source>
-        <translation type="unfinished"></translation>
+        <translation>верифікація InstantSend в процесі -%1 з%2 підписів</translation>
     </message>
     <message>
         <source>InstantSend verification failed</source>
-        <translation type="unfinished"></translation>
+        <translation>верифікація InstantSend завершилася невдало</translation>
     </message>
     <message>
         <source>, has not been successfully broadcast yet</source>
-        <translation type="unfinished"></translation>
+        <translation>, ще не було успішно розіслано</translation>
     </message>
     <message numerus="yes">
         <source>, broadcast through %n node(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>розіслано через %n вузол</numerusform>
+            <numerusform>розіслано через %n вузла</numerusform>
+            <numerusform>розіслано через %n вузлів</numerusform>
         </translation>
     </message>
 </context>
@@ -4530,43 +4532,43 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of &quot;100 satos
     </message>
     <message>
         <source>Address / Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса / Мітка</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Нема активного з&apos;єднання з мережею</translation>
     </message>
     <message>
         <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation type="unfinished"></translation>
+        <translation>Цей блок не був отриманий іншими вузлами і, можливо, не буде прийнятий!</translation>
     </message>
     <message>
         <source>Received via PrivateSend</source>
-        <translation type="unfinished"></translation>
+        <translation>Отримано через PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend Denominate</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемішування PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend Collateral Payment</source>
-        <translation type="unfinished"></translation>
+        <translation>Забезпечувальний платіж PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend Make Collateral Inputs</source>
-        <translation type="unfinished"></translation>
+        <translation>Створення забезпечувальних монет для PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend Create Denominations</source>
-        <translation type="unfinished"></translation>
+        <translation>Створення номіналів для PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend</source>
-        <translation type="unfinished"></translation>
+        <translation>PrivateSend</translation>
     </message>
     <message>
         <source>Whether or not this transaction was locked by InstantSend.</source>
-        <translation type="unfinished"></translation>
+        <translation>Чи була дана транзакція заблокована за допомогою InstantSend.</translation>
     </message>
 </context>
 <context>
@@ -4729,39 +4731,39 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of &quot;100 satos
     </message>
     <message>
         <source>Locked by InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>Заблоковано за допомогою InstantSend</translation>
     </message>
     <message>
         <source>Not locked by InstantSend</source>
-        <translation type="unfinished"></translation>
+        <translation>Не заблоковано за допомогою InstantSend</translation>
     </message>
     <message>
         <source>Most Common</source>
-        <translation type="unfinished"></translation>
+        <translation>Найзагальніші</translation>
     </message>
     <message>
         <source>PrivateSend</source>
-        <translation type="unfinished"></translation>
+        <translation>PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend Make Collateral Inputs</source>
-        <translation type="unfinished"></translation>
+        <translation>Створення забезпечувальних монет для PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend Create Denominations</source>
-        <translation type="unfinished"></translation>
+        <translation>Створення номіналів для PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend Denominate</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемішування PrivateSend</translation>
     </message>
     <message>
         <source>PrivateSend Collateral Payment</source>
-        <translation type="unfinished"></translation>
+        <translation>Забезпечувальний платіж PrivateSend</translation>
     </message>
     <message>
         <source>Enter address or label to search</source>
-        <translation type="unfinished">Введіть адресу чи мітку для пошуку</translation>
+        <translation>Введіть адресу чи мітку для пошуку</translation>
     </message>
 </context>
 <context>
@@ -4853,11 +4855,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of &quot;100 satos
     </message>
     <message>
         <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 SIB.</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend поки що не підтримує такі великі суми. На даний момент транзакції обмежені сумами до%1 SIB.</translation>
     </message>
     <message>
         <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
-        <translation type="unfinished"></translation>
+        <translation>Для цієї InstantSend транзакції було використано занадто багато входів (&gt;%1), комісія може бути завеликою.</translation>
     </message>
 </context>
 <context>
@@ -4900,16 +4902,17 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of &quot;100 satos
     </message>
     <message>
         <source>Selected amount:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сума вибраних:</translation>
     </message>
     <message>
         <source>Before sending sibcoins to address please be sure
 that paper wallet has been printed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>Перед переведенням червінців на згенеровану адресу переконайтеся,
+ що паперовий гаманець успішно роздрукований!</translation>
     </message>
     <message>
         <source>Print support is disabled!</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтримка друку відключена!</translation>
     </message>
 </context>
 <context>
@@ -5413,1175 +5416,1175 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <source>Sibcoin Core</source>
-        <translation type="unfinished"></translation>
+        <translation>Sibcoin Core</translation>
     </message>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation type="unfinished"></translation>
+        <translation>(1 = зберегти мета-дані, наприклад, про власника аккаунта і інформацію про запит платежу, 2 = видалити мета-дані)</translation>
     </message>
     <message>
         <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Комісія (в %s/kB), яка буде використана при недостатній кількості даних для розрахунку передбачуваної комісії (за замовчуванням:% s)</translation>
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect/-noconnect)</source>
-        <translation type="unfinished"></translation>
+        <translation>Приймати підключення ззовні (за замовчуванням: 1, якщо не використовується -proxy або -connect / -noconnect)</translation>
     </message>
     <message>
         <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Приймати транзакції, що пересилаються, отримані від вузлів в білому списку, навіть коли пересилання транзакцій відключене (за замовчуванням: %d)</translation>
     </message>
     <message>
         <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволити з&apos;єднання JSON-RPC з вказаного джерела. Може бути окремим IP (наприклад, 1.2.3.4), підмережею / маскою (наприклад, 1.2.3.4/255.255.255.0) або підмережею / CIDR (e.g. 1.2.3.4/24). Цю опцію можна вказувати декілька разів</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished"></translation>
+        <translation>Прив&apos;язатися до вказаної адреси і завжди прослуховувати тільки її. Використовуйте [хост]: порт для IPv6</translation>
     </message>
     <message>
         <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished"></translation>
+        <translation>Прив&apos;язатися до вказаної адреси та внести піри, що використовують її, в білий список. Використовуйте [хост]: порт для IPv6</translation>
     </message>
     <message>
         <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished"></translation>
+        <translation>Прив&apos;язатися до вказаної адреси для прослуховування JSON-RPC з&apos;єднань. Використовуйте [хост]: порт для IPv6. Цю опцію можна вказувати кілька разів (за замовчуванням: прив&apos;язатися до всіх інтерфейсів)</translation>
     </message>
     <message>
         <source>Connect only to the specified node(s); -noconnect or -connect=0 alone to disable automatic connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Приєднатися тільки до зазначеного вузла (ів); використовуйте -noconnect або -connect = 0, щоб відключити автоматичні з&apos;єднання</translation>
     </message>
     <message>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation type="unfinished"></translation>
+        <translation>Створювати нові файли з дозволами за замовчуванням замість umask 077 (актуально тільки з відключеним функціоналом гаманця)</translation>
     </message>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Видалити всі трансакції з гаманця і при рестарті за допомогою -rescan відновити тільки ті, які є в ланцюжку блоків</translation>
     </message>
     <message>
         <source>Disable all Sibcoin specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Відключити всю функціональність, що стосується Sibcoin (Майстерноди, PrivateSend, InstantSend, Governance) (0-1, за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation type="unfinished"></translation>
+        <translation>Визначити свій IP (за замовчуванням: 1 при прослуховуванні і якщо не використовується -externalip або -proxy)</translation>
     </message>
     <message>
         <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Не зберігати транзакції в мемпулі довше ніж &lt;n&gt; годин (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Enable InstantSend, show confirmations for locked transactions (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввімкнути InstantSend, показувати підтвердження для заблокованих транзакцій (0-1, за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввімкнути множинне перемішування PrivateSend за один блок (0-1, за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Enable use of automated PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Увімкнути автоматичне перемішування PrivateSend для коштів, що зберігаються в цьому гаманці (0-1, за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка завантаження %s: Ви не можете включити HD режим для існуючого не-HD гаманця</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished"></translation>
+        <translation>Виконати команду, коли приходить відповідне повідомлення про тривогу або спостерігається дуже довгий альтернативний ланцюжок блоків (%s в команді замінюється на повідомлення)</translation>
     </message>
     <message>
         <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished"></translation>
+        <translation>Виконати команду, коли транзакція InstantSend успішно заблокована (%s в команді замінюється на TxID)</translation>
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished"></translation>
+        <translation>Виконати команду, коли змінюється транзакція в гаманці (%s в команді замінюється на TxID)</translation>
     </message>
     <message>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished"></translation>
+        <translation>Виконати команду при появі нового блоку (%s в команді замінюється на хеш блоку)</translation>
     </message>
     <message>
         <source>Extra transactions to keep in memory for compact block reconstructions (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Кількість додаткових транзакцій, які потрібно тримати в пам&apos;яті для реконструкції компактних блоків (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося створити резервну копію, тому що файл вже існує! Таке могло статися, якщо ви провели перезапуск гаманця менш ніж через 60 секунд після попереднього запуску. Ви можете продовжити, якщо це допустимо.</translation>
     </message>
     <message>
         <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Комісії (в %s/kB) менше цього значення вважаються нульовими для ретлянсляції, майнінгу і створення транзакції (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Комісії (в %s/kB) менше цього значення вважаються нульовими при створенні транзакції (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Force relay of transactions from whitelisted peers even if they violate local relay policy (default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пересилати транзакції від вузлів в білому списку, навіть якщо вони порушують локальні правила пересилання (за замовчуванням:%d)</translation>
     </message>
     <message>
         <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Знайдено непідтверджені номінали, процес продовжиться після їх підтвердження.</translation>
     </message>
     <message>
         <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Наскільки ретельна перевірка контрольних блоків -checkblocks (0-4, за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо &lt;category&gt; не вказана або &lt;category&gt; = 1, виводить всю налагоджувльну інформацію.</translation>
     </message>
     <message>
         <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо paytxfee не задано, то включити достатньо комісії, щоб підтвердження транзакцій відбувалося в середньому за n блоків (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>If this block is in the chain assume that it and its ancestors are valid and potentially skip their script verification (0 to verify all, default: %s, testnet: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо цей блок є в ланцюжку, то припустити, що він і всі попередні блоки валідні, і пропустити перевірку їх скриптів (0 - перевіряти всі, за замовчуванням:%s, testnet:%s)</translation>
     </message>
     <message>
         <source>Incorrect or no devnet genesis block found. Wrong datadir for devnet specified?</source>
-        <translation type="unfinished"></translation>
+        <translation>Невірний або відсутній початковий блок devnet. Неправильний каталог даних для devnet?</translation>
     </message>
     <message>
         <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 SIB.</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend поки що не підтримує такі великі суми. На даний момент транзакції обмежені сумами до %1 SIB.</translation>
     </message>
     <message>
         <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>InstantSend вимагає наявності коштів з хоча б %d підтвердженнями, можливо Вам потрібно почекати пару хвилин і спробувати знову.</translation>
     </message>
     <message>
         <source>Maintain a full address index, used to query for the balance, txids and unspent outputs for addresses (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберігати повний індекс для адрес, що використовуються для запиту балансу, транзакцій і невитрачених виходів для конкретної адреси (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Maintain a full spent index, used to query the spending txid and input index for an outpoint (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберігати повний індекс витрат, використовується для запиту id транзакції і індексу входу для конкретного виходу (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберігати повний індекс транзакцій, використовується rpc-викликом getrawtransaction (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Maintain a timestamp index for block hashes, used to query blocks hashes by a range of timestamps (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберігати індекс міток часу для хешів блоку, використовується для запиту хешів блоків по діапазону міток часу (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (temporary service connections excluded) (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтримувати не більше &lt;n&gt; підключень до вузлів (без урахування тимчасових сервісних з&apos;єднань) (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Make sure to encrypt your wallet and delete all non-encrypted backups after you verified that wallet works!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не забудьте зашифрувати гаманець і видалити всі незашифровані резервні копії після того як переконаєтеся, що гаманець працює!</translation>
     </message>
     <message>
         <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимально допустиме відхилення медіанного часу вузлів. Локальний час може відрізнятися вузлами на цю величину як вперед, так і назад. (За замовчуванням: %u секунд)</translation>
     </message>
     <message>
         <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальний розмір даних в транзакціях передачі даних, який ми ретранслюємо і видобуваємо (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальна сума комісії (в %s), допустима в одній транзакції. Установка дуже низького значення може привести до неможливості відправити великі транзакції (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Name to construct url for KeePass entry that stores the wallet passphrase</source>
-        <translation type="unfinished"></translation>
+        <translation>Ім&apos;я для створення посилання на запис KeePass, що зберігає пароль до гаманця</translation>
     </message>
     <message>
         <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Кількість секунд, протягом яких забороняти перепідключатися учасникам, що неправильно себе поводять (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Висновок налагоджувальної інформації (за замовчуванням: %u, вказівка &lt;category&gt; необов&apos;язкова)</translation>
     </message>
     <message>
         <source>Override spork address. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Задати spork-адресу. Корисно тільки для regtest або devnet. Використання цього в головній або тестовій мережі призведе до бану Вашого вузла.</translation>
     </message>
     <message>
         <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
-        <translation type="unfinished"></translation>
+        <translation>При відправці PrivateSend використовує тільки деноміновані кошти, можливо, Вам просто потрібно анонімізувати трохи більше монет.</translation>
     </message>
     <message>
         <source>Provide liquidity to PrivateSend by infrequently mixing coins on a continual basis (%u-%u, default: %u, 1=very frequent, high fees, %u=very infrequent, low fees)</source>
-        <translation type="unfinished"></translation>
+        <translation>Надавати ліквідність для PrivateSend шляхом рідкісної участі в перемішуванні монет на постійній основі (%u-%u, за замовчуванням:%u, 1 = дуже часто, висока комісія,%u = дуже рідко, низька комісія)</translation>
     </message>
     <message>
         <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect/-noconnect)</source>
-        <translation type="unfinished"></translation>
+        <translation>Запитувати адреси учасників за допомогою DNS, якщо адрес мало (за замовчуванням: 1, якщо не вказано -connect / -noconnect)</translation>
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати випадкові облікові дані для кожного проксі-підключення. Ця функція дозволяє ізолювати потоки Tor (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;%u = automatically prune block files to stay under the specified target size in MiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Зменшити вимоги до розміру сховища шляхом урізання (видалення) старих блоків. Це дозволяє використовувати RPC-команду pruneblockchain для видалення певних блоків, а також включає автоматичне видалення старих блоків, якщо зазначений цільовий розмір в MiB. Цей режим несумісний з -txindex і -rescan. Увага: скасування цього налаштування потребує повторного скачування всього ланцюжка блоків. (За замовчуванням: 0 = відключити видалення блоків, 1 = дозволити ручне видалення через RPC, &gt;%u = цільовий розмір в MiB, який займатимуть файли блоків)</translation>
     </message>
     <message>
         <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторне сканування неможливе в режимі видалення блоків. Вам треба буде використати -reindex, що призведе до повторного завантаження всього ланцюжка блоків.</translation>
     </message>
     <message>
         <source>Set lowest fee rate (in %s/kB) for transactions to be included in block creation. (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановити мінімальну комісію (в %s/kB) для додавання транзакцій в блок (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Задати максимальний розмір високопріоритетних / з низькими комісіями транзакцій в байтах (за замовчуванням:%d)</translation>
     </message>
     <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Задати число потоків перевірки скрипта (від %u до %d, 0 = авто, &lt;0 = залишити стільки ядер вільними, за замовчуванням: %d)</translation>
     </message>
     <message>
         <source>Show N confirmations for a successfully locked transaction (%u-%u, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати N підтверджень для успішно заблокованої транзакції (%u-%u, за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Specify full path to directory for automatic wallet backups (must exist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Вкажіть повний шлях до папки для автоматичних резервних копій гаманця (повинна вже бути створена)</translation>
     </message>
     <message>
         <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтримувати фільтрацію блоків і транзакцій за допомогою фільтрів Блума (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished"></translation>
+        <translation>Цей продукт містить ПЗ, розроблене проектом OpenSSL Project для використання в OpenSSL Toolkit %s, криптографічне ПЗ, написане Eric Young і ПЗ для роботи з UPnP, написане Thomas Bernard.</translation>
     </message>
     <message>
         <source>Transaction index can&apos;t be disabled in full mode. Either start with -litemode command line switch or enable transaction index.</source>
-        <translation type="unfinished"></translation>
+        <translation>Індексування транзакцій не можна відключити в повному режимі. Або запустіть гаманець з опцією -litemode, або увімкніть індексування транзакцій.</translation>
     </message>
     <message>
         <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Намагатися обмежити вихідний трафік в межах встановленого ліміту (в МБ за 24г), 0 = не обмежувати (за замовчуванням:%d)</translation>
     </message>
     <message>
         <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося виявити достатньо номіналів PrivateSend для виконання цієї транзакції.</translation>
     </message>
     <message>
         <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося виявити достатньо неденомінованих коштів для виконання цієї транзакції.</translation>
     </message>
     <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation type="unfinished"></translation>
+        <translation>Виявлено непідтримуваний аргумент -socks. Вибір версії SOCKS більше неможливий, підтримуються тільки проксі версії SOCKS5.</translation>
     </message>
     <message>
         <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation type="unfinished"></translation>
+        <translation>Непідтримуваний аргумент -whitelistalwaysrelay проігнорований, використовуйте -whitelistrelay і / або -whitelistforcerelay.</translation>
     </message>
     <message>
         <source>Use N separate masternodes for each denominated input to mix funds (%u-%u, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати N окремих майстернод для перемішування коштів (%u-%u, за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати UPnP для прослуховування порту (за замовчуванням: 1, якщо використовується прослуховування і немає -proxy)</translation>
     </message>
     <message>
         <source>Use hierarchical deterministic key generation (HD) after BIP39/BIP44. Only has effect during wallet creation/first start</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати генерацію ієрархічних детермінованих ключів (HD) за схемою BIP39 / BIP44. Працює тільки при першому створенні/старті гаманця</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати окремий SOCKS5 проксі для підключення до пірів через приховані сервіси Tor (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>User defined mnemonic for HD wallet (bip39). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation type="unfinished"></translation>
+        <translation>Задана користувачем мнемоніка HD гаманця (bip39). Працює тільки при першому створенні/старті гаманця (за замовчуванням: генерується випадковим чином)</translation>
     </message>
     <message>
         <source>User defined mnemonic passphrase for HD wallet (BIP39). Only has effect during wallet creation/first start (default: empty string)</source>
-        <translation type="unfinished"></translation>
+        <translation>Задана користувачем парольна фраза мнемоніки HD гаманця (BIP39). Працює тільки при першому створенні / старті гаманця (за замовчуванням: порожній рядок)</translation>
     </message>
     <message>
         <source>User defined seed for HD wallet (should be in hex). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation type="unfinished"></translation>
+        <translation>Задана користувачем seed послідовність HD гаманця (в hex форматі). Працює тільки при першому створенні/старті гаманця (за замовчуванням: генерується випадковим чином)</translation>
     </message>
     <message>
         <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. The client then connects normally using the rpcuser=&lt;USERNAME&gt;/rpcpassword=&lt;PASSWORD&gt; pair of arguments. This option can be specified multiple times</source>
-        <translation type="unfinished"></translation>
+        <translation>Ім&apos;я користувача і хеш пароля для JSON-RPC з&apos;єднань. Поле &lt;userpw&gt; використовує формат:&lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Канонічний приклад скрипта на Python знаходиться в share / rpcuser. Після цього клієнт з&apos;єднується як зазвичай, використовуючи rpcuser=&lt;USERNAME&gt;/rpcpassword=&lt;PASSWORD&gt; пару аргументів. Ця опція може бути вказана кілька разів</translation>
     </message>
     <message>
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
-        <translation type="unfinished"></translation>
+        <translation>УВАГА! Ну вдалося оновити пул ключів, будь ласка, розблокуйте гаманець.</translation>
     </message>
     <message>
         <source>Wallet is locked, can&apos;t replenish keypool! Automatic backups and mixing are disabled, please unlock your wallet to replenish keypool.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гаманець заблокований, неможливо поповнити пул ключів! Автоматичні резервні копії і перемішування відключені. Будь ласка, розблокуйте гаманець для поповнення пулу ключів.</translation>
     </message>
     <message>
         <source>Wallet will not create transactions that violate mempool chain limits (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Гаманець не створюватиме транзакції що перевищують обмеження мемпула по довжині ланцюжка (default:%u)</translation>
     </message>
     <message>
         <source>Warning: At least %d of %d masternodes are running on a newer software version. Please check latest releases, you might need to update too.</source>
-        <translation type="unfinished"></translation>
+        <translation>Увага: як мінімум %d з% d мастернод використовують нове ПЗ. Будь ласка, ознайомтеся з останніми релізами, можливо Вам теж необхідно перейти на нову версію.</translation>
     </message>
     <message>
         <source>Warning: Every masternode (out of %d known ones) is running on a newer software version. Please check latest releases, it&apos;s very likely that you missed a major/critical update.</source>
-        <translation type="unfinished"></translation>
+        <translation>Увага: всі майстерноди (з% d відомих) використовують нове ПЗ. Будь ласка, ознайомтеся з останніми релізами, вкрай імовірно, що Ви пропустили вагоме або критичне оновлення.</translation>
     </message>
     <message>
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong %s will not work properly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Увага: будь ласка, переконайтеся що дата і час на Вашому комп&apos;ютері виставлені правильно! %S не зможе працювати коректно, якщо годинник налаштовані невірно.</translation>
     </message>
     <message>
         <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Увага: створюються блоки невідомої версії! Можливо активовані невідомі правила</translation>
     </message>
     <message>
         <source>Whitelist peers connecting from the given IP address (e.g. 1.2.3.4) or CIDR notated network (e.g. 1.2.3.0/24). Can be specified multiple times.</source>
-        <translation type="unfinished"></translation>
+        <translation>Внести пірів, що з&apos;єднуються з IP адреси (наприклад, 1.2.3.4) або з адрес, які підходять по масці в CIDR нотації (наприклад, 1.2.3.0/24), в білий список. Опція може бути вказана кілька разів.</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Піри, внесені в білий список, не будуть підлягати DoS блокуванням і їх транзакції ретранслюватимуться, навіть якщо вони вже є в пулі пам&apos;яті, що корисно, наприклад, для роботи в якості шлюзу</translation>
     </message>
     <message>
         <source>You are starting in lite mode, all Sibcoin-specific functionality is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви запускаєте гаманець в lite режимі, велика частина специфічних для Sibcoin функцій відключена.</translation>
     </message>
     <message>
         <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
-        <translation type="unfinished"></translation>
+        <translation>Необхідно вказати masternodeprivkey в файлі конфігурації. Будь ласка, ознайомтеся з документацією.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation type="unfinished"></translation>
+        <translation>Вам необхідно перезібрати бази даних за допомогою -reindex-chainstate, щоб змінити -txindex</translation>
     </message>
     <message>
         <source>%s is not a valid backup folder!</source>
-        <translation type="unfinished"></translation>
+        <translation>% S не є коректною директорією для резервної копії!</translation>
     </message>
     <message>
         <source>(%d could be used only on mainnet)</source>
-        <translation type="unfinished"></translation>
+        <translation>(%d можна використовувати тільки в головній мережі)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>(за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>(default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>(За замовчуванням: %u)</translation>
     </message>
     <message>
         <source>(must be %d for mainnet)</source>
-        <translation type="unfinished"></translation>
+        <translation>(повинно бути %d в головній мережі)</translation>
     </message>
     <message>
         <source>(press q to shutdown and continue later)</source>
-        <translation type="unfinished"></translation>
+        <translation>(натисніть q для завершення і продовжіть пізніше)</translation>
     </message>
     <message>
         <source>-devnet can only be specified once</source>
-        <translation type="unfinished"></translation>
+        <translation>-devnet може бути вказано лише один раз</translation>
     </message>
     <message>
         <source>-port must be specified when -devnet and -listen are specified</source>
-        <translation type="unfinished"></translation>
+        <translation>Необхідно вказати -port, якщо вказані -devnet і -listen</translation>
     </message>
     <message>
         <source>-rpcport must be specified when -devnet and -server are specified</source>
-        <translation type="unfinished"></translation>
+        <translation>Необхідно вказати -rpcport, якщо вказані -devnet і -server</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;category&gt; може бути:</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Приймати командний рядок і команди JSON-RPC</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Приймати публічні REST-запити (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати вузол для підключення і намагатися підтримувати з&apos;єднання відкритим</translation>
     </message>
     <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволити пошук в DNS для -addnode, -seednode і -connect</translation>
     </message>
     <message>
         <source>Allow RFC1918 addresses to be relayed and connected to (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволяти передачу і підключення до RFC1918 адресам (за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Already have that input.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вже є цей вхід.</translation>
     </message>
     <message>
         <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Завжди запитувати адреси учасників через DNS (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Append comment to the user agent string</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати коментар до рядка User Agent</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Спробувати відновити закриті ключі з пошкодженого гаманця на старті</translation>
     </message>
     <message>
         <source>Automatic backups disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматичні бекапи відключені</translation>
     </message>
     <message>
         <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично створювати прихований сервіс Tor (за замовчуванням: %d)</translation>
     </message>
     <message>
         <source>Block creation options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри створення блоків:</translation>
     </message>
     <message>
         <source>Can&apos;t find random Masternode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося вибрати випадкову майстерноду.</translation>
     </message>
     <message>
         <source>Can&apos;t mix while sync in progress.</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемішування до завершення синхронізації неможливо.</translation>
     </message>
     <message>
         <source>Can&apos;t mix: no compatible inputs found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемішування неможливо: відповідні монети не знайдені!</translation>
     </message>
     <message>
         <source>Cannot write default address</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося записати адресу за замовчуванням</translation>
     </message>
     <message>
         <source>Collateral not valid.</source>
-        <translation type="unfinished"></translation>
+        <translation>Забезпечувальна транзакція некоректна.</translation>
     </message>
     <message>
         <source>Connect through SOCKS5 proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>З&apos;єднуватися через SOCKS5 проксі</translation>
     </message>
     <message>
         <source>Connect to KeePassHttp on port &lt;port&gt; (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>З&apos;єднуватися c KeePassHttp через порт &lt;port&gt;(за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Підключитися до учасника, щоб отримати список адрес інших учасників, і відключитися</translation>
     </message>
     <message>
         <source>Connection options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри підключення:</translation>
     </message>
     <message>
         <source>Copyright (C)</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright (C)</translation>
     </message>
     <message>
         <source>Could not parse masternode.conf</source>
-        <translation type="unfinished"></translation>
+        <translation>Не можу розібрати masternode.conf</translation>
     </message>
     <message>
         <source>Debugging/Testing options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри налагодження / тестування гаманця:</translation>
     </message>
     <message>
         <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished"></translation>
+        <translation>Не завантажувати гаманець і заборонити звернення до нього через RPC</translation>
     </message>
     <message>
         <source>ERROR! Failed to create automatic backup</source>
-        <translation type="unfinished"></translation>
+        <translation>ПОМИЛКА! Не вдалося створити автоматичний бекап</translation>
     </message>
     <message>
         <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Включити публікацію хеша блоку на &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Включити публікацію хеша транзакції (заблокованою через InstantSend) на &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Включити публікацію хеша транзакції на &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Включити публікацію коду блоку на &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввімкнути публікацію коду транзакції (заблокованої через InstantSend) на &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Включити публікацію коду транзакції на &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable the client to act as a masternode (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволити цьому клієнту працювати в якості майстерноди (0-1, за замовчуванням:%u)</translation>
     </message>
     <message>
         <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволити підміну транзакцій в пулі пам&apos;яті (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Entries are full.</source>
-        <translation type="unfinished"></translation>
+        <translation>Черга переповнена.</translation>
     </message>
     <message>
         <source>Entry exceeds maximum size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Запис перевищує максимально допустимий розмір.</translation>
     </message>
     <message>
         <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка завантаження %s: Ви не можете відключити HD режим для існуючого HD гаманця</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Помилка</translation>
+        <translation>Помилка</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка: мало місця на диску!</translation>
     </message>
     <message>
         <source>Failed to create backup %s!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося створити резервну копію %s!</translation>
     </message>
     <message>
         <source>Failed to create backup, error: %s</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося створити резервну копію %s!</translation>
     </message>
     <message>
         <source>Failed to delete backup, error: %s</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося вилучити резервну копію, помилка: %s</translation>
     </message>
     <message>
         <source>Failed to find mixing queue to join</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося знайти чергу перемішування</translation>
     </message>
     <message>
         <source>Failed to load fulfilled requests cache from</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка завантаження кешу виконаних запитів з</translation>
     </message>
     <message>
         <source>Failed to load governance cache from</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка завантаження кешу управління з</translation>
     </message>
     <message>
         <source>Failed to load masternode cache from</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка завантаження кешу майстернод з</translation>
     </message>
     <message>
         <source>Failed to load masternode payments cache from</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка завантаження кешу виплат майстернодам з</translation>
     </message>
     <message>
         <source>Failed to parse host:port string</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося розбити рядок host: port</translation>
     </message>
     <message>
         <source>Failed to start a new mixing queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося створити чергу перемішування</translation>
     </message>
     <message>
         <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Комісія (в % s/kB), що додається до відправлених Вами транзакцій (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Found enough users, signing ( waiting %s )</source>
-        <translation type="unfinished"></translation>
+        <translation>Знайдено достатню кількість учасників, підписуємо (очікування %s)</translation>
     </message>
     <message>
         <source>Found enough users, signing ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Знайдено достатню кількість учасників, підписуємо ...</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation type="unfinished"></translation>
+        <translation>Скільки блоків перевіряти на старті (за замовчуванням: %u, 0 = все)</translation>
     </message>
     <message>
         <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Імпортувати блоки з зовнішнього файлу blk000??.dat на старті</translation>
     </message>
     <message>
         <source>Include IP addresses in debug output (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Писати IP-адреси в налагоджуваний вивід (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Incompatible mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Несумісний режим.</translation>
     </message>
     <message>
         <source>Incompatible version.</source>
-        <translation type="unfinished"></translation>
+        <translation>Несумісна версія.</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished">Інформація</translation>
+        <translation>Інформація</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вхід некоректний.</translation>
     </message>
     <message>
         <source>InstantSend options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри InstantSend:</translation>
     </message>
     <message>
         <source>Insufficient funds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Недостатньо коштів.</translation>
     </message>
     <message>
         <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Невірна -onion адреса: &apos;% s&apos;</translation>
     </message>
     <message>
         <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Невірна адреса -proxy: &apos;%s&apos;</translation>
     </message>
     <message>
         <source>Invalid input count.</source>
-        <translation type="unfinished"></translation>
+        <translation>Недійсна кількість вхідних даних.</translation>
     </message>
     <message>
         <source>Invalid masternodeprivkey. Please see documenation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неправильне значення masternodeprivkey. Будь ласка, ознайомтеся з документацією.</translation>
     </message>
     <message>
         <source>Invalid port detected in masternode.conf</source>
-        <translation type="unfinished"></translation>
+        <translation>Виявлено некоректний порт в masternode.conf</translation>
     </message>
     <message>
         <source>Invalid script detected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Виявлено некоректний скрипт.</translation>
     </message>
     <message>
         <source>Invalid spork address specified with -sporkaddr</source>
-        <translation type="unfinished"></translation>
+        <translation>У -sporkaddr вказано некоректну адресу</translation>
     </message>
     <message>
         <source>KeePassHttp id for the established association</source>
-        <translation type="unfinished"></translation>
+        <translation>Ідентифікатор KeePassHttp для встановленої асоціації</translation>
     </message>
     <message>
         <source>KeePassHttp key for AES encrypted communication with KeePass</source>
-        <translation type="unfinished"></translation>
+        <translation>Ключ KeePassHttp для зашифрованої комунікації з KeePass</translation>
     </message>
     <message>
         <source>Keep N SIB anonymized (%u-%u, default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Тримати N SIB перемішаними (%u-%u, за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Тримати в пам&apos;яті до &lt;n&gt; незв&apos;язних транзакцій (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Тримати розмір пулу пам&apos;яті транзакцій нижче &lt;n&gt; мегабайт (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Keypool ran out, please call keypoolrefill first</source>
-        <translation type="unfinished"></translation>
+        <translation>Не залишилося ключів, будь ласка, виконайте команду keypoolrefill</translation>
     </message>
     <message>
         <source>Last PrivateSend was too recent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Остання дія PrivateSend була зовсім недавно.</translation>
     </message>
     <message>
         <source>Last successful PrivateSend action was too recent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Остання успішна дія PrivateSend була зовсім недавно.</translation>
     </message>
     <message>
         <source>Line: %d</source>
-        <translation type="unfinished"></translation>
+        <translation>Рядок: %d</translation>
     </message>
     <message>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Слухати JSON-RPC з&apos;єднання на порту &lt;port&gt; (за замовчуванням: %u або testnet: %u)</translation>
     </message>
     <message>
         <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Приймати вхідні підключення на порт &lt;port&gt;(за замовчуванням: %u або testnet: %u)</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантаження адрес ...</translation>
     </message>
     <message>
         <source>Loading fulfilled requests cache...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантаження кешу виконаних запитів ...</translation>
     </message>
     <message>
         <source>Loading governance cache...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантаження кешу управління ...</translation>
     </message>
     <message>
         <source>Loading masternode cache...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантаження кешу майстернод ...</translation>
     </message>
     <message>
         <source>Loading masternode payment cache...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантаження кешу виплат майстернодам ...</translation>
     </message>
     <message>
         <source>Loading wallet... (%3.2f %%)</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантаження гаманця ... (%3.2f %%)</translation>
     </message>
     <message>
         <source>Location of the auth cookie (default: data dir)</source>
-        <translation type="unfinished"></translation>
+        <translation>Розташування cookie для аутентифікації (за замовчуванням: папка даних)</translation>
     </message>
     <message>
         <source>Lock is already in place.</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановлено блокування.</translation>
     </message>
     <message>
         <source>Lock masternodes from masternode configuration file (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Заблокувати кошти майстернод, зазначені в файлі налаштувань (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Make the wallet broadcast transactions</source>
-        <translation type="unfinished"></translation>
+        <translation>Розсилати транзакції з гаманця</translation>
     </message>
     <message>
         <source>Masternode cache is empty, skipping payments and governance cache...</source>
-        <translation type="unfinished"></translation>
+        <translation>Кеш майстернод порожній, пропускаємо кеш платежів і об&apos;єктів управління ...</translation>
     </message>
     <message>
         <source>Masternode options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри майстерноди:</translation>
     </message>
     <message>
         <source>Masternode queue is full.</source>
-        <translation type="unfinished"></translation>
+        <translation>Черга на мастерноді переповнена.</translation>
     </message>
     <message>
         <source>Masternode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Майстернода:</translation>
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальний розмір буфера прийому на одне з&apos;єднання, &lt;n&gt; * 1000 байт (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальний розмір буфера відправки на з&apos;єднання, &lt;n&gt; * 1000 байт (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Minimum bytes per sigop in transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Мінімальна кількість байт на операцію в транзакціях, які ми ретранслюємо і видобуваємо (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Missing input transaction information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Відсутня інформація про вхідні транзакції.</translation>
     </message>
     <message>
         <source>Mixing in progress...</source>
-        <translation type="unfinished"></translation>
+        <translation>Виконується перемішування ...</translation>
     </message>
     <message>
         <source>Mnemonic passphrase is too long, must be at most 256 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Парольная фраза мнемоніки занадто довга, вона не повинна перевищувати 256 символів</translation>
     </message>
     <message>
         <source>No Masternodes detected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Майстерноди не знайдені.</translation>
     </message>
     <message>
         <source>No compatible Masternode found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Відсутні сумісні майстерноди.</translation>
     </message>
     <message>
         <source>No errors detected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилок не виявлено.</translation>
     </message>
     <message>
         <source>No matching denominations found for mixing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Відсутні співпадаючі номінали для перемішування.</translation>
     </message>
     <message>
         <source>Node relay options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри ретрансляції вузла:</translation>
     </message>
     <message>
         <source>Non-standard public key detected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Виявлено нестандартний відкритий ключ.</translation>
     </message>
     <message>
         <source>Not compatible with existing transactions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не сумісний з існуючими транзакціями.</translation>
     </message>
     <message>
         <source>Not enough funds to anonymize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Недостатньо коштів, потрібних для анонімізації.</translation>
     </message>
     <message>
         <source>Not in the Masternode list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Немає в списку майстернод.</translation>
     </message>
     <message>
         <source>Number of automatic wallet backups (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Кількість автоматичних резервних копій гаманця (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation type="unfinished"></translation>
+        <translation>З&apos;єднуватися тільки по мережі &lt;net&gt; (ipv4, ipv6 або onion)</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри:</translation>
     </message>
     <message>
         <source>Password for JSON-RPC connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль для підключень JSON-RPC</translation>
     </message>
     <message>
         <source>Port: %d</source>
-        <translation type="unfinished"></translation>
+        <translation>Порт: %d</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Дописувати в початок налагоджуваного виведення позначки часу (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Print this help message and exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Друкувати цю довідку і вийти</translation>
     </message>
     <message>
         <source>Print version and exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Друкувати версію і вийти</translation>
     </message>
     <message>
         <source>PrivateSend is idle.</source>
-        <translation type="unfinished"></translation>
+        <translation>PrivateSend в режимі очікування.</translation>
     </message>
     <message>
         <source>PrivateSend options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Опції PrivateSend:</translation>
     </message>
     <message>
         <source>PrivateSend request complete:</source>
-        <translation type="unfinished"></translation>
+        <translation>Запит PrivateSend завершено:</translation>
     </message>
     <message>
         <source>PrivateSend request incomplete:</source>
-        <translation type="unfinished"></translation>
+        <translation>Запит PrivateSend не завершений:</translation>
     </message>
     <message>
         <source>RPC server options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри сервера RPC:</translation>
     </message>
     <message>
         <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Перебудувати стан ланцюжка та індекс блоків з поточних файлів blk *.dat, що зберігаються на диску</translation>
     </message>
     <message>
         <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation type="unfinished"></translation>
+        <translation>Перебудувати стан ланцюжка з уже проіндексованих блоків</translation>
     </message>
     <message>
         <source>Receive and display P2P network alerts (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Отримувати і показувати попередження P2P-мережі (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ретрансляція і створення транзакцій передачі даних (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ретрансляція не-P2SH multisig (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевірити ще раз ланцюжок блоків на відсутність в гаманці транзакцій на старті</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускатися в фоні як демон і приймати команди</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation type="unfinished"></translation>
+        <translation>Виводити інформацію трасування/налагодження на консоль замість файлу debug.log</translation>
     </message>
     <message>
         <source>Send trace/debug info to debug.log file (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Виводити інформацію трасування / налагодження в файл debug.log (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>По можливості відправляти транзакції з нульовою комісією (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Session not complete!</source>
-        <translation type="unfinished"></translation>
+        <translation>Сесія не закінчена!</translation>
     </message>
     <message>
         <source>Session timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сесія припинена по тайм-ауту.</translation>
     </message>
     <message>
         <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановити розмір кеша БД в мегабайтах (від %d до %d, за замовчуванням: %d)</translation>
     </message>
     <message>
         <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановити розмір пулу ключів в &lt;n&gt; (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановити максимальний розмір блоку в байтах (за замовчуванням: %d)</translation>
     </message>
     <message>
         <source>Set the masternode private key</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановити закритий ключ майстерноди</translation>
     </message>
     <message>
         <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Задати число потоків виконання запитів RPC (за замовчуванням: %d)</translation>
     </message>
     <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати всі параметри налагодження (використання: --help -help-debug)</translation>
     </message>
     <message>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished"></translation>
+        <translation>Стискати файл debug.log при запуску клієнта (за замовчуванням: 1, якщо немає -debug)</translation>
     </message>
     <message>
         <source>Specify configuration file (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Вказати конфігураційний файл (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation type="unfinished"></translation>
+        <translation>Вказати тайм-аут з&apos;єднання в мілісекундах (мінімально: 1, за замовчуванням: %d)</translation>
     </message>
     <message>
         <source>Specify data directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Задати каталог даних</translation>
     </message>
     <message>
         <source>Specify masternode configuration file (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Вказати файл конфігурації для майстернод (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Specify pid file (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Вказати pid-файл (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished"></translation>
+        <translation>Вкажіть файл гаманця (всередині каталогу даних)</translation>
     </message>
     <message>
         <source>Specify your own public address</source>
-        <translation type="unfinished"></translation>
+        <translation>Вкажіть Вашу власну публічну адресу</translation>
     </message>
     <message>
         <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Витрачати непідтверджену здачу при відправці транзакцій (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Submitted following entries to masternode: %u / %d</source>
-        <translation type="unfinished"></translation>
+        <translation>Майстерноді надсилаються такі записи: %u / %d</translation>
     </message>
     <message>
         <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation type="unfinished"></translation>
+        <translation>Відправлено майстерноді, очікуємо більше записів ( %u / %d ) %s</translation>
     </message>
     <message>
         <source>Submitted to masternode, waiting in queue %s</source>
-        <translation type="unfinished"></translation>
+        <translation>Відправлено на майстерноду, очікуємо в черзі %s</translation>
     </message>
     <message>
         <source>Synchroning blockchain...</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронізація блокчейна ...</translation>
     </message>
     <message>
         <source>Synchronization failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронізація закінчилася невдало</translation>
     </message>
     <message>
         <source>Synchronization finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронізація завершена</translation>
     </message>
     <message>
         <source>Synchronization pending...</source>
-        <translation type="unfinished"></translation>
+        <translation>Очікування синхронізації ...</translation>
     </message>
     <message>
         <source>Synchronizing governance objects...</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронізація об&apos;єктів управління ...</translation>
     </message>
     <message>
         <source>Synchronizing masternode payments...</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронізація виплат майстернодам ...</translation>
     </message>
     <message>
         <source>Synchronizing masternodes...</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронізація списку майстернод ...</translation>
     </message>
     <message>
         <source>This is not a Masternode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Це не майстернода.</translation>
     </message>
     <message>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Поріг для відключення пірів, що поводяться некоректно (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Too many %f denominations, removing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Занадто багато номіналів %f, видаляємо.</translation>
     </message>
     <message>
         <source>Tor control port password (default: empty)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль контрольного порту Tor (за замовчуванням: порожній)</translation>
     </message>
     <message>
         <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовуваний контрольний порт Tor при включеному прослуховуванні мережі onion (за замовчуванням: %s)</translation>
     </message>
     <message>
         <source>Transaction created successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Створення транзакції пройшло успішно.</translation>
     </message>
     <message>
         <source>Transaction fees are too high.</source>
-        <translation type="unfinished"></translation>
+        <translation>Комісія по транзакції занадто велика.</translation>
     </message>
     <message>
         <source>Transaction not valid.</source>
-        <translation type="unfinished"></translation>
+        <translation>Транзакція некоректна.</translation>
     </message>
     <message>
         <source>Transaction too large for fee policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Транзакція занадто велика для встановлених обмежень комісії</translation>
     </message>
     <message>
         <source>Trying to connect...</source>
-        <translation type="unfinished"></translation>
+        <translation>Спроба з&apos;єднання ...</translation>
     </message>
     <message>
         <source>Unable to sign spork message, wrong key?</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося підписати spork-повідомлення. Неправильний ключ?</translation>
     </message>
     <message>
         <source>Unknown response.</source>
-        <translation type="unfinished"></translation>
+        <translation>Невідомий відповідь.</translation>
     </message>
     <message>
         <source>Unknown state: id = %u</source>
-        <translation type="unfinished"></translation>
+        <translation>Невідомий стан: id =%u</translation>
     </message>
     <message>
         <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation type="unfinished"></translation>
+        <translation>Опція -benchmark проігнорована, використовуйте -debug = bench замість неї.</translation>
     </message>
     <message>
         <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation type="unfinished"></translation>
+        <translation>Опція -debugnet проігнорована, використовуйте -debug=net замість неї.</translation>
     </message>
     <message>
         <source>Unsupported argument -tor found, use -onion.</source>
-        <translation type="unfinished"></translation>
+        <translation>Виявлено непідтримуваний параметр -tor, використовуйте -onion замість нього.</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Оновити гаманець до останнього формату при старті</translation>
     </message>
     <message>
         <source>Use KeePass 2 integration using KeePassHttp plugin (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати інтеграцію з KeePass 2 через плагін KeePassHttp (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати UPnP для прослуховування порту (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Username for JSON-RPC connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Ім&apos;я для підключень JSON-RPC</translation>
     </message>
     <message>
         <source>Verifying wallet...</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевірка гаманця ...</translation>
     </message>
     <message>
         <source>Very low number of keys left: %d</source>
-        <translation type="unfinished"></translation>
+        <translation>Залишилося дуже мало ключів: %d</translation>
     </message>
     <message>
         <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished"></translation>
+        <translation>Гаманець%s розташовується поза каталогом даних %s</translation>
     </message>
     <message>
         <source>Wallet debugging/testing options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри налагодження / тестування гаманця:</translation>
     </message>
     <message>
         <source>Wallet is locked.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гаманець заблокований.</translation>
     </message>
     <message>
         <source>Wallet options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри гаманця:</translation>
     </message>
     <message>
         <source>Wallet window title</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок вікна гаманця</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">Попередження</translation>
+        <translation>Попередження</translation>
     </message>
     <message>
         <source>Wasn&apos;t able to create wallet backup folder %s!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося створити папку для резервної копії гаманця %s</translation>
     </message>
     <message>
         <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation type="unfinished"></translation>
+        <translation>Працювати в режимі обробки лише блоків (за замовчуванням: %u)</translation>
     </message>
     <message>
         <source>Will retry...</source>
-        <translation type="unfinished"></translation>
+        <translation>Спробуємо ще раз...</translation>
     </message>
     <message>
         <source>You can not start a masternode in lite mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви не можете запустити майстерноду в lite режимі.</translation>
     </message>
     <message>
         <source>Your entries added successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваші записи успішно додані.</translation>
     </message>
     <message>
         <source>Your transaction was accepted into the pool!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваша транзакція прийнята в пул!</translation>
     </message>
     <message>
         <source>ZeroMQ notification options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри оповіщення ZeroMQ:</translation>
     </message>
     <message>
         <source>no mixing available.</source>
-        <translation type="unfinished"></translation>
+        <translation>перемішування недоступно.</translation>
     </message>
     <message>
         <source>see debug.log for details.</source>
-        <translation type="unfinished"></translation>
+        <translation>дивіться debug.log для отримання докладної інформації.</translation>
     </message>
 </context>
 </TS>
